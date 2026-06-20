@@ -516,7 +516,19 @@ function redirectSearch(val) {
 
 document.addEventListener('DOMContentLoaded', function() {
     var input = document.getElementById('city');
-    var dropdown = document.getElementById('photon-dropdown');
+
+    // Append dropdown to body to escape overflow:hidden parents
+    var dropdown = document.createElement('div');
+    dropdown.id = 'photon-dropdown';
+    document.body.appendChild(dropdown);
+
+    function positionDropdown() {
+        var rect = input.getBoundingClientRect();
+        dropdown.style.position = 'fixed';
+        dropdown.style.top = (rect.bottom) + 'px';
+        dropdown.style.left = rect.left + 'px';
+        dropdown.style.width = rect.width + 'px';
+    }
 
     input.addEventListener('input', function() {
         var val = this.value.trim();
@@ -530,6 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(function(data) {
                     dropdown.innerHTML = '';
                     if (!data.features) return;
+                    positionDropdown();
                     data.features.forEach(function(f) {
                         var p = f.properties;
                         if (p.country_code !== 'us') return;
@@ -666,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:3</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:4</strong>
 </label>
 
 <div class="col-lg-6" style="position:relative">
