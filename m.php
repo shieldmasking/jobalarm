@@ -475,24 +475,25 @@ function newloc() {
 <script>
 
 function newloc() {
-        $(document).on('change', 'input', function () {
-            var options = $('datalist')[0].options;
-			var brandOrig = $('#brandOrig').val();
-			var zipcode = $('#city').val();
-			var acctAdd = $('#acctAdd').val();
-			//var status = $('#status').val();
-			//var longi = $('#long').val();
-			//var lati = $('#lati').val();
-			
-            for (var i = 0; i < options.length++; i++) {   
-                if (options[i].value == $(this).val()) {
-                    //alert($(this).val());
-					window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + zipcode + '');
-                    break;
-                }
-            }
-        })
+        var val = $('#city').val().trim();
+        var brandOrig = $('#brandOrig').val();
+        var acctAdd = $('#acctAdd').val();
+        if (!val) return;
 
+        // Numeric = zip code, send directly
+        if (/^\d+$/.test(val)) {
+            window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + val);
+            return;
+        }
+
+        // City/state — must match a datalist option
+        var options = document.getElementById('zips').options;
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].value.toLowerCase() === val.toLowerCase()) {
+                window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + encodeURIComponent(options[i].value));
+                return;
+            }
+        }
     }
 	
 </script>
