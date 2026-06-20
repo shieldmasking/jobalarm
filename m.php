@@ -514,7 +514,7 @@ function redirectSearch(val) {
     window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + encodeURIComponent(val));
 }
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     var input = document.getElementById('city');
     var dropdown = document.getElementById('photon-dropdown');
 
@@ -666,7 +666,7 @@ $(document).ready(function() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:2</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:3</strong>
 </label>
 
 <div class="col-lg-6" style="position:relative">
