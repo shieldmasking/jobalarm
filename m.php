@@ -27,7 +27,6 @@ $brandDeal = '';
 $msg = "Your Jobs Are Listed Below!";
 
 ini_set('memory_limit', '-1');
-$cityDb = Config::get('db') -> get_results("select `city`, `state_code`, `zip` from cities_extended order by `city` asc, `state_code` asc");
 
 
 if ($acctAdd){
@@ -436,10 +435,29 @@ if (count($dbData) > 0) {
 		padding: 2px 5px 2px 5px;
 		margin: 2px;
 		border: 1px solid #EEE;
-	
+
 		color: #DDD;
 	}
-	
+
+	#photon-dropdown {
+		position: absolute;
+		background: #fff;
+		border: 1px solid #ccc;
+		z-index: 1000;
+		width: 100%;
+		max-height: 220px;
+		overflow-y: auto;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+	}
+	.photon-item {
+		padding: 8px 12px;
+		cursor: pointer;
+		font-size: 14px;
+	}
+	.photon-item:hover {
+		background: #f0f4f8;
+	}
+
 </style>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
@@ -474,27 +492,80 @@ function newloc() {
 
 <script>
 
-function newloc() {
-        var val = $('#city').val().trim();
-        var brandOrig = $('#brandOrig').val();
-        var acctAdd = $('#acctAdd').val();
-        if (!val) return;
+var photonTimer = null;
+var stateMap = {
+    'Alabama':'AL','Alaska':'AK','Arizona':'AZ','Arkansas':'AR','California':'CA',
+    'Colorado':'CO','Connecticut':'CT','Delaware':'DE','Florida':'FL','Georgia':'GA',
+    'Hawaii':'HI','Idaho':'ID','Illinois':'IL','Indiana':'IN','Iowa':'IA',
+    'Kansas':'KS','Kentucky':'KY','Louisiana':'LA','Maine':'ME','Maryland':'MD',
+    'Massachusetts':'MA','Michigan':'MI','Minnesota':'MN','Mississippi':'MS','Missouri':'MO',
+    'Montana':'MT','Nebraska':'NE','Nevada':'NV','New Hampshire':'NH','New Jersey':'NJ',
+    'New Mexico':'NM','New York':'NY','North Carolina':'NC','North Dakota':'ND','Ohio':'OH',
+    'Oklahoma':'OK','Oregon':'OR','Pennsylvania':'PA','Rhode Island':'RI','South Carolina':'SC',
+    'South Dakota':'SD','Tennessee':'TN','Texas':'TX','Utah':'UT','Vermont':'VT',
+    'Virginia':'VA','Washington':'WA','West Virginia':'WV','Wisconsin':'WI','Wyoming':'WY',
+    'District of Columbia':'DC'
+};
 
-        // Numeric = zip code, send directly
-        if (/^\d+$/.test(val)) {
-            window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + val);
-            return;
-        }
+function redirectSearch(val) {
+    var brandOrig = document.getElementById('brandOrig').value;
+    var acctAdd = document.getElementById('acctAdd').value;
+    if (!val) return;
+    window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + encodeURIComponent(val));
+}
 
-        // City/state — must match a datalist option
-        var options = document.getElementById('zips').options;
-        for (var i = 0; i < options.length; i++) {
-            if (options[i].value.toLowerCase() === val.toLowerCase()) {
-                window.location.replace('https://www.jobalarm.biz/m.php?a=' + acctAdd + '&b=' + brandOrig + '&z=' + encodeURIComponent(options[i].value));
-                return;
-            }
+$(document).ready(function() {
+    var input = document.getElementById('city');
+    var dropdown = document.getElementById('photon-dropdown');
+
+    input.addEventListener('input', function() {
+        var val = this.value.trim();
+        clearTimeout(photonTimer);
+        dropdown.innerHTML = '';
+        if (!val || val.length < 2 || /^\d+$/.test(val)) return;
+
+        photonTimer = setTimeout(function() {
+            fetch('https://photon.komoot.io/api/?q=' + encodeURIComponent(val) + '&limit=8&layer=city&lang=en')
+                .then(function(r){ return r.json(); })
+                .then(function(data) {
+                    dropdown.innerHTML = '';
+                    if (!data.features) return;
+                    data.features.forEach(function(f) {
+                        var p = f.properties;
+                        if (p.country_code !== 'us') return;
+                        var city = p.name;
+                        var stateCode = stateMap[p.state] || p.state;
+                        if (!city || !stateCode) return;
+                        var searchVal = city.toUpperCase() + ' ' + stateCode;
+                        var div = document.createElement('div');
+                        div.className = 'photon-item';
+                        div.textContent = city + ', ' + stateCode;
+                        div.addEventListener('mousedown', function(e) {
+                            e.preventDefault();
+                            input.value = searchVal;
+                            dropdown.innerHTML = '';
+                            redirectSearch(searchVal);
+                        });
+                        dropdown.appendChild(div);
+                    });
+                });
+        }, 300);
+    });
+
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            var val = this.value.trim();
+            dropdown.innerHTML = '';
+            redirectSearch(val);
         }
-    }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.innerHTML = '';
+        }
+    });
+});
 	
 </script>
 
@@ -595,19 +666,12 @@ function newloc() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:2</strong>
 </label>
 
-<div class="col-lg-6">
-<input type="text" id="city" name="city" onchange="newloc();" class="form-control m-input" list="zips" value="<?php echo $zipcode; ?>" />
-<datalist id="zips">
-<?php
-foreach($cityDb as $f) { 
-?>
-<option value="<?php echo $f['city'].' '.$f['state_code'];?>"><?php echo $f['city'].' '.$f['state_code'];?></option>
-<?php } ?>									
-</datalist>
-
+<div class="col-lg-6" style="position:relative">
+<input type="text" id="city" name="city" autocomplete="off" class="form-control m-input" value="<?php echo htmlspecialchars($zipcode); ?>" placeholder="City ST or Zip" />
+<div id="photon-dropdown"></div>
 </div>
 </div>
 
