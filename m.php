@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     positionDropdown();
                     data.features.forEach(function(f) {
                         var p = f.properties;
-                        if ((p.country_code || '').toLowerCase() !== 'us') return;
+                        if ((p.countrycode || '').toLowerCase() !== 'us') return;
                         var city = p.name;
                         var stateCode = stateMap[p.state] || p.state || '';
                         if (!city || !stateCode) return;
@@ -679,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:5</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:6</strong>
 </label>
 
 <div class="col-lg-6" style="position:relative">
