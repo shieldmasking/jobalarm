@@ -1,0 +1,16 @@
+Array
+(
+    [tpl_keywords] => jobs
+    [tpl_smsmsg] => Click goo.gl/jp8j2o to apply with for the best jobs in DFW with Stride. NO INTERNET?  Just reply TEXT to start a mobile interview.  Reply STOP JOBS 2 Optout
+    [tpl_firstname] => pve8ExCaeG_0
+    [tpl_lastname] => pve8ExCaeG_1
+    [tpl_mobilenum] => pve8ExCaeG_2
+    [tpl_email] => pve8ExCaeG_3
+    [tpl_zipcode] => pve8ExCaeG_4
+    [tpl_position] => T5O0GvH9CX
+    [tpl_location] => _locale
+    [tpl_surveykeyword] => text
+    [tpl_smssurveymsg] => You will receive 8 questions via text message.  Please be sure to answer ALL questions and be specific. Please Don\'t Text and Drive.
+    [tpl_smssurveydone] => Thanks for completing our mobile interview. A Recruiter may be in contact soon.  If you have a resume, please email it to jobs@jobalarm.com
+    [tpl_upload] => FUbSaRcLSe
+)

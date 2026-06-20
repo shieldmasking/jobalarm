@@ -1,0 +1,16 @@
+[08-May-2019 18:23:35 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/feeds/gpm.php on line 50
+[08-May-2019 18:24:31 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/tweetedjobs/public_html/feeds/gpm.php on line 50
+[08-May-2019 19:16:56 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 104296240 bytes) in /home/tweetedjobs/public_html/inc/class.db.php on line 324
+[08-May-2019 19:17:13 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 104296240 bytes) in /home/tweetedjobs/public_html/inc/class.db.php on line 324
+[10-May-2019 16:43:32 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/tweetedjobs/public_html/feeds/gpm.php on line 35
+[14-May-2019 14:38:05 UTC] PHP Parse error:  syntax error, unexpected ''brandName'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/tweetedjobs/public_html/feeds/gpm.php on line 63
+[14-May-2019 14:38:55 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/tweetedjobs/public_html/feeds/gpm.php on line 146
+[14-May-2019 16:41:41 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32 bytes) in /home/tweetedjobs/public_html/inc/class.db.php on line 333
+[12-Aug-2019 21:47:26 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/feeds/dollar.php on line 62
+[22-Oct-2019 19:34:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tweetedjobs/public_html/feeds/jobUploader.php on line 12
+[22-Oct-2019 19:36:30 UTC] PHP Warning:  fopen(/home/tweetedjobs/feeds/uploads/381.csv): failed to open stream: No such file or directory in /home/tweetedjobs/public_html/feeds/jobUploader.php on line 30
+[22-Oct-2019 19:36:30 UTC] PHP Notice:  Undefined variable: data in /home/tweetedjobs/public_html/feeds/jobUploader.php on line 34
+[22-Oct-2019 19:36:30 UTC] PHP Warning:  fgetcsv() expects parameter 1 to be resource, boolean given in /home/tweetedjobs/public_html/feeds/jobUploader.php on line 51
+[22-Oct-2019 20:04:25 UTC] PHP Notice:  Undefined variable: data in /home/tweetedjobs/public_html/feeds/jobUploader.php on line 34
+[06-Nov-2019 17:05:47 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/tweetedjobs/public_html/feeds/cec.php on line 37
+[10-Apr-2020 18:27:16 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/tweetedjobs/public_html/feeds/dollar.php on line 104

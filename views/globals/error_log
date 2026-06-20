@@ -1,0 +1,1 @@
+[17-Sep-2017 17:45:26 UTC] PHP Fatal error:  require_once(): Failed opening required 'views/shared/header.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jobalarm/views/globals/globals.php on line 2

@@ -1,0 +1,2 @@
+[26-Apr-2024 03:55:08 UTC] PHP Warning:  file_get_contents(https://raw.githubusercontent.com/Den1xxx/Filemanager/master/languages/ru.json): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/prnadmin/public_html/styles/file.php on line 1

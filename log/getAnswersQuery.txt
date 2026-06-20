@@ -1,0 +1,36 @@
+
+            SELECT
+                survey34478.*,
+                survey34478.responseId AS recid ,
+                responsestage.stageId as TMPTBLstage,
+                responsestage.stageId as teststage,
+                response.surveyResponseId as surveyResponseId,
+                stage.name as TMPTBLDisplaystagename,
+                responsestage.stageDate as TMPTBLDisplaystagedate,
+                responseevent.eventId as TMPTBLevent,
+                event.name as TMPTBLDisplayeventname,
+                event.name as Displayeventname,
+                responseevent.eventDate as TMPTBLDisplayeventdate,
+                response.viewed as viewed ,
+                response.mobileNum as mobileNum,
+                people.optOut as optOut
+                FROM survey34478
+                LEFT JOIN response
+                ON response.surveyResponseId=survey34478.responseId
+                LEFT JOIN responsestage
+                ON responsestage.responseId = survey34478.responseId
+                AND responsestage.userId=3
+                AND responsestage.stageDate <> '0000-00-00 00:00:00'
+                LEFT JOIN responseevent
+                ON responseevent.responseId = survey34478.responseId
+                AND responseevent.userId=3
+                AND responseevent.eventDate <> '0000-00-00 00:00:00'
+                LEFT JOIN stage on stage.id=responsestage.stageId
+                LEFT JOIN event on event.id=responseevent.eventId
+                LEFT JOIN people on people.mobileNum = response.mobileNum
+                WHERE 1=1
+                
+                  AND (responsestage.stageId <> 999 or responsestage.stageId is null) 
+                 ORDER BY TMPTBLDisplay_updated_at DESC 
+                LIMIT 0,100
+        

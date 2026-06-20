@@ -1,0 +1,5 @@
+Array
+(
+    [params] => sms/receive2
+    [reply] => 1
+)

@@ -1,0 +1,35 @@
+Array
+(
+    [numbers] => Array
+        (
+            [0] => 19169964578
+            [1] => 19169693378
+            [2] => 19169044434
+            [3] => 14158089708
+            [4] => 19165825576
+            [5] => 19719403636
+        )
+
+    [message] => Array
+        (
+            [0] => <message id="9169964578958301601578454"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[NOW HIRING SALES ASSOCIATES!! INTERVIEWS ON SPOT, PT & FT, Evenings. If interested please reach out to Store Manager at 5754@unitedpacific.com. #FOLSOM]]></content></message>
+            [1] => <message id="9169693378956611601578454"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[NOW HIRING SALES ASSOCIATES!! INTERVIEWS ON SPOT, PT & FT, Evenings. If interested please reach out to Store Manager at 5754@unitedpacific.com. #FOLSOM]]></content></message>
+            [2] => <message id="9169044434956281601578454"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[NOW HIRING SALES ASSOCIATES!! INTERVIEWS ON SPOT, PT & FT, Evenings. If interested please reach out to Store Manager at 5754@unitedpacific.com. #FOLSOM]]></content></message>
+            [3] => <message id="4158089708956521601578454"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[NOW HIRING SALES ASSOCIATES!! INTERVIEWS ON SPOT, PT & FT, Evenings. If interested please reach out to Store Manager at 5754@unitedpacific.com. #FOLSOM]]></content></message>
+            [4] => <message id="9165825576956931601578454"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[NOW HIRING SALES ASSOCIATES!! INTERVIEWS ON SPOT, PT & FT, Evenings. If interested please reach out to Store Manager at 5754@unitedpacific.com. #FOLSOM]]></content></message>
+            [5] => <message id="9719403636956741601578454"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[NOW HIRING SALES ASSOCIATES!! INTERVIEWS ON SPOT, PT & FT, Evenings. If interested please reach out to Store Manager at 5754@unitedpacific.com. #FOLSOM]]></content></message>
+        )
+
+    [keyword] => Array
+        (
+            [0] => UNITED
+            [1] => UNITED
+            [2] => UNITED
+            [3] => UNITED
+            [4] => UNITED
+            [5] => UNITED
+        )
+
+    [login] => jobalarm45
+    [shortCode] => 58046
+)

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jovianlabs.com/test/css/w2ui.css" />
+
+    <!-- scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.jovianlabs.com/test/lib/w2ui.js"></script>
+
+    <script>
+        var fixIt = function () {
+            $('#layout_sublayout_panel_main').css('overflow', 'auto');
+        }
+        $(function () {
+            var pstyle = 'border: 1px solid #dfdfdf; padding: 5px; margin: 5px';
+            $().w2layout({
+                name: 'sublayout',
+                style:'overflow:auto',
+                panels: [
+                    { type: 'main', style: pstyle, overflow:'auto', content: 'main' },
+                     { type: 'bottom', style: pstyle, size: 40, content: 'bottom' }
+                ]
+            });
+
+            $('#content').w2layout({
+                name: 'mainlayout',
+                style: 'width:100%;height:400px',
+                panels: [
+                        { type: 'top', size: 35, style: pstyle, content: 'top' },
+
+                    { type: 'left', style: pstyle, size: 150, content: 'left' },
+                    { type: 'right', style: pstyle, size: 150, content: 'right' },
+                    { type: 'main', style: pstyle, content: '<button onclick="fixIt();">Fix it</button>' }
+                ]
+
+            });
+            w2ui.mainlayout.content('left', w2ui.sublayout);
+            w2ui.sublayout.load('main', 'dataform.html');
+        });
+    </script>
+</head>
+<body>
+<div id="content"></div>
+script:<br />
+<pre>
+        var fixIt = function () {
+            $('#layout_sublayout_panel_main').css('overflow', 'auto');
+        }
+        $(function () {
+            var pstyle = 'border: 1px solid #dfdfdf; padding: 5px; margin: 5px';
+            $().w2layout({
+                name: 'sublayout',
+                style: 'overflow:auto',
+                panels: [
+                    { type: 'main', style: pstyle, overflow: 'auto', content: 'main' },
+                     { type: 'bottom', style: pstyle, size: 40, content: 'bottom' }
+                ]
+            });
+
+            $('#content').w2layout({
+                name: 'mainlayout',
+                style: 'width:100%;height:400px',
+                panels: [
+                        { type: 'top', size: 35, style: pstyle, content: 'top' },
+
+                    { type: 'left', style: pstyle, size: 150, content: 'left' },
+                    { type: 'right', style: pstyle, size: 150, content: 'right' },
+                    { type: 'main', style: pstyle, content: '&lt;button onclick="fixIt();"&gt;Fix it&lt;/button&gt;' }
+                ]
+
+            });
+            w2ui.mainlayout.content('left', w2ui.sublayout);
+            w2ui.sublayout.load('main', 'dataform.html');
+        });
+</pre>
+<br />
+<br />
+Loaded html:<br />
+<pre>
+    &lt;div id=&quot;filterBox&quot; class=&quot;filterBox&quot;&gt;
+        &lt;form id=&quot;filterForm&quot; name=&quot;filterForm&quot; action=&quot;&quot; method=&quot;GET&quot;&gt;
+            &lt;label&gt;First Name&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;filter_pve8ExCaeG_0&quot; name=&quot;filter_pve8ExCaeG_0&quot; value=&quot;&quot; /&gt;&lt;br /&gt;
+            &lt;label&gt;Last Name&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;filter_pve8ExCaeG_1&quot; name=&quot;filter_pve8ExCaeG_1&quot; value=&quot;&quot; /&gt;&lt;br /&gt;
+            &lt;label&gt;Mobile Num&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;filter_pve8ExCaeG_2&quot; name=&quot;filter_pve8ExCaeG_2&quot; value=&quot;&quot; /&gt;&lt;br /&gt;
+            &lt;label&gt;Location&lt;/label&gt;&lt;select multiple id=&quot;filter_V1PbGg9c0g&quot; name=&quot;filter_V1PbGg9c0g[]&quot;&gt;
+                &lt;option value=&quot;-1&quot;&gt; &lt;/option&gt;
+                &lt;option value=&quot;0&quot;&gt;Longview, TX&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;Ft. Worth (Saginaw), TX&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;Tulsa, OK&lt;/option&gt;
+                &lt;option value=&quot;3&quot;&gt;Oklahoma City, OK&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Position&lt;/label&gt;&lt;select multiple id=&quot;filter_T5O0GvH9CX&quot; name=&quot;filter_T5O0GvH9CX[]&quot;&gt;
+                &lt;option value=&quot;-1&quot;&gt; &lt;/option&gt;
+                &lt;option value=&quot;0&quot;&gt;Welder&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;Machine Operator&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;Forklift Operator&lt;/option&gt;
+                &lt;option value=&quot;3&quot;&gt;Maintenance&lt;/option&gt;
+                &lt;option value=&quot;4&quot;&gt;Other&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Experience&lt;/label&gt;&lt;select multiple id=&quot;filter_e9JkhxhQX3&quot; name=&quot;filter_e9JkhxhQX3[]&quot;&gt;
+                &lt;option value=&quot;-1&quot;&gt; &lt;/option&gt;
+                &lt;option value=&quot;0&quot;&gt;Less than 3 years&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;3 - 5 years&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;6 - 10 years&lt;/option&gt;
+                &lt;option value=&quot;3&quot;&gt;More than 10 years&lt;/option&gt;
+                &lt;option value=&quot;4&quot;&gt;No Experience&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Welding&lt;/label&gt;&lt;select multiple id=&quot;filter_R0ZwAeTiTz&quot; name=&quot;filter_R0ZwAeTiTz[]&quot;&gt;
+                &lt;option value=&quot;0&quot;&gt;Flux Core&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;MIG&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;Submerged Arc&lt;/option&gt;
+                &lt;option value=&quot;3&quot;&gt;Stick&lt;/option&gt;
+                &lt;option value=&quot;4&quot;&gt;None of These&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Stage&lt;/label&gt;&lt;select multiple id=&quot;filter_stagename&quot; name=&quot;filter_stagename[]&quot;&gt;
+                &lt;option value=&quot;-1&quot;&gt;Choose...&lt;/option&gt;
+                &lt;option value=&quot;6&quot;&gt;Left Msg&lt;/option&gt;
+                &lt;option value=&quot;7&quot;&gt;Interview Pending&lt;/option&gt;
+                &lt;option value=&quot;9&quot;&gt;Submitted&lt;/option&gt;
+                &lt;option value=&quot;10&quot;&gt;Rejected&lt;/option&gt;
+                &lt;option value=&quot;13&quot;&gt;Hired&lt;/option&gt;
+                &lt;option value=&quot;25&quot;&gt;Candidate Withdrew&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Event&lt;/label&gt;&lt;select multiple id=&quot;filter_eventname&quot; name=&quot;filter_eventname[]&quot;&gt;
+                &lt;option value=&quot;-1&quot;&gt;Choose...&lt;/option&gt;
+                &lt;option value=&quot;10&quot;&gt;OKC Job Fair&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Zip Code&lt;/label&gt;&lt;input style=&quot;width:50px&quot; type=&quot;text&quot; id=&quot;filter_zipcode_pve8ExCaeG_4&quot; name=&quot;filter_zipcode_pve8ExCaeG_4&quot; value=&quot;&quot; /&gt; - &lt;select style=&quot;width:85px;height:23px;&quot; id=&quot;filter_zipdist&quot; name=&quot;filter_zipdist&quot;&gt;&lt;option value=&quot;0&quot;&gt;Distance&lt;/option&gt;&lt;option value=&quot;5&quot;&gt;5 Miles&lt;/option&gt;&lt;option value=&quot;10&quot;&gt;10 Miles&lt;/option&gt;&lt;option value=&quot;15&quot;&gt;15 Miles&lt;/option&gt;&lt;option value=&quot;30&quot;&gt;30 Miles&lt;/option&gt;&lt;option value=&quot;50&quot;&gt;50 Miles&lt;/option&gt;&lt;option value=&quot;100&quot;&gt;100 Miles&lt;/option&gt;&lt;/select&gt;&lt;br /&gt;
+            &lt;label&gt;Felony&lt;/label&gt;&lt;input class=&quot;truebox&quot; type=&quot;radio&quot; name=&quot;filter_430xWM52ID&quot; id=&quot;filter_430xWM52ID&quot; value=&quot;yes&quot; /&gt;True&lt;input class=&quot;truebox&quot; type=&quot;radio&quot; name=&quot;filter_430xWM52ID&quot; value=&quot;no&quot; /&gt;False&lt;br /&gt;
+            &lt;label&gt;Shift&lt;/label&gt;&lt;select multiple id=&quot;filter_0Nxkb3giul&quot; name=&quot;filter_0Nxkb3giul[]&quot;&gt;
+                &lt;option value=&quot;-1&quot;&gt; &lt;/option&gt;
+                &lt;option value=&quot;0&quot;&gt;First Shift Only&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;First or Second Shift&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;I will work any shift&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+</pre>
+</body>
+</html>

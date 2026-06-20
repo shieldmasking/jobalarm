@@ -1,0 +1,407 @@
+<?php
+session_start();
+
+?>
+<html lang="en">
+<body>
+<head>
+
+</head>
+<style>
+body {
+    font-size: 16px;
+} 
+</style>
+
+
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+	<div class="mr-auto">
+            <h3 class="m-subheader__title ">
+                Productivity Report<span id="reportType"></span>
+            </h3>
+        </div>
+     <div>
+			
+        </div>
+		
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content" id="content">
+    <!--Begin::Main Portlet-->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="m-portlet m-portlet--mobile">
+                <div class="m-portlet__body" id="viewWHP">
+				<div class="row">
+		<div class="col-lg-12">
+		
+                <div class="title">
+				<span id="printView"></span>
+				</div>
+			
+				<div class="header" align="center">
+				<div class="row" style="margin-top:5px;margin-bottom:8px;color:black">
+                        <div class="col-sm-12">
+							<div class="title"><h4><span id="depname"></span></h4>						
+							</div>
+							<div class="title"><h5>Report Date: <span id="updatedwhpDate"></span></h5>						
+							</div>	
+                           
+							<div class="title"><h5>Last Updated By: <span id="updatedwhpBy"></span></h5>						
+							</div>
+							<div class="title"><h5><span id="updatedwhpentered"></span></h5>							
+							</div>
+							
+						
+							
+                        </div>
+                  </div>
+			  </div>
+			  
+					 <div class="body">
+                    <!--begin::Form-->
+                    <form id="addwhp" class="m-form m-form--fit m-form--label-align-right">
+                		<div class="m-portlet__body" style="color:black">
+						<input id="dataidwhp" type="hidden" value="" />
+						<div style="background-color:#E0E0E0; padding-left: 20px; padding-top: 20px;">
+						<div class="title"><h5>Hours Variance: <span id="hourswhpVariance"></span></h5>
+						</div>
+						<div class="title"><h5>Actual WHPUOS: <span id="actualwhpUOS"></span></h5>
+						</div>
+						<div class="title"><h5>Target WHPUOS: <span id="targetwhpUOS"></span></h5>
+						</div>
+						<div class="title"><h5><span id="budgetwhpVal"></span></h5>
+						</div>
+						<div class="title" style="color:red"><h5><span id="escalationwhpVal"></span></h5>							
+							</div>
+						<hr></hr>
+						<div class="title"><h5><span id="hourswhp"></span></h5>
+						
+						</div>
+						<div class="form-group" id="hiddenwhp1">
+                                <div style="padding-left: 25px; padding-top: 20px; padding-right: 20px;" style="color:black">
+								<label for="skillwhp1">
+                                   <span id="skilldsc1"></span>
+                                </label>
+                                
+                                    <input id="skillwhp1" name="skillwhp1" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+							
+							<div class="form-group" id="hiddenwhp2">
+							<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="skillwhp2" class="col-8 col-form-label" style="color:black">
+                                   <span id="skilldsc2"></span>
+                                </label>
+                                
+                                    <input id="skillwhp2" name="skillwhp2" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+						<div class="form-group" id="hiddenwhp3">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="skillwhp3" class="col-8 col-form-label" style="color:black">
+                                   <span id="skilldsc3"></span>
+                                </label>
+                                
+                                    <input id="skillwhp3" name="skillwhp3" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+						 <div class="form-group" id="hiddenwhp4">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="skillwhp4" class="col-8 col-form-label" style="color:black">
+                                   <span id="skilldsc4"></span>
+                                </label>
+                                
+                                    <input id="skillwhp4" name="skillwhp4" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+						  <div class="form-group" id="hiddenwhp5">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="skillwhp5" class="col-8 col-form-label" style="color:black">
+                                    <span id="skilldsc5"></span>
+                                </label>
+                                
+                                    <input id="skillwhp5" name="skillwhp5" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+						<hr></hr>
+							<div class="title"><h5><span id="uoswhp"></span></h5>							
+							</div>
+						<div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="totaluosWHP" class="col-8 col-form-label" style="color:black">
+                                    Total UOS</label>
+                                
+                                    <input id="totaluosWHP" name="totaluosWHP" type="text" class="form-control" disabled>
+                          </div>
+                          </div>
+						
+											
+							<hr></hr>
+	
+						
+					<div class="form-group">
+							<div style="padding-left: 25px; padding-bottom: 20px; padding-right: 20px;">
+                                <label for="form_control_1" style="color:black">Variance Note / Action Plan</label>
+                                <textarea class="form-control" rows="3" placeholder="" id="whpnote" disabled></textarea>
+                            </div>
+								</div>
+					</div>
+					</div>
+					
+					
+					</form>
+                
+                
+            </div>
+		
+		</div>
+					
+					
+                      
+						</div>
+                    
+                </div>
+	                <div class="m-portlet__body" id="viewNurse">
+			<div class="row">
+		<div class="col-lg-12">
+		<!--<a href="javascript:;" onclick="tj.getprintView()">Print View</a>
+		
+
+			-->
+                <div class="title">
+				<span id="printView"></span>
+				</div>
+				
+				<div class="header" align="center">
+				
+                 
+				<div class="row" style="margin-top:5px;margin-bottom:8px;color:black">
+                        <div class="col-sm-12">
+							<div class="title"><h4><span id="depnameView"></span></h4>						
+							</div>
+							<div class="title"><h5>Report Date/Shift: <span id="dateView"></span> - <span id="shiftView"></span></h5>						
+							</div>	
+                           
+							<div class="title"><h5>Last Updated By: <span id="updatedbyView"></span></h5>						
+							</div>
+							<div class="title"><h5><span id="enteredView"></span></h5>							
+							</div>
+							
+						
+							
+                        </div>
+                  </div>
+			  </div>
+			  
+					 <div class="body">
+                    <!--begin::Form-->
+                <form id="newprodView" class="m-form m-form--fit m-form--label-align-right">
+                		<div class="m-portlet__body" style="color:black">
+						<div style="background-color:#E0E0E0; padding-left: 20px; padding-top: 20px;">
+						<div class="title"><h5>Variance: <span id="varianceView"></span></h5>
+						</div>
+						<div class="title"><h5>Est. Productivity: <span id="prodView"></span></h5>
+						</div>
+						<div class="title"><h5><span id="blockedView"></span></h5>
+						</div>
+						<div class="title" style="color:red"><h5><span id="escalationView"></span></h5>							
+							</div>
+						<hr></hr>
+						<div class="title"><h5>Resources Currently In Staffing </h5>
+						
+						</div>
+						<div class="form-group">
+                                <div style="padding-left: 25px; padding-top: 20px; padding-right: 20px;">
+								<label for="chargecountView" class="col-8 col-form-label" style="color:black">
+                                   Charge Nurses
+                                </label>
+                                
+                                    <input id="chargecountView" name="chargecountView" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+							
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="techcountView" class="col-8 col-form-label" style="color:black">
+                                   Techs
+                                </label>
+                                
+                                    <input id="techcountView" name="techcountView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+						<div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="seccountView" class="col-8 col-form-label" style="color:black">
+                                   Secretaries
+                                </label>
+                                
+                                    <input id="seccountView" name="seccountView" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+						 <div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="nursecountView" class="col-8 col-form-label" style="color:black">
+                                    Nurses
+                                </label>
+                                
+                                    <input id="nursecountView" name="nursecountView" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+						  <div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="otherView" class="col-8 col-form-label" style="color:black">
+                                    Others (Sitters, Training, Etc.)
+                                </label>
+                                
+                                    <input id="otherView" name="otherView" type="text" class="form-control" disabled>
+                                </div>
+                          </div>
+						<hr></hr>
+							<div class="title"><strong>Patients</strong>							
+							</div>
+						<div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="totalpatientsView" class="col-8 col-form-label">
+                                    Total                                
+									</label>
+                                
+                                    <input id="totalpatientsView" name="totalpatientsView" type="text" class="form-control" disabled>
+                          </div>
+                          </div>
+						
+							
+							<div class="title"><strong>Patient Breakdown</strong>
+							
+							</div>
+							<div id="hidden1view">
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="one2oneView" class="col-8 col-form-label" style="color:black">
+                                    1:1 Acuity Patients (<span id="descView1"></span>)
+                                </label>
+                                
+                                    <input id="one2oneView" name="one2oneView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+							</div>
+							<div id="hidden2view">
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="one2twoView" class="col-8 col-form-label" style="color:black">
+                                    1:2 Acuity Patients (<span id="descView2"></span>)
+                                </label>
+                                
+                                    <input id="one2twoView" name="one2twoView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+							</div>
+							<div id="hidden3view">
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="one2threeView" class="col-8 col-form-label" style="color:black">
+                                    1:3 Acuity Patients (<span id="descView3"></span>)
+                                </label>
+                                
+                                    <input id="one2threeView" name="one2threeView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+							</div>
+							<div id="hidden4view">
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="one2fourView" class="col-8 col-form-label" style="color:black">
+                                    1:4 Acuity Patients (<span id="descView4"></span>)
+                                </label>
+                                
+                                    <input id="one2fourView" name="one2fourView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+							</div>
+							<div id="hidden5view">
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="one2fiveView" class="col-8 col-form-label" style="color:black">
+                                    1:5 Acuity Patients (<span id="descView5"></span>)
+                                </label>
+                               
+                                    <input id="one2fiveView" name="one2fiveView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+							</div>
+							<div id="hidden6view">
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="one2sixView" class="col-8 col-form-label" style="color:black">
+                                    1:6 Acuity Patients (<span id="descView6"></span>)
+                                </label>
+                                
+                                    <input id="one2sixView" name="one2sixView" type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+							</div>
+							<hr></hr>
+							<div id="churnView" hidden>
+						
+							<div class="title"><h5><strong>Churn (<span id="churnValue"></span>%)</strong></h5>							
+							</div>
+						<div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px; padding-top: 20px;">
+                                <label for="admissionsView" class="col-8 col-form-label" style="color:black">
+                                    Admissions</label>
+                                
+                                    <input id="admissionsView" name="admissionsView" type="text" class="form-control" disabled>
+                          </div>
+                          </div>
+						  <div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="transfersView" class="col-8 col-form-label" style="color:black">
+                                    Transfers</label>
+                                
+                                    <input id="transfersView" name="transfersView" type="text" class="form-control" disabled>
+                          </div>
+                          </div>
+						  <div class="form-group">
+						<div style="padding-left: 25px; padding-right: 20px;">
+                                <label for="dischargesView" class="col-8 col-form-label" style="color:black">
+                                    Discharges</label>
+                                
+                                    <input id="dischargesView" name="dischargesView" type="text" class="form-control" disabled>
+                          </div>
+                          </div>
+						
+											
+							<hr></hr>
+							
+                    </div>
+							<div class="form-group">
+							<div style="padding-left: 25px; padding-bottom: 20px; padding-right: 20px;">
+                                <label for="prodnoteView" class="col-8 col-form-label" style="color:black">Variance Note / Action Plan</label>
+                                <textarea class="form-control" rows="3" placeholder="" id="prodnoteView" disabled></textarea>
+                            </div>
+								</div>	
+						</div>
+					</div>	
+                    </form>
+                
+                
+            </div>
+		
+		</div>
+					
+					
+                      
+						</div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End::Main Portlet-->
+</div>
+    <!--begin::Modal-->
+</body>
+</html>

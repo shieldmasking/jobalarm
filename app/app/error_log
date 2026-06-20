@@ -1,0 +1,48 @@
+[23-Oct-2016 17:24:08 UTC] PHP Fatal error:  require_once(): Failed opening required 'vendor/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/app/index.php on line 7
+[12-Dec-2016 19:05:48 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/tweetedjobs/public_html/app/p4.php on line 397
+[13-Dec-2016 21:48:23 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/app/applyHandler.php on line 21
+[13-Dec-2016 21:48:41 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/tweetedjobs/public_html/app/p3.php on line 36
+[13-Dec-2016 21:56:35 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/app/applyHandler.php on line 21
+[13-Dec-2016 22:03:12 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/app/applyHandler.php on line 21
+[13-Dec-2016 22:06:48 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/app/applyHandler.php on line 21
+[13-Dec-2016 22:09:03 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/app/applyHandler.php on line 21
+[13-Dec-2016 22:16:29 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/app/applyHandler.php on line 24
+[14-Dec-2016 17:45:01 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/app/index.php on line 20
+[15-Dec-2016 05:01:20 UTC] PHP Fatal error:  Can't use function return value in write context in /home/tweetedjobs/public_html/app/p4.php on line 33
+[15-Dec-2016 05:05:24 UTC] PHP Fatal error:  Can't use function return value in write context in /home/tweetedjobs/public_html/app/p4.php on line 33
+[15-Dec-2016 05:08:21 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/p4.php on line 35
+[15-Dec-2016 13:38:37 UTC] PHP Parse error:  syntax error, unexpected ''schedule'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/tweetedjobs/public_html/app/p4.php on line 59
+[15-Dec-2016 15:43:52 UTC] PHP Parse error:  syntax error, unexpected '$pastEmp' (T_VARIABLE), expecting ')' in /home/tweetedjobs/public_html/app/p4.php on line 44
+[16-Dec-2016 20:34:49 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/app/index.php on line 24
+[16-Dec-2016 20:45:57 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:47:27 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:50:12 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:50:16 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:50:20 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:50:57 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:51:00 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:51:03 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:51:18 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[16-Dec-2016 20:51:50 UTC] PHP Parse error:  syntax error, unexpected 'on' (T_STRING) in /home/tweetedjobs/public_html/app/p2.php on line 63
+[19-Dec-2016 16:49:48 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:51:12 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:51:16 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:51:46 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:51:54 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:55:00 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:55:05 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:55:08 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:55:12 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:55:48 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:55:55 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:56:04 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 203
+[19-Dec-2016 16:57:04 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/tweetedjobs/public_html/app/index.php on line 209
+[19-Dec-2016 17:31:02 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/app/p5.php on line 56
+[19-Dec-2016 19:33:20 UTC] PHP Parse error:  syntax error, unexpected '"; rstrenger@jobalarm.com"' (T_CONSTANT_ENCAPSED_STRING) in /home/tweetedjobs/public_html/app/p5.php on line 208
+[19-Dec-2016 19:36:01 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/tweetedjobs/public_html/app/p5.php on line 222
+[27-Dec-2016 16:27:36 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/tweetedjobs/public_html/app/p5.php on line 223
+[29-Dec-2016 14:15:49 UTC] PHP Parse error:  syntax error, unexpected 'intval' (T_STRING), expecting '(' in /home/tweetedjobs/public_html/app/index.php on line 65
+[24-Jan-2017 03:29:43 UTC] PHP Parse error:  syntax error, unexpected '"' in /home/tweetedjobs/public_html/app/p5.php on line 104
+[24-Jan-2017 14:00:18 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/tweetedjobs/public_html/app/p5.php on line 107
+[25-Jan-2017 13:53:12 UTC] PHP Fatal error:  Can't use function return value in write context in /home/tweetedjobs/public_html/app/p5.php on line 103
+[31-Jan-2017 13:27:33 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/tweetedjobs/public_html/app/p2.php on line 28

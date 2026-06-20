@@ -1,0 +1,249 @@
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: Connection lost: The server closed the connection.
+    at Protocol.end (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:103:13)
+    at Socket.<anonymous> (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.emit (events.js:117:20)
+    at _stream_readable.js:944:16
+    at process._tickCallback (node.js:442:13)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: Connection lost: The server closed the connection.
+    at Protocol.end (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:103:13)
+    at Socket.<anonymous> (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.emit (events.js:117:20)
+    at _stream_readable.js:944:16
+    at process._tickCallback (node.js:442:13)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: Connection lost: The server closed the connection.
+    at Protocol.end (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:103:13)
+    at Socket.<anonymous> (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.emit (events.js:117:20)
+    at _stream_readable.js:944:16
+    at process._tickCallback (node.js:442:13)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+    --------------------
+    at Protocol._enqueue (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:135:48)
+    at Protocol.handshake (/home/tweetedjobs/twitapp/node_modules/mysql/lib/protocol/Protocol.js:52:41)
+    at Connection.connect (/home/tweetedjobs/twitapp/node_modules/mysql/lib/Connection.js:109:18)
+    at Object.<anonymous> (/home/tweetedjobs/twitapp/app.js:23:12)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+js-bson: Failed to load c++ bson extension, using pure JS version

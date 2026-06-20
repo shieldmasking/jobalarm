@@ -1,0 +1,29 @@
+Array
+(
+    [numbers] => Array
+        (
+            [0] => 14238364830
+            [1] => 14238365957
+            [2] => 18652479862
+            [3] => 13124045667
+        )
+
+    [message] => Array
+        (
+            [0] => <message id="4238364830378011569586357"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[Thank you for applying with Weigel’s. Click the link below to see and apply to jobs closest to you. We hope to see you very soon! www.weigelsjobs.com]]></content></message>
+            [1] => <message id="4238365957378851569586357"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[Thank you for applying with Weigel’s. Click the link below to see and apply to jobs closest to you. We hope to see you very soon! www.weigelsjobs.com]]></content></message>
+            [2] => <message id="8652479862379231569586357"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[Thank you for applying with Weigel’s. Click the link below to see and apply to jobs closest to you. We hope to see you very soon! www.weigelsjobs.com]]></content></message>
+            [3] => <message id="3124045667379211569586357"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[Thank you for applying with Weigel’s. Click the link below to see and apply to jobs closest to you. We hope to see you very soon! www.weigelsjobs.com]]></content></message>
+        )
+
+    [keyword] => Array
+        (
+            [0] => WEIGELS
+            [1] => WEIGELS
+            [2] => WEIGELS
+            [3] => WEIGELS
+        )
+
+    [login] => jobalarm45
+    [shortCode] => 58046
+)

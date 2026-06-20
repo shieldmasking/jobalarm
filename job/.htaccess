@@ -1,0 +1,7 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^job\.tweetedjobs\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.job\.tweetedjobs\.net$
+RewriteRule ^/?$ "http\:\/\/www\.tweetedjobs\.com" [R=301,L]
+

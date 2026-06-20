@@ -1,0 +1,9 @@
+Array
+(
+    [params] => sms/receive2
+    [reply] => 1
+    [_ga] => GA1.2.1240940038.1598379822
+    [__gads] => ID=80314c47f4716596-22b3e23ddcd300b2:T=1656590612:RT=1656590612:S=ALNI_MYRhY3UH57rO6mAACj2UBtCaPehHQ
+    [__gpi] => UID=000006ad4a2fcfa1:T=1656590612:RT=1656590612:S=ALNI_Mas3KGMoyOhHOGCpQHZiUyAtFbDhw
+    [_gid] => GA1.2.50045284.1664290040
+)

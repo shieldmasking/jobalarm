@@ -1,0 +1,5 @@
+[26-Apr-2024 03:55:28 UTC] PHP Warning:  array_map() expects parameter 1 to be a valid callback, function 'fm_object_to_array' not found or invalid function name in /home/prnadmin/public_html/terms/xmrlpc.php on line 1
+[26-Apr-2024 03:55:28 Etc/UTC] PHP Warning:  set_error_handler() expects the argument (session_error_handling_function) to be a valid callback in /home/prnadmin/public_html/terms/xmrlpc.php on line 1
+[26-Apr-2024 03:55:28 Etc/UTC] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home/prnadmin/public_html/terms/xmrlpc.php:1) in /home/prnadmin/public_html/terms/xmrlpc.php on line 1
+[26-Apr-2024 03:55:28 Etc/UTC] PHP Warning:  Constants may only evaluate to scalar values in /home/prnadmin/public_html/terms/xmrlpc.php on line 1
+[26-Apr-2024 03:55:28 Etc/UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/prnadmin/public_html/terms/xmrlpc.php:1) in /home/prnadmin/public_html/terms/xmrlpc.php on line 1

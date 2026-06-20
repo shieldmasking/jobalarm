@@ -1,0 +1,5 @@
+[13-Aug-2015 18:39:15 UTC] PHP Warning:  require_once(lib/twitteroauth/autoload.php): failed to open stream: No such file or directory in /home/tweetedjobs/public_html/inc/config.php on line 168
+[13-Aug-2015 18:39:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 168
+[13-Aug-2015 18:39:54 UTC] PHP Warning:  require_once(lib/twitteroauth/autoload.php): failed to open stream: No such file or directory in /home/tweetedjobs/public_html/inc/config.php on line 168
+[13-Aug-2015 18:39:54 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 168
+[01-May-2019 15:08:18 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/inc/data.php on line 664

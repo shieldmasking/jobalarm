@@ -1,0 +1,7460 @@
+<?php
+include "initializer.php";
+require_once '.././inc/class.db.php';
+require_once '.././inc/class.jatwitter.php';
+require_once '.././inc/config.php';
+require_once '.././inc/class.phpmailer.php';
+
+if ($_REQUEST['req'] != "forgot") {
+
+// If not logged in, error.
+    if (!isset($_SESSION['account'])) {
+        echo json_encode(array('success' => false, 'message' => 'Not logged In'));
+        exit();
+    }
+
+// Set the user account
+    Config::set('account', $_SESSION['account']);
+
+// If no account ID, error
+    if (!isset(Config::get('account')['accountId'])) {
+        echo json_encode(array('success' => false, 'message' => 'Not logged In'));
+        exit();
+    }
+}
+// Get the request
+if (isset($_REQUEST['req'])) {
+    Config::set('Request',$_REQUEST['req']);
+}
+
+
+// Route the request
+switch(Config::get('Request')) {
+
+    ////////////////////////////////
+    // REPORTS PAGE
+    case 'getReports':
+        header('Content-Type: application/json');
+        GenerateReports();
+        break;
+	case 'getDeliveryReports':
+        header('Content-Type: application/json');
+        GenerateDeliveryReports();
+        break;
+
+		
+////////////////////////////////
+    // USEER PAGE
+    case 'getUserDetails':
+        header('Content-Type: application/json');
+        GetUserDetails();
+        break;
+	case 'getUserDetailsActivate':
+        header('Content-Type: application/json');
+        GetUserDetailsActivate();
+        break;
+	case 'getAllUsers':
+        header('Content-Type: application/json');
+        GetAllUsers();
+        break;	
+	case 'getAllClasses':
+        header('Content-Type: application/json');
+        GetAllClasses();
+        break;
+		
+	case 'getclassDetails':
+        header('Content-Type: application/json');
+        GetClassDetails();
+        break;
+	case 'saveclass':
+        header('Content-Type: application/json');
+        SaveClass();
+        break;
+	case 'saveTable':
+        header('Content-Type: application/json');
+        SaveTable();
+        break;
+	case 'saveDelivery':
+        header('Content-Type: application/json');
+        SaveDelivery();
+        break;
+	case 'deleteTable':
+        header('Content-Type: application/json');
+        DeleteTable();
+        break;
+	case 'getclass':
+        header('Content-Type: application/json');
+        GetClass();
+        break;
+	case 'addClass':
+        header('Content-Type: application/json');
+        AddClass();
+        break;
+	case 'getnewUnitDetails':
+        header('Content-Type: application/json');
+        GetNewUnitDetails();
+        break;
+	case 'transferUnitDetails':
+        header('Content-Type: application/json');
+        TransferUnitDetails();
+        break;
+	case 'getConfigure':
+        header('Content-Type: application/json');
+        GetConfigure();
+        break;
+	case 'gettextConfigure':
+        header('Content-Type: application/json');
+        GettextConfigure();
+        break;
+	case 'getunitGrid':
+        header('Content-Type: application/json');
+        GetunitGrid();
+        break;
+	case 'updateConfig':
+        header('Content-Type: application/json');
+        UpdateConfig();
+        break;
+	case 'getConfigDetails':
+        header('Content-Type: application/json');
+        GetConfigDetails();
+        break;
+	case 'getConfigtextDetails':
+        header('Content-Type: application/json');
+        GetConfigtextDetails();
+        break;
+	case 'getUserAssigned':
+        header('Content-Type: application/json');
+        GetAssignedTableData();
+        break;
+	case 'deleteUser':
+        header('Content-Type: application/json');
+        DeleteUser();
+        break;
+	case 'addNewUser':
+        header('Content-Type: application/json');
+        AddNewUser();
+        break;
+	case 'addNewAdmin':
+        header('Content-Type: application/json');
+        AddNewAdmin();
+        break;
+	case 'updateUser':
+        header('Content-Type: application/json');
+        UpdateUser();
+        break;
+	case 'updateTextAlerts':
+        header('Content-Type: application/json');
+        UpdateTextAlerts();
+        break;
+	case 'updateUser2':
+        header('Content-Type: application/json');
+        updateUser2();
+        break;
+	case 'forgot':
+        header('Content-Type: application/json');
+        Forgot();
+        break;
+	case 'addNewUnit':
+        header('Content-Type: application/json');
+        AddUnit();
+        break;
+	case 'addAccount':
+        header('Content-Type: application/json');
+        AddAccount();
+        break;
+	case 'getAllUnits':
+        header('Content-Type: application/json');
+        GetAllUnits();
+        break;
+	case 'getAllAccounts':
+        header('Content-Type: application/json');
+        GetAllAccounts();
+        break;
+	case 'getUnitDetails':
+        header('Content-Type: application/json');
+        GetUnitDetails();
+        break;
+	case 'getAccountDetails':
+        header('Content-Type: application/json');
+        GetAccountDetails();
+        break;
+	case 'updateUnit':
+        header('Content-Type: application/json');
+        UpdateUnit();
+        break;
+	case 'addserviceLine':
+        header('Content-Type: application/json');
+        addServiceLine();
+        break;
+	case 'updateAccount':
+        header('Content-Type: application/json');
+        UpdateAccount();
+        break;
+	case 'updateUnitMgr':
+        header('Content-Type: application/json');
+        UpdateUnitMgr();
+        break;
+	case 'deleteUnit':
+        header('Content-Type: application/json');
+        DeleteUnit();
+        break;
+    case 'getProd':
+        header('Content-Type: application/json');
+        GetProdTableData();
+        break;
+	case 'getvisits':
+        header('Content-Type: application/json');
+        GetVisits();
+        break;
+	case 'updatevisits':
+        header('Content-Type: application/json');
+        UpdateVisits();
+        break;
+	case 'getProdwhp':
+        header('Content-Type: application/json');
+        GetProdTableDataWHP();
+        break;
+	case 'getProduserx':
+        header('Content-Type: application/json');
+        GetProdTableDatauserx();
+        break;
+	case 'getPerformance':
+        header('Content-Type: application/json');
+        GetPerformanceTableData();
+        break;
+	case 'getEscalations':
+        header('Content-Type: application/json');
+        GetEscalationsTableData();
+        break;
+	case 'getcompliance':
+        header('Content-Type: application/json');
+        GetComplianceTableData();
+        break;
+	case 'updateProd':
+        header('Content-Type: application/json');
+        UpdateProdMatrix();
+        break;
+	case 'clearRecord':
+        header('Content-Type: application/json');
+        clearRecord();
+        break;
+	case 'clearwhpRecord':
+        header('Content-Type: application/json');
+        clearWHPRecord();
+        break;
+	case 'copyPlan':
+        header('Content-Type: application/json');
+        copyPlan();
+        break;
+	case 'updateProdNew':
+        header('Content-Type: application/json');
+        UpdateProdNew();
+        break;
+	case 'updateprodTest':
+        header('Content-Type: application/json');
+        UpdateProdTest();
+        break;
+	case 'updateprodWHP':
+        header('Content-Type: application/json');
+        UpdateProdWHP();
+        break;
+	case 'getProdDetails':
+        header('Content-Type: application/json');
+        GetProdDetails();
+        break;
+	case 'prodNote':
+        header('Content-Type: application/json');
+        AddProdNote();
+        break;
+	case 'getblocked':
+        header('Content-Type: application/json');
+        getblockedBeds();
+        break;
+	case 'updateblocked':
+        header('Content-Type: application/json');
+        updateblockedBeds();
+        break;
+	case 'addEscalation':
+        header('Content-Type: application/json');
+        addEscalation();
+        break;
+	case 'getResourceDetails':
+        header('Content-Type: application/json');
+        GetResourceDetails();
+        break;
+	case 'gettextResourceDetails':
+        header('Content-Type: application/json');
+        GettextResourceDetails();
+        break;
+	case 'addResource':
+        header('Content-Type: application/json');
+        AddResource();
+        break;
+	case 'addtextResource':
+        header('Content-Type: application/json');
+        AddtextResource();
+        break;
+	case 'newUnit':
+        header('Content-Type: application/json');
+        NewUnit();
+        break;
+	case 'completeTransfer':
+        header('Content-Type: application/json');
+        CompleteTransfer();
+        break;
+	case 'updateResource':
+        header('Content-Type: application/json');
+        UpdateResource();
+        break;
+	case 'removeResource':
+        header('Content-Type: application/json');
+        RemoveResource();
+        break;
+	case 'removetextResource':
+        header('Content-Type: application/json');
+        RemovetextResource();
+        break;
+	case 'removeUnit':
+        header('Content-Type: application/json');
+        RemoveUnit();
+        break;
+	case 'updatetextResource':
+        header('Content-Type: application/json');
+        UpdatetextResource();
+        break;
+	case 'opt':
+		header('Content-Type: application/json');
+		optIn();
+		break;
+	case 'opt2':
+		header('Content-Type: application/json');
+		optIn2();
+		break;
+	case 'support':
+		header('Content-Type: application/json');
+		Support();
+		break;
+}
+
+
+/*
+
+        ______ ___________ ___________ _____ _____    ______  ___  _____  _____
+        | ___ \  ___| ___ \  _  | ___ \_   _/  ___|   | ___ \/ _ \|  __ \|  ___|
+        | |_/ / |__ | |_/ / | | | |_/ / | | \ `--.    | |_/ / /_\ \ |  \/| |__
+        |    /|  __||  __/| | | |    /  | |  `--. \   |  __/|  _  | | __ |  __|
+        | |\ \| |___| |   \ \_/ / |\ \  | | /\__/ /   | |   | | | | |_\ \| |___
+        \_| \_\____/\_|    \___/\_| \_| \_/ \____/    \_|   \_| |_/\____/\____/
+
+
+*/
+
+
+/////////////////////////////////////
+// PULL THE REPORT PAGE REPORT DATA
+function GenerateReports() {
+	$idsearch = isset($_REQUEST['idsearch']) && ($_REQUEST['idsearch'] != 0) ? $_REQUEST['idsearch'] : false;
+	$categoryId = isset($_REQUEST['categoryId']) && ($_REQUEST['categoryId'] != 0) ? $_REQUEST['categoryId'] : false;
+	$locationId = isset($_REQUEST['locationId']) && ($_REQUEST['locationId'] != 0) ? $_REQUEST['locationId'] : false;
+    $startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : '2010-01-01';
+	$start = $startDate;
+    $startDate .= " 00:00:00";
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : '2020-01-01';
+	$end = $endDate;
+    $endDate .= " 23:59:59";
+	$newEscalation = 0;
+	$i=0;
+    
+	if($locationId){
+	$accountId = $locationId;
+	}else{
+    $accountId = Config::get('account')['accountId'];
+	}
+	
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	$userId = Config::get('account')['id'];
+	
+	if($idsearch){
+		$deptNum = $idsearch;
+	}else{
+		$deptNum = '';
+	}
+	$role = Config::get('account')['role'];
+	$nowtime = time()-21600;
+	$now = date("Y-m-d",$nowtime);
+	
+	if(intval($role)<=8 && !$idsearch){
+		$searchAdd = " where d.accountId ={$accountId} AND d.id in (SELECT `deptId` from `productiveDeptXref` where `userId` ={$userId})";
+	}else if(intval($role)>8 && intval($role)<=12 && !$idsearch){
+		$searchAdd = " where d.accountId ={$accountId}";
+	}else if(intval($role)>12 && !$idsearch && !$locationId){
+		$searchAdd = " where a.enterpriseId ={$enterpriseId}";
+	}else if(intval($role)>12 && !$idsearch && $locationId){
+		$searchAdd = " where d.accountId ={$accountId}";
+	}else{
+		$searchAdd = " where d.id ={$deptNum}";
+	}
+	
+	if($categoryId){
+		$searchAdd2 = " AND d.category={$categoryId} ";
+	}else{
+		$searchAdd2 = '';
+	}
+	
+	$dbDept = Config::get('db')->get_results("SELECT d.*, a.payPeriod, a.enterpriseId, a.prodIndicator, a.name as accountName, a.payPeriodFirst from `ProductiveDept` d LEFT JOIN `productiveNewData` as n on n.deptId = d.id left join `productiveAccount` as a on a.id = d.accountId$searchAdd$searchAdd2 group by d.id order by a.name ASC, d.dept ASC");
+	$outData = array();
+	$newCandidateGraphLabels = array();
+    $newCandidateGraphData = array();
+	$smsSentGraphLabels = array();
+    $smsSentGraphData = array();
+	$laborGraphLabels = array();
+    $laborGraphData = array();
+	$postpartumGraphLabels = array();
+    $postpartumGraphData = array();
+	
+	
+	if($dbDept){
+	$deptCount = count($dbDept);
+	$compliance = 0;
+	
+	foreach($dbDept as $dept){
+	$i=$i+1;
+	$deptId = $dept['id'];
+	$shifts = $dept['shiftsperDay'];
+	$pMeasure = intval($dept['prodMeasure']);
+	$targethppd = $dept['hppd'];
+	$churn = $dept['churn'];
+	$acctId = $dept['accountId'];
+	$budgetMeasure = $dept['budgetMeasure'];
+	
+	$uosValue = $dept['uosValue'];
+	$payPeriod = intval($dept['payPeriod']);
+	$dashColor = intval($dept['prodIndicator']);
+	$payFirst = $dept['payPeriodFirst'];
+	$accountName = $dept['accountName'];
+	//$payLast = $dept['payPeriodLast'];
+	//$period = ((strtotime($payLast) - strtotime($payFirst))/86400)+1;
+	
+	if($period>0){
+	$refStart = new DateTime($start);
+	$periodLength = $period;
+
+	$now = new DateTime();
+	$daysIntoCurrentPeriod = (int)$now->diff($refStart)->format('%a') % $periodLength;
+	$currentPeriodStart = clone $now;
+	$currentPeriodStart->sub(new DateInterval('P'.$daysIntoCurrentPeriod.'D'));
+	}else{
+		//do nothing;
+	}
+	
+	if(count($dbDept)>1 && intval($role)<=12){
+	$deptName = "<a href=\"#report?id=".$dept['id']."\" >" . $dept['dept']."</a>";	
+	}else if(count($dbDept)>1 && intval($role)>12){
+	$deptName = "<a href=\"#report?id=".$dept['id']."\" >" . $accountName . " - " . $dept['dept']."</a>";	
+	}else if(count($dbDept)==1 && intval($role)>12){
+	$deptName = $accountName. " - " . $dept['dept'];
+	}else{
+	$deptName = $dept['dept'];	
+	}
+	
+	
+	if($pMeasure==2){
+	$varianceWHP = "Hrs Variance";
+	$productivity = "WHPUOS";
+	$plannedHrs = "Planned Hrs";
+	$plannedProcs = "Planned UOS";
+	$plannedVar = "Planned Var";
+	$chart1 = "Hours Variance";
+	$chart2 = "WHPUOS";
+	$chart3 = "Planned Hours";
+	$chart4 = "Planned UOS";
+	
+	$thresholdHigh = ($dept['thresholdHigh'] / 100) * $targethppd;
+	$rnThresholdLow = intval($dept['rnThreshold']) * -1;
+	$thresholdLow = ($dept['thresholdLow'] / 100) * $targethppd;
+	
+	$rnThresholdHigh = intval($dept['rnThreshold']);
+	
+	if($now==$start && $now==$end){
+	$canData = Config::get('db')->get_results("
+		SELECT 
+           n.nvariance AS canTotal, n.budgetValue AS laborTotal, n.shift, n.actualWHP AS postTotal,(n.actualWHP - d.hppd) as hppd, d.prodMeasure
+        FROM
+            `productiveNewData` n 
+		LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} AND n.whpPlan !=1
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+		ORDER BY 
+			n.shift ASC
+    ");
+	
+		$reportUser = (isset($canData[0])) ? $canData[0]['userId'] : 0;
+	
+		if(intval($reportUser)>0){
+			$newcanData = Config::get('db')->get_results("
+		
+        SELECT 
+           SUM(n.nvariance) AS canTotal, d.prodMeasure, n.budgetValue AS laborTotal, n.shift, AVG(n.actualWHP) AS postTotal, AVG(n.actualWHP - d.hppd) as hppd
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} AND n.whpPlan=1
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+	
+		$totalCan = 0;
+		$totalPromo = (isset($newcanData[0])) ? round($newcanData[0]['postTotal'],3) : 0;
+		$budgetVal1 = (isset($newcanData[0])) ? $newcanData[0]['laborTotal'] : 0;
+		$budgetVal = ROUND($budgetVal1,2);
+		$currentHPPD = (isset($newcanData[0])) ? round($newcanData[0]['hppd'],3) : 0;
+		$prodMeasure = (isset($canData[0])) ? $canData[0]['prodMeasure'] : 0;
+		}else{
+		$totalCan = (isset($canData[0])) ? round($canData[0]['canTotal'],2) : 0;
+		$totalPromo = (isset($canData[0])) ? round($canData[0]['postTotal'],3) : 0;
+		$budgetVal1 = (isset($canData[0])) ? $canData[0]['laborTotal'] : 0;
+		$budgetVal = ROUND($budgetVal1,2);
+		$currentHPPD = (isset($canData[0])) ? round($canData[0]['hppd'],3) : 0;
+		$prodMeasure = (isset($canData[0])) ? $canData[0]['prodMeasure'] : 0;
+		}
+	
+	$canGraphData = Config::get('db')->get_results("
+        SELECT
+		(CASE WHEN n.nvariance=0.000 THEN 0.001 ELSE n.nvariance END) as daycount,
+		(CASE WHEN n.procedureCount=0 THEN 0.001 ELSE n.procedureCount END) as procedures,
+		(CASE WHEN n.actualWHP=0.000 THEN 0.001 ELSE n.actualWHP END) as whp,
+		(CASE WHEN (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs)=0 THEN 0.001 ELSE (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) END) as hours,	
+        DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.deptId={$deptId} AND n.whpPlan !=1 
+		AND
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)    
+    ");
+
+    if (count($canGraphData) > 0) {
+        foreach ($canGraphData as $graphItem) {
+            $newCandidateGraphLabels[] = $graphItem['groupDate'];
+            $newCandidateGraphData[] = $graphItem['daycount'];
+			$smsSentGraphLabels[] = $graphItem['groupDate'];
+            $smsSentGraphData[] = round($graphItem['procedures'],1);
+			$laborGraphLabels[] = $graphItem['groupDate'];
+            $laborGraphData[] = round($graphItem['hours'],1);
+			$postpartumGraphLabels[] = $graphItem['groupDate'];
+            $postpartumGraphData[] = round($graphItem['whp'],1);
+        }
+    }
+		
+	
+	}else if($now>$start && $now>=$end){
+		
+	$complianceData = Config::get('db')->get_results("
+		SELECT 
+           SUM((CASE WHEN n.userId>0 THEN 1 ELSE 0 END)) as report,  
+		   SUM((CASE WHEN n.userId=0 THEN 1 ELSE 0 END)) as noreport
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.deptId={$deptId} AND n.whpPlan !=1
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+	
+	$totalreports = (isset($complianceData[0])) ? $complianceData[0]['report'] : 0;
+	$noreports = (isset($complianceData[0])) ? $complianceData[0]['noreport'] : 0;
+	
+	if(intval($totalreports)>0){
+		$compliance = ROUND(($totalreports / ($totalreports + $noreports)*100),1);
+	}else{
+		$compliance = 0;
+	}
+	
+	$canData = Config::get('db')->get_results("
+		
+        SELECT 
+           SUM(n.nvariance) AS canTotal, 
+		   AVG(n.budgetValue) AS laborTotal, 
+		   d.prodMeasure, 
+		   AVG(n.actualWHP) AS postTotal, 
+		   AVG(n.actualWHP - d.hppd) as hppd
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} AND n.whpPlan !=1
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+		$totalCan = (isset($canData[0])) ? round($canData[0]['canTotal'],2) : 0;
+		$totalPromo = (isset($canData[0])) ? round($canData[0]['postTotal'],3) : 0;
+		$budgetVal1 = (isset($canData[0])) ? $canData[0]['laborTotal'] : 0;
+		$budgetVal = ROUND($budgetVal1,2);
+		$currentHPPD = (isset($canData[0])) ? round($canData[0]['hppd'],3) : 0;
+		$prodMeasure = (isset($canData[0])) ? $canData[0]['prodMeasure'] : 0;
+	
+	$canGraphData = Config::get('db')->get_results("
+        SELECT 
+		(CASE WHEN n.nvariance=0.000 THEN 0.001 ELSE n.nvariance END) as daycount,
+		(CASE WHEN n.procedureCount=0 THEN 0.001 ELSE n.procedureCount END) as procedures,
+		(CASE WHEN n.actualWHP=0.000 THEN 0.001 ELSE n.actualWHP END) as whp,
+		(CASE WHEN (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs)=0 THEN 0.001 ELSE (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) END) as hours,	
+        DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.deptId={$deptId} AND n.whpPlan !=1 
+		AND
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)    
+    ");
+
+
+    if (count($canGraphData) > 0) {
+        foreach ($canGraphData as $graphItem) {
+            $newCandidateGraphLabels[] = $graphItem['groupDate'];
+            $newCandidateGraphData[] = $graphItem['daycount'];
+			$smsSentGraphLabels[] = $graphItem['groupDate'];
+            $smsSentGraphData[] = round($graphItem['procedures'],1);
+			$laborGraphLabels[] = $graphItem['groupDate'];
+            $laborGraphData[] = round($graphItem['hours'],1);
+			$postpartumGraphLabels[] = $graphItem['groupDate'];
+            $postpartumGraphData[] = round($graphItem['whp'],1);
+        }
+    }
+		
+	
+	}else if($now>$start && $now<$end){
+	$canData = Config::get('db')->get_results("
+		
+        SELECT 
+			DATE(n.dayDate) as groupDate,
+			SUM((CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN n.nvariance ELSE 0 END)+
+			(CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN n.nvariance ELSE 0 END)) as canTotal,
+			SUM((CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN n.budgetValue ELSE 0 END)+
+			(CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN n.budgetValue ELSE 0 END)) as laborTotal,
+			SUM((CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN n.actualWHP ELSE 0 END)) as postTotal,
+			SUM((CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN n.actualWHP ELSE 0 END)) as planTotal,
+			SUM(CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 AND n.actualWHP>0 THEN 1 ELSE 0 END) as actualCount,
+			SUM(CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 AND n.actualWHP>0 THEN 1 ELSE 0 END) as planCount,
+			SUM(CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN 1 ELSE 0 END) as totalCount
+		FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.deptId={$deptId} 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+		$totalCan = (isset($canData[0])) ? round($canData[0]['canTotal'],2) : 0;
+		
+		if($canData[0]['actualCount']>0 || $canData[0]['planCount']>0){
+		$totalPromo = (isset($canData[0])) ? round(($canData[0]['postTotal'] + $canData[0]['planTotal']) / ($canData[0]['actualCount'] + $canData[0]['planCount']) ,3) : 0;
+		}else{
+		$totalPromo = 0;
+		}
+		if($canData[0]['actualCount']>0){
+		$compliance = (isset($canData[0])) ? round(($canData[0]['actualCount']) / ($canData[0]['totalCount'])*100 ,1) : 0;
+		}else{
+		$compliance = 0;
+		}
+		$budgetVal1 = (isset($canData[0])) ? $canData[0]['laborTotal'] : 0;
+		$budgetVal = ROUND($budgetVal1,2);
+		$currentHPPD = (isset($canData[0])) ? round($canData[0]['hppd'],3) : 0;
+		$prodMeasure = (isset($canData[0])) ? $canData[0]['prodMeasure'] : 0;
+	
+	$canGraphData = Config::get('db')->get_results("
+        SELECT 
+		DATE(n.dayDate) as groupDate,
+		((CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN n.nvariance ELSE 0.001 END)+
+		(CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN n.nvariance ELSE 0.001 END)) as daycount,
+		((CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN n.actualWHP ELSE 0.001 END)+
+		(CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN n.actualWHP ELSE 0.001 END)) as whp,
+		((CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN n.procedureCount ELSE 0.001 END)+
+		(CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN n.procedureCount ELSE 0.001 END)) as procedures,
+		(CASE WHEN n.dayDate <= '{$now}' AND n.whpPlan!=1 THEN (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) ELSE 0.001 END)+
+		((CASE WHEN n.dayDate > '{$now}' AND n.whpPlan=1 THEN (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) ELSE 0.001 END)) as hours
+        FROM
+            `productiveNewData` n
+		LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.deptId={$deptId}
+		AND
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)    
+    ");
+
+    if (count($canGraphData) > 0) {
+        foreach ($canGraphData as $graphItem) {
+            $newCandidateGraphLabels[] = $graphItem['groupDate'];
+            $newCandidateGraphData[] = $graphItem['daycount'];
+			$smsSentGraphLabels[] = $graphItem['groupDate'];
+            $smsSentGraphData[] = round($graphItem['procedures'],1);
+			$laborGraphLabels[] = $graphItem['groupDate'];
+            $laborGraphData[] = round($graphItem['hours'],1);
+			$postpartumGraphLabels[] = $graphItem['groupDate'];
+            $postpartumGraphData[] = round($graphItem['whp'],1);
+        }
+    }
+		
+	
+	}else if($now<=$start && $now<$end){
+	$canData = Config::get('db')->get_results("
+		
+        SELECT 
+           SUM(n.nvariance) AS canTotal, d.prodMeasure, AVG(n.budgetValue) AS laborTotal, n.shift, AVG(n.actualWHP) AS postTotal, AVG(n.actualWHP - d.hppd) as hppd
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} AND n.whpPlan=1
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+	$totalCan = 0;
+	$totalPromo = (isset($canData[0])) ? round($canData[0]['postTotal'],3) : 0;
+	$budgetVal1 = (isset($canData[0])) ? $canData[0]['laborTotal'] : 0;
+	$budgetVal = ROUND($budgetVal1,2);
+	$currentHPPD = (isset($canData[0])) ? round($canData[0]['hppd'],3) : 0;
+	$prodMeasure = (isset($canData[0])) ? $canData[0]['prodMeasure'] : 0;
+	$compliance = 0;
+	
+	$canGraphData = Config::get('db')->get_results("
+        SELECT
+		(CASE WHEN n.nvariance=0.000 THEN 0.001 ELSE n.nvariance END) as daycount,
+		(CASE WHEN n.procedureCount=0 THEN 0.001 ELSE n.procedureCount END) as procedures,
+		(CASE WHEN n.actualWHP=0.000 THEN 0.001 ELSE n.actualWHP END) as whp,
+		(CASE WHEN (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs)=0 THEN 0.001 ELSE (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) END) as hours,	
+        DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.deptId={$deptId} AND n.whpPlan =1 
+		AND
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)    
+    ");
+
+    if (count($canGraphData) > 0) {
+        foreach ($canGraphData as $graphItem) {
+            $newCandidateGraphLabels[] = $graphItem['groupDate'];
+            $newCandidateGraphData[] = $graphItem['daycount'];
+			$smsSentGraphLabels[] = $graphItem['groupDate'];
+            $smsSentGraphData[] = round($graphItem['procedures'],1);
+			$laborGraphLabels[] = $graphItem['groupDate'];
+            $laborGraphData[] = round($graphItem['hours'],1);
+			$postpartumGraphLabels[] = $graphItem['groupDate'];
+            $postpartumGraphData[] = round($graphItem['whp'],1);
+        }
+    }
+	
+	}else{
+	$canData = Config::get('db')->get_results("
+		
+        SELECT 
+           SUM(n.nvariance) AS canTotal, d.prodMeasure, AVG(n.budgetValue) AS laborTotal, n.shift, AVG(n.actualWHP) AS postTotal, AVG(n.actualWHP - d.hppd) as hppd
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} AND n.whpPlan !=1
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");
+
+	$totalCan = (isset($canData[0])) ? round($canData[0]['canTotal'],2) : 0;
+	$totalPromo = (isset($canData[0])) ? round($canData[0]['postTotal'],3) : 0;
+	$budgetVal1 = (isset($canData[0])) ? $canData[0]['laborTotal'] : 0;
+	$budgetVal = ROUND($budgetVal1,2);
+	$currentHPPD = (isset($canData[0])) ? round($canData[0]['hppd'],3) : 0;
+	$prodMeasure = (isset($canData[0])) ? $canData[0]['prodMeasure'] : 0;
+	$compliance = 0;
+	
+	$canGraphData = Config::get('db')->get_results("
+        SELECT
+		(CASE WHEN n.nvariance=0.000 THEN 0.001 ELSE n.nvariance END) as daycount,
+		(CASE WHEN n.procedureCount=0 THEN 0.001 ELSE n.procedureCount END) as procedures,
+		(CASE WHEN n.actualWHP=0.000 THEN 0.001 ELSE n.actualWHP END) as whp,
+		(CASE WHEN (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs)=0 THEN 0.001 ELSE (n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) END) as hours,	
+        DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.deptId={$deptId} AND n.whpPlan !=1 
+		AND
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)    
+    ");
+
+    if (count($canGraphData) > 0) {
+        foreach ($canGraphData as $graphItem) {
+            $newCandidateGraphLabels[] = $graphItem['groupDate'];
+            $newCandidateGraphData[] = $graphItem['daycount'];
+			$smsSentGraphLabels[] = $graphItem['groupDate'];
+            $smsSentGraphData[] = round($graphItem['procedures'],1);
+			$laborGraphLabels[] = $graphItem['groupDate'];
+            $laborGraphData[] = round($graphItem['hours'],1);
+			$postpartumGraphLabels[] = $graphItem['groupDate'];
+            $postpartumGraphData[] = round($graphItem['whp'],1);
+        }
+    }
+	
+	}
+
+	
+	$escalationData = Config::get('db')->get_results("
+      SELECT 
+           a.*, IFNULL(e.escalation,'0') as eType
+        FROM
+            `productiveEscalations` a
+		LEFT JOIN
+			`productiveAcctEscalations` as e on e.id = a.escalation
+        WHERE
+            a.deptId ={$deptId} 
+        AND 
+            a.dateSubmitted >= '{$startDate}' AND 
+            a.dateSubmitted <= '{$endDate}'
+		ORDER BY 
+			a.id DESC
+    ");
+    $newEscalation = (isset($escalationData[0])) ? ($escalationData[0]['eType']) : 0;
+	
+    $smsData = Config::get('db')->get_results("
+      SELECT 
+           SUM(n.skill1val+n.skill2val+n.skill3val+n.skill4val+n.skill5val+n.skill6val+n.addResourceHrs) AS laborTotal, SUM(n.procedureCount) AS anteTotal, SUM((n.actualWHP - d.hppd) * n.procedureCount) as hrsVar
+        FROM
+            `productiveNewData` n 
+		LEFT JOIN 
+			`ProductiveDept` as d on d.id=n.deptId 
+        WHERE
+            n.whpPlan =1 AND n.userId>0 AND n.deptId={$deptId}
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'
+		ORDER BY 
+			n.shift ASC
+    ");
+	$totalMsg1 = (isset($smsData[0])) ? $smsData[0]['laborTotal'] : 0;
+	$totalMsg = round($totalMsg1,0);
+	$totalCTR1 = (isset($smsData[0])) ? $smsData[0]['anteTotal'] : 0;
+	$totalCTR = round($totalCTR1,0);
+	$totalBlocked1 = (isset($smsData[0])) ? $smsData[0]['hrsVar'] : 0;
+	$totalBlocked = round($totalBlocked1,3);
+
+	}else{
+	$varianceWHP = "RN Variance";
+	$productivity = "Prod% (est.)";
+	$plannedHrs = "Patients";
+	$plannedProcs = "Open Beds";
+	$chart1 = "Avg. Variance";
+	$chart2 = "Productivity% (est.)";
+	$chart3 = "Patients";
+	$chart4 = "Open Beds";
+	$thresholdLow = $dept['thresholdLow'];
+	$rnThresholdLow = intval($dept['rnThreshold']) * -1;
+	$thresholdHigh = $dept['thresholdHigh'];
+	$rnThresholdHigh = intval($dept['rnThreshold']);
+	//$rnThresholdLow = $rnThresholdHigh * -1;
+	
+	
+		if(intval($role)>=4){
+		//$plannedVar = "Blocked Beds";
+		$plannedVar = '<a href="javascript:;" style="color:white" onclick="blockedBeds('.$accountId.','.$deptId.')"><u>Blocked Beds</u></a>';	
+		//$className = '<a href="javascript:;" onclick="tj.getclass('.$job['id'].')" >Blocked Beds</a>';
+		}else{
+		$plannedVar = "Blocked Beds";	
+		}
+
+    if($now==$start && $now==$end){
+	$canData = Config::get('db')->get_results("
+		
+        SELECT 
+           n.nvariance AS canTotal, n.shift, (n.atotal+n.ltotal) AS laborTotal, (d.totalbeds - (n.atotal+n.ltotal+IFNULL(b.blockedBeds,0))) AS anteTotal
+        FROM
+            `productiveNewData` n
+		LEFT JOIN `ProductiveDept` as d on d.id = n.deptId 
+		LEFT JOIN `productiveblockedBeds` as b on b.deptId=n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+		ORDER BY 
+			n.shift ASC
+    ");
+	}else{
+	
+	$complianceData = Config::get('db')->get_results("
+		SELECT 
+           SUM((CASE WHEN n.userId>0 AND n.dayDate <= CURDATE() THEN 1 ELSE 0 END)) as report,  
+		   SUM((CASE WHEN n.userId=0 AND n.dayDate <= CURDATE() THEN 1 ELSE 0 END)) as noreport
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.deptId={$deptId}
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+	
+	$totalreports = (isset($complianceData[0])) ? $complianceData[0]['report'] : 0;
+	$noreports = (isset($complianceData[0])) ? $complianceData[0]['noreport'] : 0;
+	
+	if(intval($totalreports)>0){
+		$compliance = ROUND(($totalreports / ($totalreports + $noreports)*100),1);
+	}else{
+		$compliance = 0;
+	}
+	
+	$canData = Config::get('db')->get_results("
+		
+        SELECT 
+           AVG(n.nvariance) AS canTotal, AVG(n.atotal+n.ltotal) AS laborTotal, (d.totalbeds - AVG(n.atotal+n.ltotal)) AS anteTotal
+        FROM
+            `productiveNewData` n
+		LEFT JOIN `ProductiveDept` as d on d.id = n.deptId
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'            
+    ");	
+	}
+
+    $totalCan1 = (isset($canData[0])) ? $canData[0]['canTotal'] : 0;
+	
+	$totalCan2 = round($totalCan1,0);
+	
+	if(intval($totalCan2)>0){
+		$totalCan = $totalCan2;
+	}else{
+		$totalCan = $totalCan2;
+	}
+	$totalMsg1 = (isset($canData[0])) ? $canData[0]['laborTotal'] : 0;
+	$totalMsg = round($totalMsg1,0);
+	$totalCTR1 = (isset($canData[0])) ? $canData[0]['anteTotal'] : 0;
+	$totalCTR = round($totalCTR1,0);
+	
+	 //echo json_encode(array('totalcan'=>$totalCan));
+	
+	$canGraphData = Config::get('db')->get_results("
+	SELECT AVG(n.nvariance) as daycount, 
+	DATE(n.dayDate) as groupDate 
+	FROM `productiveNewData` n 
+	WHERE n.userId>0 AND n.deptId={$deptId} 
+	AND n.dayDate >= '{$startDate}' 
+	AND n.dayDate <= '{$endDate}' 
+	GROUP BY DATE(n.dayDate)");
+	
+	$newCandidateGraphLabels = array();
+	$newCandidateGraphData = array();
+	
+	if (count($canGraphData) > 0) {
+        foreach ($canGraphData as $graphItem) {
+            $newCandidateGraphLabels[] = $graphItem['groupDate'];
+            $newCandidateGraphData[] = $graphItem['daycount'];
+        }
+    }
+
+    $promoData = Config::get('db')->get_results("SELECT AVG(n.aproductivity) AS postTotal, d.prodMeasure, d.hppd 
+		FROM `productiveNewData` n 
+		LEFT JOIN `ProductiveDept` as d on d.id = n.deptId 
+		WHERE n.userId > 0 AND n.aproductivity >0
+		AND n.deptId={$deptId} 
+		AND n.dayDate >= '{$startDate}' 
+		AND n.dayDate <= '{$endDate}'");
+		
+    $totalPromo = (isset($promoData[0])) ? round($promoData[0]['postTotal'],1) : 0;
+	$currentHPPD = (isset($promoData[0])) ? $promoData[0]['hppd'] : 0;
+	$prodMeasure = (isset($promoData[0])) ? $promoData[0]['prodMeasure'] : 0;
+	
+	$escalationData = Config::get('db')->get_results("
+      SELECT 
+           a.*, IFNULL(e.escalation,'0') as eType
+        FROM
+            `productiveEscalations` a
+		LEFT JOIN
+			`productiveAcctEscalations` as e on e.id = a.escalation
+        WHERE
+            a.deptId ={$deptId} 
+        AND 
+            a.dateSubmitted >= '{$startDate}' AND 
+            a.dateSubmitted <= '{$endDate}'
+		ORDER BY 
+			a.id DESC
+    ");
+    $newEscalation = (isset($escalationData[0])) ? ($escalationData[0]['eType']) : 0;
+
+
+    $smsGraphData = Config::get('db')->get_results("
+      SELECT 
+		d.totalbeds - AVG(n.atotal+n.ltotal) as daycount,
+		DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+		LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} 
+		AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)
+    ");
+
+    $smsSentGraphLabels = array();
+    $smsSentGraphData = array();
+
+    if (count($smsGraphData) > 0) {
+        foreach ($smsGraphData as $graphItem) {
+            $smsSentGraphLabels[] = $graphItem['groupDate'];
+            $smsSentGraphData[] = round($graphItem['daycount'],1);
+        }
+    }
+	
+	$laborData = Config::get('db')->get_results("
+      SELECT
+		AVG(n.atotal + n.ltotal) as daycount,
+		DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} 
+		AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)
+    ");
+
+    $laborGraphLabels = array();
+    $laborGraphData = array();
+
+    if (count($laborData) > 0) {
+        foreach ($laborData as $laborgraphItem) {
+            $laborGraphLabels[] = $laborgraphItem['groupDate'];
+            $laborGraphData[] = round($laborgraphItem['daycount'],1);
+        }
+    }
+	
+	$postpartumData = Config::get('db')->get_results("
+      SELECT 
+		AVG(n.aproductivity) as daycount,
+	  	DATE(n.dayDate) as groupDate
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.aproductivity >0 AND n.deptId={$deptId} 
+		AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+                
+        GROUP BY DATE(n.dayDate)
+    ");
+
+    $postpartumGraphLabels = array();
+    $postpartumGraphData = array();
+
+    if (count($postpartumData) > 0) {
+        foreach ($postpartumData as $postpartumgraphItem) {
+            $postpartumGraphLabels[] = $postpartumgraphItem['groupDate'];
+            $postpartumGraphData[] = round($postpartumgraphItem['daycount'],1);
+        }
+    }
+
+	if($now==$start && $now==$end){
+	$blockedData = Config::get('db')->get_results("
+        SELECT 
+           n.*, b.blockedBeds AS blocked
+        FROM
+            `productiveNewData` as n 
+		LEFT JOIN `productiveblockedBeds` as b on b.accountId=n.accountId and b.deptId=n.deptId 
+        WHERE
+            n.deptId={$deptId} 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+		ORDER BY 
+			n.entered DESC
+            
+    ");
+	}else{
+	$blockedData = Config::get('db')->get_results("
+        SELECT 
+           n.*, b.blockedBeds AS blocked
+        FROM
+            `productiveNewData` as n 
+		LEFT JOIN `productiveblockedBeds` as b on b.accountId=n.accountId and b.deptId=n.deptId 
+        WHERE
+            n.deptId={$deptId} 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+            
+    ");
+		
+	}
+    $totalBlocked1 = (isset($blockedData[0])) ? $blockedData[0]['blocked'] : 0;
+	$totalBlocked = round($totalBlocked1,0);
+	}
+	
+	 if($now==$start && $now==$end){
+    $churnData = Config::get('db')->get_results("
+      SELECT 
+           SUM(n.churnValue) AS laborTotal
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.deptId={$deptId} AND (n.admits >0 OR n.transfers >0 OR n.discharges >0) 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'
+		ORDER BY 
+			n.shift ASC
+    ");
+	}else{
+	 $churnData = Config::get('db')->get_results("
+      SELECT 
+           AVG(n.churnValue) AS laborTotal
+        FROM
+            `productiveNewData` n 
+        WHERE
+            n.deptId={$deptId} AND (n.admits >0 OR n.transfers >0 OR n.discharges >0) 
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}'
+    ");	
+	}
+$churnVal1 = (isset($churnData[0])) ? $churnData[0]['laborTotal'] : 0;
+	$churnVal = ROUND($churnVal1,1);
+   
+    $outData['totalPromo'.$i.''] = $totalPromo;
+    $outData['totalMsg'.$i.''] = $totalMsg;
+    $outData['totalCan'.$i.''] = $totalCan;
+    $outData['totalCTR'.$i.''] = $totalCTR;
+	$outData['accountId'.$i.''] = $accountId;
+	$outData['deptId'.$i.''] = $deptId;
+	$outData['totalBlocked'.$i.''] = $totalBlocked;
+	$outData['newEscalation'.$i.''] = $newEscalation;
+	$outData['targetProd'.$i.''] = $targetProd;
+	//$outData['hide'.$i.''] =1;
+	$outData['dept'.$i.''] = $deptName;
+	$outData['prodMeasure'.$i.''] = $prodMeasure;
+	$outData['variance'.$i.''] = $varianceWHP;
+	$outData['productivity'.$i.''] = $productivity;
+	$outData['planned'.$i.''] = $plannedHrs;
+	$outData['procedures'.$i.''] = $plannedProcs;
+	$outData['blockedbeds'.$i.''] = $plannedVar;
+	$outData['hppd'.$i.''] = $totalPromo;
+	$outData['target'.$i.''] = $targethppd;
+	$outData['pMeasure'.$i.''] = $pMeasure;
+	$outData['thresholdLow'.$i.''] = $thresholdLow;
+	$outData['thresholdHigh'.$i.''] = $thresholdHigh;
+	$outData['budgetValue'.$i.''] = $budgetVal;
+	$outData['chart1'] = $chart1;
+	$outData['chart2'] = $chart2;
+	$outData['chart3'] = $chart3;
+	$outData['chart4'] = $chart4;
+	$outData['churn'.$i.''] = $churn;
+	$outData['churnVal'.$i.''] = $churnVal;
+	$outData['budgetMeasure'.$i.''] = $budgetMeasure;
+	$outData['PeriodStart'.$i.''] = $currentPeriodStart;
+	$outData['deptCount'.$i.''] = $deptCount;
+	$outData['compliance'.$i.''] = $compliance;
+	$outData['rnThresholdHigh'.$i.''] = $rnThresholdHigh;
+	$outData['rnThresholdLow'.$i.''] = $rnThresholdLow;
+	$outData['dashColor'.$i.''] = $dashColor;
+	
+	
+		if($i==1){	
+		$outData['hidden11']=1;
+		$outData['hidden12']=1;
+		$outData['canGraphData'] = array('labels'=>$newCandidateGraphLabels,'data'=>$newCandidateGraphData);
+		$outData['smsGraphData'] = array('labels'=>$smsSentGraphLabels,'data'=>$smsSentGraphData);
+		$outData['laborGraphData'] = array('labels'=>$laborGraphLabels,'data'=>$laborGraphData);
+		$outData['postpartumGraphData'] = array('labels'=>$postpartumGraphLabels,'data'=>$postpartumGraphData);
+		}else{
+		$outData['hidden11']=0;
+		$outData['hidden12']=0;
+		$outData['canGraphData'] = array('labels'=>$newCandidateGraphLabels,'data'=>$newCandidateGraphData);
+		$outData['smsGraphData'] = array('labels'=>$smsSentGraphLabels,'data'=>$smsSentGraphData);
+		$outData['laborGraphData'] = array('labels'=>$laborGraphLabels,'data'=>$laborGraphData);
+		$outData['postpartumGraphData'] = array('labels'=>$postpartumGraphLabels,'data'=>$postpartumGraphData);
+		}
+	}
+    echo json_encode(array('success' => true, 'data' => $outData), JSON_NUMERIC_CHECK);
+}else{
+exit();
+}
+	
+}
+
+/////////////////////////////////////
+// PULL THE REPORT PAGE REPORT DATA
+function GenerateDeliveryReports() {
+	
+    $startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : '2010-01-01';
+	$start = $startDate;
+    $startDate .= " 00:00:00";
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : '2020-01-01';
+	$end = $endDate;
+    $endDate .= " 23:59:59";
+	
+    $accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+	$role = Config::get('account')['role'];
+		
+	$outData = array();
+	$newCandidateGraphLabels = array();
+    $newCandidateGraphData = array();
+	$today = date("m/d/Y");
+	$newGraphData = array();
+	$newCount = round((strtotime($end) - strtotime($start))/ (60 * 60 * 24));
+	
+	for($count = 0; $count<=$newCount; $count++){
+	//$todayCount = $today + $count;
+	//$todayCount = " +" . $count . " day";
+	$now = date('Y-m-d',strtotime($start . " +" . $count . " day"));
+			
+    $newDeliveryGraphData = Config::get('db')->get_results("
+		SELECT x.accountId as accountId, 
+		(SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp>0 AND p.deliveryPlan!=3 THEN (.15 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp>0 AND p.deliveryPlan=3 THEN (.05 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp=0 AND p.deliveryPlan!=3 THEN (.3 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) + 
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp=0 AND p.deliveryPlan=3 THEN (.10 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp>0 AND p.deliveryPlan!=3) THEN (.85 / ((p.rangeDays / 7) * 5)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp>0 AND p.deliveryPlan=3) THEN (.95 / ((p.rangeDays / 7) * 5)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp=0 AND p.deliveryPlan=3) THEN (.9 / ((p.rangeDays / 7) * 5)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp=0 AND p.deliveryPlan!=3) THEN (.7 / ((p.rangeDays / 7) * 5)) ELSE 0 END))) as dayCount, 
+		'{$now}' as groupDate
+		FROM `productivePredictor` p
+		LEFT JOIN `productivePredictorXref` as x on x.doctorId = p.doctorId 
+		WHERE p.rangeHigh >='{$now}' AND p.rangeLow <= '{$now}' AND x.accountId = {$accountId} 
+		GROUP BY groupDate
+    ");
+	
+	$newCandidateGraphLabels[] = $newDeliveryGraphData[0]['groupDate'];
+    $newCandidateGraphData[] = $newDeliveryGraphData[0]['dayCount'] *3;
+	
+	//$newGraphData[] = array(
+	//						'groupDate' =>$newDeliveryGraphData['groupDate'], 
+	//						'daycount' =>$newDeliveryGraphData['dayCount']
+	//						);
+		
+	
+	//$newDeliveryGraphData[] = implode(",",$newGraphData);
+
+   // if ($newGraphData) {
+   //     foreach ($newGraphData as $deliverygraphItem) {
+   //     $newCandidateGraphLabels[] = $deliverygraphItem['groupDate'];
+   //     $newCandidateGraphData[] = $deliverygraphItem['dayCount'];
+   //    }
+   // }
+
+    $riskGraphData = Config::get('db')->get_results("
+      SELECT x.accountId as accountId, 
+		(SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp>0 AND p.deliveryPlan!=3 AND p.grav=1 AND p.par=0 THEN (.15 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp>0 AND p.deliveryPlan=3 AND p.grav=1 AND p.par=0 THEN (.05 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp=0 AND p.deliveryPlan!=3 AND p.grav=1 AND p.par=0 THEN (.3 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) + 
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')=1 OR DAYOFWEEK('{$now}')=7) AND p.comp=0 AND p.deliveryPlan=3 AND p.grav=1 AND p.par=0 THEN (.10 / ((p.rangeDays / 7) * 2)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp>0 AND p.deliveryPlan!=3) AND p.grav=1 AND p.par=0 THEN (.85 / ((p.rangeDays / 7) * 5)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp>0 AND p.deliveryPlan=3) AND p.grav=1 AND p.par=0 THEN (.95 / ((p.rangeDays / 7) * 5)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp=0 AND p.deliveryPlan=3) AND p.grav=1 AND p.par=0 THEN (.9 / ((p.rangeDays / 7) * 5)) ELSE 0 END)) +
+		SUM((CASE WHEN (DAYOFWEEK('{$now}')!=1 AND DAYOFWEEK('{$now}')!=7 AND p.comp=0 AND p.deliveryPlan!=3) AND p.grav=1 AND p.par=0 THEN (.7 / ((p.rangeDays / 7) * 5)) ELSE 0 END))) as dayCount, 
+		'{$now}' as groupDate
+		FROM `productivePredictor` p
+		LEFT JOIN `productiveUser` as u on u.id = p.userId 
+		LEFT JOIN `productivePredictorXref` as x on x.doctorId = p.doctorId 
+		WHERE p.rangeHigh >='{$now}' AND p.rangeLow <= '{$now}' AND x.accountId = {$accountId}
+		GROUP BY groupDate
+    ");
+	
+	$smsSentGraphLabels[] = $riskGraphData[0]['groupDate'];
+    $smsSentGraphData[] = $riskGraphData[0]['dayCount'] *3;
+    }
+	//$smsSentGraphLabels = array();
+    //$smsSentGraphData = array();
+
+    //if (count($riskGraphData) > 0) {
+    //    foreach ($riskGraphData as $riskgraphItem) {
+    //        $smsSentGraphLabels[] = $riskgraphItem['groupDate'];
+    //        $smsSentGraphData[] = $riskgraphItem['daycount'];
+    //    }
+    //}
+	
+	
+	
+	$outData['deliveryGraphData'] = array('labels'=>$newCandidateGraphLabels,'data'=>$newCandidateGraphData);
+	$outData['riskGraphData'] = array('labels'=>$smsSentGraphLabels,'data'=>$smsSentGraphData);
+	echo json_encode(array('success' => true, 'data' => $outData, 'date' =>$now), JSON_NUMERIC_CHECK);
+}
+
+/////DOWNLOAD REPORT DATA TO CSV
+
+function DownloadCSV() {
+	
+	$startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : '2010-01-01';
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : '2020-01-01';
+    $accountId = Config::get('account')['accountId'];
+	
+	$query = ("SELECT 
+	x.subscribeDate as `Subscribe Date`, 
+	x.keyword2      as `Keyword`, 
+	c.mobile        as `Mobile Num`, 
+	c.email         as `Email`, 
+	c.first_name    as `First Name`, 
+	c.last_name     as `Last Name`, 
+	ce.city         as `City`, 
+	ce.state_code   as `State`, 
+	c.zip           as `Zip`, 
+	c.resume        as `Resume`, 
+	j.title         as `Title`, 
+	x.promo         as `Promo`, 
+	x.promoMktng    as `Promo Mktg` 
+	from`candidateXref` x left join `candidate` as c on c.id = x.candidateId 
+	left outer join `cities_extended` as ce on ce.zip = c.zip 
+	left outer join`clickTrack` as ct on ct.mobile = c.mobile 
+	left outer join `job` as j on j.twitterId = ct.trackId 
+	where x.accountId ='{$accountId}' and `subscribeDate` BETWEEN '{$startDate}' AND '{$endDate}' 
+	group by x.candidateId order by x.subscribeDate DESC");
+	
+	$dbData = Config::get('db')->get_results($query);
+
+    $csv_filename = "JobAlarm_" . date('Y-m-d') . ".csv";
+
+    $output = fopen("php://output",'w') or die("Can't open php://output");
+    header("Content-Disposition: attachment; filename=".$csv_filename."");
+
+    if (count($dbData) > 0) {
+	    $firstRow = $dbData[0];
+	    $keys = array_keys($firstRow);
+        fputcsv($output,$keys);
+        foreach($dbData as $k=>$v)
+            fputcsv($output,$v);
+    }
+
+    return true;
+}
+
+function updateUser2() {
+    $userId = (isset($_REQUEST['userId'])?$_REQUEST['userId']:0);
+	$alertTimes = (isset($_REQUEST['times'])?$_REQUEST['times']:'');
+	$mobile = (isset($_REQUEST['mobile'])?$_REQUEST['mobile']:'');
+	$vtext = (isset($_REQUEST['report'])) ? $_REQUEST['report'] : 0;
+	$atext = (isset($_REQUEST['escalation'])) ? $_REQUEST['escalation'] : 0;
+	$mtext = (isset($_REQUEST['missed'])) ? $_REQUEST['missed'] : 0;
+	$stop = (isset($_REQUEST['pause'])) ? $_REQUEST['pause'] : 0;
+	$emailAlerts = (isset($_REQUEST['emailAlerts'])) ? $_REQUEST['emailAlerts'] : 0;
+	$emailMissed = (isset($_REQUEST['emailMissed'])) ? $_REQUEST['emailMissed'] : 0;
+	
+	$dbUser = Config::get('db')->get_results("SELECT * FROM `productiveUser` WHERE `id`={$userId}");
+	$role = intval($dbUser[0]['role']);
+	
+	if($role==6 && intval($stop)!=1) {
+		
+		$xdata = array(
+            'textAlerts' =>1
+        );
+        $xwhere = array('userId'=>$userId,
+						'primaryUnit'=>$role);
+						
+        Config::get('db')->update('productiveDeptXref',$xdata,$xwhere);
+		
+	}else{
+		//do nothing;
+	}
+	
+    if (intval($stop)==1) {
+		$data = array(
+            'txt' => $vtext,
+			'reportMissed' => $mtext,
+			'txtEscalation' => $atext,
+			'txtPause' => $stop,
+			'mobile' => $mobile,
+			'alertTimes' => $alertTimes,
+			'emailAlerts' => $emailAlerts,
+			'emailMissed' => $emailMissed
+        );
+        $where = array('id'=>$userId);
+        Config::get('db')->update('productiveUser',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'User Updated'));
+        return true;
+    }else{
+		$data = array(
+            'txt' => $vtext,
+			'reportMissed' => $mtext,
+			'txtEscalation' => $atext,
+			'txtPause' => $stop,
+			'mobile' => $mobile,
+			'alertTimes' => $alertTimes,
+			'emailAlerts' => $emailAlerts,
+			'emailMissed' => $emailMissed
+        );
+        $where = array('id'=>$userId);
+        Config::get('db')->update('productiveUser',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'User Updated'));
+        return true;		
+	}
+    echo json_encode(array('success'=>false,'message'=>'User Failed to Update'));
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ 
+ CLASSES
+  ______  ___  _____  _____
+  | ___ \/ _ \|  __ \|  ___|
+  | |_/ / /_\ \ |  \/| |__
+  |  __/|  _  | | __ |  __|
+  | |   | | | | |_\ \| |___
+  \_|   \_| |_/\____/\____/
+
+
+*/
+
+/////////////////////////////////////
+// CREATE CLASSES TABLE
+
+/////////////////////////////////////
+// GET ALL USERS
+
+
+function GetAllClasses() {
+    $accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+	$role = Config::get('account')['role'];
+	$startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+	$searchAdd = '';
+	$practiceId = 1;
+
+	if(intval($role)>3){
+	$searchAdd =" AND p.doctorId in (SELECT `doctorId` from `productivePredictorXref` where `accountId`={$accountId}) ";
+	$groupBy = " GROUP BY p.accountId ";
+	}else{
+	$searchAdd =" AND p.doctorId in (SELECT `doctorId` from `productivePredictorDrs` where `practiceId`={$practiceId}) ";	
+	$groupBy = " GROUP BY p.doctorId ";
+	}
+	
+    $query = "SELECT SQL_CALC_FOUND_ROWS 
+	p.*, a.id as practiceId, a.practiceName, count(p.id) as deliveries, DATE_FORMAT(p.edc,'%m/%d/%y') as dateEntered, 
+	SUM(CASE WHEN p.comp >0 THEN 1 ELSE 0 END) `risk`, 
+	SUM(CASE WHEN p.grav =1 THEN 1 ELSE 0 END) `primips` 
+	FROM `productivePredictor` p 
+	LEFT JOIN `productivePredictorDrs` as d on d.id = p.doctorId 
+	LEFT JOIN `productivePredictorAcct` as a on a.id = d.practiceId 
+	WHERE ((p.rangeLow <'{$startDate}' AND p.rangeHigh >'{$endDate}') 
+	OR (p.rangeLow >='{$startDate}' AND p.rangeLow <='{$endDate}') 
+	OR (p.rangeHigh >='{$startDate}' AND p.rangeHigh <='{$endDate}'))$searchAdd$groupBy
+	ORDER BY p.entered DESC
+		";
+
+    $dbData = Config::get('db')->get_results($query);
+    $query = "SELECT FOUND_ROWS() AS found_rows;";
+    $countData = Config::get('db')->get_results($query);
+    $total = $countData[0]['found_rows'];
+    $jobArray = array();
+    	
+	if ($dbData){
+		
+    foreach ($dbData as $job) {
+        //$className = "Name";
+		$doctorName = '<a href="javascript:;" onclick="tj.getpractice('.$job['accountId'].')" > ALL </a>';
+		$doctorName2 = '<a href="javascript:;" onclick="tj.getclass('.$job['doctorId'].')" >' . $job['doctorName'] . '</a>';
+		$DateTime = $job['entered'];
+		$deliveries = $job['deliveries'];
+		$risk = $job['risk'];
+		
+		$jobArray[] = array(
+            'practice'=>$doctorName,
+            'update'=>$DateTime,
+			'patients'=>$deliveries,
+			'risk'=>$risk,
+			'primips'=>$job['primips'] 	
+        );
+    }
+    $outData = array();
+    $outData['data'] = $jobArray;
+    echo json_encode($outData,JSON_NUMERIC_CHECK);
+	return true;
+	}else{
+    $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+		return false;
+	}
+
+}
+
+function GetClassDetails() {
+	$classId = isset($_REQUEST['classId']) ? $_REQUEST['classId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	
+	$query = "SELECT SQL_CALC_FOUND_ROWS
+		p.*, DATE_FORMAT(p.edc,'%m/%d/%y') as edc, IFNULL(l.desc,'') as plan, (CASE WHEN p.age=0 THEN '' ELSE p.age end) as newAge, a.id as classId, a.name, IFNULL(a.classDate,'') as classDate, IFNULL(a.classTime,'') as classTime, IFNULL(c.desc,'') as complication
+        FROM `productivePredictor` p
+		LEFT JOIN `productivePredictorClasses` as a on a.id = p.classId 
+		LEFT JOIN `productiveComplications` as c on c.id = p.comp
+		LEFT JOIN `productivePredictorPlan` as l on l.id = p.deliveryPlan
+        WHERE a.id={$classId} 
+		GROUP BY p.id ORDER BY p.id DESC
+		";
+
+    $dbData = Config::get('db')->get_results($query);
+    $query = "SELECT FOUND_ROWS() AS found_rows;";
+    $countData = Config::get('db')->get_results($query);
+    $total = $countData[0]['found_rows'];
+	//$action = "<button type=\"button\" class=\"btn btn-danger\" onclick=\"tj.deleteResource(" . $dbData['rid'] . ")\">Remove</button>";
+	
+    $jobArray = array();
+    	
+	if ($dbData){
+		
+    foreach ($dbData as $job) {
+		$button = "<button type=\"button\" name=\"remove\" class=\"btn btn-danger btn-sm remove\" onclick=\"tj.deleteTable(" . $job['id'] . ")\">-</button>";
+	//$edc = date("m:d:Y",$job['edc']);
+       $jobArray[] = array(
+            'edc'=>$job['edc'],
+            'age'=>$job['newAge'],
+			'grav'=>$job['grav'],
+			'par'=>$job['par'],
+			'plan'=>$job['plan'],
+			'comp'=>$job['complication'],
+			'remove'=>$button,
+			'recordId'=>$job['id']
+        );
+    }
+    $outData = array();
+    $outData['data'] = $jobArray;
+    echo json_encode($outData,JSON_NUMERIC_CHECK);
+	return true;
+	}else{
+    $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+	}
+
+}
+
+function GetClass() {
+	$classId = isset($_REQUEST['classId']) ? $_REQUEST['classId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	
+	//$query = "SELECT SQL_CALC_FOUND_ROWS * FROM `productivePredictorClasses` WHERE `id`={$classId}";
+
+    $dbData = Config::get('db')->get_results("SELECT c.*, u.first_name, u.last_name, DATE_FORMAT(c.dateEntered,'%m/%d/%y') as newEntered, DATE_FORMAT(c.classDate,'%m/%d/%y') as newDate, DATE_FORMAT(c.classTime,'%H:%i') as newTime FROM `productivePredictorClasses` c left outer join `productivePredictor` as p on p.classId = c.id left outer join `productiveUser` as u on u.id = p.userId WHERE c.id={$classId}");
+    //$query = "SELECT FOUND_ROWS() AS found_rows;";
+    //$countData = Config::get('db')->get_results($query);
+    //$total = $countData[0]['found_rows'];
+	//$action = "<button type=\"button\" class=\"btn btn-danger\" onclick=\"tj.deleteResource(" . $dbData['rid'] . ")\">Remove</button>";
+	//$button = "<button type=\"button\" name=\"remove\" class=\"btn btn-danger btn-sm remove\">Delete</button>";
+    $jobArray = array();
+    $lastEdit = $dbData[0]['last_name'] . ", " . $dbData[0]['first_name'];
+	if ($dbData){
+       $jobArray = array(
+            'reportName'=>$dbData[0]['name'],
+			'reportDate'=>$dbData[0]['newDate'],
+			'reportTime'=>$dbData[0]['newTime'],
+			'lastEdit'=>$lastEdit,
+			'reportId'=>$classId,
+			'dateEntered'=>$dbData[0]['newEntered'],
+        );
+    
+    echo json_encode(array('success'=>true,'data'=>$jobArray));
+	return true;
+	}else{
+    $jobArray = array(
+            'reportName'=>'',
+			'reportDate'=>'',
+			'reportTime'=>'',
+			'lastEdit'=>'',
+			'reportId'=>'',
+			'dateEntered'=>''
+        );
+        echo json_encode(array('success'=>true,'data'=>$outData));
+	}
+
+}
+
+function SaveClass() {
+	$records = isset($_REQUEST['form_data']) ? $_REQUEST['form_data'] : '';
+	$classId = isset($_REQUEST['classId']) ? $_REQUEST['classId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	
+	if($records){		
+		foreach($records as $record){
+			if(intval($record['id'])>0){
+				//do nothing;
+			}else{
+				$data = array(
+				'classId' => $classId,
+				'grav' => $record['grav'],
+				'par' => $record['par'],
+				'grav' => $record['grav'],
+				'comp' => $record['comp'],
+				'deliveryPlan' => $record['plan'],
+				'edc' => date('yyyy-mm-dd',$record['edc'])				
+				);
+			Config::get('db')->insert('productivePredictor',$data);
+			}
+		}
+		echo json_encode(array('success'=>true,'message'=>'Update Successful'));
+		return true;
+	}
+       echo json_encode(array('success'=>false,'message'=>'No Update'));
+	   return false;
+}
+
+function SaveTable() {
+	$edc = isset($_REQUEST['edc']) ? $_REQUEST['edc'] : '';
+	$grav = isset($_REQUEST['grav']) ? $_REQUEST['grav'] : '';
+	$par = isset($_REQUEST['par']) ? $_REQUEST['par'] : '';
+	$plan = isset($_REQUEST['plan']) ? $_REQUEST['plan'] : '';
+	$comp = isset($_REQUEST['comp']) ? $_REQUEST['comp'] : '';
+	$age = isset($_REQUEST['age']) ? $_REQUEST['age'] : '';
+	$classId = isset($_REQUEST['classId']) ? $_REQUEST['classId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	if($edc){
+		for($count = 0; $count<count($edc); $count++){
+			if($edc[$count]){
+				$newEdc = strtotime($edc[$count]);
+				//$newEdc = date_create($edc[$count]);
+				$newId = $age[$count] . str_replace("-","",$edc[$count]) . $grav[$count] . $par[$count];
+				$newComp = intval($comp[$count]);
+				if($newComp>0){
+				$compDb = Config::get('db')->get_results("SELECT * FROM `productiveComplications` WHERE `id` ={$newComp}");
+				$rangeLow = intval($compDb[0]['weeksValue']);
+				$rangeHigh = round((intval($compDb[0]['weeksValue']) *.5),0);
+				//$lowRange = strtotime("-". $rangeLow . " days", $newEdc);
+				//$highRange = strtotime("-". $rangeHigh . " days", $newEdc);
+				$low = "-" . $rangeLow . " days";
+				$high = "-". $rangeHigh . " days";
+				//$lowRange = date_sub($newEdc, date_interval_create_from_date_string(" . $low . "));
+				//$highRange = date_sub($newEdc, date_interval_create_from_date_string(" . $high . "));
+				$lowRange = date('Y-m-d', strtotime($edc[$count].$low));
+				$highRange = date('Y-m-d', strtotime($edc[$count].$high));
+				$rangeDays = $rangeLow - $rangeHigh;
+				}else{
+				$highRange = $edc[$count];
+				$lowRange = date('Y-m-d', strtotime($edc[$count]. '- 10 days'));
+				//$lowRange = date_sub($newEdc, date_interval_create_from_date_string("10 days"));
+				$rangeDays = 10;
+				}	
+				
+				$data = array(
+				'grav' => $grav[$count],
+				'newId' => $newId,
+				'age' => $age[$count],
+				'par' => $par[$count],
+				'deliveryPlan' => $plan[$count],
+				'comp' => $comp[$count],
+				'edc' => $edc[$count],
+				'classId' => $classId,
+				'rangeLow' => $lowRange,
+				'rangeHigh' => $highRange,
+				'rangeDays' => $rangeDays
+				);
+			Config::get('db')->insert('productivePredictor',$data);
+			}
+		}
+		echo json_encode(array('success'=>true,'message'=>'Update Successful'));
+		return true;
+	}
+       echo json_encode(array('success'=>false,'message'=>'No Update'));
+	   return false;
+}
+
+function SaveDelivery() {
+	$edc = isset($_REQUEST['edc']) ? $_REQUEST['edc'] : '';
+	$grav = isset($_REQUEST['grav']) ? $_REQUEST['grav'] : '';
+	$par = isset($_REQUEST['par']) ? $_REQUEST['par'] : '';
+	$plan = isset($_REQUEST['plan']) ? $_REQUEST['plan'] : '';
+	$comp = isset($_REQUEST['comp']) ? $_REQUEST['comp'] : '';
+	$age = isset($_REQUEST['age']) ? $_REQUEST['age'] : '';
+	$classId = isset($_REQUEST['classId']) ? $_REQUEST['classId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	if($edc){
+				$newEdc = strtotime($edc);
+				//$newEdc = date_create($edc[$count]);
+				$newId = $age . str_replace("-","",$edc) . $grav . $par;
+				$newComp = intval($comp);
+				if($newComp>0){
+				$compDb = Config::get('db')->get_results("SELECT * FROM `productiveComplications` WHERE `id` ={$newComp}");
+				$rangeLow = intval($compDb[0]['weeksValue']);
+				$rangeHigh = round((intval($compDb[0]['weeksValue']) *.5),0);
+				//$lowRange = strtotime("-". $rangeLow . " days", $newEdc);
+				//$highRange = strtotime("-". $rangeHigh . " days", $newEdc);
+				$low = "-" . $rangeLow . " days";
+				$high = "-". $rangeHigh . " days";
+				//$lowRange = date_sub($newEdc, date_interval_create_from_date_string(" . $low . "));
+				//$highRange = date_sub($newEdc, date_interval_create_from_date_string(" . $high . "));
+				$lowRange = date('Y-m-d', strtotime($edc.$low));
+				$highRange = date('Y-m-d', strtotime($edc.$high));
+				$rangeDays = $rangeLow - $rangeHigh;
+				}else{
+				$highRange = $edc;
+				$lowRange = date('Y-m-d', strtotime($edc. '- 10 days'));
+				//$lowRange = date_sub($newEdc, date_interval_create_from_date_string("10 days"));
+				$rangeDays = 10;
+				}	
+				
+				$data = array(
+				'grav' => $grav,
+				'newId' => $newId,
+				'age' => $age,
+				'par' => $par,
+				'deliveryPlan' => $plan,
+				'comp' => $comp,
+				'edc' => $edc,
+				'classId' => $classId,
+				'rangeLow' => $lowRange,
+				'rangeHigh' => $highRange,
+				'rangeDays' => $rangeDays
+				);
+			Config::get('db')->insert('productivePredictor',$data);
+			
+		
+		echo json_encode(array('success'=>true,'message'=>'Update Successful'));
+		return true;
+	}
+       echo json_encode(array('success'=>false,'message'=>'No Update'));
+	   return false;
+}
+
+function DeleteTable() {
+	$recordId = isset($_REQUEST['recordId']) ? $_REQUEST['recordId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	if($recordId){
+				$where = array(
+				'id' => $recordId,
+				);
+			Config::get('db')->delete('productivePredictor',$where);
+		echo json_encode(array('success'=>true,'message'=>'Update Successful'));
+		return true;
+	}
+       echo json_encode(array('success'=>false,'message'=>'No Update'));
+	   return false;
+}
+
+
+function AddClass() {
+    $className = isset($_REQUEST['name']) ? $_REQUEST['name'] : '';
+	$date = isset($_REQUEST['date']) ? $_REQUEST['date'] : '';
+	$time = isset($_REQUEST['time']) ? $_REQUEST['time'] : '';
+	//$total = isset($_REQUEST['total']) ? $_REQUEST['total'] : 0;
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+	
+	if($className){
+		
+	$classdata = array(
+			'name' => stripslashes($className),
+			'accountId' => $accountId,
+			'classDate' => $date,
+			'classTime' => $time,
+			'userId' => $userId
+        );
+	Config::get('db')->insert('productivePredictorClasses',$classdata);
+	
+	$classDb = Config::get('db')->get_results("SELECT * FROM `productivePredictorClasses` WHERE `userId` ={$userId} order by `id` DESC");
+	$classId = $classDb[0]['id'];
+		
+		$data = array(
+			'classId' => $classId,
+			'reportName' => stripslashes($className),
+			'reportDate' => $date,
+			'reportTime' => $time
+        );
+	echo json_encode(array('success'=>true,'data'=>$data));
+      return true;
+	}else{
+		echo json_encode(array('success'=>false));
+      return false;
+	}
+}
+
+
+
+
+/*
+ 
+ USERS
+  ______  ___  _____  _____
+  | ___ \/ _ \|  __ \|  ___|
+  | |_/ / /_\ \ |  \/| |__
+  |  __/|  _  | | __ |  __|
+  | |   | | | | |_\ \| |___
+  \_|   \_| |_/\____/\____/
+
+
+*/
+
+/////////////////////////////////////
+// GET ALL USERS
+function GetAllUsers() {
+    $accountId = Config::get('account')['accountId'];
+	$userId = intval(Config::get('account')['id']);
+	$role = Config::get('account')['role'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	$label = Config::get('account')['label'];
+	
+	if(intval($role)<10){
+		$searchAdd = "WHERE u.accountId={$accountId} AND u.active>0 AND u.last_name !='' and u.role <={$role} and x.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId} and `primaryUnit`>0 and `primaryUnit`<8)";
+	}else if(intval($role)>=10 && intval($role)<=12){
+		$searchAdd = "WHERE u.accountId={$accountId}";
+	}else if(intval($role)>12 && intval($role)<90){
+		$searchAdd = "WHERE u.enterpriseId={$enterpriseId} AND u.last_name !='' ";
+	}else if(intval($role)>=90 && intval($role)<100){
+		$searchAdd = "WHERE a.label={$label}";
+	}else{
+		$searchAdd = '';
+	}
+     if(intval($role)<90){
+        $query = "
+		 SELECT SQL_CALC_FOUND_ROWS
+		u.*, a.name as accountName, IFNULL(x.deptId,0) as depNum, x.textAlerts, x.userId, count(x.deptId) as deptCount, d.dept as depName, r.role as userRole FROM `productiveUser` u
+        LEFT OUTER JOIN `productiveDeptXref` as x on x.userId=u.id
+        LEFT JOIN `productiveUserRoles` as r on r.id=u.role
+        LEFT JOIN `ProductiveDept` as d on d.id=x.deptId
+		LEFT JOIN `productiveAccount` as a on a.id=u.accountId
+        $searchAdd
+        GROUP BY u.id ORDER BY a.name,u.last_name,u.first_name ASC
+		";
+	 }else{
+		$query = "
+		 SELECT SQL_CALC_FOUND_ROWS
+		u.*, a.name as accountName, IFNULL(x.deptId,0) as depNum, x.textAlerts, x.userId, count(x.deptId) as deptCount, CONCAT(a.name, ' - ', d.dept) as depName, r.role as userRole FROM `productiveUser` u
+        LEFT OUTER JOIN `productiveDeptXref` as x on x.userId=u.id
+        LEFT JOIN `productiveUserRoles` as r on r.id=u.role
+        LEFT JOIN `ProductiveDept` as d on d.id=x.deptId
+		LEFT JOIN `productiveAccount` as a on a.id=u.accountId
+        $searchAdd
+        GROUP BY u.id ORDER BY a.name,u.last_name,u.first_name ASC
+		"; 
+		 
+	 }
+    $dbData = Config::get('db')->get_results($query);
+    $query = "SELECT FOUND_ROWS() AS found_rows;";
+    $countData = Config::get('db')->get_results($query);
+    $total = $countData[0]['found_rows'];
+    $jobArray = array();
+    $link = 0;
+
+    //$brandcandidates = Config::get('db')->get_results("SELECT c.*, x.keyword as keyword FROM `candidate` as c LEFT JOIN candidateXref as x on x.candidateId = c.id WHERE x.brandId={$brand} and c.active=1 and (x.promo=1 or x.promo=2)");
+
+    if($dbData){
+	foreach ($dbData as $job) {
+        $name = $job['last_name'].", ".$job['first_name'];
+		$role = $job['userRole'];
+		$dpCount = intval($job['deptCount']);
+		$loggedIn = intval($job['id']);
+		
+		$text = intval($job['txtactive']);
+		$textPaused = intval($job['txtPause']);
+		
+		if($dpCount>1){
+			$depName = "Multiple";
+		}else{
+			$depName = $job['depName'];
+		}
+		
+		if($userId==$loggedIn){
+			$textInactive = '<a href="javascript:;" onclick="tj.activate('.$job['id'].')">Inactive (User must activate texting)</a>';
+			$textActive = '<a href="javascript:;" onclick="tj.activate('.$job['id'].')">Active (User receiving Text Alerts)</a>';
+			$textPaused = '<a href="javascript:;" onclick="tj.activate('.$job['id'].')">Paused (User not receiving texts)</a>';
+			$textUnit = '<a href="javascript:;" onclick="tj.activate('.$job['id'].')">Active (Not for this Unit)</a>';
+			$textA = '<a href="javascript:;" onclick="tj.activate('.$job['id'].')">Active</a>';		
+		}else{
+			$textInactive = "Inactive (User must activate texting)";
+			$textActive = "Active (User receiving Text Alerts)";
+			$textPaused = "Paused (User not receiving texts)";
+			$textUnit = "Active (Not for this Unit)";
+			$textA = "Active";
+		}
+		
+		if (intval($job['txtPause'])==0 && intval($job['textAlerts'])>=1 && intval($job['txtactive'])>=1 && $dpCount<2){
+			$textsub = $textActive;
+		}else if (intval($job['txtPause'])>=1 && intval($job['textAlerts'])>=1 && intval($job['txtactive'])>=1 && $dpCount<2){
+			$textsub = $textPaused;
+		}else if (intval($job['textAlerts'])==0 && intval($job['txtactive'])>=1 && $dpCount<2){
+			$textsub = $textUnit;
+		}else if (intval($job['txtactive'])>=1 && $dpCount>1){
+			$textsub = $textA;
+		}else{
+			$textsub = $textInactive;
+		}
+		
+		
+        //if(intval($role)<8){
+		$nameLink = '<a href="javascript:;" onclick="tj.editUser('.$job['id'].' , ' . $job['depNum'] .')">'. $name .'</a>';
+		//$locationsLink = $textsub;
+		//$locationsLink = '<a href="javascript:;" onclick="tj.showUserLocations('.$job['id'].');return false;" data-toggle="modal" data-target="#usersAssigned">'. $job['stores'] .'</a>';
+        //$storeButton = "<button class=\"btn btn-primary btn-sm blue\">Jobs</button>";
+				
+        $jobArray[] = array(
+            'Name'=>$nameLink,
+			'accountName'=>$job['accountName'],
+			'Unit'=>$depName,
+			'Role'=>$role,
+			'Login'=>$job['lastlogin'],
+			'Locations'=>$textsub
+        );
+    }
+    $outData = array();
+        $outData['data'] = $jobArray;
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+	}else{
+	$outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+	}
+}
+
+/////////////////////////////////////
+// GET DETAILS FOR SINGLE USER
+function GetUserDetails() {
+    $userId = isset($_REQUEST['userId']) ? $_REQUEST['userId'] : '';
+	$deptId = isset($_REQUEST['deptId']) ? $_REQUEST['deptId'] : '';
+	$loggedinUser = Config::get('account')['id'];
+	$accountId = Config::get('account')['accountId'];
+	
+	$userRole = array(
+			'userRole'=>$loggedinUser
+			);
+	
+    if (intval($deptId)>0 && $deptId) {
+        $dbLocation = Config::get('db')->get_results("select u.*, x.textAlerts as Alerts, x.userId, x.deptId, d.dept as depName, r.id as roleId, r.role as roleName from `productiveUser` u LEFT JOIN `productiveDeptXref` as x on x.userId = u.id LEFT JOIN `ProductiveDept` as d on d.id = x.deptId LEFT OUTER JOIN `productiveUserRoles` as r on r.id=u.role where x.userId={$userId} and x.deptId={$deptId}");
+        $dbData = $dbLocation[0];
+        echo json_encode(array('success' => true,'data'=>$dbData,'user'=>$userRole));
+        return true;
+    }else{
+		$dbLocation = Config::get('db')->get_results("select u.*, u.id as userId, IFNULL(x.deptId,0) as deptId, r.id as roleId, r.role as roleName from `productiveUser` u LEFT OUTER JOIN `productiveDeptXref` as x on x.userId = u.id LEFT OUTER JOIN `productiveUserRoles` as r on r.id=u.role where u.id={$userId}");
+        $dbData = $dbLocation[0];
+        echo json_encode(array('success' => true,'data'=>$dbData,'user'=>$userRole));
+        return true;
+	}
+    echo json_encode(array('success'=>false,'message'=>'User not found.'));
+    return false;
+}
+
+
+/////////////////////////////////////
+// GET DETAILS FOR SINGLE USER
+function GetNewUnitDetails() {
+    //$userRole = (isset($_REQUEST['role'])) ? $_REQUEST['role'] : '';
+	$userId = Config::get('account')['id'];
+	$accountId = Config::get('account')['accountId'];
+	//echo "store:".$storeId;
+    $dbUnits = Config::get('db')->get_results("select x.*, u.role, count(x.deptId) as deptCount FROM `productiveDeptXref` x LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId WHERE x.userId={$userId} group by x.userId");
+	if($dbUnits){
+		$dbCount = $dbUnits[0];
+			$dcount = array(
+				'count'=>$dbCount['deptCount']
+				);
+			echo json_encode(array('success' => true,'data'=>$dcount));
+			return true;
+	}else{
+		$dcount = array(
+				'count'=>0
+				);
+    echo json_encode(array('success'=>false,'data'=>$dcount));
+    return false;
+	}
+}
+
+/////////////////////////////////////
+// GET TRANSFER DETAILS
+function TransferUnitDetails() {
+    //$recordId = isset($_REQUEST['recordId']) ? $_REQUEST['recordId'] : '';
+	$user = isset($_REQUEST['user']) ? $_REQUEST['user'] : '';
+	$deptId= isset($_REQUEST['dep']) ? $_REQUEST['dep'] : '';
+	$userId = Config::get('account')['id'];
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	//echo "store:".$storeId;
+    
+	if (intval($role)<=8){
+	$dbUnits = Config::get('db')->get_results("select *, count(`deptId`) as deptCount FROM `productiveDeptXref` WHERE `userId`={$userId} group by `userId`");
+	}else{
+	$dbUnitsU= Config::get('db')->get_results("select *, count(`id`) as deptCount FROM `ProductiveDept` WHERE `accountId`={$accountId} group by `id`");	
+	}
+	$dbXref = Config::get('db')->get_results("select * FROM `productiveDeptXref` WHERE `userId`={$user} and `deptId`={$deptId}");
+	if($dbXref && $dbUnits){
+		$dbCount = $dbUnits[0];
+		$dbData = $dbXref[0];
+			echo json_encode(array('success' => true,'data'=>$dbData,'count'=>$dbCount));
+			return true;
+	}else{
+    echo json_encode(array('success'=>false,'message'=>'User not found.'));
+    return false;
+	}
+}
+
+/////////////////////////////////////
+// ADD RESOURCE
+function CompleteTransfer() {
+    $deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : '';
+	$userId = (isset($_REQUEST['userId'])) ? $_REQUEST['userId'] : '';
+	$deptOrig = (isset($_REQUEST['deptIdOrig'])) ? $_REQUEST['deptIdOrig'] : '';
+	$grantText = (isset($_REQUEST['grantText'])) ? $_REQUEST['grantText'] : '';
+	
+	if($deptId && $userId) {		       
+						
+		$data = array('deptId'=> $deptId,
+					'textAlerts'=>$grantText
+					);
+		$where = array('userId'=>$userId,
+					'deptId'=>$deptOrig
+					);
+        
+		Config::get('db')->update('productiveDeptXref',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'Resource Transfered Successfully'));
+        return true;
+    }	
+    echo json_encode(array('success'=>false,'message'=>'Resource not transfered.'));
+    return false;
+}
+
+/////////////////////////////////////
+// ADD RESOURCE
+function NewUnit() {
+    $deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : '';
+	$userId = (isset($_REQUEST['userId'])) ? $_REQUEST['userId'] : '';
+	$grantText = (isset($_REQUEST['grantText'])) ? $_REQUEST['grantText'] : 0;
+	$role = (isset($_REQUEST['role'])) ? $_REQUEST['role'] : 0;
+	
+	if(intval($role)==6 || intval($role)==7){
+		$delete = array(
+					'deptId' => $deptId,
+					'primaryUnit' => $role
+					);
+		Config::get('db')->delete('productiveDeptXref',$delete);
+	}else{
+		//do nothing;
+	}
+	
+	
+	if($deptId && $userId){
+		$dbText = Config::get('db')->get_results("select * from `productiveDeptXref` where `deptId`={$deptId} and `userId`={$userId}");
+		//$dbXref = Config::get('db')->get_results("select * from `productiveDeptXref` where `userId`={$userId} and `primaryUnit` >0 and `deptId` !={$deptId}");
+		
+	if($dbText) {
+		$xId = $dbText[0]['id'];
+       
+		$data = array('textAlerts' => $grantText,
+					'primaryUnit' => $role);
+		$where = array('id' =>$xId);
+        
+		Config::get('db')->update('productiveDeptXref',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'Unit Added Successfully'));
+        return true;
+    }else{
+		$data = array(
+			'textAlerts' => $grantText,
+			'userId' => $userId,
+			'primaryUnit' =>$role,
+			'deptId' => $deptId
+        );
+		Config::get('db')->insert('productiveDeptXref',$data);
+        echo json_encode(array('success'=>true,'message'=>'Unit Added Successfully'));
+        return true;		
+	}	
+    
+}else{
+	echo json_encode(array('success'=>false,'message'=>'Resource not added.'));
+    return false;
+}
+}
+
+
+/////////////////////////////////////
+// GET DETAILS FOR SINGLE USER
+function GetUserDetailsActivate() {
+	$userId = Config::get('account')['id'];
+    
+	//echo "store:".$storeId;
+    if ($userId) {
+        $dbLocation = Config::get('db')->get_results("select * from `productiveUser` where `id`={$userId}");
+        $dbData = $dbLocation[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'User not found.'));
+    return false;
+}
+
+/////////////////////////////////////
+// GET CONFIGURE RESOURCES
+function GetConfigure() {
+    $accountId = Config::get('account')['accountId'];
+	//$deptId = Config::get('account')['deptid'];
+	$deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : '';
+	$outData = array();
+	
+	//echo "store:".$storeId;
+    if ($deptId) {
+        $dbLocation = Config::get('db')->get_results("SELECT d.*, r.id as rid, r.position, r.Sun, r.Mon, r.Tue, r.Wed, r.Thu, r.Fri, r.Sat FROM `ProductiveDept` d left join `productiveResources` as r on r.deptId = d.id WHERE d.id={$deptId}");
+    if ($dbLocation){
+	foreach ($dbLocation as $dbData){
+		$position = "<a href=\"javascript:;\" onclick=\"tj.editResource(".$dbData['rid'].");return false;\">". $dbData['position'] ."</a>";
+		$action = "<button type=\"button\" class=\"btn btn-danger\" onclick=\"tj.deleteResource(" . $dbData['rid'] . ")\">Remove</button>";	
+				
+        $jobArray[] = array(
+			'position'=>$position,
+            'sunday'=>$dbData['Sun'],
+            'monday'=>$dbData['Mon'],
+            'tuesday'=>$dbData['Tue'],
+			'wednesday'=>$dbData['Wed'],
+            'thursday'=>$dbData['Thu'],
+            'friday'=>$dbData['Fri'],
+            'saturday'=>$dbData['Sat'],
+			'action'=>$action
+        );
+    }
+     $outData['data'] = $jobArray;
+    echo json_encode($outData,JSON_NUMERIC_CHECK);  
+	}else{
+     	$jobArray[] = array(
+				'position' => '',
+				'sunday' => '',
+				'monday' => '',
+				'tuesday' => '',
+				'wednesday' => '',
+				'thursday' => '',
+				'friday' => '',
+				'saturday' => '',
+				'action' => ''
+            );
+        $outData['data'] = $jobArray;
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+	}
+  
+}
+}
+
+/////////////////////////////////////
+// GET CONFIGURE RESOURCES
+
+function GetConfigDetails() {
+        $accountId = Config::get('account')['accountId'];
+        //$deptId = Config::get('account')['deptid'];
+		$deptId = (isset($_REQUEST['unitId'])) ? $_REQUEST['unitId'] : '';
+	
+		//if (intval($dept)!=0){
+		//	$deptId = $dept;
+		//}else{
+		//	$deptId = Config::get('account')['deptid'];
+		//}
+   
+   if ($deptId) {
+        $dbProd = Config::get('db')->get_results("select * from `ProductiveDept` where id={$deptId} group by id");
+        
+        $dbData = $dbProd[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }else{
+    echo json_encode(array('success'=>false,'message'=>'Config not found.'));
+    return false;
+	}
+}
+
+/////////////////////////////////////
+// UPDATE CONFIG
+function UpdateConfig() {
+	$deptName = (isset($_REQUEST['deptName'])) ? $_REQUEST['deptName'] : '';
+	$unitId = (isset($_REQUEST['unitId'])) ? $_REQUEST['unitId'] : '';
+	$totalbeds = (isset($_REQUEST['totalbeds'])) ? $_REQUEST['totalbeds'] : 0;
+    $deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : 0;
+	$accountId = (isset($_REQUEST['accountId'])) ? $_REQUEST['accountId'] : 0;
+	$target = (isset($_REQUEST['target'])) ? $_REQUEST['target'] : 0;
+	$prodMeasure = (isset($_REQUEST['prodMeasure'])) ? $_REQUEST['prodMeasure'] : 0;
+	$prodValue = (isset($_REQUEST['prodValue'])) ? $_REQUEST['prodValue'] : 0;
+	$censusShift = (isset($_REQUEST['censusShift'])) ? $_REQUEST['censusShift'] : 0;
+	$one2one = (isset($_REQUEST['one2one'])) ? $_REQUEST['one2one'] : 0;
+	$desc1 = (isset($_REQUEST['desc1'])) ? $_REQUEST['desc1'] : '';
+	$one2two = (isset($_REQUEST['one2two'])) ? $_REQUEST['one2two'] : 0;
+	$desc2 = (isset($_REQUEST['desc2'])) ? $_REQUEST['desc2'] : '';
+	$one2three = (isset($_REQUEST['one2three'])) ? $_REQUEST['one2three'] : 0;
+	$desc3 = (isset($_REQUEST['desc3'])) ? $_REQUEST['desc3'] : '';
+	$one2four = (isset($_REQUEST['one2four'])) ? $_REQUEST['one2four'] : 0;
+	$desc4 = (isset($_REQUEST['desc4'])) ? $_REQUEST['desc4'] : '';
+	$one2five = (isset($_REQUEST['one2five'])) ? $_REQUEST['one2five'] : 0;
+	$desc5 = (isset($_REQUEST['desc5'])) ? $_REQUEST['desc5'] : '';
+	$one2six = (isset($_REQUEST['one2six'])) ? $_REQUEST['one2six'] : 0;
+	$desc6 = (isset($_REQUEST['desc6'])) ? $_REQUEST['desc6'] : '';
+
+	
+    if (intval($deptId) > 0) {
+       $data = array(
+            'dept' => $deptName,
+			'unitId' => $unitId,
+            'totalbeds' => $totalbeds,
+			'target' => $target,
+			'prodMeasure' => $prodMeasure,
+			'hppd' => $prodValue,
+			'shift' => $censusShift,
+			'oneto1' => $one2one,
+			'desc1' => $desc1,
+			'oneto2' => $one2two,
+			'desc2' => $desc2,
+			'oneto3' => $one2three,
+			'desc3' => $desc3,
+			'oneto4' => $one2four,
+			'desc4' => $desc4,
+			'oneto5' => $one2five,
+			'desc5' => $desc5,
+			'oneto6' => $one2six,
+			'desc6' => $desc6
+        );
+        $where = array('id'=>$deptId);
+        Config::get('db')->update('ProductiveDept',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'Config Updated'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Resource not found.'));
+    return false;
+}
+
+/////////////////////////////////////
+// ADD NEW ADMIN
+function AddNewAdmin() {
+    $first = (isset($_REQUEST['first'])) ? $_REQUEST['first'] : '';
+	$last = (isset($_REQUEST['last'])) ? $_REQUEST['last'] : '';
+	$newusername = (isset($_REQUEST['username'])) ? trim($_REQUEST['username']) : '';
+	$role = (isset($_REQUEST['role'])) ? $_REQUEST['role'] : 4;
+	$username = strtolower($newusername);
+	$dbUser = '';
+	$userRole = Config::get('account')['role'];
+	$accountId = (isset($_REQUEST['accountId'])) ? $_REQUEST['accountId'] : 0;
+	
+	$dbUser= Config::get('db')->get_results("select * FROM `productiveUser` where `userName`='{$username}'");
+	
+	if(!$dbUser){	
+		
+	$pw = "productive2019";
+	$pword = md5($pw);
+			$data = array(
+				'first_name'=>$first,
+                'last_name'=>$last,
+				'accountId'=>$accountId,
+				'email'=>$username,
+				'userName'=>$username,
+				'pwd'=>$pword,
+				'temp'=>$pword,
+				'role'=>$role,
+                'active'=>1
+            );
+			
+    $newAdmin = Config::get('db')->insert('productiveUser',$data);
+					
+			$exists = array(
+			'exist'=>false
+			);
+            echo json_encode(array('success'=>true,'data'=>$exists));
+            return true;
+	}else{
+			$exists = array(
+			'exist'=>true
+			);
+            echo json_encode(array('success'=>true,'data'=>$exists));
+            return true;
+	}
+			
+}
+
+/////////////////////////////////////
+// ADD NEW USER
+function AddNewUser() {
+    $first = (isset($_REQUEST['first'])) ? $_REQUEST['first'] : '';
+	$last = (isset($_REQUEST['last'])) ? $_REQUEST['last'] : '';
+	$newemail = (isset($_REQUEST['email'])) ? trim($_REQUEST['email']) : '';
+	$role = (isset($_REQUEST['role'])) ? $_REQUEST['role'] : 4;
+	$deptId = (isset($_REQUEST['unit'])) ? $_REQUEST['unit'] : '';
+	$email = strtolower($newemail);
+	$dbUser = '';
+	//$txt = $vtext + $atext;
+	$userRole = Config::get('account')['role'];
+	
+	if(intval($userRole)>89){
+		$accountId = (isset($_REQUEST['accountId'])) ? $_REQUEST['accountId'] : '';
+	}else{
+		$accountId = Config::get('account')['accountId'];
+	}
+	
+	if(intval($role)==6 && intval($deptId)>0){
+		$txt = 1;
+		$emailAlerts = 1;
+		$emailMissed = 1;
+		$newDelete = array(
+			'deptId'=>$deptId,
+			'primaryUnit'=>$role
+			);
+		$managerDelete = Config::get('db')->delete('productiveDeptXref',$newDelete);
+	}else if(intval($role)==7 && intval($deptId)>0){
+		$txt = 1;
+		$emailAlerts = 0;
+		$emailMissed = 0;
+		$dirDelete = array(
+			'deptId'=>$deptId,
+			'primaryUnit'=>$role
+			);
+		$directorDelete = Config::get('db')->delete('productiveDeptXref',$dirDelete);
+	}else{
+		$txt = 0;
+		$emailAlerts = 0;
+		$emailMissed = 0;
+	}
+	
+	$dbUser= Config::get('db')->get_results("select * from `productiveUser` where `email`='{$email}' and `accountId`!={$accountId}");
+	if($dbUser){
+		$exists = array(
+			'exist'=>true
+			);
+	echo json_encode(array('success'=>false,'data'=>$exists));
+    return true;
+	}else{
+	   //do nothing;
+	}
+	//if (intval($deptId)>0){
+	//$dbUser= Config::get('db')->get_results("select d.*, IFNULL(u.id,'') as newUserId, IFNULL(u.active,'') as userActive, IFNULL(l.labelName,'ProductiveRN') as labelName, IFNULL(l.login,'') as login, IFNULL(x.deptId,'') as deptId, IFNULL(x.primaryUnit,'') as primaryUnit, IFNULL(d.dept,'') as dept FROM `ProductiveDept` d LEFT OUTER JOIN `productiveUser` as u on u.email ='{$email}' LEFT OUTER JOIN `productiveDeptXref` as x on x.userId = u.id LEFT JOIN `productiveAccount` as a on a.id = d.accountId LEFT OUTER JOIN `productiveLabel` as l on l.id = a.label where d.id={$deptId}");
+	if(intval($accountId)>0){	
+	$dbNew= Config::get('db')->get_results("select a.*, u.id as userId, u.active, x.deptId, l.labelName, l.userLogin, l.videoLink, l.login, d.dept, u.first_name, u.last_name from `productiveAccount` a LEFT JOIN `productiveLabel` as l on l.id = a.label LEFT OUTER JOIN `productiveUser` as u on u.accountId = a.id and u.email='{$email}' LEFT OUTER JOIN `productiveDeptXref` as x on x.userId=u.id LEFT OUTER JOIN `ProductiveDept` as d on d.id = x.deptId WHERE a.id={$accountId}");
+	$userId = intval($dbNew[0]['userId']);
+	$userActive = intval($dbNew[0]['active']);
+	$deptName = $dbNew[0]['dept'];
+	$xdeptId = intval($dbNew[0]['deptId']);
+	$labelName = $dbNew[0]['labelName'];
+	$login = $dbNew[0]['userLogin'];
+	$enterpriseId = $dbNew[0]['enterpriseId'];
+	$video = $dbNew[0]['videoLink'];
+	}else{
+	echo json_encode(array('success'=>false));
+    return true;	
+	}
+	
+	if($userId>0){
+	
+	if ($userActive>0 && $xdeptId>0) {
+		$exists = array(
+			'exist'=>true,
+			'email'=>$email,
+			'dept'=>$deptName,
+			'user'=>$userId
+			);
+			echo json_encode(array('success'=>true,'data'=>$exists));
+            return true;
+		}else{
+			$dataUpdate = array(
+				'first_name'=>$first,
+                'last_name'=>$last,
+				'accountId'=>$accountId,
+				'email'=>$email,
+				'role'=>$role,
+				'txt'=>$txt,
+				'emailAlerts'=>$emailAlerts,
+				'emailMissed'=>$emailMissed,
+                'active'=>1,
+				'reportMissed'=>$txt,
+				'txtEscalation'=>$txt
+            );
+			$whereUpdate = array(
+				'id'=>$userId
+			);
+			
+            $updateUser = Config::get('db')->update('productiveUser',$dataUpdate,$whereUpdate);
+						
+			$dataDelete = array(
+				'userId'=>$userId
+			);
+			$newUserDelete = Config::get('db')->delete('productiveDeptXref',$dataDelete);
+			
+			if(intval($deptId)>0){
+			$dataUpdate = array(
+				'primaryUnit'=>$role,
+				'userId'=>$userId,
+				'deptId'=>$deptId,
+				'textAlerts'=>$txt
+			);
+			$newUserUpdate = Config::get('db')->insert('productiveDeptXref',$dataUpdate);
+			
+			$exists = array(
+			'exist'=>false,
+			'email'=>$email,
+			'dept'=>$deptName,
+			'user'=>$userId
+			);
+			
+			}else{
+			$exists = array(
+			'exist'=>false,
+			'email'=>$email,
+			'dept'=>'',
+			'user'=>$userId
+			);	
+			}
+			
+			echo json_encode(array('success'=>true,'data'=>$exists));
+            return true;
+			
+		}
+			
+			
+		}else{
+			
+			if(intval($accountId)==19){
+				$pw="perfect2019";
+			}else if(intval($accountId)==8){
+				$pw="perfect";
+			}else{
+				$pw = generateRandomString();
+			}	
+			
+			$pword = md5($pw);
+		
+            $data = array(
+				'first_name'=>$first,
+                'last_name'=>$last,
+				'accountId'=>$accountId,
+				'email'=>$email,
+				'userName'=>$email,
+				'pwd'=>$pword,
+				'temp'=>$pword,
+				'role'=>$role,
+				'txt'=>$txt,
+                'active'=>1,
+				'reportMissed'=>$txt,
+				'txtEscalation'=>$txt,
+				'emailAlerts'=>$emailAlerts,
+				'emailMissed'=>$emailMissed
+
+            );
+			
+            $newLoc = Config::get('db')->insert('productiveUser',$data);
+			$dbNew = Config::get('db')->get_results("select * from `productiveUser` where email='{$email}'");
+			$newId = $dbNew[0]['id'];
+			
+			if(intval($deptId)>0){
+			$data = array(
+				'primaryUnit'=>$role,
+				'userId'=>$newId,
+				'deptId'=>$deptId,
+				'textAlerts'=>$txt
+			);
+			$newUser = Config::get('db')->insert('productiveDeptXref',$data);
+			}
+		
+		$subject = $labelName . " New Account";
+		$to = $email;
+		$url = "https://$login";
+		
+
+		$message = "<html>
+		<head>
+		<title>Welcome to $labelName</title>
+		</head>
+		<body>
+		<table>
+		<h5>$first,</h5>
+		
+		<tr>A $labelName ID has been created for you.  Your ID and temporary password are below.</tr>
+		
+		<p>
+		<tr>ID: $email</tr>
+		</p>
+		<p>
+		<tr>Temporary Password: $pw</tr>
+		</p>
+		<p>
+		<tr>To login, go to <a href=" . $url . ">$labelName</a></tr>
+		</p>
+		<tr>To see how to submit a Staffing Report on $labelName, click <a href=" . $video . ">here.</a></tr>
+		<th>Thank you for using $labelName!</th>
+		</table>
+		<h5>
+		NOTE: The information contained in this message may be privileged and confidential and protected from disclosure.  If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by replying to support@productivern.com and deleting it from your computer.
+		</h5>
+		<tr><h5>
+		Thank you for considering the impact of printing emails on our environment.  Please don’t print unless it is necessary!
+		</h5></tr>
+		</body>
+		</html>
+		";
+
+		// Always set content-type when sending HTML email
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		// More headers
+		$headers .= 'From: <noreply@productivern.com>' . "\r\n";
+
+		mail($to,$subject,$message,$headers);
+					
+			$exists = array(
+			'exist'=>false,
+			'role'=>$role
+			);
+            echo json_encode(array('success'=>true,'data'=>$exists));
+            return true;
+								
+			}
+			
+}
+
+/////////////////////////////////////
+// Forgot
+function Forgot() {
+    $email1 = (isset($_REQUEST['email'])) ? $_REQUEST['email'] : '';
+	$email = trim($email1);
+	 //echo json_encode(array('email'=>$email));
+	$dbData = Config::get('db')->get_results("select u.*, l.userLogin, l.labelName from `productiveUser` u left join `productiveAccount` as a on a.id=u.accountId LEFT JOIN `productiveLabel` as l on l.id = a.label where u.email='{$email}'");
+
+	
+    if ($dbData && intval($dbData[0]['active']) !=0) {
+				
+		$pw = generateRandomString(10);
+		$pword = md5($pw);
+		$first = $dbData[0]['first_name'];
+		$login = $dbData[0]['userLogin'];
+		$label = $dbData[0]['labelName'];
+		
+		//$text = intval($atext)+intval($rtext);
+            $data = array(
+				'pwd'=>$pword,
+				'temp'=>$pword,
+                'active'=>1
+            );
+			
+			$updateWhere = array('email' =>$email);
+
+            $newLoc = Config::get('db')->update('productiveUser',$data,$updateWhere);
+		
+		
+		$subject = "ProductiveRN Password Reset";
+		$to = $email;
+
+$message = "
+<html>
+<head>
+<title>$label Password Reset</title>
+</head>
+<body>
+<table>
+<tr>
+<td>$first,</td>
+</tr>
+<tr></tr>
+<tr>
+<td>Your $label password has been reset.  Your Temporary password is below.</td>
+</tr>
+<tr></tr>
+<tr></tr>
+<tr>
+<td>Temporary Password: $pw</td>
+</tr>
+<th></th>
+<tr>
+<td>To login, go to https://$login</td>
+</tr>
+<th></th>
+<tr>
+<th>Thank you for using $label!</th>
+</tr>
+</table>
+<tr></tr><tr></tr>
+<tr><p><h5>
+NOTE: The information contained in this message may be privileged and confidential and protected from disclosure.  If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by replying to support@productivern.com and deleting it from your computer.
+</h5></p></tr>
+<tr><p><h5>
+Thank you for considering the impact of printing emails on our environment.  Please don’t print unless it is necessary!
+</h5></p></tr>
+</body>
+</html>
+";
+
+// Always set content-type when sending HTML email
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+// More headers
+$headers .= 'From: <noreply@productivern.com>' . "\r\n";
+
+mail($to,$subject,$message,$headers);
+					
+			
+            echo json_encode(array('success'=>true,'message'=>'Password reset successfully.'));
+            return true;
+		}
+	
+    echo json_encode(array('success'=>false));
+    return false;
+}
+
+
+function generateRandomString($length = 6) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+/////////////////////////////////////
+// DELETE USER
+function DeleteUser() {
+    $userId = (isset($_REQUEST['userId'])?$_REQUEST['userId']:'');
+	
+	if ($userId) {
+		//$userDb = Config::get('db')->get_results("SELECT * from `productiveUser` where `id`={$userId}");
+		$data = array(
+                'txt'=>0,
+				'txtactive'=>0,
+				'active'=>0
+            );
+        $where = array('id'=>$userId);
+        Config::get('db')->update('productiveUser',$data,$where);
+		
+		$wherex = array('userId'=>$userId);
+        Config::get('db')->delete('productiveDeptXref',$wherex);
+		
+        echo json_encode(array('success'=>true,'message'=>'User Deleted'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'User Failed to Delete'));
+    return false;
+}
+
+/////////////////////////////////////
+// GET DETAILS FOR RESOURCE
+function GetResourceDetails() {
+    $recordId = (isset($_REQUEST['recordId'])) ? $_REQUEST['recordId'] : 0;
+	//echo "store:".$storeId;
+    if (intval($recordId) > 0) {
+        $dbLocation = Config::get('db')->get_results("select * from `productiveResources` where id={$recordId}");
+        $dbData = $dbLocation[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Resource not found.'));
+    return false;
+}
+
+/////////////////////////////////////
+// GET DETAILS FOR RESOURCE
+function GettextResourceDetails() {
+    $recordId = (isset($_REQUEST['recordId'])) ? $_REQUEST['recordId'] : '';
+	//echo "store:".$storeId;
+    if ($recordId) {
+        $dbLocation = Config::get('db')->get_results("select * from `productiveDeptXref` where id={$recordId}");
+        $dbData = $dbLocation[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Record not found.'));
+    return false;
+}
+
+/////////////////////////////////////
+// ADD RESOURCE
+function AddResource() {
+    $deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : 0;
+	$accountId = (isset($_REQUEST['accountId'])) ? $_REQUEST['accountId'] : 0;
+	$name = (isset($_REQUEST['name'])) ? $_REQUEST['name'] : '';
+	$resourcevalue = (isset($_REQUEST['resourcevalue'])) ? $_REQUEST['resourcevalue'] : 0;
+	$sun = (isset($_REQUEST['sun'])) ? $_REQUEST['sun'] : 0;
+	$mon = (isset($_REQUEST['mon'])) ? $_REQUEST['mon'] : 0;
+	$tue = (isset($_REQUEST['tue'])) ? $_REQUEST['tue'] : 0;
+	$wed = (isset($_REQUEST['wed'])) ? $_REQUEST['wed'] : 0;
+	$thu = (isset($_REQUEST['thu'])) ? $_REQUEST['thu'] : 0;
+	$fri = (isset($_REQUEST['fri'])) ? $_REQUEST['fri'] : 0;
+	$sat = (isset($_REQUEST['sat'])) ? $_REQUEST['sat'] : 0;
+	//echo "store:".$storeId;
+    if (intval($deptId)>0) {
+       $data = array(
+			'accountId' => $accountId,
+			'deptId' => $deptId,
+            'position' => $name,
+			'resourcevalue' => $resourcevalue,
+			'Sun' => $sun,
+            'Mon' => $mon,
+			'Tue' => $tue,
+			'Wed' => $wed,
+			'Thu' => $thu,
+			'Fri' => $fri,
+			'Sat' => $sat
+        );
+        Config::get('db')->insert('productiveResources',$data);
+        echo json_encode(array('success'=>true,'message'=>'Resource Added Successfully'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Resource not added.'));
+    return false;
+}
+
+/////////////////////////////////////
+// UPDATE RESOURCE
+function UpdateResource() {
+    $recordId = (isset($_REQUEST['recordId'])) ? $_REQUEST['recordId'] : 0;
+	$name = (isset($_REQUEST['name'])) ? $_REQUEST['name'] : 0;
+	$resourcevalue = (isset($_REQUEST['resourcevalue'])) ? $_REQUEST['resourcevalue'] : 0;
+	$sun = (isset($_REQUEST['sun'])) ? $_REQUEST['sun'] : 0;
+	$mon = (isset($_REQUEST['mon'])) ? $_REQUEST['mon'] : 0;
+	$tue = (isset($_REQUEST['tue'])) ? $_REQUEST['tue'] : 0;
+	$wed = (isset($_REQUEST['wed'])) ? $_REQUEST['wed'] : 0;
+	$thu = (isset($_REQUEST['thu'])) ? $_REQUEST['thu'] : 0;
+	$fri = (isset($_REQUEST['fri'])) ? $_REQUEST['fri'] : 0;
+	$sat = (isset($_REQUEST['sat'])) ? $_REQUEST['sat'] : 0;
+	//echo "store:".$storeId;
+    if (intval($recordId) > 0) {
+       $data = array(
+            'position' => $name,
+			'Sun' => $sun,
+            'Mon' => $mon,
+			'Tue' => $tue,
+			'Wed' => $wed,
+			'Thu' => $thu,
+			'Fri' => $fri,
+			'Sat' => $sat,
+			'resourcevalue' =>$resourcevalue
+        );
+        $where = array('id'=>$recordId);
+        Config::get('db')->update('productiveResources',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'Resource Updated'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Resource not found.'));
+    return false;
+}
+
+/////////////////////////////////////
+// REMOVE RESOURCE
+function RemoveResource() {
+    $recordId = (isset($_REQUEST['recordId'])?$_REQUEST['recordId']:0);
+	
+	if (intval($recordId) > 0) {
+		//$userDb = Config::get('db')->get_results("SELECT * from `productiveUser` where `id`={$userId}");
+		    $where = array('id' => $recordId);
+            Config::get('db')->delete('productiveResources', $where);
+		
+        echo json_encode(array('success'=>true,'message'=>'Resource Deleted'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Resource Failed to Delete'));
+    return false;
+}
+
+/////////////////////////////////////
+// UPDATE USER
+function UpdateUser() {
+    $userId = (isset($_REQUEST['userId'])?$_REQUEST['userId']:'');
+    $email = (isset($_REQUEST['email'])?$_REQUEST['email']:'');
+    $role = (isset($_REQUEST['role'])?$_REQUEST['role']:'');
+	$stop = (isset($_REQUEST['stop'])) ? $_REQUEST['stop'] : 0;
+	$unitNew = (isset($_REQUEST['unit'])) ? $_REQUEST['unit'] : 0;
+	$unitOrig = (isset($_REQUEST['unitOrig'])) ? $_REQUEST['unitOrig'] : 0;
+	$roleOrig = (isset($_REQUEST['roleOrig'])?$_REQUEST['roleOrig'] : '');
+	
+	if($userId){
+
+	$dataU = array(
+		'role' =>$role
+			);
+			
+	$whereU = array(
+		'id' => $userId
+			);
+			Config::get('db')->update('productiveUser',$dataU,$whereU);
+			
+			echo json_encode(array('success'=>true,'message'=>'User Updated'));
+			return true;
+	}else{
+		echo json_encode(array('success'=>true,'message'=>'Update Failed'));
+			return false;
+	}
+}
+
+/////////////////////////////////////
+// UPDATE USER
+function UpdateTextAlerts() {
+    $recordId = (isset($_REQUEST['recordId'])?$_REQUEST['recordId']:'');
+    $textAlerts = (isset($_REQUEST['textAlerts'])?$_REQUEST['textAlerts']:0);
+	
+	if($recordId){
+		$datax = array(
+            'textAlerts' =>$textAlerts
+        );
+        $wherex = array(
+			'id'=>$recordId
+		);
+        Config::get('db')->update('productiveDeptXref',$datax,$wherex);
+		echo json_encode(array('success'=>true,'message'=>'User Updated'));
+		return true;
+	}else{
+		echo json_encode(array('success'=>true,'message'=>'Update Failed'));
+		return false;
+	}
+}
+
+function GetunitGrid() {
+    $accountId = Config::get('account')['accountId'];
+	$userRole = Config::get('account')['role'];
+	$loggedinUser = Config::get('account')['id'];
+	$userId = isset($_REQUEST['userId']) ? $_REQUEST['userId'] : '';
+	$jobArray = array();
+	$outData = array();
+	
+    if ($userId) {
+        $dbLocation = Config::get('db')->get_results("SELECT u.*, x.id as Xid, x.textAlerts, x.userId, x.unitAssigned, x.deptId as depNum, r.role as roleName, x.id as Xid, x.primaryUnit, d.dept as deptName FROM `productiveUser` u LEFT OUTER JOIN `productiveDeptXref` as x on x.userId = u.id LEFT JOIN `ProductiveDept` as d on d.id = x.deptId LEFT OUTER JOIN `productiveUserRoles` as r on r.id = x.primaryUnit WHERE u.id={$userId} order by x.primaryUnit DESC, d.dept ASC");
+    if (intval($dbLocation[0]['depNum'])>0){
+		
+	foreach ($dbLocation as $dbData){
+		if (intval($dbData['txtPause'])==0 && intval($dbData['textAlerts'])>0 && intval($dbData['txtactive'])>0){
+			$Status = "Yes - Active (User receiving Text Alerts)";
+		}else if (intval($dbData['txtPause'])>0 && intval($dbData['textAlerts'])>0 && intval($dbData['txtactive'])>0){
+			$Status = "Yes - Paused (User not receiving texts)";
+		}else if (intval($dbData['textAlerts'])>0 && intval($dbData['txtactive'])==0){
+			$Status = "Yes - Inactive (User must activate texting)";
+		}else{
+			$Status = "No";
+		}
+		//if(intval($dbData['primaryUnit'])>0 && intval($dbData['role'])==4 && intval($dbData['primaryUnit'])==4) {
+		if(intval($dbData['unitAssigned'])==1 && intval($userRole)<7){
+			$primary = " (Unit Assigned)";
+			//$action = "<a href=\"#units\">Change in Unit Settings</a>";
+			$action = "Change in Unit Settings";
+		}else if(intval($dbData['unitAssigned'])==1 && intval($userRole)>=7){
+			$primary = " (Unit Assigned)";
+			$action = "<button type=\"button\" class=\"btn btn-success\" onclick=\"tj.removeuserUnit(" . $dbData['depNum'] . " , " . $dbData['userId'] . ")\">Remove</button>";
+		}else{
+			$primary = '';
+			$action = "<button type=\"button\" class=\"btn btn-success\" onclick=\"tj.removeuserUnit(" . $dbData['depNum'] . " , " . $dbData['userId'] . ")\">Remove</button>";
+		}
+		//$user = $dbData['last_name'] . ", " . $dbData['first_name'];
+		$txtStatus = "<a href=\"javascript:;\" onclick=\"tj.edittextStatus(" . $dbData['textAlerts'] . "," . $dbData['Xid'] . ");return false;\" >". $Status ."</a>";
+		$position = $dbData['last_name'] . ", " . $dbData['first_name'];
+			
+				
+        $jobArray[] = array(
+			'unit'=>$dbData['deptName'],
+            'text'=>$txtStatus,
+            'role'=>$dbData['roleName'].$primary,
+			'action'=>$action
+        );
+    }
+    $outData['data'] = $jobArray;
+    echo json_encode($outData,JSON_NUMERIC_CHECK);  
+	}else{
+	$jobArray[] = array(
+				'unit' => '',
+				'text' => '',
+				'role' => '',
+				'action' => ''
+            );
+        $outData['data'] = $jobArray;
+        echo json_encode($outData,JSON_NUMERIC_CHECK);  
+	}
+}
+}
+	////////////////////////////////////////////////
+//////// OptIn
+function optIn(){
+//include_once 'inc/class.db.php';
+//include_once 'inc/config.php';
+	$mobile = isset($_POST['mobile']) ? $_POST['mobile'] : false;
+	$id = isset($_POST['id']) ? $_POST['id'] : '';
+	$report = isset($_POST['report']) ? $_POST['report'] : 0;
+	$missed = isset($_POST['missed']) ? $_POST['missed'] : 0;
+	$escalation = isset($_POST['escalation']) ? $_POST['escalation'] : 0;
+	$times = isset($_POST['times']) ? $_POST['times'] : 0;
+	$pause = isset($_POST['pause']) ? $_POST['pause'] : 0;
+	
+	if ($mobile){		
+		
+			$number = "1" . $mobile;
+		    $now = time();
+			
+			$msgId = "";
+			$msgId .= "";
+			$msgId .= $mobile . $now;
+			$psword = "J8775bcgEE2065";
+			$keyword = "JOBALARM58046";
+			$slooce = "jobalarm45";
+			$content = "PRODUCTIVE";
+
+			$xmlmsg = "";
+			$xmlmsg .= "";		
+			$xmlmsg .= "<message id=\"".$msgId."\">";
+			$xmlmsg .= "<partnerpassword>".$psword."</partnerpassword>";
+			$xmlmsg .= "<content>".$content."</content>";
+			$xmlmsg .= "</message>"
+			;
+			
+			$startoptions = Array(
+					'numbers' => $number,
+					'message' => $xmlmsg,
+					'login' => $slooce,
+					'keyword' => $keyword
+
+				);
+			$sms_result = '';
+		
+		$sms_result = send_messages_start($startoptions);
+		
+		$data = array(
+                'txtactive'=>1,
+				'mobile'=>$mobile,
+				'txt'=> $report,
+				'reportMissed'=> $missed,
+				'txtEscalation'=> $escalation,
+				'txtPause'=> $pause,
+				'alertTimes'=> $times				
+            );
+        $where = array('id'=>$id);
+        Config::get('db')->update('productiveUser',$data,$where);
+		
+		echo json_encode(array('success'=>true,'mobile activated'=>$mobile));
+		return true;
+	}
+	echo json_encode(array('success'=>false,'mobile'=>$mobile));
+	return false;
+	
+	}
+	
+function optIn2(){
+//include_once 'inc/class.db.php';
+//include_once 'inc/config.php';
+	$mobile = isset($_POST['mobile']) ? $_POST['mobile'] : false;
+	$id = isset($_POST['id']) ? $_POST['id'] : '';
+	
+	if ($mobile){		
+		
+			$number = "1" . $mobile;
+		    $now = time();
+			
+			$msgId = "";
+			$msgId .= "";
+			$msgId .= $mobile . $now;
+			$psword = "J8775bcgEE2065";
+			$keyword = "JOBALARM58046";
+			$slooce = "jobalarm45";
+			$content = "PRODUCTIVE";
+
+			$xmlmsg = "";
+			$xmlmsg .= "";		
+			$xmlmsg .= "<message id=\"".$msgId."\">";
+			$xmlmsg .= "<partnerpassword>".$psword."</partnerpassword>";
+			$xmlmsg .= "<content>".$content."</content>";
+			$xmlmsg .= "</message>"
+			;
+			
+			$startoptions = Array(
+					'numbers' => $number,
+					'message' => $xmlmsg,
+					'login' => $slooce,
+					'keyword' => $keyword
+
+				);
+			$sms_result = '';
+		
+		$sms_result = send_messages_start($startoptions);
+		
+		$data = array(
+                'txtactive'=>1,
+				'txtEscalation'=>1,
+				'alertTimes'=>3,
+				'mobile'=>$mobile
+            );
+        $where = array('id'=>$id);
+        Config::get('db')->update('productiveUser',$data,$where);
+		
+		echo json_encode(array('success'=>true));
+		return true;
+	//exit();
+	}
+	echo json_encode(array('success'=>false));
+	//exit();
+	return false;
+	}
+	
+function GettextConfigure() {
+    $accountId = Config::get('account')['accountId'];
+	//$deptId = Config::get('account')['deptid'];
+	$deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : 0;
+	$jobArray = array();
+	$outData = array();
+	//if (intval($dept)!=0){
+	//	$deptId = $dept;
+	//}else{
+	//	$deptId = Config::get('account')['deptid'];
+	//}
+	
+	//echo "store:".$storeId;
+    if ($deptId) {
+        $dbLocation = Config::get('db')->get_results("SELECT x.*, r.role as roleName, u.last_name, u.first_name, u.role, u.txtactive, u.txtPause FROM `productiveDeptXref` x LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId LEFT JOIN `productiveUserRoles` as r on r.id = u.role WHERE x.deptid={$deptId} and x.unitAssigned=1");
+    if ($dbLocation){
+	foreach ($dbLocation as $dbData){
+		if (intval($dbData['txtPause'])==0 && intval($dbData['textAlerts'])>0 && intval($dbData['txtactive'])>0){
+			$Status = "Yes - Active (User receiving Text Alerts)";
+		}else if (intval($dbData['txtPause'])>0 && intval($dbData['textAlerts'])>0 && intval($dbData['txtactive'])>0){
+			$Status = "Yes - Paused (User not receiving texts)";
+		}else if (intval($dbData['textAlerts'])>0 && intval($dbData['txtactive'])==0){
+			$Status = "Yes - Inactive (User must activate texting)";
+		}else{
+			$Status = "No";
+		}
+		//$user = $dbData['last_name'] . ", " . $dbData['first_name'];
+		$txtStatus = "<a href=\"javascript:;\" onclick=\"tj.edittextStatus(".$dbData['id'].");return false;\" >". $Status ."</a>";
+		$position = $dbData['last_name'] . ", " . $dbData['first_name'];
+		$action = "<button type=\"button\" class=\"btn btn-danger\" onclick=\"tj.deletetextResource(" . $dbData['id'] . ")\">Remove</button>";	
+				
+        $jobArray[] = array(
+			'user'=>$position,
+            'role'=>$dbData['roleName'],
+            'status'=>$txtStatus,
+			'action'=>$action
+        );
+    }
+    $outData['data'] = $jobArray;
+    echo json_encode($outData,JSON_NUMERIC_CHECK);  
+	}else{
+	$jobArray[] = array(
+				'user' => '',
+				'role' => '',
+				'status' => '',
+				'action' => ''
+            );
+        $outData['data'] = $jobArray;
+        echo json_encode($outData,JSON_NUMERIC_CHECK);  
+	}
+}
+}
+
+
+
+/////////////////////////////////////
+// ADD RESOURCE
+function AddtextResource() {
+    $deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : '';
+	$userId = (isset($_REQUEST['userId'])) ? $_REQUEST['userId'] : '';
+	$grantText = (isset($_REQUEST['grantText'])) ? $_REQUEST['grantText'] : '';
+	
+	if($deptId && $userId){
+		$dbText = Config::get('db')->get_results("select u.*, x.deptId, x.unitAssigned from `productiveUser` u LEFT OUTER JOIN `productiveDeptXref` as x on x.userId =u.id and x.deptId={$deptId} where u.id={$userId}");
+		//$assigned = $dbText[0]['deptId'];
+	if(intval($dbText[0]['deptId'])>0) {
+		//$xId = $dbText[0]['id'];
+       
+		//$data = array('textAlerts' => $grantText);
+		//$where = array('id' =>$xId);
+        
+		//Config::get('db')->update('productiveDeptXref',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>false));
+        return true;
+    }else{
+		$data = array(
+			'textAlerts' => $grantText,
+			'userId' => $userId,
+			'deptId' => $deptId,
+			'primaryUnit' => $dbText[0]['role'],
+			'unitAssigned' =>1
+        );
+		Config::get('db')->insert('productiveDeptXref',$data);
+        echo json_encode(array('success'=>true,'message'=>true));
+        return true;		
+	}	
+    echo json_encode(array('success'=>false,'message'=>'Resource not added.'));
+    return false;
+}
+}
+
+/////////////////////////////////////
+// REMOVE RESOURCE
+function RemovetextResource() {
+    $recordId = (isset($_REQUEST['recordId'])?$_REQUEST['recordId']:'');
+	
+	if ($recordId) {
+		//$userDb = Config::get('db')->get_results("SELECT * from `productiveUser` where `id`={$userId}");
+		    $where = array('id' => $recordId);
+            Config::get('db')->delete('productiveDeptXref', $where);
+		
+        echo json_encode(array('success'=>true,'message'=>'User Removed'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Update Failed'));
+    return false;
+}
+
+/////////////////////////////////////
+// REMOVE RESOURCE
+function RemoveUnit() {
+    //$recordId = (isset($_REQUEST['recordId'])?$_REQUEST['recordId']:'');
+	 $userId = isset($_REQUEST['user']) ? $_REQUEST['user']:'';
+	 $deptId = isset($_REQUEST['dept']) ? $_REQUEST['dept']:'';
+	
+	if(intval($userId)>0) {
+		//$userDb = Config::get('db')->get_results("SELECT * from `productiveUser` where `id`={$userId}");
+		    $whereD = array('deptId'=> $deptId,
+							'userId'=> $userId);
+            Config::get('db')->delete('productiveDeptXref', $whereD);
+		
+        echo json_encode(array('success'=>true,'message'=>'User Removed'));
+        return true;
+    }else{
+    echo json_encode(array('success'=>false,'message'=>$userId));
+    return false;
+	}
+}
+
+/////////////////////////////////////
+// UPDATE RESOURCE
+function UpdatetextResource() {
+    $recordId = (isset($_REQUEST['recordId'])?$_REQUEST['recordId']:'');
+	$textval = (isset($_REQUEST['updateval'])?$_REQUEST['updateval']:0);
+	
+	if ($recordId) {
+		//$userDb = Config::get('db')->get_results("SELECT * from `productiveUser` where `id`={$userId}");
+		    $data = array('textAlerts' => $textval);
+			$where = array('id' => $recordId);
+            Config::get('db')->update('productiveDeptXref',$data,$where);
+		
+        echo json_encode(array('success'=>true,'message'=>'User Update'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'Update Failed'));
+    return false;
+}
+	
+/*
+ 
+ UNITS
+  ______  ___  _____  _____
+  | ___ \/ _ \|  __ \|  ___|
+  | |_/ / /_\ \ |  \/| |__
+  |  __/|  _  | | __ |  __|
+  | |   | | | | |_\ \| |___
+  \_|   \_| |_/\____/\____/
+
+
+*/
+
+/////////////////////////////////////
+// GET ALL USERS
+function GetAllUnits() {
+    $accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+	$role = Config::get('account')['role'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	$label = Config::get('account')['label'];
+	
+	if(intval($role)<=8){
+		$searchAdd = "WHERE d.accountId ={$accountId} AND d.id in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId} and `primaryUnit`>5)";
+	}else if(intval($role)>8 && intval($role)<=12){
+		$searchAdd = "WHERE d.accountId ={$accountId}";
+	}else if(intval($role)>12 && intval($role)<90){
+		$searchAdd = "WHERE a.enterpriseId ={$enterpriseId}";
+	}else if(intval($role)>=90 && intval($role)<100){
+		$searchAdd = "WHERE a.label ={$label}";
+	}else{
+		$searchAdd = '';
+	}
+    
+        $query = "SELECT SQL_CALC_FOUND_ROWS
+		d.*, c.categoryName, d.unitId as number, a.enterpriseId, a.name as accountName, IFNULL(u.last_name,'') as manager, m.name as prodname, IFNULL(u.first_name,'') as first_name, IFNULL(u.role,0) as role    
+        FROM `ProductiveDept` d
+		LEFT JOIN `productiveMeasures` as m on m.id = d.prodMeasure
+		LEFT JOIN `productiveAccount` as a on a.id = d.accountId		
+		LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId = d.id AND x.primaryUnit=6
+		LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId
+		LEFT OUTER JOIN `productiveCategory` as c on c.id = d.category
+        $searchAdd 
+		GROUP BY d.id ORDER BY a.name ASC, d.dept ASC
+		";
+
+    $dbData = Config::get('db')->get_results($query);
+    $query = "SELECT FOUND_ROWS() AS found_rows;";
+    $countData = Config::get('db')->get_results($query);
+    $total = $countData[0]['found_rows'];
+    $jobArray = array();
+    $link = 0;
+	
+	if ($dbData){
+    //$brandcandidates = Config::get('db')->get_results("SELECT c.*, x.keyword as keyword FROM `candidate` as c LEFT JOIN candidateXref as x on x.candidateId = c.id WHERE x.brandId={$brand} and c.active=1 and (x.promo=1 or x.promo=2)");
+
+    foreach ($dbData as $job) {
+        
+		if(intval($role)>12){
+		$name = $job['accountName'] . " - " . $job['dept'];
+		}else{
+		$name = $job['dept'];
+		}
+		
+		$number = $job['number'];
+		if(floatval($job['hppd'])>0){
+			$value = $job['hppd'];
+		}else{
+			$value = '';
+		}
+		$prodName = $job['prodname'];
+		$target = $job['target'];
+		if($job['manager']){
+		$manager = $job['manager'].", ".$job['first_name'];
+		}else{
+		$manager = '';	
+		}
+		
+		$unitLink = '<a href="javascript:;" onclick="tj.editUnitMgr('.$job['id'].' , '.$role.');return false;" >' . $name . '</a>';	
+		
+				
+        $jobArray[] = array(
+            'Name'=>$unitLink,
+			'Category'=>$job['categoryName'],
+            'Number'=>$number,
+			'ProdName'=>$prodName,
+            'Value'=>$value,
+			'Manager'=>$manager
+        );
+    }
+    $outData = array();
+    $outData['data'] = $jobArray;
+    echo json_encode($outData,JSON_NUMERIC_CHECK);
+	return true;
+	}else{
+    $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+		
+	}
+
+}
+
+/////////////////////////////////////
+// GET ALL USERS
+function GetAllAccounts() {
+    $accountId = Config::get('account')['accountId'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	$role = Config::get('account')['role'];
+	$label = Config::get('account')['label'];
+	$accountArray=array();
+	
+	if(intval($role)>=7 && intval($role)<=12){
+		$searchAdd = "WHERE a.active>0 AND a.id={$accountId}";
+	}else if(intval($role)>12 && intval($role)<90){
+		$searchAdd = "WHERE a.active>0 AND a.enterpriseId={$enterpriseId}";
+	}else if(intval($role)>=90 && intval($role)<100){
+		$searchAdd = "WHERE a.label={$label}";
+	}else{
+		$searchAdd = '';
+	}
+    
+     $dbAccounts = Config::get('db')->get_results("SELECT a.*, IFNULL(l.labelName,'') as labelName 
+		FROM `productiveAccount` a
+		LEFT JOIN `productiveLabel` as l on l.id=a.label 
+		$searchAdd 
+		GROUP BY a.id
+		");
+	if($dbAccounts){
+	foreach ($dbAccounts as $account) {
+        $nameLink = '<a href="javascript:;" onclick="tj.editAccount('.$account['id'].')">'. $account['name'] .'</a>';
+		
+		$accountArray[] = array(
+            'name'=>$nameLink,
+            'city'=>$account['accountCity'],
+			'state'=>$account['accountState'],
+            'label'=>$account['labelName']
+        );
+		}
+		$outData = array();
+		$outData['data'] = $accountArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+		return true;
+		}else{
+	    echo json_encode(array('success'=>false,'message'=>'Account not found.'));
+		return false;
+		}
+
+}
+
+
+/////////////////////////////////////
+// GET DETAILS FOR SINGLE USER
+function GetUnitDetails() {
+    $deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$role = Config::get('account')['role'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	
+        $dbUnits = Config::get('db')->get_results("select d.*, d.dept as unitName, m.prodDesc, IFNULL(u.last_name,'') as last_name, IFNULL(u.id,0) as userId, IFNULL(u.first_name,'') as first_name from `ProductiveDept` d LEFT JOIN `productiveDeptXref` as x on x.deptId = d.id and x.primaryUnit=6 LEFT JOIN `productiveUser` as u on u.id=x.userId and x.primaryUnit=6 LEFT JOIN `productiveMeasures` as m on m.id=d.prodMeasure where d.id={$deptId}");
+        $dbData = $dbUnits[0];
+		$dbDir = Config::get('db')->get_results("select d.*, d.dept as unitName, m.prodDesc, IFNULL(u.last_name,'') as last_name2, IFNULL(u.id,0) as userId2, IFNULL(u.first_name,'') as first_name2 from `ProductiveDept` d LEFT JOIN `productiveDeptXref` as x on x.deptId = d.id and x.primaryUnit=7 LEFT JOIN `productiveUser` as u on u.id=x.userId and x.primaryUnit=7 LEFT JOIN `productiveMeasures` as m on m.id=d.prodMeasure where d.id={$deptId}");
+        $dbdirector = $dbDir[0];
+        
+		if($dbUnits){
+		echo json_encode(array('success' => true,'data'=>$dbData,'data2'=>$dbdirector));
+        return true;
+		}else{
+	    echo json_encode(array('success'=>false,'message'=>'Unit not found.'));
+		return false;
+		}
+}
+
+// GET DETAILS FOR SINGLE USER
+function GetAccountDetails() {
+    $accountId = (isset($_REQUEST['accountId'])) ? $_REQUEST['accountId'] : '';
+	//$accountId = Config::get('account')['accountId'];
+	
+        $dbUnits = Config::get('db')->get_results("select a.*, a.image as accountImage, l.id as labelId from `productiveAccount` a LEFT JOIN `productiveLabel` as l on l.id = a.label where a.id ={$accountId}");
+             
+		if($dbUnits){
+		$dbData = $dbUnits[0];	
+		echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+		}else{
+	    echo json_encode(array('success'=>false,'message'=>'Account not found.'));
+		return false;
+		}
+}
+/////////////////////////////////////
+// ADD NEW USER
+function AddUnit() {
+    $name = (isset($_REQUEST['unitName'])) ? $_REQUEST['unitName'] : '';
+	$number = (isset($_REQUEST['unitNumber'])) ? $_REQUEST['unitNumber'] : '';
+	$prodMeasure = (isset($_REQUEST['unitprodMeasure'])) ? $_REQUEST['unitprodMeasure'] : 0;
+	$prodValue = (isset($_REQUEST['unitprodValue'])) ? $_REQUEST['unitprodValue'] : 0;
+	$uosDesc = (isset($_REQUEST['uosDesc'])) ? $_REQUEST['uosDesc'] : '';
+	$target = (isset($_REQUEST['unitTarget'])) ? $_REQUEST['unitTarget'] : 100;
+	$manager = (isset($_REQUEST['manager'])) ? $_REQUEST['manager'] : '';
+	$director = (isset($_REQUEST['director'])) ? $_REQUEST['director'] : '';
+	$beds = (isset($_REQUEST['unitBeds'])) ? $_REQUEST['unitBeds'] : 0;
+	$census = (isset($_REQUEST['censusShift'])) ? $_REQUEST['censusShift'] : 52;
+	$shiftsDay = (isset($_REQUEST['shiftsDay'])) ? $_REQUEST['shiftsDay'] : 6;
+	$userId = Config::get('account')['id'];	
+	$role = Config::get('account')['role'];	
+	
+	if(intval($role)>89){
+		$accountId = (isset($_REQUEST['accountId'])) ? $_REQUEST['accountId'] : 0;
+	}else{
+		$accountId = Config::get('account')['accountId'];
+	}
+	
+	if(intval($prodMeasure)==2){
+		$viewPage ="w.php?i=";
+		$modalPage ="tj.editWHP";
+		$censusShift =0;
+		$rnThreshold =0;
+		$inshiftProd =0;
+	}else if(intval($prodMeasure)==4){
+		$viewPage ="v.php?i=";
+		$modalPage ="tj.editNEW";
+		$censusShift =0;
+		$rnThreshold =2;
+		$inshiftProd =0;
+	}else{
+		$viewPage ="v.php?i=";
+		$modalPage ="tj.editNEW";
+		$censusShift =$census;
+		$rnThreshold =2;
+		$inshiftProd =1;
+	}
+	
+    $dbUnit = Config::get('db')->get_results("select * FROM `ProductiveDept` WHERE `accountId`={$accountId} and `unitId`='{$number}'");
+	
+	if (!$dbUnit) {
+			
+            $data = array(
+				'dept'=>$name,
+                'unitId'=>$number,
+				'prodMeasure'=>$prodMeasure,
+				'hppd'=>$prodValue,
+				'uosDesc'=>$uosDesc,
+				'viewPage'=>$viewPage,
+				'modalPage'=>$modalPage,
+                'target'=>$target,
+				'totalBeds'=>$beds,
+				'accountId'=>$accountId,
+				'shift'=>$censusShift,
+				'shiftsperDay'=>$shiftsDay,
+                'active'=>1,
+				'inshiftProd'=>$inshiftProd,
+				'rnThreshold'=>$rnThreshold,
+				'createdBy'=>$userId
+            );
+
+            $newLoc = Config::get('db')->insert('ProductiveDept',$data);
+		
+			$dbNew = Config::get('db')->get_results("select * FROM `ProductiveDept` WHERE `accountId`={$accountId} and `unitId`='{$number}'");
+            $newId = $dbNew[0]['id'];
+			
+			$dbDir = Config::get('db')->get_results("select * FROM `productiveDeptXref` WHERE `deptId`={$newId} and `primaryUnit`=7");
+			
+			if($dbDir){
+				$dataDir = array(
+				'userId'=>$director
+            );
+				$whereDir = array(
+				'deptId'=>$newId,
+				'primaryUnit'=>7
+            );
+
+            $newDir = Config::get('db')->update('productiveDeptXref',$dataDir,$whereDir);
+				
+			}else{
+				$dataNewDir = array(
+				'primaryUnit'=>7,
+				'deptId'=>$newId,
+				'userId'=>$director
+            );
+				
+            $newDir = Config::get('db')->insert('productiveDeptXref',$dataNewDir);
+				
+			}
+			
+			$dbMgr = Config::get('db')->get_results("select * FROM `productiveDeptXref` WHERE `deptId`={$newId} and `primaryUnit`=6");
+			
+			if($dbMgr){
+				$dataMgr = array(
+				'userId'=>$manager,
+				'textAlerts'=>1
+            );
+				$whereMgr = array(
+				'deptId'=>$newId,
+				'primaryUnit'=>6
+            );
+
+            $newMgr = Config::get('db')->update('productiveDeptXref',$dataMgr,$whereMgr);
+				
+			}else if(!$dbMgr && $manager){
+				$dataNewMgr = array(
+				'primaryUnit'=>6,
+				'textAlerts'=>1,
+				'deptId'=>$newId,
+				'userId'=>$manager
+            );
+				
+            $newMgr = Config::get('db')->insert('productiveDeptXref',$dataNewMgr);
+				
+			}else{
+				//do nothing;
+			}
+			
+			if(intval($shiftsDay)==2){
+			$dbXref = Config::get('db')->get_results("select * FROM `productiveShifts` WHERE `shiftsperDay`=2");
+			}else if(intval($shiftsDay)==4){
+			$dbXref = Config::get('db')->get_results("select * FROM `productiveShifts` WHERE `shiftsperDay`=4 OR `shiftsperDay`=2 OR `shiftsperDay`=3");	
+			}else{
+			$dbXref = Config::get('db')->get_results("select * FROM `productiveShifts` WHERE `shiftsperDay`=6 OR `shiftsperDay`=4");	
+			}
+			
+			foreach ($dbXref as $NewXref){
+				$shift = $NewXref['id'];
+				$value = ROUND((1/intval($shiftsDay)),3);
+				$shifthrs = 24 / intval($shiftsDay);
+				
+			if(intval($shift)!=38){
+				$whpPlan=0;
+				$name="Actual";
+			}else{
+				$whpPlan=1;
+				$name="Planned";
+			}
+			
+			$dataNewXref = array(
+				'accountId'=>$accountId,
+				'dept'=>$newId,
+				'shift'=>$shift,
+				'value'=>$value,
+				'shifthrs'=>$shifthrs,
+				'whpPlan'=>$whpPlan,
+				'shiftName'=>$name,
+				'active'=>1
+            );
+				
+            $newMgr = Config::get('db')->insert('productiveAccountXref',$dataNewXref);
+			}
+			
+			echo json_encode(array('success'=>true,'exists'=>false,'message'=>'Unit entered successfully.'));
+            return true;
+	}else{
+    echo json_encode(array('success'=>true,'exists'=>true,'message'=>'Duplicate Unit'));
+    return true;
+	}
+}
+
+/////////////////////////////////////
+// DELETE USER
+function DeleteUnit() {
+    $userId = (isset($_REQUEST['userId'])?$_REQUEST['userId']:0);
+	
+	if ($userId > 0) {
+		//$userDb = Config::get('db')->get_results("SELECT * from `productiveUser` where `id`={$userId}");
+		$data = array(
+                'txt'=>0,
+				'txtactive'=>0,
+				'active'=>0
+            );
+        $where = array('id'=>$userId);
+        Config::get('db')->update('productiveUser',$data,$where);
+		
+        echo json_encode(array('success'=>true,'message'=>'User Deleted'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'User Failed to Delete'));
+    return false;
+}
+
+/////////////////////////////////////
+// UPDATE USER
+function UpdateUnit() {
+    $unitId = (isset($_REQUEST['unitId'])?$_REQUEST['unitId']:'');
+	$unitName = (isset($_REQUEST['name'])?$_REQUEST['name']:'');
+    $unitTarget = (isset($_REQUEST['unitTarget'])?$_REQUEST['unitTarget']:100);
+    $unitNumber = (isset($_REQUEST['unitNumber'])?$_REQUEST['unitNumber']:'');
+	$bedCount = (isset($_REQUEST['bedCount'])?$_REQUEST['bedCount']:0);
+	$prodMeasure = (isset($_REQUEST['prodMeasure'])) ? $_REQUEST['prodMeasure'] :0;
+	$value = (isset($_REQUEST['value'])) ? $_REQUEST['value'] : 0;
+	$censusShift = (isset($_REQUEST['censusShift'])) ? $_REQUEST['censusShift'] : 0;
+	$newMgr = (isset($_REQUEST['newMgr'])) ? $_REQUEST['newMgr'] : 0;
+	$newDir = (isset($_REQUEST['newDir'])) ? $_REQUEST['newDir'] : 0;
+
+
+    if ($unitId) {
+		
+		if (intval($newMgr)!=0 && intval($newDir)!=0){
+		$data = array(
+            'target' => $unitTarget,
+            'dept' => $unitName,
+			'unitId' => $unitNumber,
+			'totalBeds' => $bedCount,
+			'prodMeasure' => $prodMeasure,
+			'hppd' => $value,
+			'director' => $newDir,
+			'shift' => $censusShift
+        );
+		}else if (intval($newMgr)!=0 && intval($newDir)==0){
+		$data = array(
+            'target' => $unitTarget,
+            'dept' => $unitName,
+			'unitId' => $unitNumber,
+			'totalBeds' => $bedCount,
+			'prodMeasure' => $prodMeasure,
+			'hppd' => $value,
+			'mgrId' => $newMgr,
+			'shift' => $censusShift
+        );
+		}else if (intval($newMgr)==0 && intval($newDir)!=0){
+		$data = array(
+            'target' => $unitTarget,
+            'dept' => $unitName,
+			'unitId' => $unitNumber,
+			'totalBeds' => $bedCount,
+			'prodMeasure' => $prodMeasure,
+			'hppd' => $value,
+			'director' => $newDir,
+			'shift' => $censusShift
+        );
+		}else{
+		$data = array(
+            'target' => $unitTarget,
+            'dept' => $unitName,
+			'unitId' => $unitNumber,
+			'totalBeds' => $bedCount,
+			'prodMeasure' => $prodMeasure,
+			'hppd' => $value,
+			'shift' => $censusShift
+        );
+		}
+        $where = array('id'=>$unitId);
+        Config::get('db')->update('ProductiveDept',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'Unit Updated'));
+        return true;
+    }else{
+	 echo json_encode(array('success'=>false,'message'=>'Unit Failed to Update'));
+    return false;		
+	}
+   
+}
+
+/////////////////////////////////////
+// UPDATE USER
+
+function addServiceLine() {
+    $serviceName = (isset($_REQUEST['serviceName']) ? $_REQUEST['serviceName']:'');
+	$accountId = Config::get('account')['accountId'];
+    if ($serviceName) {
+		$svcDb = Config::get('db')->get_results("SELECT * from `productiveCategory` WHERE (`accountId`={$accountId} OR `accountId`=0) AND `categoryName`='{$serviceName}'");
+		
+		if(!$svcDb){
+		$data = array(
+            'categoryName' => $serviceName,
+            'accountId' => $accountId
+        );
+        Config::get('db')->insert('productiveCategory',$data);
+		
+		$newSvc = Config::get('db')->get_results("SELECT * from `productiveCategory` WHERE `accountId`={$accountId} AND `categoryName`='{$serviceName}'");
+		$serviceId = $newSvc[0]['id'];
+	
+		$serviceArray = array(
+		'serviceNum' => $serviceId,
+		'message' => true,
+		'serviceName' => $serviceName
+		);
+        echo json_encode(array('success'=>true,'data'=>$serviceArray));
+        return true;
+    }else{
+		$duplicateArray = array(
+		'message' => false
+		);
+		
+	 echo json_encode(array('success'=>true,'data'=>$duplicateArray));
+    return true;		
+	}
+}else{
+	echo json_encode(array('success'=>true,'message'=>'No Service Added'));
+    return false;
+	}
+}
+
+/////////////////////////////////////
+// UPDATE USER
+function UpdateAccount() {
+    $accountId = (isset($_REQUEST['accountId'])?$_REQUEST['accountId']:'');
+	$enterpriseId = (isset($_REQUEST['enterpriseId'])?$_REQUEST['enterpriseId']:'');
+	$address = (isset($_REQUEST['address'])?$_REQUEST['address']:'');
+    $city = (isset($_REQUEST['city'])?$_REQUEST['city']:'');
+    $state = (isset($_REQUEST['state'])?$_REQUEST['state']:'');
+	$zip = (isset($_REQUEST['zip'])?$_REQUEST['zip']:'');
+	$contactName = (isset($_REQUEST['contactName'])) ? $_REQUEST['contactName'] :'';
+	$contactEmail = (isset($_REQUEST['contactEmail'])) ? $_REQUEST['contactEmail'] : '';
+	$contactPhone = (isset($_REQUEST['contactPhone'])) ? $_REQUEST['contactPhone'] : '';
+	$payPeriod = (isset($_REQUEST['payPeriod'])) ? $_REQUEST['payPeriod'] : 0;
+	$payFirst = (isset($_REQUEST['payFirst'])) ? $_REQUEST['payFirst'] : date('yyyy-mm-dd');
+	//$payLast = (isset($_REQUEST['payLast'])) ? $_REQUEST['payLast'] : date('yyyy-mm-dd');
+	$label = (isset($_REQUEST['accountLabel'])) ? $_REQUEST['accountLabel'] : 1;
+	$image = (isset($_REQUEST['accountImage'])) ? $_REQUEST['accountImage'] : '';
+	$dashColor = (isset($_REQUEST['dashColor'])) ? $_REQUEST['dashColor'] : 1;
+
+    if ($accountId) {
+		$data = array(
+            'accountAddress' => $address,
+            'accountCity' => $city,
+			'accountState' => $state,
+			'accountZip' => $zip,
+			'contactName' => $contactName,
+			'contactEmail' => $contactEmail,
+			'contactPhone' => $contactPhone,
+			'payPeriod' => $payPeriod,
+			'payPeriodFirst' => $payFirst,
+			'image' => $image,
+			'label' => $label,
+			'enterpriseId' => $enterpriseId,
+			'prodIndicator' => $dashColor
+        );
+        $where = array('id'=>$accountId);
+        Config::get('db')->update('productiveAccount',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'Account Updated'));
+        return true;
+		}else{
+	 echo json_encode(array('success'=>false,'message'=>'Unit Failed to Update'));
+    return false;		
+	}
+   
+}
+
+
+/////////////////////////////////////
+// UPDATE UNIT MANAGER
+function UpdateUnitMgr() {
+    $unitId = (isset($_REQUEST['deptId'])?$_REQUEST['deptId']:'');
+	$unitName = (isset($_REQUEST['name'])?$_REQUEST['name']:'');
+    $unitTarget = (isset($_REQUEST['unitTarget'])?$_REQUEST['unitTarget']:100);
+    $unitNumber = (isset($_REQUEST['unitNumber'])?$_REQUEST['unitNumber']:'');
+	$bedCount = (isset($_REQUEST['bedCount'])?$_REQUEST['bedCount']:0);
+	$prodMeasure = (isset($_REQUEST['prodMeasure'])) ? $_REQUEST['prodMeasure'] :0;
+	$serviceLine = (isset($_REQUEST['serviceLine'])) ? $_REQUEST['serviceLine'] :0;
+	$value = (isset($_REQUEST['value'])) ? $_REQUEST['value'] : 0;
+	$uosDesc = (isset($_REQUEST['uosDesc'])) ? $_REQUEST['uosDesc'] : '';
+	$censusShift = (isset($_REQUEST['censusShift'])) ? $_REQUEST['censusShift'] : 0;
+	$shiftsDay = (isset($_REQUEST['shiftsDay'])) ? $_REQUEST['shiftsDay'] : 0;
+	$shiftsOrig = (isset($_REQUEST['shiftsOrig'])) ? $_REQUEST['shiftsOrig'] : 0;
+	$one2one = (isset($_REQUEST['one2one'])) ? $_REQUEST['one2one'] : 0;
+	$desc1 = (isset($_REQUEST['desc1'])) ? $_REQUEST['desc1'] : '';
+	$one2two = (isset($_REQUEST['one2two'])) ? $_REQUEST['one2two'] : 0;
+	$desc2 = (isset($_REQUEST['desc2'])) ? $_REQUEST['desc2'] : '';
+	$one2three = (isset($_REQUEST['one2three'])) ? $_REQUEST['one2three'] : 0;
+	$desc3 = (isset($_REQUEST['desc3'])) ? $_REQUEST['desc3'] : '';
+	$one2four = (isset($_REQUEST['one2four'])) ? $_REQUEST['one2four'] : 0;
+	$desc4 = (isset($_REQUEST['desc4'])) ? $_REQUEST['desc4'] : '';
+	$one2five = (isset($_REQUEST['one2five'])) ? $_REQUEST['one2five'] : 0;
+	$desc5 = (isset($_REQUEST['desc5'])) ? $_REQUEST['desc5'] : '';
+	$one2six = (isset($_REQUEST['one2six'])) ? $_REQUEST['one2six'] : 0;
+	$desc6 = (isset($_REQUEST['desc6'])) ? $_REQUEST['desc6'] : '';
+	$newMgr = (isset($_REQUEST['newMgr'])) ? $_REQUEST['newMgr'] : 0;
+	$newDir = (isset($_REQUEST['newDir'])) ? $_REQUEST['newDir'] : 0;
+	$escalations = (isset($_REQUEST['escalations'])) ? $_REQUEST['escalations'] : 0;
+	$mgrOrig = (isset($_REQUEST['mgrOrig'])) ? $_REQUEST['mgrOrig'] : 0;
+	$dirOrig = (isset($_REQUEST['dirOrig'])) ? $_REQUEST['dirOrig'] : 0;
+	$skill1 = (isset($_REQUEST['skill1'])) ? $_REQUEST['skill1'] : 0;
+	$skilldesc1 = (isset($_REQUEST['skilldesc1'])) ? $_REQUEST['skilldesc1'] : '';
+	$skill2 = (isset($_REQUEST['skill2'])) ? $_REQUEST['skill2'] : 0;
+	$skilldesc2 = (isset($_REQUEST['skilldesc2'])) ? $_REQUEST['skilldesc2'] : '';
+	$skill3 = (isset($_REQUEST['skill3'])) ? $_REQUEST['skill3'] : 0;
+	$skilldesc3 = (isset($_REQUEST['skilldesc3'])) ? $_REQUEST['skilldesc3'] : '';
+	$skill4 = (isset($_REQUEST['skill4'])) ? $_REQUEST['skill4'] : 0;
+	$skilldesc4 = (isset($_REQUEST['skilldesc4'])) ? $_REQUEST['skilldesc4'] : '';
+	$skill5 = (isset($_REQUEST['skill5'])) ? $_REQUEST['skill5'] : 0;
+	$skilldesc5 = (isset($_REQUEST['skilldesc5'])) ? $_REQUEST['skilldesc5'] : '';
+	$thresholdLow = (isset($_REQUEST['thresholdLow'])) ? $_REQUEST['thresholdLow'] : 0;
+	$thresholdHigh = (isset($_REQUEST['thresholdHigh'])) ? $_REQUEST['thresholdHigh'] : 0;
+	$churn = (isset($_REQUEST['churn'])) ? $_REQUEST['churn'] : 0;
+	$budgetMeasure = (isset($_REQUEST['budgetMeasure'])) ? $_REQUEST['budgetMeasure'] : 0;
+	$budgetValue = (isset($_REQUEST['budgetValue'])) ? $_REQUEST['budgetValue'] : 0;
+	$skillbudget1 = (isset($_REQUEST['skillbudget1'])) ? $_REQUEST['skillbudget1'] : 0;
+	$skillbudget2 = (isset($_REQUEST['skillbudget2'])) ? $_REQUEST['skillbudget2'] : 0;
+	$skillbudget3 = (isset($_REQUEST['skillbudget3'])) ? $_REQUEST['skillbudget3'] : 0;
+	$skillbudget4 = (isset($_REQUEST['skillbudget4'])) ? $_REQUEST['skillbudget4'] : 0;
+	$skillbudget5 = (isset($_REQUEST['skillbudget5'])) ? $_REQUEST['skillbudget5'] : 0;
+	$accountId = Config::get('account')['accountId'];
+	$inshiftProd = (isset($_REQUEST['inshiftProd'])) ? $_REQUEST['inshiftProd'] : 0;
+	$rnThreshold = (isset($_REQUEST['rnThreshold'])) ? $_REQUEST['rnThreshold'] : 0;
+	
+	if ($unitId) {
+		$data = array(
+            'target' => $unitTarget,
+            'dept' => $unitName,
+			'unitId' => $unitNumber,
+			'totalBeds' => $bedCount,
+			'prodMeasure' => $prodMeasure,
+			'hppd' => $value,
+			'shift' => $censusShift,
+			'shiftsperDay' => $shiftsDay,
+			'oneto1' => $one2one,
+			'desc1' => $desc1,
+			'oneto2' => $one2two,
+			'desc2' => $desc2,
+			'oneto3' => $one2three,
+			'desc3' => $desc3,
+			'oneto4' => $one2four,
+			'desc4' => $desc4,
+			'oneto5' => $one2five,
+			'desc5' => $desc5,
+			'oneto6' => $one2six,
+			'desc6' => $desc6,
+			'escalations' => $escalations,
+			'category' => $serviceLine,
+			'skill1' => $skill1,
+			'skilldesc1' => $skilldesc1,
+			'skill2' => $skill2,
+			'skilldesc2' => $skilldesc2,
+			'skill3' => $skill3,
+			'skilldesc3' => $skilldesc3,
+			'skill4' => $skill4,
+			'skilldesc4' => $skilldesc4,
+			'skill5' => $skill5,
+			'skilldesc5' => $skilldesc5,
+			'thresholdLow' => $thresholdLow,
+			'thresholdHigh' => $thresholdHigh,
+			'budgetMeasure' => $budgetMeasure,
+			'uosValue' => $budgetValue,
+			'uosDesc' => $uosDesc,
+			'churn' => $churn,
+			'skillbudget1' => $skillbudget1,
+			'skillbudget2' => $skillbudget2,
+			'skillbudget3' => $skillbudget3,
+			'skillbudget4' => $skillbudget4,
+			'skillbudget5' => $skillbudget5,
+			'inshiftProd' => $inshiftProd,
+			'rnThreshold' => $rnThreshold
+        );
+	    $where = array('id'=>$unitId);
+        Config::get('db')->update('ProductiveDept',$data,$where);
+		
+		if (intval($newMgr) != intval($mgrOrig) && intval($newMgr)>0){
+			$whereRemove = array(
+				'userId'=> $mgrOrig,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->delete('productiveDeptXref',$whereRemove);
+			
+			$dbMgr = Config::get('db')->get_results("select * FROM `productiveDeptXref` WHERE `deptId`={$unitId} and `userId`={$newMgr}");
+			if($dbMgr){
+				
+				$dataNM = array(
+				'primaryUnit'=>6
+				);
+				$whereW = array(
+				'userId'=> $newMgr,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->update('productiveDeptXref',$dataNM,$whereW);
+			}else{
+				$dataNewM = array(
+				'primaryUnit'=>6,
+				'userId'=> $newMgr,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->insert('productiveDeptXref',$dataNewM);
+				
+			}
+		}else if(intval($newMgr)<0 && intval($mgrOrig) >0){
+				$whereRM = array(
+				'userId'=> $mgrOrig,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->delete('productiveDeptXref',$whereRM);
+			
+		}else{
+			//do nothing;
+		}
+		
+		if (intval($newDir) != intval($dirOrig)&& intval($newDir)>0){
+			$whereremove = array(
+				'userId'=> $dirOrig,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->delete('productiveDeptXref',$whereremove);
+			
+			$dbDir = Config::get('db')->get_results("select * FROM `productiveDeptXref` WHERE `deptId`={$newDir} and `userId`={$unitId}");
+			if($dbDir){
+				$dataD = array(
+				'primaryUnit'=>7
+				);
+				$whereD = array(
+				'userId'=> $newDir,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->update('productiveDeptXref',$dataD,$whereD);
+			}else{
+				$dataNewD = array(
+				'primaryUnit'=>7,
+				'userId'=> $newDir,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->insert('productiveDeptXref',$dataNewD);
+				
+			}
+		}else if(intval($newDir)<0 && intval($dirOrig) >0){
+				$whereRD = array(
+				'userId'=> $dirOrig,
+				'deptId'=> $unitId
+				);
+			Config::get('db')->delete('productiveDeptXref',$whereRD);
+			
+		}else{
+			//do nothing;
+		}
+		
+		if(intval($shiftsDay) != intval($shiftsOrig) && intval($shiftsDay)>0){
+		
+		$where = array(
+		'dept' => $unitId
+		);
+		
+		$deleteShifts = Config::get('db')->delete('productiveAccountXref',$where);
+		
+		if(intval($shiftsDay)==2){
+			$dbXref = Config::get('db')->get_results("select * FROM `productiveShifts` WHERE `shiftsperDay`=2");
+			}else if(intval($shiftsDay)==4){
+			$dbXref = Config::get('db')->get_results("select * FROM `productiveShifts` WHERE `shiftsperDay`=4 OR `shiftsperDay`=2 OR `shiftsperDay`=3");	
+			}else{
+			$dbXref = Config::get('db')->get_results("select * FROM `productiveShifts` WHERE `shiftsperDay`=6 OR `shiftsperDay`=4");	
+			}
+			
+			foreach ($dbXref as $NewXref){
+				$shift = $NewXref['id'];
+				$value = ROUND((1/intval($shiftsDay)),3);
+				$shifthrs = 24 / intval($shiftsDay);
+				
+			if(intval($shift)==38 && intval($prodMeasure)==2){
+				$whpPlan=1;
+			}else{
+				$whpPlan=0;
+			}
+			
+			$dataNewXref = array(
+				'accountId'=>$accountId,
+				'dept'=>$unitId,
+				'shift'=>$shift,
+				'value'=>$value,
+				'shifthrs'=>$shifthrs,
+				'whpPlan'=>$whpPlan,
+				'active'=>1
+            );
+				
+            $newMgr = Config::get('db')->insert('productiveAccountXref',$dataNewXref);
+			}
+		}else{
+			//do nothing;
+		}
+		
+        echo json_encode(array('success'=>true,'message'=>'Unit Updated'));
+        return true;
+    }else{
+	 echo json_encode(array('success'=>false,'message'=>'Unit Failed to Update'));
+    return false;		
+	}
+   
+}
+
+/////////////////////////////////////
+// ADD NEW USER
+function AddAccount() {
+    $name = (isset($_REQUEST['name'])) ? $_REQUEST['name'] : '';
+	$address = (isset($_REQUEST['address'])) ? $_REQUEST['address'] : '';
+	$city = (isset($_REQUEST['city'])) ? $_REQUEST['city'] : '';
+	$state = (isset($_REQUEST['state'])) ? $_REQUEST['state'] : '';
+	$zip = (isset($_REQUEST['zip'])) ? $_REQUEST['zip'] : '';
+	$contactName = (isset($_REQUEST['contactName'])) ? $_REQUEST['contactName'] : '';
+	$contactEmail = (isset($_REQUEST['contactEmail'])) ? $_REQUEST['contactEmail'] : '';
+	$contactPhone = (isset($_REQUEST['contactPhone'])) ? $_REQUEST['contactPhone'] : '';
+	$payPeriod = (isset($_REQUEST['payPeriod'])) ? $_REQUEST['payPeriod'] : 0;
+	$payStart = (isset($_REQUEST['payStart'])) ? $_REQUEST['payStart'] : '';
+	$label = (isset($_REQUEST['label'])) ? $_REQUEST['label'] : 1;
+	$image = (isset($_REQUEST['accountImage'])) ? $_REQUEST['accountImage'] : '';
+	
+	
+    if ($name) {
+			$data = array(
+				'name'=>$name,
+                'status'=>1,
+				'image'=>$image,
+				'label'=>$label,
+				'contactName'=>$contactName,
+				'contactEmail'=>$contactEmail,
+				'contactPhone'=>$contactPhone,
+                'accountAddress'=>$address,
+				'accountCity'=>$city,
+				'accountState'=>$state,
+				'accountZip'=>$zip,
+				'payPeriod'=>$payPeriod,
+                'payPeriodFirst'=>$payStart
+            );
+            $newAcct = Config::get('db')->insert('productiveAccount',$data);
+			echo json_encode(array('success'=>true,'message'=>'Account entered successfully.'));
+            return true;
+	}else{
+    echo json_encode(array('success'=>false));
+    return false;
+	}
+}
+
+
+
+/*
+ 
+ PROD
+  ______  ___  _____  _____
+  | ___ \/ _ \|  __ \|  ___|
+  | |_/ / /_\ \ |  \/| |__
+  |  __/|  _  | | __ |  __|
+  | |   | | | | |_\ \| |___
+  \_|   \_| |_/\____/\____/
+
+
+*/
+
+/////////////////////////////////////
+// GET PROD INFO
+function GetProdTableData() {
+
+    //$storeId = isset($_REQUEST['storeId']) ? $_REQUEST['storeId'] : 0;
+    //$date = isset($_REQUEST['day']) ? $_REQUEST['day'] : '';
+	$idsearch = isset($_REQUEST['id']) && ($_REQUEST['id'] != 0) ? $_REQUEST['id'] : '';
+	$prodStart = isset($_REQUEST['prodStart']) && ($_REQUEST['prodStart'] != '') ? $_REQUEST['prodStart'] : '';
+	$prodEnd = isset($_REQUEST['prodEnd']) && ($_REQUEST['prodEnd'] != '') ? $_REQUEST['prodEnd'] : '';
+    $user = isset($_REQUEST['user']) ? $_REQUEST['user'] : '';
+	$categoryId = isset($_REQUEST['category']) ? intval($_REQUEST['category']) : 0;
+    $userId = Config::get('account')['id'];
+    $accountId = Config::get('account')['accountId'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	//$deptId = Config::get('account')['deptid'];
+    $role = Config::get('account')['role'];
+	$total = 0;
+    $variance = 0;
+	$now = time()-18000;
+	$nowDate = date('m/d/y',$now);
+	
+	//$pdfTitle = "'Staffing Reports' + '\n' + '" . $startDate . "'";
+	if($prodStart && $prodEnd){
+		$startDate = $prodStart;
+		$endDate = $prodEnd;
+	}else{
+		$startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+		$endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+	}
+	
+	if(intval($role)<=8){
+		$searchAdd = " AND n.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId` ={$userId})";
+	}else if(intval($role)>8 && intval($role)<=12) {
+		$searchAdd = " AND n.accountId={$accountId}";
+	}else if(intval($role)>12 && intval($role)<100) {
+		$searchAdd = " AND t.enterpriseId={$enterpriseId}";
+	}else{
+		$searchAdd = '';
+	}
+	
+	if($categoryId>0){
+		$searchAdd2 = " AND a.category={$categoryId} ";
+	}else{
+		$searchAdd2 = '';
+	}
+	
+	if($idsearch){
+		$searchAdd3 = " AND n.deptId={$idsearch} ";
+	}else{
+		$searchAdd3 = '';
+	}
+	
+	//if($user && intval($user)>0){
+	//	$userAdd = " AND n.userId={$user}";
+	//}else{
+	//	$userAdd = '';
+	//}
+	
+	if(strtotime($startDate)> strtotime('today UTC')){
+		$orderBy = " ORDER BY n.dayDate ASC, a.dept ASC, n.shift DESC";
+	}else{
+		$orderBy = " ORDER BY n.dayDate DESC, a.dept ASC, n.shift DESC";
+	}
+	
+    $dbData = Config::get('db')->get_results("SELECT n.*, n.id as nid, t.enterpriseId, t.name as accountName, t.prodIndicator, a.prodMeasure, a.modalPage, a.hppd, a.dept, a.thresholdHigh, a.rnThreshold, a.thresholdLow, DATE_FORMAT(n.dayDate,'%m/%d/%y') as newDate, IFNULL(c.note,'') as escalationNote, IFNULL(l.escalation,'') as escalationType, IFNULL(c.escalation,0) as escalationId, a.viewPage, s.shift as shiftName, SUBSTRING(u.first_name,1,1) as first_init, u.last_name FROM `productiveNewData` n LEFT JOIN `productiveShifts` as s on s.id = n.shift LEFT JOIN `ProductiveDept` as a on a.id = n.deptId LEFT JOIN `productiveAccount` as t on t.id = a.accountId LEFT OUTER JOIN `productiveUser` as u on u.id = n.userId LEFT OUTER JOIN `productiveEscalations` as c on c.dataId = n.id LEFT OUTER JOIN `productiveAcctEscalations` as l on l.id = c.escalation WHERE a.prodMeasure !=2 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}'$searchAdd$searchAdd2$searchAdd3 group by n.deptId, n.dayDate, n.shift$orderBy");
+    
+	
+    if($dbData){
+		$outJobs = array();
+        $jobArray = array();
+		
+		
+		foreach($dbData as $ante){
+			$nUser = intval($ante['userId']);
+			$qty = intval($ante['ldcount']);
+			$antecount = intval($ante['antecount']);
+			$ocount = intval($ante['ocount']);
+			$sitters = intval($ante['sittercount']);
+			$atotal = intval($ante['atotal']);
+			$ltotal = intval($ante['ltotal']);
+			$obed = intval($ante['obed']);
+			$dashColor = intval($ante['prodIndicator']);
+			$patients = $atotal + $ltotal + $obed;
+			$chargecount = floatval($ante['chargecount']);
+			$totalNurses = $qty + $antecount + $ocount;
+			$totaltechcount = intval($ante['techcount']);
+			$seccount = intval($ante['seccount']);
+			$totalCount = $chargecount + $totalNurses + $seccount + $totaltechcount + $sitters;
+			
+			$prodMeasure = intval($ante['prodMeasure']);
+			$hppd = $ante['hppd'];
+			
+			$whpPlan = intval($ante['whpPlan']);
+			$shift = intval($ante['shift']);
+			$depName = $ante['dept'];
+			$accountName = $ante['accountName'];
+			if($nUser>0){
+				$userName = "(" . $ante['first_init'] .". " . $ante['last_name'] . ")";
+			}else{
+				$userName = '';
+			}
+			if(intval($role)>12){
+			$deptName = $accountName . " - " . $depName; // . " " . $userName;	
+			}else{
+			$deptName = $depName; // . " " . $userName;	
+			}
+			if(floatval($ante['nproductivity'])>0){
+				$currentProductivity = floatval($ante['nproductivity']) . "%";
+			}else{
+				$currentProductivity = '';
+			}
+			//$deptName = $depName;
+			$deptId = $ante['deptId'];
+			$date = $ante['newDate'];
+			$shiftName = $date . " - " . $ante['shiftName'];
+			$dateshift = $date.$shift;
+			$thresholdHigh = floatval($ante['thresholdHigh']);
+			$thresholdLow = floatval($ante['thresholdLow']);			
+			$aprod = floatval($ante['aproductivity']);
+			$nvariance = intval($ante['nvariance']);
+			$modalPage = $ante['modalPage'];
+			$escalationType = $ante['escalationType'];
+			$escalationNote = $ante['escalationNote'];
+			$escalationId = intval($ante['escalationId']);
+			$newnote = stripslashes($ante['note']);
+			$dataId = intval($ante['nid']);
+			$viewPage = $ante['viewPage'];
+			$rnThresholdHigh = intval($ante['rnThreshold']);
+			$rnThresholdLow = $rnThresholdHigh * -1;
+			
+	
+			
+			///WHPUOS Data
+			$actualWHP = floatval($ante['actualWHP']);
+			$skill1 = intval($ante['skill1val']);
+			$skill2 = intval($ante['skill2val']);
+			$skill3 = intval($ante['skill3val']);
+			$skill4 = intval($ante['skill4val']);
+			$skill5 = intval($ante['skill5val']);
+			$procedureCount = floatval($ante['procedureCount']);
+			$skillTotal = $skill1+$skill2+$skill3+$skill4+$skill5;
+			$hoursVariance = ($actualWHP - $hppd) * $procedureCount;
+			
+						
+			//if(floatval($aprod) > 0 && intval($deptId)!=1){
+			if($aprod > 0){
+				$aproductivity = $aprod . "%";
+			}else{
+				$aproductivity ='';
+			}
+			
+			
+		if($nUser==0){
+				if(intval($role)==7 && $nUser>0 && intval($accountId)==9){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-danger btn-sm\" onclick=\"tj.clearRecord(" . $dataId . "); \">Del</button>";
+				}else if((intval($role)<8 || intval($role)==10) && $prodMeasure !=2 && strtotime($date) < strtotime($nowDate) && intval($shift)==52){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-info btn-sm\" onclick=\"tj.editNEW(" . $dataId . "); \">Edit</button><button type=\"button\" id=\"addVisits\" class=\"btn btn-success btn-sm\" onclick=\"tj.addvisits(" . $dataId . "); \">Prod</button>";
+				}else if(intval($role)<8 || intval($role)==10){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-info btn-sm\" onclick=\"tj.editNEW(" . $dataId . "); \">Edit</button>";
+				}else if(intval($role)>7 && intval($role)!=10){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . " </a>";
+				}else{
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-info btn-sm\" onclick=\"tj.editNEW(" . $dataId . "); \">Edit</button>";
+				}
+				$style="0";
+				$note=$newnote;
+				/*				
+				if($escalationId >=1){
+				$style = "1";
+				$note = $newnote. "   ESCALATION: " . strtoupper($escalationType) . " - " . $escalationNote;
+				}else if($escalationId==0 && (($aproductivity >0 && $thresholdHigh >0 && $nUser>0 && (($aproductivity > $thresholdHigh && $dashColor>=1) || ($aproductivity < $thresholdLow && $dashColor<=1))) || ($nvariance>=$rnThresholdHigh && $dashColor<=1) || ($nvariance<=$rnThresholdLow && $dashColor>=1))){
+				$style = "1";
+				$note = $newnote;
+				}else if($dashColor>=1 && $escalationId==0 && (($aproductivity >0 && $thresholdHigh >0 && $aproductivity <=$thresholdHigh && $aproductivity >=$thresholdLow && $nUser>0) || ($nvariance>$rnThresholdLow && $nvariance<$rnThresholdHigh && $nUser>0))){
+				$style = "2";
+				$note = $newnote;
+				}else if($escalationId==0 && $aproductivity==0 && $prodMeasure==4 && (($nvariance >=$rnThresholdHigh && $dashColor<=1) || ($nvariance <= $rnThresholdLow && $dashColor>=1))){
+				$style = "1";
+				$note = $newnote;
+				}else if($dashColor>=1 && $escalationId==0 && $aproductivity==0 && $prodMeasure==4 && $nvariance <$rnThresholdHigh && $nvariance >$rnThresholdLow && $nUser>0){
+				$style = "2";
+				$note = $newnote;
+				}else{
+				$style = "0";
+				$note = $newnote;
+				}*/
+				
+			//if(intval($role)<=7 || intval($role)==10){
+			//	$shiftDisplay = $shiftName . "</br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-success btn-sm\" onclick=\"" . $modalPage . "(" . $dataId . "); \">Add</button>";
+			//}else if(intval($role)>7 && intval($role)!=10){
+			//	$shiftDisplay = $shiftName;
+			//}else{
+			//	$shiftDisplay = $shiftName;
+			//}
+			$nowDate = date(strtotime($nowDate)-18600);
+			
+			if($deptId==1){
+			$shiftDisplay = "<a href=\"view.php?u=" . $dataId . "\">" . $shiftName . "</a><a href=\"javascript:;\" onclick=\"" . $modalPage . "(" . $dataId . ");\"> (Add)</a>";	
+			}
+			
+			$nvarianceNull = '';
+			$aprodNull = '';
+			$nurseNull = '';
+			$techNull = '';
+			$secNull = '';
+			$patientsNull = '';
+			$chargeNull = '';
+			$otherNull = '';
+			$totalNull = '';
+			
+				$jobArray[] = array(
+					'unit' => $deptName,
+					'shift' => $shiftDisplay,
+					'aprod' => $currentProductivity,
+					'variance' => $nvarianceNull,
+					'patients' => $patientsNull,
+					'total' => $totalNull,
+					'charge' => $chargeNull,
+					'nursecount' => $nurseNull,
+					'techs' => $techNull,
+					'secs' => $secNull,
+					'other' => $otherNull,
+					'note' => '',
+					'shiftnum' => $dateshift,
+					'escalationType' => '',
+					'escalationId' => '',
+					'style' => $style,
+					'nowDate' => $nowDate,
+					'nowDayDate' => $date
+					
+				);
+			
+			}else{
+			
+				if(intval($role)==7 && intval($accountId)==9){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-danger btn-sm\" onclick=\"tj.clearRecord(" . $dataId . "); \">Del</button>";
+				}else if((intval($role)<8 || intval($role)==10) && $prodMeasure !=2 && strtotime($date) < strtotime($nowDate) && intval($shift)==52){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-info btn-sm\" onclick=\"tj.editNEW(" . $dataId . "); \">Edit</button><button type=\"button\" id=\"addVisits\" class=\"btn btn-success btn-sm\" onclick=\"tj.addvisits(" . $dataId . "); \">Prod</button>";
+				}else if(intval($role)<8 || intval($role)==10){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-info btn-sm\" onclick=\"tj.editNEW(" . $dataId . "); \">Edit</button>";
+				}else if(intval($role)>7 && intval($role)!=10){
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . " </a>";
+				}else{
+					$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $shiftName . "</a></br><button type=\"button\" id=\"addButtonStaffing\" class=\"btn btn-info btn-sm\" onclick=\"tj.editNEW(" . $dataId . "); \">Edit</button>";
+				}
+								
+				if($escalationId >=1){
+				$style = "1";
+				$note = $newnote. "   ESCALATION: " . strtoupper($escalationType) . " - " . $escalationNote;
+				}else if($escalationId==0 && (($aproductivity >0 && $thresholdHigh >0 && $nUser>0 && (($aproductivity > $thresholdHigh && $dashColor>=1) || ($aproductivity < $thresholdLow && $dashColor<=1))) || ($nvariance>=$rnThresholdHigh && $dashColor<=1) || ($nvariance<=$rnThresholdLow && $dashColor>=1))){
+				$style = "1";
+				$note = $newnote;
+				}else if($dashColor>=1 && $escalationId==0 && (($aproductivity >0 && $thresholdHigh >0 && $aproductivity <=$thresholdHigh && $aproductivity >=$thresholdLow && $nUser>0) || ($nvariance>$rnThresholdLow && $nvariance<$rnThresholdHigh && $nUser>0))){
+				$style = "2";
+				$note = $newnote;
+				}else if($escalationId==0 && $aproductivity==0 && $prodMeasure==4 && (($nvariance >=$rnThresholdHigh && $dashColor<=1) || ($nvariance <= $rnThresholdLow && $dashColor>=1))){
+				$style = "1";
+				$note = $newnote;
+				}else if($dashColor>=1 && $escalationId==0 && $aproductivity==0 && $prodMeasure==4 && $nvariance <$rnThresholdHigh && $nvariance >$rnThresholdLow && $nUser>0){
+				$style = "2";
+				$note = $newnote;
+				}else{
+				$style = "0";
+				$note = $newnote;
+				}
+				
+				if(intval($deptId)==1){
+					$style= "0";
+					$shiftDisplay = "<a href=\"view.php?u=" . $dataId . "\">" . $shiftName . "</a><a href=\"javascript:;\" onclick=\"" . $modalPage . "(" . $dataId . ");\"> (Edit)</a>";	
+				}
+				
+				
+				$jobArray[] = array(
+					'unit' => $deptName,
+					'shift' => $shiftDisplay,
+					'aprod' => $aproductivity,
+					'variance' => $nvariance,
+					'patients' => $patients,
+					'total' => $totalCount,
+					'charge' => $chargecount,
+					'nursecount' => $totalNurses,
+					'techs' => $totaltechcount,
+					'secs' => $seccount,
+					'other' => $sitters,
+					'note' => $note,
+					'shiftnum' => $dateshift,
+					'escalationType' => $escalationType,
+					'escalationId' => $escalationId,
+					'pdfTitle' => $pdfTitle,
+					'style' => $style,
+					'nowDate' => $nowDate,
+					'nowDayDate' => $date
+				);
+           
+			}
+		}
+		$outData = array();
+		$outData['data'] = $jobArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+	
+		}else {
+        $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}
+}
+
+/////////////////////////////////////
+// GET PROD INFO
+function GetProdTableDataWHP() {
+
+    //$storeId = isset($_REQUEST['storeId']) ? $_REQUEST['storeId'] : 0;
+    //$date = isset($_REQUEST['day']) ? $_REQUEST['day'] : '';
+    $idsearch = isset($_REQUEST['id']) && ($_REQUEST['id'] != 0) ? $_REQUEST['id'] : '';
+	$prodStart = isset($_REQUEST['prodStart']) && ($_REQUEST['prodStart'] != '') ? $_REQUEST['prodStart'] : '';
+	$prodEnd = isset($_REQUEST['prodEnd']) && ($_REQUEST['prodEnd'] != '') ? $_REQUEST['prodEnd'] : '';
+    //$startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+    //$endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+    $userId = Config::get('account')['id'];
+    $accountId = Config::get('account')['accountId'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	//$deptId = Config::get('account')['deptid'];
+    $role = Config::get('account')['role'];
+	
+	$total = 0;
+    $variance = 0;
+	
+	if($prodStart && $prodEnd){
+		$startDate = $prodStart;
+		$endDate = $prodEnd;
+	}else{
+		$startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+		$endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+	}
+	
+	if(intval($role)<=8){
+		$searchAdd = "  AND n.accountId={$accountId} AND n.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId` ={$userId})";
+	}else if(intval($role)>8 && intval($role)<=12) {
+		$searchAdd = " AND n.accountId={$accountId}";
+	}else if(intval($role)>12 && intval($role)<100) {
+		$searchAdd = " AND t.enterpriseId={$enterpriseId}";
+	}else{
+		$searchAdd = '';
+	}
+	
+	if($idsearch){
+		$searchAdd3 = " AND n.deptId={$idsearch}";
+	}else{
+		$searchAdd3 = '';
+	}
+	
+	//if($user && intval($user)>0){
+	//	$userAdd = " AND n.userId={$user}";
+	//}else{
+	//	$userAdd = '';
+	//}
+	
+	if(strtotime($startDate)> strtotime('today UTC')){
+		$orderBy = " ORDER BY a.dept ASC, n.dayDate ASC, n.shift DESC";
+	}else{
+		$orderBy = " ORDER BY a.dept ASC, n.dayDate DESC, n.shift DESC";
+	}
+	
+    $dbData = Config::get('db')->get_results("SELECT n.*, n.id as nid, x.shiftName as shiftTitle, t.name as accountName, t.enterpriseId, t.prodIndicator, a.prodMeasure, a.modalPage, a.hppd, a.dept, a.thresholdHigh, a.thresholdLow, DATE_FORMAT(n.dayDate,'%m/%d/%y') as newDate, IFNULL(c.note,'') as escalationNote, IFNULL(l.escalation,'') as escalationType, IFNULL(c.escalation,0) as escalationId, a.viewPage, s.shift as shiftName, u.first_name, u.last_name FROM `productiveNewData` n LEFT JOIN `productiveAccountXref` as x on x.dept = n.deptId and x.shift = n.shift LEFT JOIN `productiveShifts` as s on s.id = n.shift LEFT JOIN `ProductiveDept` as a on a.id = n.deptId LEFT JOIN `productiveAccount` as t on t.id = a.accountId LEFT OUTER JOIN `productiveUser` as u on u.id = n.userId LEFT OUTER JOIN `productiveEscalations` as c on c.dataId = n.id LEFT OUTER JOIN `productiveAcctEscalations` as l on l.id = c.escalation WHERE a.prodMeasure=2 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}'$searchAdd$searchAdd3 group by n.deptId, n.dayDate, n.shift$orderBy");
+     
+    if($dbData){
+		$outJobs = array();
+        $jobArray = array();
+		foreach($dbData as $ante){
+			$nUser = intval($ante['userId']);
+			$qty = intval($ante['ldcount']);
+			$antecount = intval($ante['antecount']);
+			$shiftTitle = $ante['shiftTitle'];
+			$ocount = intval($ante['ocount']);
+			$sitters = intval($ante['sittercount']);
+			$atotal = intval($ante['atotal']);
+			$ltotal = intval($ante['ltotal']);
+			$obed = intval($ante['obed']);
+			$dashColor = intval($ante['prodIndicator']);
+			$patients = $atotal + $ltotal + $obed;
+			$chargecount = intval($ante['chargecount']);
+			$totalNurses = $qty + $antecount + $ocount;
+			$totaltechcount = intval($ante['techcount']);
+			$seccount = intval($ante['seccount']);
+			$totalCount = $chargecount + $totalNurses + $seccount + $totaltechcount + $sitters;
+			$prodMeasure = intval($ante['prodMeasure']);
+			$hppd = $ante['hppd'];
+			$whpPlan = intval($ante['whpPlan']);
+			$depName = $ante['dept'];
+			$accountName = $ante['accountName'];
+			
+			if(intval($role)>12){
+			$deptName = $accountName . " - " . $depName;	
+			}else{
+			$deptName = $depName;	
+			}
+			
+			$deptId = $ante['deptId'];
+			$dayDate = strtotime($ante['newDate'])-21600;
+			$shift = intval($ante['shift']);
+			$dateP = $ante['newDate'] . " " . $shiftTitle;
+			$dateA = $ante['newDate'] . " " . $shiftTitle;
+			//$shiftName = $date . " - " . $ante['shiftName'];
+			$dateshift = $date.$shift;
+			$thresholdHigh = floatval($ante['thresholdHigh']);
+			$thresholdLow = floatval($ante['thresholdLow']);			
+			$aprod = floatval($ante['aproductivity']);
+			$nvariance = $ante['nvariance'];
+			$modalPage = $ante['modalPage'];
+			$escalationType = $ante['escalationType'];
+			$escalationNote = $ante['escalationNote'];
+			$escalationId = intval($ante['escalationId']);
+			$newnote = stripslashes($ante['note']);
+			$dataId = intval($ante['nid']);
+			$viewPage = $ante['viewPage'];
+			
+	
+			
+			///WHPUOS Data
+			$actualWHP = floatval($ante['actualWHP']);
+			$skill1 = intval($ante['skill1val']);
+			$skill2 = intval($ante['skill2val']);
+			$skill3 = intval($ante['skill3val']);
+			$skill4 = intval($ante['skill4val']);
+			$skill5 = intval($ante['skill5val']);
+			$procedureCount = floatval($ante['procedureCount']);
+			$skillTotal = $skill1+$skill2+$skill3+$skill4+$skill5;
+			$hoursVariance = ($actualWHP - $hppd) * $procedureCount;
+			
+						
+			//if(floatval($aprod) > 0 && intval($deptId)!=1){
+			if($aprod > 0){
+				$aproductivity = $aprod . "%";
+			}else{
+				$aproductivity ='';
+			}
+			
+			
+			if($nUser==0){
+				
+			if(intval($role)>12 && $whpPlan==1){
+				$shiftDisplay = $dateP;
+			}else if(intval($role)>12 && $whpPlan!=1){
+				$shiftDisplay = $dateA;
+			}else if(intval($role)<=12 && $whpPlan==1){
+				$shiftDisplay = $dateP . "</br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-success btn-sm\" onclick=\"" . $modalPage . "(" . $dataId . "); \">Add</button><button type=\"button\" id=\"copyButtonWHP\" class=\"btn btn-info btn-sm\" onclick=\"tj.copyPlan(" . $dataId . "," . $deptId . "," . $shift . "," . $dayDate . "); \">Copy</button>";
+				//<a href=\"javascript:;\" onclick=\"" . $modalPage . "(" . $dataId . ");\">  (Add)</a>";
+			}else if(intval($role)<=12 && $whpPlan!=1){
+				$shiftDisplay = $dateA . "</br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-success btn-sm\" onclick=\"" . $modalPage . "(" . $dataId . "); \">Add</button>";
+			}else{
+				$shiftDisplay = $dateA;
+			}
+			
+			$nvarianceNull = '';
+			$aprodNull = '';
+			$nurseNull = '';
+			$techNull = '';
+			$secNull = '';
+			$patientsNull = '';
+			$chargeNull = '';
+			$otherNull = '';
+			$totalNull = '';
+			
+				$jobArray[] = array(
+					'unit' => $deptName,
+					'shift' => $shiftDisplay,
+					'aprod' => $aprodNull,
+					'variance' => $nvarianceNull,
+					'patients' => $patientsNull,
+					'total' => $totalNull,
+					'charge' => $chargeNull,
+					'nursecount' => $nurseNull,
+					'techs' => $techNull,
+					'secs' => $secNull,
+					'other' => $otherNull,
+					'note' => '',
+					'shiftnum' => $dateshift,
+					'escalationType' => '',
+					'escalationId' => '',
+					'style' => 0
+				);
+			
+			}else{
+			
+			if(intval($role)>7 && $whpPlan==1 && intval($role)!=10){
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateP . "</a>";
+			}else if(intval($role)>7 && $whpPlan!=1 && intval($role)!=10){
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateA . "</a>";
+			}else if(intval($role)==7 && $whpPlan==1 && intval($accountId)==9){
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateP . "</a></br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-danger btn-sm\" onclick=\"tj.clearwhpRecord(" . $dataId . "); \">Del</button>";
+			}else if(intval($role)==7 && $whpPlan!=1 && intval($accountId)==9){
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateA . "</a></br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-danger btn-sm\" onclick=\"tj.clearwhpRecord(" . $dataId . "); \">Del</button>";
+			}else if((intval($role)<=7 || intval($role)==10) && $whpPlan==1){
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateP . "</a></br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-info btn-sm\" onclick=\"" . $modalPage . "(" . $dataId . "); \">Edit</button>";
+			}else if((intval($role)<=7 || intval($role)==10) && $whpPlan!=1){
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateA . "</a></br><button type=\"button\" id=\"addButtonWHP\" class=\"btn btn-info btn-sm\" onclick=\"" . $modalPage . "(" . $dataId . "); \">Edit</button>";
+			}else{
+				$shiftDisplay = "<a href=\"#reportView?i=" . $dataId . "\">" . $dateA . "</a>";
+			}
+				
+				if($escalationId >=1 && $nUser >0){
+				$style = "1";
+				$note = $newnote. "   ESCALATION: " . strtoupper($escalationType) . " - " . stripslashes($escalationNote);
+				}else if($escalationId==0 && $nUser >0 && (($actualWHP < (($thresholdLow / 100) * $hppd) && $dashColor>=1) || ($actualWHP > (($thresholdHigh / 100) * $hppd) && $dashColor<=1))){
+				$style = "1";
+				$note = $newnote;
+				}else if($dashColor>=1 && $escalationId==0 && $nUser >0 && ($actualWHP >= (($thresholdLow / 100) * $hppd) || $actualWHP <= (($thresholdHigh / 100) * $hppd))){
+				$style = "2";
+				$note = $newnote;
+				}else{
+				$style = "0";
+				$note = $newnote;
+				}
+				
+				
+				
+				$jobArray[] = array(
+					'unit' => $deptName,
+					'shift' => $shiftDisplay,
+					'aprod' => $actualWHP,
+					'variance' => $hoursVariance,
+					'patients' => $procedureCount,
+					'total' => $skillTotal,
+					'charge' => $skill1,
+					'nursecount' => $skill2,
+					'techs' => $skill3,
+					'secs' => $skill4,
+					'other' => $skill5,
+					'note' => $note,
+					'shiftnum' => $dateshift,
+					'escalationType' => $escalationType,
+					'escalationId' => $escalationId,
+					'style' => $style
+				);
+			}			
+			//$outJobs[] = $ante;
+            
+		}
+		$outData = array();
+		$outData['data'] = $jobArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}else {
+        $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+    }
+
+}
+
+/////////////////////////////////////
+// GET PROD INFO USERX
+function GetProdTableDatauserx() {
+
+    $total = 0;
+    $variance = 0;
+
+    $dbData = Config::get('db')->get_results("SELECT n.*, DATE_FORMAT(n.dayDate,'%m/%d/%y') as newDate, s.shift as shiftName FROM `productiveNewData` n LEFT JOIN `productiveShifts` as s on s.id = n.shift WHERE n.dayDate=CURRENT_DATE and n.antecount>0 group by n.accountId, n.deptId, n.shift order by n.accountId ASC, n.deptId ASC, n.shift DESC");
+     
+    if($dbData){
+		$outJobs = array();
+        $jobArray = array();
+		foreach($dbData as $ante){
+			$acct = intval($ante['accountId']);
+			$shift = intval($ante['shift']);
+			$shiftName = $ante['shiftName'];
+			$prod = $ante['aproductivity'];
+			$antecount = $ante['antecount'];
+			$var = intval($ante['avariance']) + intval($ante['lvariance']);
+			$deptId = $ante['deptId'];
+			$date = $ante['newDate'];
+			$dateshift = $date.$shift;
+			
+			
+			if(floatval($prod) > 0){
+			$aproductivity = $prod . "%";	
+			}else{
+			$aproductivity ='';
+			}
+			
+			if($antecount ==0){
+			$acct = '';
+			$deptId = '';
+			$aproductivity = '';
+			$var = '';
+			$shiftName = '';
+			$dateshift = '';
+			
+			
+			$jobArray[] = array(
+				'acct' => $acct,
+				'dept' => $deptId,
+				'prod' => $aproductivity,
+                'var' => $var,
+				'time' => $shiftName,
+                'shiftnum' => $dateshift
+            );
+			}else{
+					
+			$jobArray[] = array(
+				'acct' => $acct,
+				'dept' => $deptId,
+				'prod' => $aproductivity,
+                'var' => $var,
+				'time' => $shiftName,
+                'shiftnum' => $dateshift
+            );
+			}
+			
+			$outJobs[] = $ante;
+            
+		}
+		$outData = array();
+		$outData['data'] = $jobArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+	
+		}else {
+        $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+    }
+
+}
+
+/////////////////////////////////////
+// GET PERFORMANCE INFO
+function GetPerformanceTableData() {
+	$idsearch = isset($_REQUEST['id']) && ($_REQUEST['id'] != 0) ? $_REQUEST['id'] : '';
+    $startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+    $userId = Config::get('account')['id'];
+    $accountId = Config::get('account')['accountId'];
+	//$deptId = Config::get('account')['deptid'];
+	$role = Config::get('account')['role'];
+	
+	if(intval($role)==4 && !$idsearch){
+	$dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.accountId={$accountId} AND n.whpPlan !=1 AND n.userId={$userId} group by n.userId order by `avgprod` DESC");	
+	}else if(intval($role)>=5 && intval($role)<=8 && !$idsearch){
+    //$dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered, DATE_FORMAT(z.entered,'%m/%d/%Y') as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure FROM `productiveNewData` n LEFT JOIN `productiveNewData` as z on z.id =(SELECT `id` from `productiveNewData` where `userId` = n.userId order by `id` DESC LIMIT 1) LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.accountId={$accountId} AND n.whpPlan !=1 AND n.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId} and `primaryUnit`>5) group by n.userId order by `avgprod` DESC");
+	$dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.accountId={$accountId} AND n.whpPlan !=1 AND n.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId} and `primaryUnit`>5) group by n.userId order by `avgprod` DESC");
+	}else if(intval($role)>8 && !$idsearch){
+    $dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure, a.id FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId LEFT JOIN `productiveAccount` as a on a.id = d.accountId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.whpPlan !=1 AND n.accountId={$accountId} group by n.userId order by `avgprod` DESC");
+	}else if(intval($role)<=8 && intval($role)>=5 && $idsearch){
+	$dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.accountId={$accountId} AND n.userId={$idsearch} AND n.whpPlan !=1 AND n.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId}) group by n.dayDate, n.deptId, n.shift order by n.dayDate DESC, n.shift DESC");		
+	}else if(intval($role)<5 && $idsearch){
+	$dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.accountId={$accountId} AND n.whpPlan !=1 AND n.userId={$idsearch} group by n.dayDate, n.shift order by n.dayDate DESC, n.shift DESC");		
+	}else if(intval($role)>8 && $idsearch){
+	$dbData = Config::get('db')->get_results("SELECT n.id as nid, AVG(NULLIF(n.aproductivity ,0)) as avgprod, SUM(n.nvariance) as runningVar, AVG(n.actualWHP) as avgWHP, n.userId, n.entered as lastEntered, AVG(n.avariance + n.lvariance ) as avgvar, AVG(n.atotal+n.ltotal) as avgpat, count(n.id) as records, u.first_name, u.last_name, d.id as did, d.hppd, d.viewPage, d.dept as depName, d.prodMeasure FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT JOIN `productiveUser` as u on u.id = n.userId WHERE n.userId>0 AND n.dayDate >='{$startDate}' AND n.dayDate <='{$endDate}' AND n.accountId={$accountId} AND n.whpPlan !=1 AND n.userId={$idsearch} group by n.dayDate, n.deptId, n.shift order by n.dayDate DESC, n.shift DESC");		
+	}else{
+	$dbData='';
+	}
+	
+    if($dbData){
+		$outJobs = array();
+        $jobArray = array();
+		foreach($dbData as $ante){
+			
+			if($idsearch && intval($accountId)!=1){
+			$user = "<a href=\"#reportView?i=" . $ante['nid'] . "\">" . $ante['last_name'].", ".$ante['first_name'] . "</a>";
+			$ndate = $ante['lastEntered'];
+			}else{
+			$user = "<a href=\"#performance?id=".$ante['userId']."\" >" . $ante['last_name'].", ".$ante['first_name'] . "</a>";
+			$ndate = '';
+			}
+			
+			if($idsearch && intval($accountId)==1){
+			$ndate = $ante['lastEntered'];
+			$user = "<a href=\"view.php?u=" . $ante['nid'] . "\">" . $ante['last_name'].", ".$ante['first_name'] . "</a>";	
+			}
+			
+			if(intval($ante['prodMeasure'])!=2){
+			$prod = round($ante['avgprod'],1);
+			$var = '';
+			$hppd = '';
+			$unit = $ante['depName'];
+			//$ndate = $ante['lastEntered'];
+			$avgpat = '';
+			$count = intval($ante['records']);
+			$style = 0;
+			$header1 = "Avg. Variance";
+			$header2 = "Avg. Patients";
+			}else{
+			$prod = round($ante['avgprod'],1);
+			$var = round($ante['runningVar'],2);
+			$unit = $ante['depName'];
+			$hppd = $ante['hppd'];
+			//$ndate = $ante['lastEntered'];
+			$avgpat = round($ante['avgWHP'],3);
+			$count = intval($ante['records']);
+			$header1 = "Running Variance";
+			$header2 = "Avg. WHP";
+				$style= 0;
+			}	
+			
+			$jobArray[] = array(
+				'user' => $user,
+				'unit' => $unit,
+				'target' => $hppd,
+				'prod' => $prod,
+				'date' => $ndate,
+				'variance' => $var,
+                'patients' => $avgpat,
+				'records' => $count,
+				'id'=> $idsearch,
+				'Style'=> $style,
+				'header1'=> $header1,
+				'header2'=> $header2
+            );
+			}
+			
+			//$outJobs[] = $ante;
+         	
+		$outData = array();
+		$outData['data'] = $jobArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}else {
+        $outData = array();
+        $outData['data'] = array();
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}
+}
+
+/////////////////////////////////////
+// GET COMPLIANCE INFO
+function GetComplianceTableData() {
+	$idsearch = isset($_REQUEST['id']) && ($_REQUEST['id'] != 0) ? $_REQUEST['id'] : '';
+    $startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+    $userId = Config::get('account')['id'];
+    $accountId = Config::get('account')['accountId'];
+	//$deptId = Config::get('account')['deptid'];
+	$role = Config::get('account')['role'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	
+	if(intval($role)<=8 && !$idsearch){
+		$searchAdd = " AND n.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId} and `primaryUnit`>0)";
+	}else if(intval($role)>8 && intval($role)<=12 && !$idsearch){
+		$searchAdd = " AND n.accountId={$accountId}";
+	}else if(Intval($role)>12 && !$idsearch){
+		$searchAdd = " AND a.enterpriseId={$enterpriseId}";
+	}else{
+		$searchAdd = " AND n.deptId={$idsearch}";	
+	}
+
+    $dbData = Config::get('db')->get_results("SELECT 
+        (SUM((CASE WHEN n.userId>0 THEN 1 ELSE 0 END)) / SUM((CASE WHEN n.userId>=0 THEN 1 ELSE 0 END))*100) as reports, d.dept,
+		CONCAT(u.last_name, ', ', u.first_name) as mgrName, 
+		CONCAT(z.last_name, ', ', z.first_name) as dirName,
+		   a.name as accountName, n.deptId, d.prodMeasure
+        FROM
+            `productiveNewData` n 
+        LEFT JOIN 
+			`ProductiveDept` as d on d.id = n.deptId
+		LEFT JOIN 
+			`productiveAccount` as a on a.id = d.accountId
+        LEFT OUTER JOIN
+        	`productiveDeptXref` as x on x.deptId = d.id and x.primaryUnit=6
+		LEFT OUTER JOIN
+        	`productiveDeptXref` as y on y.deptId = d.id and y.primaryUnit=7
+        LEFT OUTER JOIN
+        	`productiveUser` as u on u.id = x.userId
+		LEFT OUTER JOIN
+        	`productiveUser` as z on z.id = y.userId
+        WHERE
+            n.whpPlan !=1$searchAdd
+        AND 
+            n.dayDate >= '{$startDate}' AND 
+            n.dayDate <= '{$endDate}' 
+        GROUP BY n.deptId 
+        ORDER BY reports DESC");
+      
+    if($dbData){
+		$outJobs = array();
+        $jobArray = array();
+		foreach($dbData as $ante){
+			
+			if(!$idsearch){
+			//$user = "<a href=\"#compliance?id=".$ante['deptId']."\" >" . $ante['dept'] . "</a>";
+			$unit = $ante['dept'];
+			}else{
+			$unit = $ante['dept'];
+			}
+			$accountName = $ante['accountName'];
+			$director = $ante['dirName'];
+			$manager = $ante['mgrName'];
+			$prodMeasure = $ante['prodMeasure'];
+			$reports = round(floatval($ante['reports']),1);
+			
+			if(intval($prodMeasure)!=2){
+				$view = "staffing";
+			}else{
+				$view = "supportstaffing";
+			}
+		
+			//$unitName = "<a href=\"javascript:;\" onclick=\"tj.staffingView(" .$ante['dept'] . "," . $startDate . "," . $endDate . ")\">" . $ante['dept'] . "</a>";
+			$unitName = "<a href=\"#" . $view . "?id=" . $ante['deptId'] . "&s=" . $startDate . "&e=" . $endDate . "\" >" . $ante['dept'] . "</a>";
+			//$unitName = $unit;	
+			
+						
+			$jobArray[] = array(
+				'unit' => $unitName,
+				'director' => $director,
+				'manager' => $manager,
+				'reports' => $reports
+            );
+			}
+			
+			//$outJobs[] = $ante;
+         	
+		$outData = array();
+		$outData['data'] = $jobArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}else {
+        $outData = array();
+		$jobArray[] = array(
+				'unit' => '',
+				'director' => '',
+				'manager' => '',
+				'reports' => ''
+            );
+        $outData['data'] = $jobArray;
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}
+}
+
+/////////////////////////////////////
+// GET PERFORMANCE INFO
+function GetEscalationsTableData() {
+	$idsearch = isset($_REQUEST['id']) && ($_REQUEST['id'] != 0) ? $_REQUEST['id'] : '';
+    $startDate = isset($_REQUEST['start']) ? $_REQUEST['start'] : date('yyyy-mm-dd');
+    $endDate = isset($_REQUEST['end']) ? $_REQUEST['end'] : date('yyyy-mm-dd');
+    $userId = Config::get('account')['id'];
+    $accountId = Config::get('account')['accountId'];
+	//$deptId = Config::get('account')['deptid'];
+	$role = Config::get('account')['role'];
+	$enterpriseId = Config::get('account')['enterpriseId'];
+	
+	if(intval($role)<=8 && !$idsearch){
+		$searchAdd = " AND e.escalation !=0 AND e.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId} and `primaryUnit`>0)";
+	}else if(intval($role)>8 && intval($role)<=12 && !$idsearch){
+		$searchAdd = " AND e.accountId={$accountId} and e.escalation !=0";
+	}else if(Intval($role)>12 && !$idsearch){
+		$searchAdd = " AND t.enterpriseId={$enterpriseId} and e.escalation !=0";
+	}else{
+		$searchAdd = " AND e.userId={$idsearch} and e.escalation !=0";	
+	}
+
+    $dbData = Config::get('db')->get_results("SELECT e.*, t.name as accountName, t.enterpriseId, a.escalation as escalationName, u.first_name, u.last_name, d.dept FROM `productiveEscalations` e LEFT JOIN `productiveAcctEscalations` as a on a.id = e.escalation LEFT JOIN `ProductiveDept` as d on d.id = e.deptId LEFT JOIN `productiveAccount` as t on t.id = d.accountId LEFT JOIN `productiveUser` as u on u.id = e.userId WHERE DATE_FORMAT(e.dateSubmitted,'%Y-%m-%d') >='{$startDate}' AND DATE_FORMAT(e.dateSubmitted,'%Y-%m-%d') <='{$endDate}'$searchAdd group by e.id order by e.dateSubmitted desc");
+      
+    if($dbData){
+		$outJobs = array();
+        $jobArray = array();
+		foreach($dbData as $ante){
+			
+			if(!$idsearch){
+			$user = "<a href=\"#escalations?id=".$ante['userId']."\" >" . $ante['last_name'].", ".$ante['first_name'] . "</a>";
+			}else{
+			$user = $ante['last_name'].", ".$ante['first_name'];
+			}
+			//$user = $ante['last_name'].", ".$ante['first_name'];
+			$date = $ante['dateSubmitted'];
+			$unit = $ante['dept'];
+			$accountName = $ante['accountName'];
+			if(Intval($role)>12){
+			$unitName = $accountName . " - " . $unit;	
+			}else{
+			$unitName = $unit;	
+			}
+			$type = $ante['escalationName'];
+			$note = $ante['note'];
+				
+			
+			$jobArray[] = array(
+				'date' => $date,
+				'unit' => $unitName,
+				'user' => $user,
+				'type' => $type,
+				'notes' => $note,
+				'accountName' => $accountName
+            );
+			}
+			
+			//$outJobs[] = $ante;
+         	
+		$outData = array();
+		$outData['data'] = $jobArray;
+		echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}else {
+        $outData = array();
+		$jobArray[] = array(
+				'date' => '',
+				'unit' => '',
+				'user' => '',
+				'type' => '',
+				'notes' => ''
+            );
+        $outData['data'] = $jobArray;
+        echo json_encode($outData,JSON_NUMERIC_CHECK);
+		}
+}
+
+/////////////////////////////////////
+// GET DETAILS FOR SINGLE USER
+function GetProdDetails() {
+	$dataId = (isset($_REQUEST['dataId'])?$_REQUEST['dataId']:'');
+		
+		$userId = Config::get('account')['id'];
+        $accountId = Config::get('account')['accountId'];
+        $role = Config::get('account')['role'];
+		$dbProd = Config::get('db')->get_results("select n.*, ROUND(n.chargecount,1) as chargecount1, ROUND(n.nvariance,0) as nvariance1, IFNULL(e.escalation,0) as escalationValue, IFNULL(e.note,'') as escalationNote, IFNULL(ae.escalation,'') as escalationType, z.procedureCount as todayProcs, z.actualWHP as todayWHP, z.plannedHours as todayHours, ROUND((z.actualWHP - a.hppd)* z.procedureCount,2) as todayVar, a.dept as depname, a.inshiftProd, a.prodMeasure, a.hppd, a.nurse1, a.nurse1Desc, ROUND((n.actualWHP - a.hppd)* n.procedureCount,2) as currentVar, n.id as dataId2, DATE_FORMAT(n.dayDate,'%m/%d/%Y') as reportdate, s.shift as reportshift, n.atotal+n.ltotal as totalpatients, a.totalbeds, a.churn, a.uosDesc, (a.oneto1 + a.oneto2 + a.oneto3 + a.oneto4 + a.oneto5 + a.oneto6 + a.oneto7 + a.oneto8) as acuityTotal, a.nurse1, a.nurse1Desc, a.oneto1 as acuity1, a.oneto2 as acuity2, a.oneto3 as acuity3, a.oneto4 as acuity4, a.oneto5 as acuity5, a.oneto6 as acuity6, a.oneto7 as acuity7, a.oneto7Acuity, a.oneto8 as acuity8, a.oneto8Acuity, a.desc1, a.desc2, a.desc3, a.desc4, a.desc5, a.desc6, a.desc7, a.desc8, a.skill1, a.skill2, a.skill3, a.skill4, a.skill5, a.skilldesc1, a.skilldesc2, a.skilldesc3, a.skilldesc4, a.skilldesc5, IFNULL(u.first_name,'') as first_name, IFNULL(u.last_name,'') as last_name, IFNULL(b.blockedBeds,0) as blockedBeds, a.totalbeds-n.atotal-n.ltotal-b.blockedBeds as openbeds from `productiveNewData` n left join `productiveShifts` as s on s.id = n.shift left join `ProductiveDept` as a on a.accountId = n.accountId and a.id = n.deptId left join `productiveUser` as u on u.id = n.userId left outer join `productiveblockedBeds` as b on b.accountId = n.accountId and b.deptId = n.deptId LEFT JOIN `productiveNewData` as z on z.deptId = n.deptId and z.dayDate = n.dayDate and z.shift=n.shift LEFT OUTER JOIN `productiveEscalations` as e on e.dataId = n.id LEFT OUTER JOIN `productiveAcctEscalations` as ae on ae.id = e.escalation where n.accountId ={$accountId} AND n.id={$dataId} group by n.id");
+        //$dbProd = Config::get('db')->get_results("select n.*, ROUND(n.chargecount,1) as chargecount1, ROUND(n.nvariance,0) as nvariance1, IFNULL(e.escalation,0) as escalationValue, IFNULL(e.note,'') as escalationNote, IFNULL(ae.escalation,'') as escalationType, z.procedureCount as todayProcs, z.actualWHP as todayWHP, z.plannedHours as todayHours, ROUND((z.actualWHP - a.hppd)* z.procedureCount,2) as todayVar, a.dept as depname, a.prodMeasure, a.hppd, ROUND((n.actualWHP - a.hppd)* n.procedureCount,2) as currentVar, n.id as dataId2, DATE_FORMAT(n.dayDate,'%m/%d/%Y') as reportdate, s.shift as reportshift, n.atotal+n.ltotal as totalpatients, a.totalbeds, a.churn, a.uosDesc, (a.oneto1 + a.oneto2 + a.oneto3 + a.oneto4 + a.oneto5 + a.oneto6) as acuityTotal,  a.oneto1 as acuity1, a.oneto2 as acuity2, a.oneto3 as acuity3, a.oneto4 as acuity4, a.oneto5 as acuity5, a.oneto6 as acuity6, a.desc1, a.desc2, a.desc3, a.desc4, a.desc5, a.desc6, a.skill1, a.skill2, a.skill3, a.skill4, a.skill5, a.skilldesc1, a.skilldesc2, a.skilldesc3, a.skilldesc4, a.skilldesc5, IFNULL(u.first_name,'') as first_name, IFNULL(u.last_name,'') as last_name, IFNULL(b.blockedBeds,0) as blockedBeds, a.totalbeds-n.atotal-n.ltotal-b.blockedBeds as openbeds from `productiveNewData` n left join `productiveShifts` as s on s.id = n.shift left join `ProductiveDept` as a on a.accountId = n.accountId and a.id = n.deptId left join `productiveUser` as u on u.id = n.userId left outer join `productiveblockedBeds` as b on b.accountId = n.accountId and b.deptId = n.deptId LEFT JOIN `productiveNewData` as z on z.deptId = n.deptId and z.dayDate = n.dayDate and z.whpPlan=1 LEFT OUTER JOIN `productiveEscalations` as e on e.dataId = n.id LEFT OUTER JOIN `productiveAcctEscalations` as ae on ae.id = e.escalation where n.accountId ={$accountId} AND n.id={$dataId} AND {$userId} IN (SELECT x.userId FROM `productiveDeptXref` x where x.deptId=n.deptId) ");
+       		
+		if($dbProd){
+        $dbData = $dbProd[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }else{
+    echo json_encode(array('success'=>false,'message'=>'Record not found.'));
+	return false;
+	}
+}
+
+/////////////////////////////////////
+// GET 	Visits
+function GetVisits() {
+	$dataId = (isset($_REQUEST['dataId'])?$_REQUEST['dataId']:'');
+		
+		$userId = Config::get('account')['id'];
+        $accountId = Config::get('account')['accountId'];
+        $role = Config::get('account')['role'];
+		$dbVisits = Config::get('db')->get_results("select n.*, ROUND(n.chargecount,1) as chargecount1, ROUND(n.nvariance,0) as nvariance1, IFNULL(e.escalation,0) as escalationValue, IFNULL(e.note,'') as escalationNote, IFNULL(ae.escalation,'') as escalationType, z.procedureCount as todayProcs, z.actualWHP as todayWHP, z.plannedHours as todayHours, ROUND((z.actualWHP - a.hppd)* z.procedureCount,2) as todayVar, a.dept as depname, a.prodMeasure, a.hppd, ROUND((n.actualWHP - a.hppd)* n.procedureCount,2) as currentVar, n.id as dataId2, DATE_FORMAT(n.dayDate,'%m/%d/%Y') as reportdate, s.shift as reportshift, n.atotal+n.ltotal as totalpatients, a.totalbeds, a.churn, a.uosDesc, (a.oneto1 + a.oneto2 + a.oneto3 + a.oneto4 + a.oneto5 + a.oneto6) as acuityTotal,  a.oneto1 as acuity1, a.oneto2 as acuity2, a.oneto3 as acuity3, a.oneto4 as acuity4, a.oneto5 as acuity5, a.oneto6 as acuity6, a.desc1, a.desc2, a.desc3, a.desc4, a.desc5, a.desc6, a.skill1, a.skill2, a.skill3, a.skill4, a.skill5, a.skilldesc1, a.skilldesc2, a.skilldesc3, a.skilldesc4, a.skilldesc5, IFNULL(u.first_name,'') as first_name, IFNULL(u.last_name,'') as last_name, IFNULL(b.blockedBeds,0) as blockedBeds, a.totalbeds-n.atotal-n.ltotal-b.blockedBeds as openbeds from `productiveNewData` n left join `productiveShifts` as s on s.id = n.shift left join `ProductiveDept` as a on a.accountId = n.accountId and a.id = n.deptId left join `productiveUser` as u on u.id = n.userId left outer join `productiveblockedBeds` as b on b.accountId = n.accountId and b.deptId = n.deptId LEFT JOIN `productiveNewData` as z on z.deptId = n.deptId and z.dayDate = n.dayDate and z.shift=n.shift LEFT OUTER JOIN `productiveEscalations` as e on e.dataId = n.id LEFT OUTER JOIN `productiveAcctEscalations` as ae on ae.id = e.escalation where n.id={$dataId} group by n.id");
+               		
+		if($dbVisits){
+        $dbData = $dbVisits[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }else{
+    echo json_encode(array('success'=>false,'message'=>'Record not found.'));
+	return false;
+	}
+}
+
+/////////////////////////////////////
+// GET 	Visits
+function UpdateVisits() {
+	$dataId = (isset($_REQUEST['dataId'])?$_REQUEST['dataId']:'');
+	$dayDate = (isset($_REQUEST['dayDate'])?$_REQUEST['dayDate']:'');
+	$accountId = (isset($_REQUEST['accountId'])?$_REQUEST['accountId']:'');
+	$deptId = (isset($_REQUEST['deptId'])?$_REQUEST['deptId']:'');
+	$visitTotal = (isset($_REQUEST['visitTotal'])?$_REQUEST['visitTotal']:'');
+	$hoursTotal = (isset($_REQUEST['hoursTotal'])? floatval($_REQUEST['hoursTotal']):'');
+		
+		if($dayDate && $accountId && $deptId && $visitTotal && $hoursTotal){			
+				$updateProd = Config::get('db')->get_results("select n.*, count(n.id) as shiftCount, s.value, h.hppd from `productiveNewData` n left join `ProductiveDept` as h on h.accountId = n.accountId and h.id=n.deptId left join `productiveAccountXref` as s on s.dept = n.deptId and s.shift = n.shift where n.dayDate='{$dayDate}' AND n.accountId={$accountId} AND n.deptId={$deptId} group by n.shift order by n.shift DESC");
+				$antetotal = intval($visitTotal);
+				$hppd = $updateProd[0]['hppd'];
+				$antehours = $antetotal * floatval($hppd);
+				$aprod = ($antehours / $hoursTotal)*100;
+				$aproductivity = round($aprod,1);
+				
+				foreach($updateProd as $prodUpdate){
+				$prodId = $prodUpdate['id'];
+				$data = array(
+					'aproductivity' => $aproductivity,
+					'nproductivity' => $aproductivity,
+					'visits' => $visitTotal,
+					'totalHours' => $hoursTotal
+				);
+				$updateWhere = array('id' => $prodId);
+				$newProd = Config::get('db')->update('productiveNewData',$data,$updateWhere);
+				}
+				echo json_encode(array('success' => true,'updated'=>true));
+				return true;
+				}else{
+				echo json_encode(array('success'=>true,'updated'=>false));
+				return true;
+				}
+}
+
+
+/////////////////////////////////////
+// Clear Nursing Record
+function clearRecord() {
+	$dataId = (isset($_REQUEST['dataId']) ? $_REQUEST['dataId']:'');
+		
+		$dbProd = Config::get('db')->get_results("SELECT n.*, IFNULL(e.id,'') as escalationId from `productiveNewData` n LEFT OUTER JOIN `productiveEscalations` as e on e.dataId = n.id WHERE n.id={$dataId} group by n.id");
+     if($dbProd){
+        $dbData = $dbProd[0];
+		$escId = $dbData['escalationId'];
+		$note = '';
+		$data = array(
+				'chargecount' =>1,
+                'techcount' =>0,
+				'aptechcount' =>0,
+				'seccount' =>0,
+				'sittercount' =>0,
+				'antecount' =>0,
+				'userId' =>0,
+				'acs' =>0,
+				'am1' =>0,
+                'awcm' =>0,
+				'obed' =>0,
+				'obed1' =>0,
+				'ldcount' =>0,
+				'ocount' =>0,
+                'ev' =>0,
+				'scs' =>0,
+				'cr' =>0,
+				'pt' =>0,
+                'ccs' =>0,
+				'ps1' =>0,
+				'pp' =>0,
+				'avariance' =>0,
+				'lvariance' =>0,
+				'nvariance' =>0,
+				'atotal' =>0,
+				'ltotal' =>0,
+				'aproductivity' =>0,
+				'note' =>$note,
+				'lproductivity' =>0,
+				'nproductivity' =>0,
+				'procedureCount' =>0.0,
+				'actualWHP' =>0.0,
+				'oneto1' =>0,
+				'oneto2' =>0,
+				'oneto3' =>0,
+				'oneto4' =>0,
+				'oneto5' =>0,
+				'oneto6' =>0,
+				'twoto1' =>0,
+				'skill1val' =>0.0,
+				'skill2val' =>0.0,
+				'skill3val' =>0.0,
+				'skill4val' =>0.0,
+				'skill5val' =>0.0,
+				'skill6val' =>0.0,
+				'addResourceHrs' =>0,
+				'plannedHours' =>0.0,
+				'plannedProcs' =>0.0,
+				'budgetValue' =>0.0,
+				'admits' =>0,
+				'transfers' =>0,
+				'discharges' =>0,
+				'churnValue' =>0.0
+				);
+		$where = array(
+				'id'=>$dataId
+				);
+		Config::get('db')->update('productiveNewData',$data,$where);
+		
+		if($escId){
+		$whereEsc = array(
+				'dataId'=>$dataId
+				);
+		Config::get('db')->delete('productiveEscalations',$whereEsc);
+		}else{
+		//do nothing;	
+		}
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }else{
+    echo json_encode(array('success'=>false,'message'=>'Record not found.'));
+	return false;
+	}
+}
+
+/////////////////////////////////////
+// Clear WHP Record
+function clearWHPRecord() {
+	$dataId = (isset($_REQUEST['dataId']) ? $_REQUEST['dataId']:'');
+		
+		$dbProd = Config::get('db')->get_results("SELECT n.*, IFNULL(e.id,'') as escalationId from `productiveNewData` n LEFT OUTER JOIN `productiveEscalations` as e on e.dataId = n.id WHERE n.id={$dataId} group by n.id");
+     if($dbProd){
+        $dbData = $dbProd[0];
+		$escId = $dbData['escalationId'];
+		$note = '';
+		$data = array(
+				'chargecount' =>0,
+                'techcount' =>0,
+				'aptechcount' =>0,
+				'seccount' =>0,
+				'sittercount' =>0,
+				'antecount' =>0,
+				'userId' =>0,
+				'acs' =>0,
+				'am1' =>0,
+                'awcm' =>0,
+				'obed' =>0,
+				'obed1' =>0,
+				'ldcount' =>0,
+				'ocount' =>0,
+                'ev' =>0,
+				'scs' =>0,
+				'cr' =>0,
+				'pt' =>0,
+                'ccs' =>0,
+				'ps1' =>0,
+				'pp' =>0,
+				'avariance' =>0,
+				'lvariance' =>0,
+				'nvariance' =>0,
+				'atotal' =>0,
+				'ltotal' =>0,
+				'aproductivity' =>0,
+				'note' =>$note,
+				'lproductivity' =>0,
+				'nproductivity' =>0,
+				'procedureCount' =>0.0,
+				'actualWHP' =>0.0,
+				'oneto1' =>0,
+				'oneto2' =>0,
+				'oneto3' =>0,
+				'oneto4' =>0,
+				'oneto5' =>0,
+				'oneto6' =>0,
+				'twoto1' =>0,
+				'skill1val' =>0.0,
+				'skill2val' =>0.0,
+				'skill3val' =>0.0,
+				'skill4val' =>0.0,
+				'skill5val' =>0.0,
+				'skill6val' =>0.0,
+				'addResourceHrs' =>0,
+				'plannedHours' =>0.0,
+				'plannedProcs' =>0.0,
+				'budgetValue' =>0.0,
+				'admits' =>0,
+				'transfers' =>0,
+				'discharges' =>0,
+				'churnValue' =>0.0
+				);
+		$where = array(
+				'id'=> $dataId
+				);
+		Config::get('db')->update('productiveNewData',$data,$where);
+		
+		if($escId){
+		$whereEsc = array(
+				'dataId'=> $dataId
+				);
+		Config::get('db')->delete('productiveEscalations',$whereEsc);
+		}else{
+			//do nothing;
+		}
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }else{
+    echo json_encode(array('success'=>false,'message'=>'Record not found.'));
+	return false;
+	}
+}
+
+/////////////////////////////////////
+// Copy Plan
+function copyPlan() {
+	$dataId = (isset($_REQUEST['dataId']) ? $_REQUEST['dataId']:'');
+	$deptId = (isset($_REQUEST['deptId']) ? $_REQUEST['deptId']:'');
+	$shift = (isset($_REQUEST['shift']) ? $_REQUEST['shift']:'');
+	$dayDate = (isset($_REQUEST['dayDate']) ? $_REQUEST['dayDate']:'');
+	$date = $dayDate-518400;
+	//$newDate = date_format($date,"Y/m/d");
+	$newDate = date('Y-m-d',$date);
+	$userId = Config::get('account')['id'];
+	
+	if($dataId){
+	$dbProd = Config::get('db')->get_results("SELECT n.* from `productiveNewData` n WHERE n.dayDate='{$newDate}' AND n.deptId={$deptId} AND n.shift={$shift} AND n.userId>0");
+	}else{
+		echo json_encode(array('success'=>false,'message'=>false,'date'=>$newDate));
+		return true;
+	}
+	if($dbProd){
+	$demo = $dbProd[0];
+	$chargecount = $demo['chargecount'];
+	$techcount = $demo['techcount'];
+	$aptechcount = $demo['aptechcount'];
+	$seccount = $demo['seccount'];
+	$sittercount = $demo['sittercount'];
+	$antecount = $demo['antecount'];
+	$ldcount = $demo['ldcount'];
+	$ocount = $demo['ocount'];
+	$acs = $demo['acs'];
+	$am1 = $demo['am1'];
+	$awcm = $demo['awcm'];
+	$obed = $demo['obed'];
+	$obed1 = $demo['obed1'];
+	$ev = $demo['ev'];
+	$scs = $demo['scs'];
+	$cr = $demo['cr'];
+	$pt = $demo['pt'];
+	$ccs = $demo['ccs'];
+	$ps1 = $demo['ps1'];
+	$pp = $demo['pp'];
+	$avariance = $demo['avariance'];
+	$lvariance = $demo['lvariance'];
+	$nvariance = $demo['nvariance'];
+	$note = $demo['note'];
+	$atotal = $demo['atotal'];
+	$ltotal = $demo['ltotal'];
+	$aproductivity = $demo['aproductivity'];
+	$lproductivity = $demo['lproductivity'];
+	$nproductivity = $demo['nproductivity'];
+	$oneto1 = $demo['oneto1'];
+	$oneto2 = $demo['oneto2'];
+	$oneto3 = $demo['oneto3'];
+	$oneto4 = $demo['oneto4'];
+	$oneto5 = $demo['oneto5'];
+	$oneto6 = $demo['oneto6'];
+	$whpPlan = $demo['whpPlan']; 
+	$skill1val = $demo['skill1val'];
+	$skill2val = $demo['skill2val'];
+	$skill3val = $demo['skill3val'];
+	$skill4val = $demo['skill4val'];
+	$skill5val = $demo['skill5val'];
+	$skill6val = $demo['skill6val'];
+	$addResourceHrs = $demo['addResourceHrs'];
+	$twoto1 = $demo['twoto1'];
+	$procedureCount = $demo['procedureCount'];
+	$actualWHP = $demo['actualWHP'];
+	$plannedHours = $demo['plannedHours'];
+	$plannedProcs = $demo['plannedProcs'];
+	$admits = $demo['admits'];
+	$transfers = $demo['transfers'];
+	$discharges = $demo['discharges'];
+	$budgetValue = $demo['budgetValue'];
+	$churnValue = $demo['churnValue'];
+	
+		$demodata = array(
+                'userId' => $userId,
+				'chargecount' => $chargecount, 
+				'techcount' => $techcount,
+				'aptechcount' => $aptechcount,
+				'seccount' => $seccount,
+				'sittercount' => $sittercount,
+				'antecount' => $antecount,
+				'ldcount' => $ldcount,
+				'ocount' => $ocount,
+				'acs' => $acs,
+				'am1' => $am1,
+				'awcm' => $awcm,
+				'obed' => $obed,
+				'obed1' => $obed1,
+				'ev' => $ev,
+				'scs' => $scs,
+				'cr' => $cr,
+				'pt' => $pt,
+				'ccs' => $ccs,
+				'ps1' => $ps1,
+				'pp' => $pp,
+				'avariance' => $avariance,
+				'lvariance' => $lvariance,
+				'nvariance' => $nvariance,
+				'note' => $note,
+				'atotal' => $atotal,
+				'ltotal' => $ltotal,
+				'aproductivity' => $aproductivity, 
+				'lproductivity' => $lproductivity,
+				'nproductivity' => $nproductivity,
+				'oneto1' => $oneto1,
+				'oneto2' => $oneto2,
+				'oneto3' => $oneto3,
+				'oneto4' => $oneto4,
+				'oneto5' => $oneto5,
+				'oneto6' => $oneto6,
+				'whpPlan' => $whpPlan,
+				'skill1val' => $skill1val,
+				'skill2val' => $skill2val,
+				'skill3val' => $skill3val,
+				'skill4val' => $skill4val,
+				'skill5val' => $skill5val,
+				'skill6val' => $skill6val,
+				'addResourceHrs' => $addResourceHrs,
+				'twoto1' => $twoto1,
+				'procedureCount' => $procedureCount, 
+				'actualWHP' => $actualWHP,
+				'plannedHours' => $plannedHours,
+				'plannedProcs' => $plannedProcs,
+				'admits' => $admits,
+				'transfers' => $transfers,
+				'discharges' => $discharges,
+				'budgetValue' => $budgetValue,
+				'churnValue' => $churnValue
+            );
+		$demowhere = array(
+                'id'=>$dataId
+            );
+			
+            Config::get('db')->update('productiveNewData',$demodata,$demowhere);
+			echo json_encode(array('success'=>true,'message'=>true));
+	}else{
+		echo json_encode(array('success'=>true,'message'=>false,'date'=>$newDate));
+		return true;
+	}
+	
+}
+
+
+/////////////////////////////////////
+// Get Blocked Beds
+function getblockedBeds() {
+	$deptId = (isset($_REQUEST['deptId'])?$_REQUEST['deptId']:'');
+	//$accountId = (isset($_REQUEST['accountId'])?$_REQUEST['accountId']:'');
+	$userId = Config::get('account')['id'];
+	$accountId = Config::get('account')['accountId'];
+	//$deptId = Config::get('account')['deptid'];
+     
+	$dbProd = Config::get('db')->get_results("select b.*, d.dept as deptName from `productiveblockedBeds` b left join `ProductiveDept` as d on d.id = b.deptId where b.accountId={$accountId} and b.deptId={$deptId} group by b.deptId");
+	if ($dbProd) {
+        $dbData = $dbProd[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+    }else{
+	 $data = array(
+            'accountId' => Config::get('db')->filter($accountId),
+			'deptId' => Config::get('db')->filter($deptId),
+			'blockedBeds' =>0
+        );
+
+        Config::get('db')->insert('productiveblockedBeds', $data);
+		
+		$dbProd = Config::get('db')->get_results("select b.*, d.dept as deptName from `productiveblockedBeds` b left join `ProductiveDept` as d on d.id = b.deptId where b.accountId={$accountId} and b.deptId={$deptId} group by b.deptId");
+        
+        $dbData = $dbProd[0];
+        echo json_encode(array('success' => true,'data'=>$dbData));
+        return true;
+	 
+		
+	}
+    echo json_encode(array('success'=>false,'message'=>'No blocked beds  found.'));
+    return false;
+}
+
+/////////////////////////////////////
+// Update Blocked Beds
+function updateblockedBeds() {
+	$deptId = (isset($_REQUEST['deptId'])?$_REQUEST['deptId']:'');
+	$accountId = (isset($_REQUEST['accountId'])?$_REQUEST['accountId']:'');
+	$userId = Config::get('account')['id'];
+	$comments = (isset($_REQUEST['comment'])?$_REQUEST['comment']:'');
+	$count = (isset($_REQUEST['count'])?$_REQUEST['count']:0);
+	
+	if(intval($count)>0){
+	$comment = str_replace("'","",$comments);
+	}else{
+	$comment = '';
+	}
+     
+	if ($deptId){
+	$data = array(
+            'blockedBeds' =>$count,
+			'comments' =>$comment
+        );
+	$updateWhere = array('deptId' =>$deptId);
+            
+	$newBlock = Config::get('db')->update('productiveblockedBeds',$data,$updateWhere); 
+
+        echo json_encode(array('success' => true));
+        return true;
+	}
+    echo json_encode(array('success'=>false,'message'=>'update failed.'));
+    return false;
+}
+
+
+/////////////////////////////////////
+// ADD NEW MATRIX
+function UpdateProdMatrix() {
+    $shift = (isset($_REQUEST['shift'])) ? $_REQUEST['shift'] : '';
+	$dataId = (isset($_REQUEST['dataId'])) ? $_REQUEST['dataId'] : '';
+	$day = (isset($_REQUEST['day'])) ? $_REQUEST['day'] : '';
+	$chargecount = (isset($_REQUEST['chargecount'])) ? $_REQUEST['chargecount'] : 0;
+	$techcount = (isset($_REQUEST['techcount'])) ? $_REQUEST['techcount'] : 0;
+	$aptechcount = (isset($_REQUEST['aptechcount'])) ? $_REQUEST['aptechcount'] : 0;
+	$seccount = (isset($_REQUEST['seccount'])) ? $_REQUEST['seccount'] : 0;
+	$antecount = (isset($_REQUEST['antecount'])) ? $_REQUEST['antecount'] : 0;
+	$acs = (isset($_REQUEST['acs'])) ? $_REQUEST['acs'] : 0;
+	$am1 = (isset($_REQUEST['am1'])) ? $_REQUEST['am1'] : 0;
+	$awcm = (isset($_REQUEST['awcm'])) ? $_REQUEST['awcm'] : 0;
+	$obed = (isset($_REQUEST['obed'])) ? $_REQUEST['obed'] : 0;
+	$obedNew = (isset($_REQUEST['obed1'])) ? $_REQUEST['obed1'] : 0;
+	$ldcount = (isset($_REQUEST['ldcount'])) ? $_REQUEST['ldcount'] : 0;
+	$ocount = (isset($_REQUEST['ocount'])) ? $_REQUEST['ocount'] : 0;
+	$ev = (isset($_REQUEST['ev'])) ? $_REQUEST['ev'] : 0;
+	$scs = (isset($_REQUEST['scs'])) ? $_REQUEST['scs'] : 0;
+	$cr = (isset($_REQUEST['cr'])) ? $_REQUEST['cr'] : 0;
+	$pt = (isset($_REQUEST['pt'])) ? $_REQUEST['pt'] : 0;
+	$ccs = (isset($_REQUEST['ccs'])) ? $_REQUEST['ccs'] : 0;
+	$deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : 0;
+	$ps1 = (isset($_REQUEST['ps1'])) ? $_REQUEST['ps1'] : 0;
+	$atotal = (isset($_REQUEST['atotal'])) ? $_REQUEST['atotal'] : 0;
+	$ltotal = (isset($_REQUEST['ltotal'])) ? $_REQUEST['ltotal'] : 0;	
+	$note = (isset($_REQUEST['note'])) ? $_REQUEST['note'] : '';
+	$pp = (isset($_REQUEST['pp'])) ? $_REQUEST['pp'] : 0;
+	//$note2 = str_replace("'","",$note);
+	$note2 = addslashes($note);
+	$antecheck = 0;
+	$laborcheck = 0;
+	$antetotal = 0;
+	$acheck = 0;
+	$lchek = 0;
+	
+	$dbData = Config::get('db')->get_results("select n.*, s.value, h.hppd, h.id, h.viewPage from `productiveNewData` n left join `ProductiveDept` as h on h.accountId = n.accountId and h.id=n.deptId left join `productiveAccountXref` as s on s.accountId = n.accountId and s.dept = n.deptId and s.shift = n.shift where n.id={$dataId}");
+	
+	if($dbData){
+		$hppd = floatval($dbData[0]['hppd']);
+		$value = floatval($dbData[0]['value']);
+		$deptId = $dbData[0]['deptId'];
+		$censusShift = 4;
+		$viewPage = $dbData[0]['viewPage'];
+
+	}else{
+		header('location: dashboard.php');
+		exit();
+	}
+	
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];	
+	
+			$acs1 = intval($acs) * 0.3;
+			$am11 = intval($am1) * 0.5;
+			$awcm1 = intval($awcm);
+			
+			
+			$antepartumnurses = ceil($acs1+$am11+$awcm1);
+			$avariance = intval($antecount) - $antepartumnurses;
+			
+			$ev1 = intval($ev) * 0.5;
+			$scs1 = intval($scs) * 0.5;
+			$cr1 = intval($cr) * 0.5;
+			$pt1 = intval($pt);
+			$ccs1 = intval($ccs);
+			$ps11 = intval($ps1);
+			$obed1 = intval($obed) * 0.33;
+			$obed2 = intval($obedNew) * 0.33;
+			$pp1 = intval($pp) * 0.167;
+			
+			$labornurses = ceil($ev1+$scs1+$cr1+$pt1+$ccs1+$ps11+$obed1+$pp1+$obed2);
+			$lvariance = intval($ldcount) - $labornurses;			
+			$nvariance = ($antecount + $ldcount) - ($antepartumnurses + $labornurses);
+			
+			if (intval($shift) !=4){
+				$dbAprod = Config::get('db')->get_results("select n.* from `productiveNewData` n where n.dayDate='{$day}' AND n.deptId={$deptId} AND n.shift=4");
+				$antetotal = intval($dbAprod[0]['atotal']);
+			}else{
+				$antetotal = intval($atotal);
+			}
+			
+			if($antetotal>0 && $antecount>0){
+			$antehours = $value * $antetotal * $hppd;
+			$antenurses = ($antecount + intval($aptechcount)) * 24 * $value;
+			$aprod = ($antehours / $antenurses)*95;
+			$aproductivity = round($aprod,1);
+			}else{
+			$aproductivity = 0.0;
+			}	
+			
+			$acheck = $acs+$am1+$awcm;
+			if($acheck == $atotal){
+				$antecheck = true;
+			}else{
+				$antecheck = false;
+			}
+			$lcheck = $ev+$scs+$cr+$pt+$ccs+$ps1+$obed+$pp+$obedNew;
+			if($lcheck == $ltotal){
+				$laborcheck = true;
+			}else{
+				$laborcheck = false;
+			}	
+	if (intval($ldcount)>0) {
+			$now = time()-21600;
+			 $data = array(
+                'chargecount' => $chargecount,
+                'techcount' => $techcount,
+				'aptechcount' => $aptechcount,
+				'seccount' => $seccount,
+				'antecount' => $antecount,
+				'entered' =>date("Y-m-d H:i:s",$now),
+				'userId' => $userId,
+				'acs' => $acs,
+				'am1' => $am1,
+                'awcm' => $awcm,
+				'obed' => $obed,
+				'obed1' => $obedNew,
+				'ldcount' => $ldcount,
+				'ocount' => $ocount,
+                'ev' => $ev,
+				'scs' => $scs,
+				'cr' => $cr,
+				'pt' => $pt,
+                'ccs' => $ccs,
+				'ps1' => $ps1,
+				'pp' => $pp,
+				'avariance' => $avariance,
+				'lvariance' => $lvariance,
+				'nvariance' => $nvariance,
+				'atotal' => $atotal,
+				'ltotal' => $ltotal,
+				'aproductivity' => $aproductivity,
+				'note' => $note2
+            );
+			$updateWhere = array('id' => $dataId);
+            
+			$newProd = Config::get('db')->update('productiveNewData',$data,$updateWhere);
+			
+			}
+			
+			if($avariance < 10 || $lvariance < 10){
+						
+				if($avariance !=0 && $lvariance ==0){
+					$rvariance = $avariance;
+					$dep = "in Antepartum";
+					if($avariance <0){
+						$varianceType = "under-staffed";
+					}else{
+						$varianceType = "over-staffed";
+					}
+				}else if($avariance ==0 && $lvariance !=0){
+					$rvariance = $lvariance;
+					$dep = "in Labor Delivery";
+					if($lvariance <0){
+						$varianceType = "under-staffed";
+					}else{
+						$varianceType = "over-staffed";
+					}
+				}else{
+					$rvariance = $avariance + $lvariance;
+					$dep = "in Antepartum and L&D";
+					$varianceType = '';
+				}
+				
+			if($avariance <= -2 || $lvariance <= -2 || $avariance >= 2 || $lvariance >= 2){			
+				$var = array(
+				'message'=>true,
+				'antecheck'=>$antecheck,
+				'acheck'=>$acheck,
+				'antetotal'=>$atotal,
+				'labortotal'=>$ltotal,
+				'laborcheck'=>$laborcheck,
+				'a1'=>$acs,
+				'a2'=>$am1,
+				'a3'=>$awcm,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);
+			}else{
+				$var = array(
+				'message'=>false,
+				'antecheck'=>$antecheck,
+				'acheck'=>$acheck,
+				'antetotal'=>$atotal,
+				'labortotal'=>$ltotal,
+				'laborcheck'=>$laborcheck,
+				'a1'=>$acs,
+				'a2'=>$am1,
+				'a3'=>$awcm,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);				
+			}
+			
+			if($antecheck == false){
+				echo json_encode(array('success'=>true,'data'=>$var));
+				exit();
+			}else{
+				//do nothing;
+			}
+			
+				$dbAdmin = Config::get('db')->get_results("select p.* FROM `productiveUser` p LEFT OUTER JOIN `productiveDeptXref` as x on x.userId = p.id LEFT JOIN `ProductiveDept` as d on d.id = x.deptId where p.accountId={$accountId} and p.txt>0 and p.txtactive>=1 and p.txtPause=0 and p.active>0 and x.deptId={$deptId} and x.textAlerts >=1 group by p.id");
+				
+				if($dbAdmin){
+				foreach ($dbAdmin as $dbText){
+				$mobile = $dbText['mobile'];
+				//$varnumber = $nvariance * -1;
+				$message = "ProductiveRN Alert:  A Staffing Report has just been submitted with a variance of ". $rvariance ." in ". $dep .".  www.productivern.com/view.php?u=" . $dataId;
+				$psword = "J8775bcgEE2065";
+				$keyword2 = "JOBALARM58046";
+				$shortcode = "58046";
+				$slooce = "jobalarm45";
+				
+				$now = time();
+				
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $now;
+                
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+               
+            
+				$smsoptions = Array(
+					'numbers' => $numbers,
+					'message' => $messages,
+					'keyword' => $keywords,
+					'login' => $slooce,
+					'shortCode' => $shortCode
+
+				);
+				$result = '';
+				}
+				$result = sendNow($smsoptions);
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				}
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+			
+			
+			}else{
+			$var = array(
+			'message'=>false,
+			'antecheck'=>$antecheck,
+			'laborcheck'=>$laborcheck,
+			'a1'=>$acs,
+			'a2'=>$am1,
+			'a3'=>$awcm,
+			'variance'=>$nvariance,
+			'dataId'=>$dataId,
+			'deptId'=>$deptId,
+			'note'=>$note
+			);
+			}	
+			echo json_encode(array('success'=>true,'data'=>$var));
+		return true;
+			
+	}
+
+/////////////////////////////////////
+// UPDATE PROD NEW 
+/*
+function UpdateProdNew() {
+    $shift = (isset($_REQUEST['shift'])) ? $_REQUEST['shift'] : '';
+	$dataId = (isset($_REQUEST['dataId'])) ? $_REQUEST['dataId'] : '';
+	$day = (isset($_REQUEST['day'])) ? $_REQUEST['day'] : '';
+	$chargecount = (isset($_REQUEST['chargecount'])) ? $_REQUEST['chargecount'] : 0;
+	$techcount = (isset($_REQUEST['techcount'])) ? $_REQUEST['techcount'] : 0;
+	$seccount = (isset($_REQUEST['seccount'])) ? $_REQUEST['seccount'] : 0;
+	$nursecount = (isset($_REQUEST['nursecount'])) ? $_REQUEST['nursecount'] : 0;
+	$high = (isset($_REQUEST['high'])) ? $_REQUEST['high'] : 0;
+	$med = (isset($_REQUEST['med'])) ? $_REQUEST['med'] : 0;
+	$low = (isset($_REQUEST['low'])) ? $_REQUEST['low'] : 0;
+	$deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : 0;
+	$patienttotal = (isset($_REQUEST['patienttotal'])) ? $_REQUEST['patienttotal'] : 0;
+	$note = (isset($_REQUEST['note'])) ? $_REQUEST['note'] : '';
+	$antecheck = 0;
+	$antetotal = 0;
+	$acheck = 0;
+	$pct = 0;
+	$sec = 0;
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];	
+	
+	$dbData = Config::get('db')->get_results("select n.*, s.value, h.hppd, h.id, h.viewPage, h.shift as censusShift from `productiveNewData` n left join `ProductiveDept` as h on h.accountId = n.accountId and h.id=n.deptId left join `productiveAccountXref` as s on s.accountId = n.accountId and s.dept = n.deptId and s.shift = n.shift where n.id={$dataId}");
+	
+	if($dbData){
+		$hppd = floatval($dbData[0]['hppd']);
+		$value = floatval($dbData[0]['value']);
+		$deptId = $dbData[0]['deptId'];
+		$censusShift = $dbData[0]['censusShift'];
+		$viewPage = $dbData[0]['viewPage'];
+	}else{
+		$hppd =0;
+		$value =0;
+		$viewPage = '';
+		$censusShift=52;
+		//$shifthrs=0;
+	}
+	
+			if(intval($shift)>= 14 && intval($shift)<= 38){
+				if(intval($patienttotal)<=23 && intval($patienttotal)>=22){
+				$pct = 1;
+				$sec = 0;
+				}else if(intval($patienttotal)>=24){
+				$pct = 2;
+				$sec = 1;
+				}else{
+				$pct = 0;
+				$sec = 0;
+				}
+			}else if(intval($shift)> 38 || intval($shift)< 14){
+				if(intval($patienttotal)>=25 && intval($patienttotal)<=28){
+				$pct = 1;
+				$sec = 0;
+				}else if(intval($patienttotal)>=29){
+				$pct = 2;
+				$sec = 0;
+				}else{
+				$pct = 0;
+				$sec = 0;
+				}
+			}else{
+				$pct = 0;
+				$sec = 0;
+			}
+	
+			$highacuity = intval($high) * 0.33;
+			$medacuity = intval($med) * 0.25;
+			$lowacuity = intval($low) * 0.2;
+			
+			$pctVariance = intval($techcount) - $pct;
+				if($pctVariance <>0){
+					$pctmsg = " and " . $pctVariance . "PCT";
+				}else{
+					$pctmsg = '';
+				}
+			$secVariance = intval($seccount) - $sec;
+				if($secVariance <>0){
+					$secmsg = " and " . $secVariance . "Secretary";
+				}else{
+					$secmsg = '';
+				}
+			
+			
+			$requirednurses = round($highacuity+$medacuity+$lowacuity);
+			$avariance = intval($nursecount) - $requirednurses + $pctVariance + $secVariance;
+						
+			$nvariance = $avariance;
+			
+			
+			if (intval($shift) != intval($censusShift)){
+				$dbAprod = Config::get('db')->get_results("select n.* from `productiveNewData` n where n.dayDate='{$day}' AND n.accountId={$accountId} AND n.deptId={$deptId} AND n.shift={$censusShift}");
+				$antetotal = intval($dbAprod[0]['atotal']);
+			}else{
+				$antetotal = intval($patienttotal);
+			}
+			
+			if (intval(date("N")) >= 1 && intval(date("N"))<=4){
+				$nurseAdd = 2 * .33;
+			}else if(intval(date("N")) == 5){
+				$nurseAdd = 1 * .33;
+			}else{
+				$nurseAdd = 0;
+			}
+			
+			
+			if($antetotal >=1 && intval($nursecount) >=1){
+			$antehours = $value * $antetotal * $hppd;
+			$antenurses = (intval($nursecount) + $nurseAdd + intval($chargecount) + intval($seccount) + intval($techcount)) * 24 * $value;
+			$aprod = ($antehours / $antenurses)*95;
+			$aproductivity = round($aprod,2);
+			}else{
+			$aproductivity = 0.0;
+			}	
+			
+			$acheck = $high+$med+$low;
+			if($acheck == $patienttotal){
+				$antecheck = true;
+			}else{
+				$antecheck = false;
+			}
+			
+	if (intval($patienttotal)>0) {	
+			$now = time()-18000;
+			 $data = array(
+                'chargecount' => $chargecount,
+                'techcount' => $techcount,
+				'seccount' => $seccount,
+				'antecount' => $nursecount,
+				'entered' =>date("Y-m-d H:i:s",$now),
+				'userId' => $userId,
+				'oneto3' => $high,
+				'oneto4' => $med,
+                'oneto5' => $low,
+				'avariance' => $avariance,
+				'nvariance' => $avariance,
+				'atotal' => $patienttotal,
+				'aproductivity' => $aproductivity,
+				'nproductivity' => $aproductivity,
+				'note' => $note
+            );
+			$updateWhere = array('id' => $dataId);
+            
+			$newProd = Config::get('db')->update('productiveNewData',$data,$updateWhere);
+			
+			}
+			
+			if($nvariance < 10){
+						
+				if($nvariance <0){
+					$varianceType = "under-staffed";
+				}else if($nvariance >0){
+					$varianceType = "over-staffed";
+				}else{
+					$varianceType = '';
+				}
+				
+			if($avariance != 0){			
+				$var = array(
+				'message'=>true,
+				'patientcheck'=>$antecheck,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);
+			}else{
+				$var = array(
+				'message'=>false,
+				'patientcheck'=>$antecheck,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);				
+			}
+			
+			if($antecheck == false){
+				echo json_encode(array('success'=>true,'data'=>$var));
+				exit();
+			}else{
+				//do nothing;
+			}
+				
+			
+						
+				
+				$dbAdmin = Config::get('db')->get_results("select p.* FROM `productiveUser` p LEFT JOIN `productiveDeptXref` as x on x.userId = p.id where p.accountId={$accountId} and (p.txt=1 or p.txt=3) and p.txtactive=1 and x.deptId={$deptId} group by p.id");
+				
+				if($dbAdmin && intval($shift)!=44 && intval($shift)!=4 && intval($shift)!=52){
+				foreach ($dbAdmin as $dbText){
+				$mobile = $dbText['mobile'];
+				//$varnumber = $nvariance * -1;
+				$message = "ProductiveRN Alert:  A Staffing Report has just been submitted with a variance of ". $rvariance ." in ". $dep .".  www.jobalarm.com/productive/" . $viewPage . $dataId;
+				$psword = "J8775bcgEE2065";
+				$keyword2 = "JOBALARM58046";
+				$shortcode = "58046";
+				$slooce = "jobalarm45";
+				
+				$now = time();
+				
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $now;
+                
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+               
+            
+				$smsoptions = Array(
+					'numbers' => $numbers,
+					'message' => $messages,
+					'keyword' => $keywords,
+					'login' => $slooce,
+					'shortCode' => $shortCode
+
+				);
+				$result = '';
+				}
+				$result = sendNow($smsoptions);
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				}
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+			
+			
+			}else{
+			$var = array(
+			'message'=>false,
+			'antecheck'=>$antecheck,
+			'laborcheck'=>$laborcheck,
+			'a1'=>$acs,
+			'a2'=>$am1,
+			'a3'=>$awcm,
+			'variance'=>$nvariance,
+			'dataId'=>$dataId,
+			'note'=>$note
+			);
+			}	
+			echo json_encode(array('success'=>true,'data'=>$var));
+		return true;
+			
+	}
+	*/
+	
+/////////////////////////////////////
+// UPDATE PROD TEST 
+function UpdateProdTest() {
+    $shift = (isset($_REQUEST['shift'])) ? $_REQUEST['shift'] : '';
+	$dataId = (isset($_REQUEST['dataId'])) ? $_REQUEST['dataId'] : '';
+	$day = (isset($_REQUEST['day'])) ? $_REQUEST['day'] : '';
+	$chargecount = (isset($_REQUEST['chargecount'])) ? $_REQUEST['chargecount'] : 0;
+	$nurse1count = (isset($_REQUEST['nurse1'])) ? $_REQUEST['nurse1'] : 0;
+	$techcount = (isset($_REQUEST['techcount'])) ? $_REQUEST['techcount'] : 0;
+	$seccount = (isset($_REQUEST['seccount'])) ? $_REQUEST['seccount'] : 0;
+	$nursecount = (isset($_REQUEST['nursecount'])) ? $_REQUEST['nursecount'] : 0;
+	$sittercount = (isset($_REQUEST['sitters'])) ? $_REQUEST['sitters'] : 0;
+	$curTime = (isset($_REQUEST['currentTime'])) ? $_REQUEST['currentTime'] : time();
+	$currentTime = strtotime($curTime);
+	$oneto1 = (isset($_REQUEST['oneto1'])) ? $_REQUEST['oneto1'] : 0;
+	//$acuity2 = 0;
+	$oneto2 = (isset($_REQUEST['oneto2'])) ? $_REQUEST['oneto2'] : 0;
+	//$acuity6 = 0;
+	$oneto6 = (isset($_REQUEST['oneto6'])) ? $_REQUEST['oneto6'] : 0;
+	$oneto7 = (isset($_REQUEST['oneto7'])) ? $_REQUEST['oneto7'] : 0;
+	$oneto7Acuity = (isset($_REQUEST['oneto7Acuity'])) ? $_REQUEST['oneto7Acuity'] : 0;
+	$oneto8 = (isset($_REQUEST['oneto8'])) ? $_REQUEST['oneto8'] : 0;
+	$oneto8Acuity = (isset($_REQUEST['oneto8Acuity'])) ? $_REQUEST['oneto8Acuity'] : 0;
+	$high = (isset($_REQUEST['high'])) ? $_REQUEST['high'] : 0;
+	$med = (isset($_REQUEST['med'])) ? $_REQUEST['med'] : 0;
+	$low = (isset($_REQUEST['low'])) ? $_REQUEST['low'] : 0;
+	$acuityTotal = (isset($_REQUEST['acuityTotal'])) ? $_REQUEST['acuityTotal'] : 0;
+	$admissions = (isset($_REQUEST['admissions'])) ? $_REQUEST['admissions'] : 0;
+	$transfers = (isset($_REQUEST['transfers'])) ? $_REQUEST['transfers'] : 0;
+	$discharges = (isset($_REQUEST['discharges'])) ? $_REQUEST['discharges'] : 0;
+	//$visits = (isset($_REQUEST['visits'])) ? intval($_REQUEST['visits']) : 0;
+	$newDate = date('Y-m-d', strtotime('-1 day', strtotime($day)));
+	
+	$note2 = (isset($_REQUEST['note'])) ? $_REQUEST['note'] : '';
+	$note = stripslashes($note2);
+	$admissions = (isset($_REQUEST['admissions'])) ? INTVAL($_REQUEST['admissions']) : 0;
+	$transfers = (isset($_REQUEST['transfers'])) ? INTVAL($_REQUEST['transfers']) : 0;
+	$discharges = (isset($_REQUEST['discharges'])) ? INTVAL($_REQUEST['discharges']) : 0;
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+	$acheck = 0;
+	$nurseAdd = 0;
+	$requirednurses = 0;
+	$var = array();
+	
+	//if(intval($acuityTotal)!=2){
+	//$patienttotal = intval($high)+intval($med)+intval($low)+intval($oneto1)+intval($oneto2)+intval($oneto6)+intval($oneto7)+intval($oneto8);	
+	//}else{
+	$patienttotal = (isset($_REQUEST['patienttotal'])) ? intval($_REQUEST['patienttotal']) : 0;	
+	//}
+	$antetotal = $patienttotal;
+	
+	$dbData = Config::get('db')->get_results("select n.*, s.value, h.hppd, h.escalations, h.prodMeasure, h.adjustment, h.viewPage, h.inshiftProd, h.dept, h.churn, h.shiftsperDay, h.nurse1Variance, h.shift as censusShift from `productiveNewData` n left join `ProductiveDept` as h on h.id=n.deptId left join `productiveShifts` as t on t.id = n.shift left join `productiveAccountXref` as s on s.dept = n.deptId and s.shift = n.shift LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId=n.deptId where n.id={$dataId} group by n.id");
+	
+		$hppd = floatval($dbData[0]['hppd']);
+		$value = floatval($dbData[0]['value']);
+		$deptId = $dbData[0]['deptId'];
+		$censusShift = $dbData[0]['censusShift'];
+		$inshiftProd = intval($dbData[0]['inshiftProd']);
+		$rnThresholdHigh = intval($dbData[0]['rnThreshold']);
+		$rnThresholdLow = $rnThresholdHigh * -1;
+		$viewPage = $dbData[0]['viewPage'];
+		$prodUpdate = $dbData[0]['nproductivity'];
+		$escalations = intval($dbData[0]['escalations']);
+		$user = intval($dbData[0]['userId']);
+		$dep = $dbData[0]['dept'];
+		$shiftCount = intval($dbData[0]['shiftsperDay']);
+		$entered = $dbData[0]['entered'];
+		$adjustment = floatval($dbData[0]['adjustment']);
+		$recordId = $dbData[0]['id'];
+		$prodMeasure = intval($dbData[0]['prodMeasure']);
+		$churnMeasure = intval($dbData[0]['churn']);
+		$visits = $dbData[0]['visits'];
+		$nurse1Variance = intval($dbData[0]['nurse1Variance']);
+		
+
+		$dbAddResource = Config::get('db')->get_results("select p.id, p.deptId, sum(p.Sun) as SunTotal, sum(p.Mon) as MonTotal, sum(p.Tue) as TueTotal, sum(p.Wed) as WedTotal, sum(p.Thu) as ThuTotal, sum(p.Fri) as FriTotal, sum(p.Sat) as SatTotal, DAYOFWEEK('{$day}') as day FROM `productiveResources` p where p.deptId={$deptId}");
+	
+		if($dbAddResource){
+		$dbDay = $dbAddResource[0]['day'];;
+		
+		switch ($dbDay) {
+		case "1":
+			$addHours = intval($dbAddResource[0]['SunTotal']);
+			break;
+		case "2":
+			$addHours = intval($dbAddResource[0]['MonTotal']);
+			break;
+		case "3":
+			$addHours = intval($dbAddResource[0]['TueTotal']);
+			break;
+		case "4":
+			$addHours = intval($dbAddResource[0]['WedTotal']);
+			break;
+		case "5":
+			$addHours = intval($dbAddResource[0]['ThuTotal']);
+			break;
+		case "6":
+			$addHours = intval($dbAddResource[0]['FriTotal']);
+			break;
+		case "7":
+			$addHours = intval($dbAddResource[0]['SatTotal']);
+			break;
+		default:
+			$addHours = 0;
+		}
+		}else{
+		$addHours = 0;
+		}
+		
+		if($addHours>0 && $shiftCount>0){
+		$addResourceHrs = $addHours / $shiftCount;
+		$nurseAdd = $addHours / $shiftCount;
+		}else{
+		$addResourceHrs = 0;
+		}
+		
+		
+		$acuityOne = intval($oneto1);
+		$acuityTwo = intval($oneto2) * 0.5;
+		$highacuity = intval($high) * 0.333;
+		$medacuity = intval($med) * 0.25;
+		$lowacuity = intval($low) * 0.2;
+		$acuitySix = intval($oneto6) * 0.167;
+		if(intval($oneto7Acuity)>0){
+		$acuitySeven = intval($oneto7) / intval($oneto7Acuity);
+		}else{
+			$acuitySeven=0;
+		}
+		if(intval($oneto8Acuity)>0){
+		$acuityEight = intval($oneto8) / intval($oneto8Acuity);
+		}else{
+			$acuityEight=0;
+		}
+		
+		$requirednurses = round($highacuity+$medacuity+$lowacuity+$acuityOne+$acuityTwo+$acuitySix+$acuitySeven+$acuityEight);
+		
+		if($nurse1Variance >0){
+		$avariance = intval($nursecount) + intval($nurse1count) - $requirednurses;
+		}else{
+		$avariance = intval($nursecount) - $requirednurses;
+		}
+		
+		$nvariance = $avariance;
+		
+		
+		
+		
+		$updated=true;
+		
+			if(intval($nursecount)==0){
+				$nursecheck = false;
+			}else{
+				$nursecheck = true;
+			}
+		
+			$acheck = $high+$med+$low+$oneto1+$oneto2+$oneto6+$oneto7+$oneto8;
+			if($acheck == $patienttotal){
+			$antecheck = true;
+			}else{
+			$antecheck = false;
+			}
+		
+			if($avariance <= -2 || $avariance >=2){	
+				$staffing = true;
+			}else{
+				$staffing = false;
+			}
+		
+						
+			if(intval($prodMeasure)==1 && $inshiftProd==1){			
+				$antenurses = (intval($nursecount) + floatval($chargecount) + intval($nurse1count) + intval($seccount) + intval($sittercount) + intval($techcount)) * 24 / $shiftCount + $nurseAdd;
+			
+			if (intval($shift) != intval($censusShift)){
+				$dbAprod = Config::get('db')->get_results("select n.* from `productiveNewData` n where n.dayDate='{$day}' AND n.accountId={$accountId} AND n.deptId={$deptId} AND n.shift={$censusShift}");
+				$antetotal = intval($dbAprod[0]['atotal']);
+			}else{
+				$antetotal = $patienttotal;
+				//$updateProd = Config::get('db')->get_results("select n.* from `productiveNewData` n where n.dayDate='{$day}' AND n.accountId={$accountId} AND n.deptId={$deptId} AND n.shift!={$censusShift}");
+				
+				$updateProd = Config::get('db')->get_results("select n.*, s.value, h.hppd from `productiveNewData` n left join `ProductiveDept` as h on h.accountId = n.accountId and h.id=n.deptId left join `productiveShifts` as t on t.id = n.shift left join `productiveAccountXref` as s on s.dept = n.deptId and s.shift = n.shift where n.dayDate='{$day}' AND n.accountId={$accountId} AND n.deptId={$deptId} AND n.shift!={$censusShift} and n.userId>0 group by n.shift order by n.shift DESC");
+				foreach($updateProd as $updateShift){
+					//$updatepatienttotal = intval($updateShift['atotal']);
+					
+					$updatehppd = floatval($updateShift['hppd']);
+					$updatevalue = floatval($updateShift['value']);
+					$updatenurse1 = intval($updateShift['nurse1']);
+					$updatenurseAdd = $nurseAdd;
+					$updatetechcount = intval($updateShift['techcount']);
+					$updateseccount = intval($updateShift['seccount']);
+					$updatesitter = intval($updateShift['sittercount']);
+					$updatechargecount = floatval($updateShift['chargecount']);
+					$updateantecount = intval($updateShift['antecount']);
+					$updatenow = $updateShift['entered'];
+					$updatedataId = $updateShift['id'];
+					
+					
+					$updateantehours = $updatevalue * $antetotal * $updatehppd;
+					$updateantenurses = ($updateantecount + $updatechargecount + $updatenurse1 + $updateseccount + $updatesitter + $updatetechcount) * 24 / $shiftCount + $updatenurseAdd;
+					$updateaprod = ($updateantehours / $updateantenurses)*95.5;
+					$aproductivity = round($updateaprod,1);
+						
+					$updatedata = array(
+						'entered' => $updatenow,
+						'aproductivity' => $aproductivity,
+						'nproductivity' => $aproductivity
+					);
+					$updateWhere = array('id' => $updatedataId);
+					
+					$newProd = Config::get('db')->update('productiveNewData',$updatedata,$updateWhere);
+					}
+				}
+			
+				$antehours = ($antetotal * $hppd) / $shiftCount;
+				$aprod = ($antehours / $antenurses)*$adjustment;
+				$aproductivity = round($aprod,1);
+										
+								
+			}else if(intval($prodMeasure)==1 && $inshiftProd==2){			
+				$antenurses = (intval($nursecount) + floatval($chargecount) + intval($nurse1count) + intval($seccount) + intval($sittercount) + intval($techcount)) * 24 / $shiftCount + $nurseAdd;
+	
+				$antetotal = getCensusAvg($day,$deptId);
+				if(intval($antetotal)==0){
+				$antetotal = $patienttotal;
+				}else{
+					//do nothing;
+				}
+			
+			if (intval($shift) == intval($censusShift)){
+				$antehours = ($antetotal * $hppd) / $shiftCount;
+				$aprod = ($antehours / $antenurses)*$adjustment;
+				$aproductivity = round($aprod,1);
+
+				$updateProd = Config::get('db')->get_results("select n.*, s.value, h.hppd from `productiveNewData` n left join `ProductiveDept` as h on h.accountId = n.accountId and h.id=n.deptId left join `productiveShifts` as t on t.id = n.shift left join `productiveAccountXref` as s on s.dept = n.deptId and s.shift = n.shift where n.dayDate='{$newDate}' AND n.accountId={$accountId} AND n.shift={$shift} AND n.deptId={$deptId} AND n.userId>0 group by n.shift order by n.shift DESC");
+				foreach($updateProd as $updateShift){
+					$updatehppd = floatval($updateShift['hppd']);
+					$updatevalue = floatval($updateShift['value']);
+					$updatenurse1 = intval($updateShift['nurse1']);
+					$updatenurseAdd = $nurseAdd;
+					$updatetechcount = intval($updateShift['techcount']);
+					$updateseccount = intval($updateShift['seccount']);
+					$updatesitter = intval($updateShift['sittercount']);
+					$updatechargecount = floatval($updateShift['chargecount']);
+					$updateantecount = intval($updateShift['antecount']);
+					$updatenow = $updateShift['entered'];
+					$updatedataId = $updateShift['id'];
+										
+					$updateantehours = $updatevalue * $patienttotal * $updatehppd;
+					$updateantenurses = ($updateantecount + $updatechargecount + $updatenurse1 + $updateseccount + $updatesitter + $updatetechcount) * 24 / $shiftCount + $updatenurseAdd;
+					$updateaprod = ($updateantehours / $updateantenurses)*$adjustment;
+					$newproductivity = round($updateaprod,1);
+						
+					$updatedata = array(
+						'entered' => $updatenow,
+						'aproductivity' => $newproductivity,
+						'nproductivity' => $newproductivity
+					);
+					$updateWhere = array('id' => $updatedataId);
+					
+					$newProd = Config::get('db')->update('productiveNewData',$updatedata,$updateWhere);
+					}
+				}else{
+					$antehours = ($antetotal * $hppd) / $shiftCount;
+					$aprod = ($antehours / $antenurses)*$adjustment;
+					$aproductivity = round($aprod,1);
+				}						
+								
+			}else{			
+				$aproductivity = $prodUpdate;
+				$antetotal = $patienttotal;						
+			}
+					
+			if($churnMeasure==1 && $user>0 && $antetotal>0){
+				$churnValue = ROUND(((($transfers + $discharges + $admissions)/$antetotal)*100),1);
+			}else{
+				$churnValue = 0;
+			}
+			
+			if(intval($aproductivity)>0){
+				$aMsg = "a productivity of ".$aproductivity."% and ";
+			}else{
+				$aMsg = '';
+			}
+						
+			if($nvariance <0){
+				$varianceType = "under-staffed";
+			}else if($nvariance >0){
+				$varianceType = "over-staffed";
+			}else{
+				$varianceType = '';
+			}
+			
+			if($updated !=false){
+			$now = time()-21600;		
+		    $data = array(
+                'chargecount' => $chargecount,
+                'techcount' => $techcount,
+				'seccount' => $seccount,
+				'sittercount' => $sittercount,
+				'antecount' => $nursecount,
+				'entered' =>date("Y-m-d H:i:s",$currentTime),
+				'userId' => $userId,
+				'oneto3' => $high,
+				'oneto4' => $med,
+                'oneto5' => $low,
+				'oneto1' => $oneto1,
+				'oneto2' => $oneto2,
+                'oneto6' => $oneto6,
+				'oneto7' => $oneto7,
+				'oneto8' => $oneto8,
+				'avariance' => $avariance,
+				'nvariance' => $avariance,
+				'atotal' => $patienttotal,
+				'addResourceHrs' => $addResourceHrs,
+				'aproductivity' => $aproductivity,
+				'nproductivity' => $aproductivity,
+				'admits' => $admissions,
+				'transfers' => $transfers,
+				'discharges' => $discharges,
+				'churnValue' => $churnValue,
+				'customNurse' => $nurse1count,
+				'visits' => $visits,
+				'note' => addslashes($note)
+            );
+			$updateWhere = array('id' => $dataId);
+            
+			$newProd = Config::get('db')->update('productiveNewData',$data,$updateWhere);
+			}else{
+				//do nothing;
+			}
+
+		$updateMail = sendupdateEmail($dataId);	
+		$dbAdmin = Config::get('db')->get_results("select n.*, l.login as accountLogin, s.dayNight, u.alertTimes, u.mobile, u.txt, u.txtactive as TextActive, u.txtEscalation as TextEscalation, u.txtPause, x.textAlerts FROM `productiveNewData` n LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId = n.deptId LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId LEFT JOIN `productiveShifts` as s on s.id = n.shift LEFT JOIN `productiveAccount` as a on a.id = n.accountId LEFT JOIN `productiveLabel` as l on l.id = a.label where n.id={$dataId} and u.txtactive>=1 and u.txtPause=0 and u.active>=1 and u.txt>=1 and x.textAlerts >=1 and (s.dayNight=u.alertTimes or u.alertTimes=3) group by u.mobile");
+	
+			if($dbAdmin){
+			//$text = intval($dbAdmin[0]['txt']);
+			$textAlerts = $dbAdmin[0]['textAlerts'];
+			$textactive = $dbAdmin[0]['TextActive'];
+			$textescalation = $dbAdmin[0]['TextEscalation'];
+			$txtpause = $dbAdmin[0]['txtPause'];
+			
+			$var = array(
+				'message'=>$staffing,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'updated'=>$updated,
+				'escalations'=>$escalations,
+				'textAlerts'=>$textAlerts,
+				'txtactive'=>$textactive,
+				'txtescalation'=>$textescalation,
+				'txtpause'=>$txtpause,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note,
+				'rnThresholdHigh'=>$rnThresholdHigh,
+				'rnThresholdLow'=>$rnThresholdLow
+				);
+			
+			foreach ($dbAdmin as $dbText){
+				$mobile = $dbText['mobile'];
+				$accountLogin = $dbText['accountLogin'];
+				//$varnumber = $nvariance * -1;
+				$message = "ProductiveRN Alert: A Staffing Report has been submitted with ".$aMsg."a variance of ". $nvariance ." in ". $dep .".  productivern.com/views/v.php?i=" . $dataId . "&l=" . $accountLogin;
+				$psword = "J8775bcgEE2065";
+				$keyword2 = "JOBALARM58046";
+				$shortcode = "58046";
+				$slooce = "jobalarm45";
+				
+				$now = time();
+				
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $now;
+                
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+               
+            
+				$smsoptions = Array(
+					'numbers' => $numbers,
+					'message' => $messages,
+					'keyword' => $keywords,
+					'login' => $slooce,
+					'shortCode' => $shortCode
+
+				);
+				$result = '';				
+				}
+				$result = sendNow($smsoptions);
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				}else{
+				$var = array(
+				'message'=>$staffing,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'updated'=>$updated,
+				'escalations'=>$escalations,
+				'visits'=>$visits,
+				'textAlerts'=>0,
+				'txtactive'=>0,
+				'txtescalation'=>0,
+				'txtpause'=>0,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note,
+				'rnThresholdHigh'=>$rnThresholdHigh,
+				'rnThresholdLow'=>$rnThresholdLow
+				);
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				};
+			
+}
+		
+	
+/////////////////////////////////////
+// UPDATE PROD NEW
+function UpdateProdNew() {
+    $shift = (isset($_REQUEST['shift'])) ? $_REQUEST['shift'] : '';
+	$dataId = (isset($_REQUEST['dataId'])) ? $_REQUEST['dataId'] : '';
+	$day = (isset($_REQUEST['day'])) ? $_REQUEST['day'] : '';
+	$chargecount = (isset($_REQUEST['chargecount'])) ? $_REQUEST['chargecount'] : 0;
+	$techcount = (isset($_REQUEST['techcount'])) ? $_REQUEST['techcount'] : 0;
+	$seccount = (isset($_REQUEST['seccount'])) ? $_REQUEST['seccount'] : 0;
+	$nursecount = (isset($_REQUEST['nursecount'])) ? $_REQUEST['nursecount'] : 0;
+	$acuity1 = 0;
+	//(isset($_REQUEST['acuity1'])) ? $_REQUEST['acuity1'] : 0;
+	$acuity2 = 0;
+	//(isset($_REQUEST['acuity2'])) ? $_REQUEST['acuity2'] : 0;
+	$acuity6 = 0;
+	//(isset($_REQUEST['acuity6'])) ? $_REQUEST['acuity6'] : 0;
+	$high = (isset($_REQUEST['high'])) ? $_REQUEST['high'] : 0;
+	$med = (isset($_REQUEST['med'])) ? $_REQUEST['med'] : 0;
+	$low = (isset($_REQUEST['low'])) ? $_REQUEST['low'] : 0;
+	$deptId = (isset($_REQUEST['deptId'])) ? $_REQUEST['deptId'] : 0;
+	$patienttotal = (isset($_REQUEST['patienttotal'])) ? $_REQUEST['patienttotal'] : 0;
+	$note = (isset($_REQUEST['note'])) ? $_REQUEST['note'] : '';
+	$antecheck = 0;
+	$antetotal = 0;
+	$acheck = 0;
+	$pct = 0;
+	$sec = 0;
+	$nurseAdd = 0;
+	$pctVariance = 0;
+	$secVariance = 0;
+	$requirednurses = 0;
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];	
+	
+	$dbData = Config::get('db')->get_results("select n.*, s.value, h.hppd, h.id, h.viewPage, h.shift as censusShift, IFNULL(g.pct,0) as pct, IFNULL(g.sec,0) as sec from `productiveNewData` n left join `ProductiveDept` as h on h.accountId = n.accountId and h.id=n.deptId left join `productiveShifts` as t on t.id = n.shift left join `productiveAccountXref` as s on s.accountId = n.accountId and s.dept = n.deptId and s.shift = n.shift left join `productiveStaffingGrid` as g on g.accountId = n.accountId and g.deptId = n.deptId and g.patients = n.atotal and g.dayNight = t.dayNight where n.id={$dataId}");
+	
+	if($dbData){
+		$hppd = floatval($dbData[0]['hppd']);
+		$value = floatval($dbData[0]['value']);
+		$deptId = $dbData[0]['deptId'];
+		$censusShift = $dbData[0]['censusShift'];
+		$viewPage = $dbData[0]['viewPage'];
+		$pct = $dbData[0]['pct'];
+		$sec = $dbData[0]['sec'];
+		$addhrs = 0;
+	}else{
+		$hppd =0;
+		$pct = 0;
+		$sec = 0;
+		$addhrs = 0;
+		$value =0;
+		$viewPage = '';
+		$censusShift=52;
+		//$shifthrs=0;
+	}
+	
+	
+			$nurseAdd = intval($addhrs) / 24;
+			$acuityOne = intval($acuity1);
+			$acuityTwo = intval($acuity2) * 0.5;
+			$highacuity = intval($high) * 0.33;
+			$medacuity = intval($med) * 0.25;
+			$lowacuity = intval($low) * 0.2;
+			$acuitySix = intval($acuity6) * 0.17;
+			
+			$pctVariance = intval($techcount) - intval($pct);
+				if($pctVariance <>0){
+					$pctmsg = " and " . $pctVariance . "PCT";
+				}else{
+					$pctmsg = '';
+				}
+			$secVariance = intval($seccount) - intval($sec);
+				if($secVariance <>0){
+					$secmsg = " and " . $secVariance . "Secretary";
+				}else{
+					$secmsg = '';
+				}
+			
+			
+			$requirednurses = round($highacuity+$medacuity+$lowacuity);
+			$avariance = intval($nursecount) - $requirednurses + $pctVariance + $secVariance;
+						
+			$nvariance = $avariance;
+			
+			
+			if (intval($shift) != intval($censusShift)){
+				$dbAprod = Config::get('db')->get_results("select n.* from `productiveNewData` n where n.dayDate='{$day}' AND n.accountId={$accountId} AND n.deptId={$deptId} AND n.shift={$censusShift}");
+				$antetotal = intval($dbAprod[0]['atotal']);
+			}else{
+				$antetotal = intval($patienttotal);
+			}
+			
+			if($antetotal >=1 && intval($nursecount) >=1){
+			$antehours = $value * $antetotal * $hppd;
+			$antenurses = (intval($nursecount) + $nurseAdd + floatval($chargecount) + intval($seccount) + intval($techcount)) * 24 * $value;
+			$aprod = ($antehours / $antenurses)*98;
+			$aproductivity = round($aprod,1);
+			}else{
+			$aproductivity = 0.0;
+			}	
+			
+			$acheck = $high+$med+$low;
+			if($acheck == $patienttotal){
+				$antecheck = true;
+			}else{
+				$antecheck = false;
+			}
+			
+	if (intval($patienttotal)>0) {
+			$now = time()-21600;		
+		    $data = array(
+                'chargecount' => $chargecount,
+                'techcount' => $techcount,
+				'seccount' => $seccount,
+				'antecount' => $nursecount,
+				'entered' =>date("Y-m-d H:i:s",$now),
+				'userId' => $userId,
+				'oneto3' => $high,
+				'oneto4' => $med,
+                'oneto5' => $low,
+				'avariance' => $avariance,
+				'nvariance' => $avariance,
+				'atotal' => $patienttotal,
+				'aproductivity' => $aproductivity,
+				'nproductivity' => $aproductivity,
+				'note' => $note
+            );
+			$updateWhere = array('id' => $dataId);
+            
+			$newProd = Config::get('db')->update('productiveNewData',$data,$updateWhere);
+			
+			}
+			
+			if($nvariance < 10){
+						
+				if($nvariance <0){
+					$varianceType = "under-staffed";
+				}else if($nvariance >0){
+					$varianceType = "over-staffed";
+				}else{
+					$varianceType = '';
+				}
+				
+			if($avariance != 0){			
+				$var = array(
+				'message'=>true,
+				'patientcheck'=>$antecheck,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);
+			}else{
+				$var = array(
+				'message'=>false,
+				'patientcheck'=>$antecheck,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);				
+			}
+			
+			if($antecheck == false){
+				echo json_encode(array('success'=>true,'data'=>$var));
+				exit();
+			}else{
+				//do nothing;
+			}
+				
+			
+						
+				
+				$dbAdmin = Config::get('db')->get_results("select p.* FROM `productiveUser` p LEFT JOIN `productiveDeptXref` as x on x.userId = p.id where p.accountId={$accountId} and p.txt>0 and p.txtactive>=1 and p.txtPause=0 and p.active>0 and x.deptId={$deptId} group by p.id");
+				
+				if($dbAdmin && intval($shift)!=44 && intval($shift)!=4){
+				foreach ($dbAdmin as $dbText){
+				$mobile = $dbText['mobile'];
+				//$varnumber = $nvariance * -1;
+				$message = "ProductiveRN Alert:  A Staffing Report has just been submitted with a variance of ". $rvariance ." in ". $dep .".  www.productivern.com/views/v.php?i=" . $dataId;
+				$psword = "J8775bcgEE2065";
+				$keyword2 = "JOBALARM58046";
+				$shortcode = "58046";
+				$slooce = "jobalarm45";
+				
+				$now = time();
+				
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $now;
+                
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+               
+            
+				$smsoptions = Array(
+					'numbers' => $numbers,
+					'message' => $messages,
+					'keyword' => $keywords,
+					'login' => $slooce,
+					'shortCode' => $shortCode
+
+				);
+				$result = '';
+				}
+				$result = sendNow($smsoptions);
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				}
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+			
+			
+			}else{
+			$var = array(
+			'message'=>false,
+			'antecheck'=>$antecheck,
+			'laborcheck'=>$laborcheck,
+			'a1'=>$acs,
+			'a2'=>$am1,
+			'a3'=>$awcm,
+			'variance'=>$nvariance,
+			'dataId'=>$dataId,
+			'deptId'=>$deptId,
+			'note'=>$note
+			);
+			}	
+			echo json_encode(array('success'=>true,'data'=>$var));
+		return true;
+			
+	}
+	
+/////////////////////////////////////
+// UPDATE PROD WHP 
+function UpdateProdWHP() {
+    //$shift = (isset($_REQUEST['shift'])) ? $_REQUEST['shift'] : '';
+	$dataId = (isset($_REQUEST['dataId'])) ? $_REQUEST['dataId'] : '';
+	$day = (isset($_REQUEST['day'])) ? $_REQUEST['day'] : '';
+	$procedureCount = (isset($_REQUEST['procedureCount'])) ? floatval($_REQUEST['procedureCount']) : 0;
+	$skillval1 = (isset($_REQUEST['skill1'])) ? floatval($_REQUEST['skill1']) : 0.00;
+	$skillval2 = (isset($_REQUEST['skill2'])) ? floatval($_REQUEST['skill2']) : 0.00;
+	$skillval3 = (isset($_REQUEST['skill3'])) ? floatval($_REQUEST['skill3']) : 0.00;
+	$skillval4 = (isset($_REQUEST['skill4'])) ? floatval($_REQUEST['skill4']) : 0.00;
+	$skillval5 = (isset($_REQUEST['skill5'])) ? floatval($_REQUEST['skill5']) : 0.00;
+	$curTime = (isset($_REQUEST['currentTime'])) ? $_REQUEST['currentTime'] : time();
+	$currentTime = strtotime($curTime);
+	
+	$pHours = ($skillval1 + $skillval2 + $skillval3 + $skillval4 + $skillval5);
+	$admissions = (isset($_REQUEST['admissions'])) ? INTVAL($_REQUEST['admissions']) : 0;
+	$transfers = (isset($_REQUEST['transfers'])) ? INTVAL($_REQUEST['transfers']) : 0;
+	$discharges = (isset($_REQUEST['discharges'])) ? INTVAL($_REQUEST['discharges']) : 0;
+	//$pHours = floatval($plannedHours);
+	//$procedureCount = floatval($procedures);
+	//$resourceCount = floatval($chargecount)+intval($techcount)+intval($seccount)+intval($sittercount)+intval($nursecount);
+	$note2 = (isset($_REQUEST['note'])) ? $_REQUEST['note'] : '';
+	$note = stripslashes($note2);
+
+	$nurseAdd = 0;
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];	
+	
+	$dbData = Config::get('db')->get_results("select n.*, a.payPeriod, a.payPeriodFirst, h.hppd, h.adjustment, h.churn, h.uosValue, h.budgetMeasure, h.escalations, h.prodMeasure, h.id, h.viewPage, h.dept, h.skillbudget1, h.skillbudget2, h.skillbudget3, h.skillbudget4, h.skillbudget5, h.shift as censusShift from `productiveNewData` n left join `ProductiveDept` as h on h.id=n.deptId left join `productiveAccount` as a on a.id = h.accountId where n.id={$dataId}");
+	
+	if($dbData){
+		$hppd = floatval($dbData[0]['hppd']);
+		$value = floatval($dbData[0]['value']);
+		$adjustment = floatval($dbData[0]['adjustment']);
+		$deptId = $dbData[0]['deptId'];
+		$viewPage = $dbData[0]['viewPage'];
+		$escalations = intval($dbData[0]['escalations']);
+		$dep = $dbData[0]['dept'];
+		$prodMeasure = intval($dbData[0]['prodMeasure']);
+		$budgetMeasure = intval($dbData[0]['budgetMeasure']);
+		$uosValue = floatval($dbData[0]['uosValue']);
+		$churnMeasure = intval($dbData[0]['churn']);
+		$skillbudget1 = floatval($dbData[0]['skillbudget1']);
+		$skillbudget2 = floatval($dbData[0]['skillbudget2']);
+		$skillbudget3 = floatval($dbData[0]['skillbudget3']);
+		$skillbudget4 = floatval($dbData[0]['skillbudget4']);
+		$skillbudget5 = floatval($dbData[0]['skillbudget5']);
+		
+		if($budgetMeasure ==1 && $uosValue>0){
+			$budgetAdd=0;
+			//$budgetHours = (($skillval1 * $skillbudget1) + ($skillval2 * $skillbudget2) + ($skillval3 * $skillbudget3) + ($skillval4 * $skillbudget4) + ($skill1val5 * $skillbudget5));
+			//$budgetUOS = $uosValue * $procedureCount;
+		
+			$dbResource = Config::get('db')->get_results("select p.id, p.deptId, p.resourcevalue, sum(p.Sun) as SunTotal, sum(p.Mon) as MonTotal, sum(p.Tue) as TueTotal, sum(p.Wed) as WedTotal, sum(p.Thu) as ThuTotal, sum(p.Fri) as FriTotal, sum(p.Sat) as SatTotal, DAYOFWEEK('{$day}') as day FROM `productiveResources` p where p.deptId={$deptId} group by `position`");
+			
+				if($dbResource){
+				$resDay = $dbResource[0]['day'];
+				
+				foreach($dbResource as $budgetresource){
+				switch ($resDay) {
+				case "1":
+					$addBudget = floatval($budgetresource['SunTotal']) * floatval($budgetresource['resourcevalue']);
+					break;
+				case "2":
+					$addBudget = floatval($budgetresource['MonTotal']) * floatval($budgetresource['resourcevalue']);;
+					break;
+				case "3":
+					$addBudget = floatval($budgetresource['TueTotal']) * floatval($budgetresource['resourcevalue']);;
+					break;
+				case "4":
+					$addBudget = floatval($budgetresource['WedTotal']) * floatval($budgetresource['resourcevalue']);;
+					break;
+				case "5":
+					$addBudget = floatval($budgetresource['ThuTotal']) * floatval($budgetresource['resourcevalue']);;
+					break;
+				case "6":
+					$addBudget = floatval($budgetresource['FriTotal']) * floatval($budgetresource['resourcevalue']);;
+					break;
+				case "7":
+					$addBudget = floatval($budgetresource['SatTotal']) * floatval($budgetresource['resourcevalue']);;
+					break;
+				default:
+					$addBudget = 0.00;
+				}	
+					$budgetAdd = $budgetAdd + $addBudget;
+				}		
+				$budgetHours = (($skillval1 * $skillbudget1) + ($skillval2 * $skillbudget2) + ($skillval3 * $skillbudget3) + ($skillval4 * $skillbudget4) + ($skill1val5 * $skillbudget5) + $budgetAdd);
+				//$budgetUOS = $uosValue * $procedureCount;
+				$budgetTotal = ROUND((($budgetHours/$uosValue)*100),1);	
+				}else{
+				$budgetTotal = 0.0;;
+				}
+			}else{
+				$budgetTotal = 0.0;
+			}
+				
+		$dbAddResource = Config::get('db')->get_results("select p.id, p.deptId, sum(p.Sun) as SunTotal, sum(p.Mon) as MonTotal, sum(p.Tue) as TueTotal, sum(p.Wed) as WedTotal, sum(p.Thu) as ThuTotal, sum(p.Fri) as FriTotal, sum(p.Sat) as SatTotal, DAYOFWEEK('{$day}') as day FROM `productiveResources` p where p.deptId={$deptId}");
+	
+		if($dbAddResource){
+		$dbDay = $dbAddResource[0]['day'];;
+		
+		switch ($dbDay) {
+		case "1":
+			$addHours = intval($dbAddResource[0]['SunTotal']);
+			break;
+		case "2":
+			$addHours = intval($dbAddResource[0]['MonTotal']);
+			break;
+		case "3":
+			$addHours = intval($dbAddResource[0]['TueTotal']);
+			break;
+		case "4":
+			$addHours = intval($dbAddResource[0]['WedTotal']);
+			break;
+		case "5":
+			$addHours = intval($dbAddResource[0]['ThuTotal']);
+			break;
+		case "6":
+			$addHours = intval($dbAddResource[0]['FriTotal']);
+			break;
+		case "7":
+			$addHours = intval($dbAddResource[0]['SatTotal']);
+			break;
+		default:
+			$addHours = 0;
+		}
+		}else{
+		$addHours = 0;
+		}
+		
+	$nurseAdd = $addHours;
+				
+	if($procedureCount >=1 && $pHours >=1){
+	$totalHours = $skillval1 + $skillval2 + $skillval3 + $skillval4 + $skillval5 + $nurseAdd;
+	$actualWHP = round($totalHours / $procedureCount,3);
+	$actualHoursVariance = round(($actualWHP - $hppd) * $procedureCount,2);
+	$nvariance = $actualHoursVariance;
+	//$totalProcedures = $pProcs;
+	$aprod = ($hppd / $actualWHP) * 100;
+	$aproductivity = round($aprod,1);
+	}else{
+	$aproductivity = 0.0;
+	}
+	
+	$admits = $discharges + $transfers;
+	
+	if($churnMeasure==1 && $admits >0){
+		$churnValue = ROUND(((($transfers + $discharges)/$admissions)*100),1);
+	}else{
+		$churnValue =0.00;
+	}
+			
+	if ($procedureCount>=0) {
+			$now = time()-21600;		
+		    $data = array(
+                'entered' =>$currentTime,
+				'userId' => $userId,
+				'avariance' => $nvariance,
+				'nvariance' => $nvariance,
+				'procedureCount' => $procedureCount,
+				'actualWHP' => $actualWHP,
+				'skill1val' => $skillval1,
+				'skill2val' => $skillval2,
+				'skill3val' => $skillval3,
+				'skill4val' => $skillval4,
+				'skill5val' => $skillval5,
+				'addResourceHrs' => $nurseAdd,
+				'aproductivity' => $aproductivity,
+				'nproductivity' => $aproductivity,
+				'budgetValue' => $budgetTotal,
+				'admits' => $admissions,
+				'transfers' => $transfers,
+				'discharges' => $discharges,
+				'churnValue' => $churnValue,
+				'note' => addslashes($note)
+            );
+			$updateWhere = array('id' => $dataId);
+            
+			$newProd = Config::get('db')->update('productiveNewData',$data,$updateWhere);
+			
+			}else{
+				//do nothing;
+			}
+			$updateMail = sendupdateEmail($dataId);
+			$dbAdmin = Config::get('db')->get_results("select n.*, l.login as accountLogin, s.dayNight, u.alertTimes, u.mobile, u.txt, u.txtactive, u.txtEscalation, x.textAlerts, u.txtPause FROM `productiveNewData` n LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId = n.deptId LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId LEFT JOIN `productiveShifts` as s on s.id = n.shift LEFT JOIN `productiveAccount` as a on a.id=n.accountId LEFT JOIN `productiveLabel` as l on l.id = a.label where n.id={$dataId} and u.txtactive>=1 and u.txtPause=0 and u.active>=1 and u.txt>=1 and x.textAlerts >=1 and (s.dayNight=u.alertTimes or u.alertTimes=3) and n.whpPlan=0 group by u.mobile");
+			
+			if($dbAdmin){
+			$txtescalation = $dbAdmin[0]['txtEscalation'];
+			$textAlerts = $dbAdmin[0]['textAlerts'];
+			$txtactive = $dbAdmin[0]['txtactive'];
+			$txtpause = $dbAdmin[0]['txtPause'];
+			}else{
+			$txtescalation=0;
+			$textAlerts=0;
+			$txtactive=0;
+			$txtpause=0;
+			}
+						
+			if($nvariance){
+						
+				if($nvariance <0){
+					$varianceType = "under-staffed";
+				}else if($nvariance >0){
+					$varianceType = "over-staffed";
+				}else{
+					$varianceType = '';
+				}
+			
+			if($nvariance <0 || $nvariance >0){			
+				$var = array(
+				'message'=>true,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'deptId'=>$deptId,
+				'escalations'=>$escalations,
+				'textAlerts'=>$textAlerts,
+				'txtactive'=>$txtactive,
+				'txtescalation'=>$txtescalation,
+				'txtpause'=>$txtpause,
+				'budgetHours'=>$budgetHours,
+				'budgetDaily'=>$uosValue,
+				'procedureCount'=>$procedureCount,
+				'actualWHP'=>$actualWHP,
+				'dept'=>$dep,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);
+			}else{
+				$var = array(
+				'message'=>false,
+				'variance'=>$nvariance,
+				'dataId'=>$dataId,
+				'dept'=>$dep,
+				'deptId'=>$deptId,
+				'escalations'=>$escalations,
+				'textAlerts'=>$textAlerts,
+				'skillval1'=>$budgetTotal,
+				'txtactive'=>$txtactive,
+				'txtescalation'=>$txtescalation,
+				'txtpause'=>$txtpause,
+				'procedureCount'=>$procedureCount,
+				'actualWHP'=>$avariance,
+				'varianceType'=>$varianceType,
+				'note'=>$note
+				);				
+				}
+			}else{
+			$var = array(
+			'message'=>false,
+			'variance'=>$nvariance,
+			'dataId'=>$dataId,
+			'deptId'=>$deptId,
+			'escalations'=>$escalations,
+			'txtactive'=>$txtactive,
+			'txtescalation'=>$txtescalation,
+			'txtpause'=>$txtpause,
+			'textAlerts'=>$textAlerts,
+			'note'=>$note
+			);
+			}
+							
+			if($dbAdmin){
+				
+			if($actualWHP >0){
+				$aMsg = "a WHPUOS of ".$actualWHP." and ";
+			}else{
+				$aMsg = '';
+			}
+			
+			foreach ($dbAdmin as $dbText){
+				$mobile = $dbText['mobile'];
+				$accountLogin = $dbText['accountLogin'];
+				$message = "ProductiveRN Alert: A Productivity Report has been submitted with ".$aMsg."a variance of ". $nvariance ." hours in ". $dep .".  productivern.com/views/v.php?i=" . $dataId . "&l=" . $accountLogin;
+				$psword = "J8775bcgEE2065";
+				$keyword2 = "JOBALARM58046";
+				$shortcode = "58046";
+				$slooce = "jobalarm45";
+				
+				$now = time();
+				
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $now;
+                
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+               
+            
+				$smsoptions = Array(
+					'numbers' => $numbers,
+					'message' => $messages,
+					'keyword' => $keywords,
+					'login' => $slooce,
+					'shortCode' => $shortCode
+
+				);
+				$result = '';				
+				}
+				$result = sendNow($smsoptions);
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				}else{
+				echo json_encode(array('success'=>true,'data'=>$var));
+				return true;
+				}
+			
+	}else{
+			echo json_encode(array('success'=>false));
+		return true;
+			
+	}
+	
+}
+
+/////////////////////////////////////
+// ADD CANDIDATE NOTE
+function AddProdNote() {
+    $note = isset($_REQUEST['note']) ? $_REQUEST['note'] : '';
+    $dataId = isset($_REQUEST['dataId']) ? $_REQUEST['dataId'] : '';
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+    $dbEsca = Config::get('db')->get_results("select n.*, IFNULL(d.escalations,0) as escalations, IFNULL(u.txtactive,0) as txtactive, IFNULL(u.txtPause,0) as txtpause, IFNULL(u.txtEscalation,0) as txtescalation, IFNULL(x.textAlerts,0) as textAlerts from `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId = n.deptId LEFT OUTER JOIN `productiveUser` as u on u.id = n.userId WHERE n.id={$dataId} and u.txtactive>0 and u.txtescalation >0 and x.textAlerts>0 group by u.mobile");
+    
+	if ($note && $dataId) {
+	  $note2 = addslashes($note);
+      $data = array(
+	        'note' => Config::get('db')->filter($note2),
+            'userId' => Config::get('db')->filter($userId)
+        );
+		$updateWhere = array('id' => $dataId);
+
+        Config::get('db')->update('productiveNewData', $data, $updateWhere);
+//            Config::get('db')->update('sms_messages',array("groupId"=>intval($group)),array('id'=>intval($target)),1);
+	}
+	if($dbEsca){
+		echo json_encode(array('success'=>true,'data'=>$dbEsca[0]));
+        return true;
+    }else{
+    echo json_encode(array('success' => true, 'data' =>'no escalation'));
+    return true;
+	}
+}
+
+/////////////////////////////////////
+// ADD ESCALATION
+function addEscalation() {
+    $esc = isset($_REQUEST['esc']) ? $_REQUEST['esc'] : '';
+	$comment = isset($_REQUEST['comment']) ? $_REQUEST['comment'] : '';
+    $dataId = isset($_REQUEST['dataId']) ? $_REQUEST['dataId'] : 0;
+	$deptId = isset($_REQUEST['deptId']) ? $_REQUEST['deptId'] : '';
+	$sendtext = isset($_REQUEST['sendtext']) ? $_REQUEST['sendtext'] : 0;
+	$accountId = Config::get('account')['accountId'];
+	$userId = Config::get('account')['id'];
+	//$deptId = Config::get('account')['deptid'];
+	$fname = Config::get('account')['first_name'];
+    
+    
+	if (intval($sendtext)>0){
+		
+		if($deptId){
+		$dbAdmin = Config::get('db')->get_results("select p.*, x.textAlerts, a.escalation FROM `productiveUser` p LEFT JOIN `productiveDeptXref` as x on x.userId = p.id LEFT JOIN `productiveAcctEscalations` as a on a.id={$esc} where p.accountId={$accountId} and p.txtEscalation>=1 and p.txtactive>=1 and p.txtPause=0 and p.active>=1 and x.deptId={$deptId} and x.textAlerts >=1");
+		}else{
+		$dbAdmin = Config::get('db')->get_results("select p.*, x.textAlerts, a.escalation FROM `productiveUser` p LEFT JOIN `productiveDeptXref` as x on x.userId = p.id LEFT JOIN `productiveAcctEscalations` as a on a.id={$esc} where p.accountId={$accountId} and p.txtEscalation>=1 and p.txtactive>=1 and p.txtPause=0 and p.active>=1 and x.deptId in (SELECT `deptId` from `productiveDeptXref` where `userId`={$userId}) and x.textAlerts >=1 group by p.id");
+		}
+			if($dbAdmin && intval($esc)>0 ){
+				foreach ($dbAdmin as $dbText){
+				$mobile = $dbText['mobile'];
+				$escalation = $dbText['escalation'];
+				//$varnumber = $nvariance * -1;
+				$message = "ProductiveRN Alert:  An Escalation Alert regarding " . $escalation . " was just submitted by " . $fname . ".  www.productivern.com/dashboard.php#escalations";
+				$psword = "J8775bcgEE2065";
+				$keyword2 = "JOBALARM58046";
+				$shortcode = "58046";
+				$slooce = "jobalarm45";
+				
+				$now = time();
+				
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $now;
+                
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+               
+            
+				$smsoptions = Array(
+					'numbers' => $numbers,
+					'message' => $messages,
+					'keyword' => $keywords,
+					'login' => $slooce,
+					'shortCode' => $shortCode
+
+				);
+				$result = '';
+				}
+				$result = sendNow($smsoptions);
+				$escalationMail = sendescalationEmail($dataId);
+			}
+		
+	}else{
+	$escalationMail = sendescalationEmail($dataId);
+	}
+	
+	if ($userId) {
+       $data = array(
+            'escalation' => Config::get('db')->filter($esc),
+			'dataId' => Config::get('db')->filter($dataId),
+			'deptId' => Config::get('db')->filter($deptId),
+			'accountId' => Config::get('db')->filter($accountId),
+			'note' => Config::get('db')->filter($comment),
+            'userId' => Config::get('db')->filter($userId)
+        );
+
+        Config::get('db')->insert('productiveEscalations', $data);
+//            Config::get('db')->update('sms_messages',array("groupId"=>intval($group)),array('id'=>intval($target)),1);
+		
+		echo json_encode(array('success' => true, 'note' => 'Added Successfully'));
+        return true;
+    }
+    echo json_encode(array('success' => false, 'note' => 'Request Failed'));
+    return false;
+}
+
+
+
+
+/////////////////////////////////////
+// UPDATE MATRIX
+function UpdateMatrix() {
+    $userId = (isset($_REQUEST['userId'])?$_REQUEST['userId']:0);
+    $email = (isset($_REQUEST['email'])?$_REQUEST['email']:'');
+    $role = (isset($_REQUEST['role'])?$_REQUEST['role']:'');
+
+
+    if ($userId > 0) {
+        $data = array(
+            'email' => $email,
+            'role' => $role
+        );
+        $where = array('id'=>$userId);
+        Config::get('db')->update('users',$data,$where);
+        echo json_encode(array('success'=>true,'message'=>'User Updated'));
+        return true;
+    }
+    echo json_encode(array('success'=>false,'message'=>'User Failed to Update'));
+    return false;
+}
+
+
+
+
+
+/*
+
+         _   _ _____ _____ _     _____ _____ _____ _____ _____
+        | | | |_   _|_   _| |   |_   _|_   _|_   _|  ___/  ___|
+        | | | | | |   | | | |     | |   | |   | | | |__ \ `--.
+        | | | | | |   | | | |     | |   | |   | | |  __| `--. \
+        | |_| | | |  _| |_| |_____| |_  | |  _| |_| |___/\__/ /
+         \___/  \_/  \___/\_____/\___/  \_/  \___/\____/\____/
+
+
+*/
+
+////SEND Update Email`
+function sendupdateEmail($dataId) {
+	
+		$dbEmail = Config::get('db')->get_results("select n.*, d.dept, u.first_name, u.email, l.labelName, l.login FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId = n.deptId LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId LEFT JOIN `productiveAccount` as a on a.id = n.accountId LEFT JOIN `productiveLabel` as l on l.id = a.label where n.id={$dataId} and u.emailAlerts>0 and u.active>=1 group by u.id");
+		$output = '';
+		
+		if($dbEmail){
+		foreach($dbEmail as $mail){
+		$subject = $mail['labelName'] . " Staffing Report Alert";
+		$labelName = $mail['labelName'];
+		$first = $mail['first_name'];
+		$dept = $mail['dept'];
+		$prod = $mail['nproductivity'] . "%";
+		$var = $mail['nvariance'];
+		$to = $mail['email'];
+		$link = "views/v.php?i=" . $dataId . "&l=" . $mail['login'];
+		$url = "https://www.productivern.com/" . $link;
+
+
+		$message = "<html>
+		<head>
+		<title>$labelName Report Alert</title>
+		</head>
+		<body>
+		<table>
+		<tr>
+		<td>$first,</td>
+		</tr>
+		<tr></tr>
+		<tr>
+		<td>A Productivity Report has been submitted with an estimated productivity of $prod and a variance of $var in $dept.</td>
+		</tr>
+		<tr></tr>
+		<tr>
+		<td>To view this report, go to $url</td>
+		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr>
+		<th>Thank you for using $labelName!</th>
+		</tr>
+		</table>
+		<tr></tr><tr></tr>
+		<tr><p><h5>
+		NOTE: The information contained in this message may be privileged and confidential and protected from disclosure.  If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by replying to support@productivern.com and deleting it from your computer.
+		</h5></p></tr>
+		<tr><p><h5>
+		Thank you for considering the impact of printing emails on our environment.  Please don’t print unless it is necessary!
+		</h5></p></tr>
+		</body>
+		</html>
+		";
+
+		// Always set content-type when sending HTML email
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		// More headers
+		$headers .= 'From: <noreply@productivern.com>' . "\r\n";
+
+		mail($to,$subject,$message,$headers);
+		}
+		return $output;
+		}else{
+		return $output;
+		}
+}
+
+////SEND Update Email`
+function sendescalationEmail($dataId) {
+	
+		$dbEscalation = Config::get('db')->get_results("select n.*, d.dept, ae.escalation as escType, u.first_name, u.email, l.labelName, l.login FROM `productiveNewData` n LEFT JOIN `ProductiveDept` as d on d.id = n.deptId LEFT OUTER JOIN `productiveEscalations` as e on e.dataId = n.id LEFT OUTER JOIN `productiveAcctEscalations` as ae on ae.id = e.escalation LEFT OUTER JOIN `productiveDeptXref` as x on x.deptId = n.deptId LEFT OUTER JOIN `productiveUser` as u on u.id = x.userId LEFT JOIN `productiveAccount` as a on a.id = n.accountId LEFT JOIN `productiveLabel` as l on l.id = a.label where n.id={$dataId} and u.emailAlerts>0 and u.active>=1 group by u.id");
+		$output = '';
+		
+		if($dbEscalation){
+		foreach($dbEscalation as $mail){
+		$subject = $mail['labelName'] . " Escalation Alert";
+		$labelName = $mail['labelName'];
+		$first = $mail['first_name'];
+		$dept = $mail['dept'];
+		$escType = $mail['escType'];
+		$to = $mail['email'];
+		$url = "https://www.productivern.com/dashboard.php#escalations";
+
+
+		$message = "<html>
+		<head>
+		<title>$labelName Escalation Alert</title>
+		</head>
+		<body>
+		<table>
+		<tr>
+		<td>$first,</td>
+		</tr>
+		<tr></tr>
+		<tr>
+		<td>An Escalation Alert was just submitted for $dept.</td>
+		</tr>
+		<tr></tr>
+		<tr>
+		<td>To view this report, go to $url</td>
+		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr>
+		<th>Thank you for using $labelName!</th>
+		</tr>
+		</table>
+		<tr></tr><tr></tr>
+		<tr><p><h5>
+		NOTE: The information contained in this message may be privileged and confidential and protected from disclosure.  If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by replying to support@productivern.com and deleting it from your computer.
+		</h5></p></tr>
+		<tr><p><h5>
+		Thank you for considering the impact of printing emails on our environment.  Please don’t print unless it is necessary!
+		</h5></p></tr>
+		</body>
+		</html>
+		";
+
+		// Always set content-type when sending HTML email
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		// More headers
+		$headers .= 'From: <noreply@productivern.com>' . "\r\n";
+
+		mail($to,$subject,$message,$headers);
+		}
+		return $output;
+		}else{
+		return $output;
+		}
+}
+
+
+
+/////////////////////////////////////
+// SEND AN SMS
+function SendSMS() {
+    $userId = Config::get('account')['id'];
+    $accountId = Config::get('account')['accountId'];
+//    $role = Config::get('account')['role'];
+
+    $message = isset($_REQUEST['message']) ? $_REQUEST['message'] : '';
+    $group = isset($_REQUEST['group']) ? $_REQUEST['group'] : '';
+    $recips = isset($_REQUEST['recipients']) ? $_REQUEST['recipients'] : array();
+
+
+    //echo "group".$group;
+
+    if (count($recips) > 0 && $message) {
+        $now = time();
+        $type = 1;
+        $numbers = array();
+        $messages = array();
+        $keywords = array();
+        $psword = "J8775bcgEE2065";
+        $slooce = "jobalarm45";
+        $brandId = 0;
+
+
+        foreach ($recips as $k => $n) {
+            $candidateId = $n['id'];
+
+              /* $query = "select c.*,sum((case m.type when 1 then 1 else 0 end) + (case m.type when 2 then 1 else 0 end) - (case m.type when 3 then 1 else 0 end)) AS mgCount, x.keyword, x.keyword2, x.brandId as brandX, x.brandOrig, x.promo, x.shortCode, g.id as cgGroup 
+				from `candidate` c
+				LEFT OUTER JOIN `group` as g on g.Id=(select cg.groupId from `candidate_group` cg where cg.candidateId=c.id and cg.accountId={$accountId} order by cg.groupdate desc limit 0,1)				
+				LEFT OUTER JOIN `sms_messages` as m on m.candidateId = c.id
+				LEFT JOIN `candidateXref` as x on x.candidateId = c.id 
+				LEFT JOIN `account_brand` as a on a.brandId=x.brandId 
+				where c.id ={$candidateId} and (x.brandId = a.brandId or x.brandId=6) and (m.type=1 OR m.type=2 or m.type=3) group by c.mobile"; */
+			
+			$query = "select x.*, 
+			sum((case m.type when 1 then 1 else 0 end) + (case m.type when 2 then 1 else 0 end) - (case m.type when 3 then 1 else 0 end)) AS mgCount, 
+			c.mobile, c.zip FROM `candidateXref` x 
+			LEFT JOIN `sms_messages` as m on m.candidateId = x.candidateId 
+			LEFT JOIN `candidate` as c on c.id = x.candidateId 
+			WHERE x.candidateId ={$candidateId} and x.accountId ={$accountId} and (m.type=1 OR m.type=2 or m.type=3 or m.type=8) group by x.candidateId";
+
+
+            $dbData = Config::get('db')->get_results($query);
+            $mobile = (isset($dbData[0]['mobile'])) ? $dbData[0]['mobile'] : 0;
+            $shortCode = (isset($dbData[0]['shortCode'])) ? $dbData[0]['shortCode'] : 0;
+            $promo = (isset($dbData[0]['promo'])) ? $dbData[0]['promo'] : 0;
+			$count = (isset($dbData[0]['mgCount'])) ? $dbData[0]['mgCount'] : 0;
+            $zip = (isset($dbData[0]['zip'])) ? $dbData[0]['zip'] : 0;
+            $brandId = (isset($dbData[0]['brandX'])) ? $dbData[0]['brandX'] : 0;
+            $brandOrig = (isset($dbData[0]['brandOrig'])) ? $dbData[0]['brandOrig'] : 0;
+            $keyword = (isset($dbData[0]['keyword'])) ? $dbData[0]['keyword'] : '';
+            $keyword2 = (isset($dbData[0]['keyword2'])) ? $dbData[0]['keyword2'] : '';
+            //$cxId = (isset($dbData[0]['id'])) ? $dbData[0]['candidateId'] : 0;
+            //$accountXref = (isset($dbData[0]['accountXref'])) ? $dbData[0]['accountXref'] : 0;
+            //$userXref = (isset($dbData[0]['userXref'])) ? $dbData[0]['userXref'] : 0;
+            //$recId = (isset($dbData[0]['recId'])) ? $dbData[0]['recId'] : 0;
+
+            if (intval($promo) > 0 && intval($promo) < 3 && intval($count)<4) {
+
+                $msgId = "";
+                $msgId .= "";
+                $msgId .= $mobile . $zip . $now;
+
+
+                $data = array(
+                    'accountId'=>$accountId,
+                    'userId'=>$userId,
+                    'brandId'=>$brandOrig,
+                    'candidateId'=>$candidateId,
+                    'type'=>$type,
+                    'message'=>Config::get('db')->filter($message),
+                    'messageId'=>Config::get('db')->filter($msgId)
+                );
+                Config::get('db')->insert('sms_messages',$data);
+
+                if ($candidateId){
+                    Config::get('db')->query("update `candidate` set `stageId` =2 WHERE `id` ='{$candidateId}'");
+					Config::get('db')->query("update `candidateXref` set `type` =1 WHERE `candidateId` ='{$candidateId}' AND `brandOrig`='{$brandOrig}'");
+					}
+
+                $xmlMsg = "";
+                $xmlMsg .= "<message id=\"".$msgId."\">";
+                $xmlMsg .= "<partnerpassword>".$psword."</partnerpassword>";
+                $xmlMsg .= "<content><![CDATA[" . $message . "]]></content>";
+                $xmlMsg .= "</message>";
+
+                $messages[] = $xmlMsg;
+                $mobile = "1" . $mobile;
+                $numbers[] = $mobile;
+                $keywords[] = $keyword2;
+
+                //if (!$dbData[0]['cgGroup'] && !$group){
+                //$grp = 13;
+                // updateCandidateGroup($accountId,$candidateId,$grp,$userId);
+                // }
+
+//                if (!$dbData[0]['cgGroup'] && !$group){
+//               	 }
+
+                if ($group) {
+                    updateCandidateGroup($accountId,$candidateId,$group,$userId);
+				} else {
+                    $group = 13;
+                    updateCandidateGroup($accountId,$candidateId,$group,$userId);
+                }
+
+            }
+        }
+
+        $smsoptions = Array(
+            'numbers' => $numbers,
+            'message' => $messages,
+            'keyword' => $keywords,
+            'login' => $slooce,
+            'shortCode' => $shortCode
+
+        );
+        $result = '';
+
+        if ($message && strlen(trim($message)) > 0) {
+
+            $result = sendNow($smsoptions);
+
+        }
+		
+		//Config::get('db')->query("update `candidateXref` set `userXref`='{$userId}', `groupOld`='{$group}' WHERE `candidateId`='{$candidateId}' AND `accountId`='{$accountId}'");
+		
+        echo json_encode(array('success' => true, 'msg' => 'Message Sent', 'output'=>$result));
+        //echo json_encode($result);
+    }else{
+		if ($group) {
+			foreach ($recips as $k => $n) {
+            $candidateId = $n['id'];
+			updateCandidateGroup($accountId,$candidateId,$group,$userId);
+			Config::get('db')->query("update `candidateXref` set `userXref`='{$userId}', `groupOld`='{$group}' WHERE `candidateId`='{$candidateId}' AND `accountId`='{$accountId}'");
+			}
+		}
+        echo json_encode(array('success' => false, 'group' => 'Updated'));
+    }
+}
+
+
+
+/////////////////////////////////////
+// SEND SMS NOW?
+function sendNow($options) {
+    //if (is_array($options['numbers']) && count($options['numbers']) > 0) {
+    file_put_contents("sendsmslog.txt", print_r($options,true));
+    $post = '';
+    $keyword = '';
+    $header = Array("Content-Type: application/xml");
+    $mobile = '';
+    $post = $options['message'];
+    $keyword = $options['keyword'];
+    $slooce = $options['login'];
+    $shortCode = $options['shortCode'];
+    $keyword2 = "JOBALARM58046";
+    $output = "";
+
+    foreach($options['numbers'] as $k => $n) {
+        //foreach($options['numbers'] as $n) {
+        $mobile = $n;
+        if (intval($shortCode)==47711){
+            $url = 'http://sloocetech.net:8084/spi-war/spi/jobalarm45/' . $mobile . '/' . $keyword[$k] . '/messages/mt';
+        }else{
+            $url = 'https://jobalarm.cloud.sloocetech.net/slooce_apps/spi/jobalarm45/' . $mobile . '/' . $keyword2 . '/messages/mt';
+        }
+        //cho $mobile;
+        //echo $keyword[$k];
+        //echo $post[$k];
+        //echo $url;
+
+
+
+        $output .= curl_request($slooce, $url, $post[$k], $header);
+
+    }
+    return $output;
+}
+
+/////////////////////////////////////
+// Get Census Average
+function getCensusAvg($endDate,$deptId) {
+	$output = 0;
+	$avgCensus = Config::get('db')->get_results("		
+        SELECT 
+           AVG(n.oneto1 + n.oneto2 + n.oneto3 + n.oneto4 + n.oneto5 + n.oneto6 + n.oneto7 + n.oneto8) AS censusAvg
+        FROM
+            `productiveNewData` n
+        WHERE
+            n.userId>0 AND n.deptId={$deptId} 
+        AND 
+			n.dayDate BETWEEN DATE_SUB('{$endDate}', INTERVAL 30 DAY) AND '{$endDate}'         
+    ");	
+
+	if($agvCensus){
+		$output = round($avgCensus[0]['censusAvg'],1);
+	}else{
+		$output = 0;
+	}
+    return $output;
+}
+
+function send_messages_start($options) {
+    $post = '';
+    $mobile = '';
+	$keyword = '';
+    $header = Array('Content-Type: application/xml');
+    $post = $options['message'];
+	$mobile = $options['numbers'];
+    $output = "";
+	$slooce = "jobalarm45";
+	$keyword="JOBALARM58046";
+	//$keyword = "PRODUCTIVE";
+	
+	//foreach($options['numbers'] as $k => $n) {
+	//$mobile = $n;
+    $url = 'https://jobalarm.cloud.sloocetech.net/slooce_apps/spi/jobalarm45/' . $mobile . '/' . $keyword . '/messages/start';
+    $output = curl_request($slooce, $url, $post, $header);
+	//}
+    
+   
+    return $output; 
+    
+}
+
+///////////////////////////////////
+///SUPPORT REQUEST
+
+function Support() {
+if ( isset($_POST['email']) && isset($_POST['name']) && isset($_POST['message']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
+ 
+  // detect & prevent header injections
+  $test = "/(content-type|bcc:|cc:|to:)/i";
+  foreach ( $_POST as $key => $val ) {
+    if ( preg_match( $test, $val ) ) {
+	   echo json_encode(array('success'=>false));
+      exit;
+    }
+  }
+  $company = (isset($_POST["name"])  && strlen($_POST['name']) > 0) ?  ", ".$_POST['company'] : '';
+  //send email
+  mail( "rstrenger@productivern.com", "ProductiveRN Support Request: ".$_POST['type'].$company, $_POST['name']."\r\n\r\n".$_POST['phone']."\r\n\r\n".$_POST['email']."\r\n\r\n".$_POST['message'], "From: ProductiveRN Support <support@productivern.com>"  );
+   echo json_encode(array('success'=>true));
+   exit();
+	}
+}
+
+
+////////////////////////////////////////
+// SEND A WEB CURL REQUEST
+function curl_request($user, $url, $postdata = null, $header){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    //curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    //curl_setopt($ch, CURLOPT_SSLVERSION, 3);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    //curl_setopt($ch, CURLOPT_HEADER, false);
+    //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+    $server_output = curl_exec($ch);
+    curl_close($ch);
+    // echo $server_output;
+    return $server_output;
+}

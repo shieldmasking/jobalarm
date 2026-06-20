@@ -1,0 +1,27 @@
+[11-May-2016 16:54:02 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:54:53 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:55:26 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:55:27 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:55:58 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:55:59 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:56:17 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:56:26 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 22
+[11-May-2016 16:57:04 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:57:48 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:57:51 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:57:52 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:04 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:04 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:08 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:34 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:37 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:40 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:58:41 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 25
+[11-May-2016 16:59:32 UTC] PHP Fatal error:  require_once(): Failed opening required '/inc/config.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 7
+[11-May-2016 16:59:52 UTC] PHP Fatal error:  require_once(): Failed opening required '/inc/config.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 7
+[11-May-2016 16:59:55 UTC] PHP Fatal error:  require_once(): Failed opening required '/inc/config.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 7
+[11-May-2016 16:59:56 UTC] PHP Fatal error:  require_once(): Failed opening required '/inc/config.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 7
+[11-May-2016 16:59:58 UTC] PHP Fatal error:  require_once(): Failed opening required '/inc/config.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 7
+[11-May-2016 16:59:59 UTC] PHP Fatal error:  require_once(): Failed opening required '/inc/config.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 7
+[11-May-2016 23:06:56 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 23:12:04 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/view/sms_summary.php on line 124

@@ -1,0 +1,533 @@
+--- 
+files: 
+  certificate: 
+    GeoTrust_RSA_CA_2018_bf8ad_ce9c3_1825503825_3e290d2efbe0b046f2524fdeed274991: 
+      created: '1523722623'
+      domains: 
+        - GeoTrust RSA CA 2018
+      friendly_name: GeoTrust RSA CA 2018
+      id: GeoTrust_RSA_CA_2018_bf8ad_ce9c3_1825503825_3e290d2efbe0b046f2524fdeed274991
+      is_self_signed: 0
+      issuer.commonName: DigiCert Global Root CA
+      issuer.organizationName: DigiCert Inc
+      modulus: bf8ad1634de118ea875de8163c8f7fb6be871737a40cf8313f9f45544021d79d079bca03234abd9bed8502633f9f85b9ec28eff28622dbf84d5441c5b4427fcf3317010e829052d3c734a4c1a101da32a040ad1f59e433fca0c396ac686cd3e899738c261077cbb73f3932e8d25928ee0786e2093b85f8aa69f6a96b9f58ad72c85b8766ae08e074fb2d534362833d8f854c1197dc1efc5030b88308325e5c5cc4e175204aeba5d6752ddc2d7d7ce0d0fe7c75a14e4002849ad90d5a2ea0acf3358a2aead65a5a6c8e2cabf6defd784726797aaa22eaa9e6711203d3f8ba53d2799cbd64acf61b63bb4d8f3802f8f0575dc5aa255a0c5dc530fe2053196ce9c3
+      modulus_length: 2048
+      not_after: '1825503825'
+      not_before: '1509971025'
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: GeoTrust RSA CA 2018
+      validation_type: ~
+    ob_productivern_com_964cf_13211_1636329599_5c3cbc23153c432d1036364fc3e76217: 
+      created: '1628490302'
+      domains: 
+        - ob.productivern.com
+        - www.ob.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “ob.productivern.com” 1628490302.0
+      id: ob_productivern_com_964cf_13211_1636329599_5c3cbc23153c432d1036364fc3e76217
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: 964cf9eac7866bb0e4a8a134c79d669921fc00606bbf2718d9366c89e8f21957a262b5bbc18194b9b96d61fa9114e1125f58800972d2685aaa7eecc4539c1d750791c57b0e1556618bb29cbd47a37f8d28f2a16bed1c6998ea53cf0ecb449a0338a559c1b8494c9c5edab65384c3a7cd3a010dfee53fea45534ee4956cc88a0df6870485796ae6432185f2f233144a7ad8f97429ce56c00108ea9c40921107235fa26b5a5fa5cbdb52cb78f6b09bb33e2f5956196c9c31ea839fcea6c9206013d771f3fbcc0f82f5de17a29e3595327779d4604ef5ba7628fd3b6949f60d35c16619e9cf5c775a231117d658f2a6bf7a8cc816313a67c8aaf7842d30d7f13211
+      modulus_length: 2048
+      not_after: '1636329599'
+      not_before: '1628467200'
+      serial: 35e37beacbea6dcdbadaa793f5ad4d46
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: ob.productivern.com
+      validation_type: dv
+    ob_productivern_com_aea3c_75577_1629763199_80d72d780b132a036da43e72a71744cb: 
+      created: '1621923901'
+      domains: 
+        - ob.productivern.com
+        - www.ob.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “ob.productivern.com” 1621923901.0
+      id: ob_productivern_com_aea3c_75577_1629763199_80d72d780b132a036da43e72a71744cb
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: aea3c469ec06d48d0b03404e8f41a3ad60c5c4612d41277292f9c8ee5125be5cd9a64a54c20933c0ca649e503eed7f12cea97726b3e383d74c3023973865186278ac92fa5b172bfc3edf220ab224eb30e3a9fe7d37f9a71e03f5c379c4ce97e750245363a42814df782ea9cc4440cfe0422dabbe8951d183ec72d79612a08e7534afb721c5477cfd99738d27384e8d1a370dcab33bf6f9adcef9da7ec09cbf0eb8288c5e5bfab9947e3e610f2dc0914f6376236118f2d3005ca4860fa437546c76ccb30f02b1a43996f73c12a52703b5292390fef23459a8959f646a013fdb5934ee17bee7f808d4212bcad9f88f5dac2da0718d121322a0dce9bd1897b75577
+      modulus_length: 2048
+      not_after: '1629763199'
+      not_before: '1621900800'
+      serial: 43680244bbd4d4b7464f31449d5dd83d
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: ob.productivern.com
+      validation_type: dv
+    ob_productivern_com_b96f0_c0527_1642895999_83e95a2e678f7f0bae88fd0faa9baecb: 
+      created: '1635056702'
+      domains: 
+        - ob.productivern.com
+        - www.ob.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “ob.productivern.com”
+      id: ob_productivern_com_b96f0_c0527_1642895999_83e95a2e678f7f0bae88fd0faa9baecb
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: b96f01a821e43b2f0c69dbe6c885b2a7b683b80cda7755ed2480338e7ebffcc947134dd54314c7c320103ffe4754e71a5bc45ece4c1212665d87917990a1c7a8254befb20a16251e393ec8091bb134e1ba62b9fb786783cd3d25a94e40acd333b66a65a149b77190c98eb98b282f3e70a1bf50cf5e6b8df0ec8976d3f69cc388a364dd557ffab1d5254c82ccb1a8a4e8e33e6851a9e8060a7097645dbc92941fcb50c1d7a8eb5f26aae29a68dd90327deb5dc0015ab9c9d9529220ebd37bcc86994e5af0dfba7e292053f2aa65ee0c56c03ed7e817456806bd27b6e2315fd96dfa77d4692113b58ff5b3c6130c5f696605edb5c71b0c0b36d63b42813dcc0527
+      modulus_length: 2048
+      not_after: '1642895999'
+      not_before: '1635033600'
+      serial: 136929350aa6ee283b764fcb510f3ddd
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: ob.productivern.com
+      validation_type: dv
+    productivern_com_b250a_c93b7_1635379199_456745e80b5a61057303c6935557acff: 
+      created: '1627539902'
+      domains: 
+        - productivern.com
+        - cpanel.productivern.com
+        - cpcalendars.productivern.com
+        - cpcontacts.productivern.com
+        - mail.productivern.com
+        - webdisk.productivern.com
+        - webmail.productivern.com
+        - www.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “productivern.com” 1627539902.0
+      id: productivern_com_b250a_c93b7_1635379199_456745e80b5a61057303c6935557acff
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: b250a88b6c4f15889ab250bb5741366388811fd559d3451978a011de3255e29449d65957315ee42bf83057b5ac3dca6d91a3ed490c0ce36026a0a566354c3268e121fd51315e7e0f5e3f42fec83fcd2fff7fe2f1a865f9c603ae70ae564cc45c1f0a9926fda90775a406aca1036908f295d3230989dbd0f7a7f3aaa428faeb617c7e518e7aa610b44e256c6252a8c82be5f3c51b7212fb632db11584abccf3ee01df96ecab4f8fb0cdfa365d9e05a46ed0bca4e6f17f71dee0ac8e8867257843175b134a8947732afedab05352dd842d80c94e60ef7ab5c6d1aff83b8154b433bcc5b3acda2b58f71907b132d0268ddaf0ed8ce6dff8c3883462e2fc62ec93b7
+      modulus_length: 2048
+      not_after: '1635379199'
+      not_before: '1627516800'
+      serial: c2971103f047923a16a116fdd71f91cf
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: productivern.com
+      validation_type: dv
+    productivern_com_d5fab_65afd_1628812799_2b4f280ff59ef72afd16cf1bc45d6180: 
+      created: '1621012262'
+      domains: 
+        - productivern.com
+        - cpanel.productivern.com
+        - cpcalendars.productivern.com
+        - cpcontacts.productivern.com
+        - mail.productivern.com
+        - webdisk.productivern.com
+        - webmail.productivern.com
+        - www.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “productivern.com”
+      id: productivern_com_d5fab_65afd_1628812799_2b4f280ff59ef72afd16cf1bc45d6180
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: d5fab8cb27cdefed14618d0753a37a08964e9b67b324b9d18c94e3fda9dbd210d15f247b538862d57d33a2334b0f994cd61c677195b95c1a92fab81c2a6b40c0dd8134565e7aa45c34ac4e005b830ef40759c5f9cf9e1d3faf875e7d1707df727f4d2762a1a37e59015220ccd5c4f58d5b4041fa42ab919e3a2e1b2bed028c1d928395c5d7c3ede290196e922535edc2443b782092ee91da105aeb5d4478aa091eb289dec632f0a4310d3384c1eb78162485c428bf0ffeee3e14a6644d7596357a2f3df0c116bcd4647fcf146fa74ca8bd1b1ab4250ec10a871d6227f57e576a73833514fa489e93b551400fdfc7a0393debe12fce39cc7d2e4e1e5d94b65afd
+      modulus_length: 2048
+      not_after: '1628812799'
+      not_before: '1620950400'
+      serial: 5831f38d48b94375d378fa80c733f831
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: productivern.com
+      validation_type: dv
+    productivern_com_df9b2_14559_1641945599_1d2b41c4c6f6394eb840e44a5fb6fbea: 
+      created: '1634106303'
+      domains: 
+        - productivern.com
+        - cpanel.productivern.com
+        - cpcalendars.productivern.com
+        - cpcontacts.productivern.com
+        - mail.productivern.com
+        - webdisk.productivern.com
+        - webmail.productivern.com
+        - www.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “productivern.com” 1634106303.0
+      id: productivern_com_df9b2_14559_1641945599_1d2b41c4c6f6394eb840e44a5fb6fbea
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: df9b2761e50c3c33ed916222d26744e050943cdf98eefc2f3469bddfa4ea41b1a7c861d435c35fb0ae57af7131a231eeefc232b2f95b4a821061a250502beae4e50df3a6d9ba6f883cd124370c8a4d415ca5da9694a6b7ac44279d3ec2e811d448779d19f67b265c638913584ce9a7960300dcea293f637e8eefa5074511a064ffe30f7595abbaa2b21ff793244dc8945ee9cb65bbe9ba000440fe009e4403f1012510997ca274fc369d39acee78b3d1412bac88f5aa379125635c302ac19a7d5c62b387cdd78447caebc1c43d8549ab7e6515b7ba88fc121c9ac72495edd33e922771db8a9bd0417aaafe185f9498d0599da580bdb19ddc1dfb6bcc3f314559
+      modulus_length: 2048
+      not_after: '1641945599'
+      not_before: '1634083200'
+      serial: 0e63c72eb1fe1c5a43f85a570c4369d5
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: productivern.com
+      validation_type: dv
+    smt_perfectshift_com_bce17_a0741_1644710399_eab4ae94afb81f34e0ce1d0d507fbd6d: 
+      created: '1636874703'
+      domains: 
+        - smt.perfectshift.com
+        - cpanel.smt.perfectshift.com
+        - cpcalendars.smt.perfectshift.com
+        - cpcontacts.smt.perfectshift.com
+        - mail.smt.perfectshift.com
+        - perfectshift.productivern.com
+        - webdisk.smt.perfectshift.com
+        - webmail.smt.perfectshift.com
+        - www.perfectshift.productivern.com
+        - www.smt.perfectshift.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “perfectshift.productivern.com” 1636874703.0
+      id: smt_perfectshift_com_bce17_a0741_1644710399_eab4ae94afb81f34e0ce1d0d507fbd6d
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: bce1737ed1040f072c38783c08cab8c6ef63c0d3a9ac9ec451a812d712c63c616ca50dc076c7f8b2654fa7e456f79b28044dd855ceea95c1de6b26cac1f7d48a31fa37ba5446627bf5f4a100abf77311cdfbddb3fc3c121defaadb21c565a4f21a1cf453e57de3e38574290df7949755b9eaf54779ec0eca6f3cd0b0f5d62bd92beaa24e89f3f0177181b4f48b512b7b9dd69e086c84edb3f6c837a50b92d9ad76ab9b20fcca2c3f823c0d67e18b195b038952c1ed7c9151a2606aff8c298690d79f0adf99add0e2cea55ef90385256cf7c223c3a8fbbb5b7abba8d0bc4332f5dc68b78ed2b67a6fa0eb272175fed076e6e14ab0dcecd97a526d84c9251a0741
+      modulus_length: 2048
+      not_after: '1644710399'
+      not_before: '1636848000'
+      serial: fdf454d2299e3ef1dc69890872e9f2c3
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: smt.perfectshift.com
+      validation_type: dv
+    smt_perfectshift_com_bf5a8_9a6df_1631577599_b1d1abe18dc0c256eb6257460092bf54: 
+      created: '1623738362'
+      domains: 
+        - smt.perfectshift.com
+        - cpanel.smt.perfectshift.com
+        - cpcalendars.smt.perfectshift.com
+        - cpcontacts.smt.perfectshift.com
+        - mail.smt.perfectshift.com
+        - perfectshift.productivern.com
+        - webdisk.smt.perfectshift.com
+        - webmail.smt.perfectshift.com
+        - www.perfectshift.productivern.com
+        - www.smt.perfectshift.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “perfectshift.productivern.com” 1623738362.0
+      id: smt_perfectshift_com_bf5a8_9a6df_1631577599_b1d1abe18dc0c256eb6257460092bf54
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: bf5a83ae09025e05f5d3ed48ae804c16e2f54c13c49e59a19bdb4c518b3372242a0d9d32b25c7ad869851a3f9bf966d759d849d14fc6aa465dfd76c079461ca9929855c636efa2e6771a1db17fd6051e32489426a7b94ecb94b952dc978b904cc9cf4d0f8ecc6a78bc0d7744988e2ade6aef2d62c215f1d2b49befcb2e3f72a212b58f0e9680dcfa9cd4c69d7a56eb716db84546a0f9749556bc64b8a36f27d46b737d2da1c945408da3fc922ed8ea818b7515e611f447733f38f1086b944bb3d21f9ed2601581342cb9c84f700d4daf6878c7d4d4728141de63738c806ccdce9cd9da8d54a64dbc52d5eee1c8e0051a4b2b7c8f72b3e61011e4d322a979a6df
+      modulus_length: 2048
+      not_after: '1631577599'
+      not_before: '1623715200'
+      serial: e565e0371015432cf8f52b7ab9245673
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: smt.perfectshift.com
+      validation_type: dv
+    smt_perfectshift_com_c7bf8_a2af9_1638143999_d08c02cb55f446076238100017184cae: 
+      created: '1630304702'
+      domains: 
+        - smt.perfectshift.com
+        - cpanel.smt.perfectshift.com
+        - cpcalendars.smt.perfectshift.com
+        - cpcontacts.smt.perfectshift.com
+        - mail.smt.perfectshift.com
+        - perfectshift.productivern.com
+        - webdisk.smt.perfectshift.com
+        - webmail.smt.perfectshift.com
+        - www.perfectshift.productivern.com
+        - www.smt.perfectshift.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “perfectshift.productivern.com”
+      id: smt_perfectshift_com_c7bf8_a2af9_1638143999_d08c02cb55f446076238100017184cae
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: c7bf8c14975736a5faf28027bc1d32b4f96a6b446da613d881abb9ae8824bfa3b1beae64ec42ee9b60dfba2075fa8324da8d3ffb46241053b0a99960ec4641ca9e58df90c005260fdcd827f646f0058fea3cb9fa5ffb6dc067c33a57fe038ef0c5d990968c11a3a8076441103e573c5b8ea3c0c4dd7c152a9c36e73bb3b89c34119bd0b393cf63525ec92b3a513a476db7c13f440d7a546905b435f12d78ed0d824927160f18e8653b746808a06f0552f04a3300131d81e595aba30f3783c69c41c0366817f6516d06e1cd543ac3592dfdd162dc6cd6426e360b5e43db99a82b688390edd44e48159a65dbd6f3b1da91196b9b1f1464b8eff2bd195c661a2af9
+      modulus_length: 2048
+      not_after: '1638143999'
+      not_before: '1630281600'
+      serial: d3d2da914a67b078c9f98bbbb551a00d
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: smt.perfectshift.com
+      validation_type: dv
+    vizient_productivern_com_9703e_07373_1629503999_5238fe0d3565749ac04386097bb5b416: 
+      created: '1621664762'
+      domains: 
+        - vizient.productivern.com
+        - www.vizient.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “vizient.productivern.com” 1621664762.0
+      id: vizient_productivern_com_9703e_07373_1629503999_5238fe0d3565749ac04386097bb5b416
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: 9703ee1651cfed002fc1efe3f758fe668fbcf4c2be6a0d9db7a77a6c8f617f13b6558fef1c49a83cdf727813b51fcfe7d7e4343938b039c9aa27517b7ae45672c3ace95fb17241ac06edaa4d199a8f4f403b680201385a86cbab22b238888e62c7234567352ad6279d6a934727deed265eb7ab813a879ea12b7192aad8e9e1adad8a00f7ef13114e5dc5f50f1d4b927a462626eb92f852a1761a22b99042c9dca8ed2f7ebe6e3e15254ec1819cd14eb06c532a218d162cdf3bbc9a882e00426b095fdebaa18198f29657a251771b78e6b2a74966c30271c600f7605130519b02cd8a571ffb9a7c8c0b3b6d4c03dcdd53b4941e02c4a1bdee3cb940e2be907373
+      modulus_length: 2048
+      not_after: '1629503999'
+      not_before: '1621641600'
+      serial: 61e8e8ce7ab47ecfc663ce971fe9bb96
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: vizient.productivern.com
+      validation_type: dv
+    vizient_productivern_com_b2c2f_87ae3_1642636799_1f2fdc87ca099949f56218da69721565: 
+      created: '1634797562'
+      domains: 
+        - vizient.productivern.com
+        - www.vizient.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “vizient.productivern.com”
+      id: vizient_productivern_com_b2c2f_87ae3_1642636799_1f2fdc87ca099949f56218da69721565
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: b2c2f0db9a4fd2adb2b811b17650791eee10d30a4ec99017acbf1763186fe22bdcd5900e398c0a23a113894718bd8961c070438f119c0a5d12431941e5502a286cc406c5ebd8207e24c3fffd51994bb9fe13d237b5d05f02068be6863986f73d40b00e65996d5103716fac5a0a9bc089347e80d3131ffc3998f7441e113351484cac68d55b982366b046b2be7a2e38edc896cafb3c81905ab920515d504d9fd314fcd39aaa93119a330793e92a7f43127c7af1de84a0ccad20cb7ea320e97381a04d7f15809a6df3f5e676fc78ade612e72e947ad025f79e00d137217c258be8822c00022e716096006b83c7ad63f480d7b03f110228d1747ee8a176a4187ae3
+      modulus_length: 2048
+      not_after: '1642636799'
+      not_before: '1634774400'
+      serial: 393db3100cec9adac153518b2bcb9c5b
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: vizient.productivern.com
+      validation_type: dv
+    vizient_productivern_com_bbb44_a94a5_1636070399_079c0fc8681b9e033c4ab83632bb75ec: 
+      created: '1628231163'
+      domains: 
+        - vizient.productivern.com
+        - www.vizient.productivern.com
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “vizient.productivern.com” 1628231163.0
+      id: vizient_productivern_com_bbb44_a94a5_1636070399_079c0fc8681b9e033c4ab83632bb75ec
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      key_algorithm: rsaEncryption
+      modulus: bbb44c57b2dd9ae0ca1c0213bb2496e35a187fc149a9901675588181b2205aee8a41108c259a9e2f7769cfcce435767abc5ebd3cd08f6411ce47602f7e37f5488ceb7cb18ef70779fe8ce9eaaa27b58c790624592dfed4d0b5b921049691bdba62336120e1f3ebf93e45d9c87e80300b5fdbd19a5f77afa51e0ea910183f9a23f28c2508f67439409f42a36458fa8cfcdf5850524c50b51651f44bcf2f078843a228251c45d476bae7e87709df8ee4c4df235232d9694baf7cce2103daca007de64b10a84b926f5941eb723c1c73fb8bae2004dc793d62aefadf9a53285bc1275d9016147a845559cc62ac571c9d16a40195b208b2c11adf195de549f5ba94a5
+      modulus_length: 2048
+      not_after: '1636070399'
+      not_before: '1628208000'
+      serial: 749f900cece5b732406f44302dbb5648
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: vizient.productivern.com
+      validation_type: dv
+  csr: 
+    productivern_com_bfbfd_1cbb9_6328864d8193cf75577fc2f26cc32f83: 
+      commonName: productivern.com
+      created: '1523678560'
+      domains: 
+        - productivern.com
+        - www.productivern.com
+      friendly_name: productivern.com and www.productivern.com
+      id: productivern_com_bfbfd_1cbb9_6328864d8193cf75577fc2f26cc32f83
+      modulus: bfbfdddaff7c6c6ecb4eeeea47e9c982369cb6019fbf9447797842301f0a37fb0566fd3beed985b2f530af6a633201b9a5c7a79d84073ea4531e9417e75de2768a58f21f8ceab5606e4ef4f8a32a5fc514283c86121c24f9f7ef95e8c8cdaefe395479c0831b23b6dc89ecaef52c67b2eac68eff7a764e1b0f9b9ecf95aa7398f28ae950a18d6d23149e6173646131f8b240bf937b1591b2a420460decf5c170d4984ee343d8e90e6ee170eaecf607bf6808b333e6dc0ce8cc3fb4511c4d97268e01176f94ef516852d4313a0585bb7661476c28ce24b822550e255d9dbdc80365e1496a7aa066029ab405336463f965f06bff4e4e37bc9a583ffc35dfd1cbb9
+  key: 
+    964cf_13211_37b3311b8ae12376acd7975d9ec6dbae: 
+      created: '1628490302'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “ob.productivern.com” 1628490302.0
+      id: 964cf_13211_37b3311b8ae12376acd7975d9ec6dbae
+      key_algorithm: rsaEncryption
+      modulus: 964cf9eac7866bb0e4a8a134c79d669921fc00606bbf2718d9366c89e8f21957a262b5bbc18194b9b96d61fa9114e1125f58800972d2685aaa7eecc4539c1d750791c57b0e1556618bb29cbd47a37f8d28f2a16bed1c6998ea53cf0ecb449a0338a559c1b8494c9c5edab65384c3a7cd3a010dfee53fea45534ee4956cc88a0df6870485796ae6432185f2f233144a7ad8f97429ce56c00108ea9c40921107235fa26b5a5fa5cbdb52cb78f6b09bb33e2f5956196c9c31ea839fcea6c9206013d771f3fbcc0f82f5de17a29e3595327779d4604ef5ba7628fd3b6949f60d35c16619e9cf5c775a231117d658f2a6bf7a8cc816313a67c8aaf7842d30d7f13211
+      modulus_length: 2048
+    9703e_07373_0e7d62a90fa0fd2f6dba860990b7e7bc: 
+      created: '1621664762'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “vizient.productivern.com” 1621664762.0
+      id: 9703e_07373_0e7d62a90fa0fd2f6dba860990b7e7bc
+      key_algorithm: rsaEncryption
+      modulus: 9703ee1651cfed002fc1efe3f758fe668fbcf4c2be6a0d9db7a77a6c8f617f13b6558fef1c49a83cdf727813b51fcfe7d7e4343938b039c9aa27517b7ae45672c3ace95fb17241ac06edaa4d199a8f4f403b680201385a86cbab22b238888e62c7234567352ad6279d6a934727deed265eb7ab813a879ea12b7192aad8e9e1adad8a00f7ef13114e5dc5f50f1d4b927a462626eb92f852a1761a22b99042c9dca8ed2f7ebe6e3e15254ec1819cd14eb06c532a218d162cdf3bbc9a882e00426b095fdebaa18198f29657a251771b78e6b2a74966c30271c600f7605130519b02cd8a571ffb9a7c8c0b3b6d4c03dcdd53b4941e02c4a1bdee3cb940e2be907373
+      modulus_length: 2048
+    aea3c_75577_55832eda909caabda1145678e3a80784: 
+      created: '1621923901'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “ob.productivern.com” 1621923901.0
+      id: aea3c_75577_55832eda909caabda1145678e3a80784
+      key_algorithm: rsaEncryption
+      modulus: aea3c469ec06d48d0b03404e8f41a3ad60c5c4612d41277292f9c8ee5125be5cd9a64a54c20933c0ca649e503eed7f12cea97726b3e383d74c3023973865186278ac92fa5b172bfc3edf220ab224eb30e3a9fe7d37f9a71e03f5c379c4ce97e750245363a42814df782ea9cc4440cfe0422dabbe8951d183ec72d79612a08e7534afb721c5477cfd99738d27384e8d1a370dcab33bf6f9adcef9da7ec09cbf0eb8288c5e5bfab9947e3e610f2dc0914f6376236118f2d3005ca4860fa437546c76ccb30f02b1a43996f73c12a52703b5292390fef23459a8959f646a013fdb5934ee17bee7f808d4212bcad9f88f5dac2da0718d121322a0dce9bd1897b75577
+      modulus_length: 2048
+    b250a_c93b7_f3ea03322226c7bc3b71f2dc05a78f45: 
+      created: '1627539902'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “productivern.com” 1627539902.0
+      id: b250a_c93b7_f3ea03322226c7bc3b71f2dc05a78f45
+      key_algorithm: rsaEncryption
+      modulus: b250a88b6c4f15889ab250bb5741366388811fd559d3451978a011de3255e29449d65957315ee42bf83057b5ac3dca6d91a3ed490c0ce36026a0a566354c3268e121fd51315e7e0f5e3f42fec83fcd2fff7fe2f1a865f9c603ae70ae564cc45c1f0a9926fda90775a406aca1036908f295d3230989dbd0f7a7f3aaa428faeb617c7e518e7aa610b44e256c6252a8c82be5f3c51b7212fb632db11584abccf3ee01df96ecab4f8fb0cdfa365d9e05a46ed0bca4e6f17f71dee0ac8e8867257843175b134a8947732afedab05352dd842d80c94e60ef7ab5c6d1aff83b8154b433bcc5b3acda2b58f71907b132d0268ddaf0ed8ce6dff8c3883462e2fc62ec93b7
+      modulus_length: 2048
+    b2c2f_87ae3_ce1a60a35fdbeb3eada88b5869ba6963: 
+      created: '1634797562'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “vizient.productivern.com”
+      id: b2c2f_87ae3_ce1a60a35fdbeb3eada88b5869ba6963
+      key_algorithm: rsaEncryption
+      modulus: b2c2f0db9a4fd2adb2b811b17650791eee10d30a4ec99017acbf1763186fe22bdcd5900e398c0a23a113894718bd8961c070438f119c0a5d12431941e5502a286cc406c5ebd8207e24c3fffd51994bb9fe13d237b5d05f02068be6863986f73d40b00e65996d5103716fac5a0a9bc089347e80d3131ffc3998f7441e113351484cac68d55b982366b046b2be7a2e38edc896cafb3c81905ab920515d504d9fd314fcd39aaa93119a330793e92a7f43127c7af1de84a0ccad20cb7ea320e97381a04d7f15809a6df3f5e676fc78ade612e72e947ad025f79e00d137217c258be8822c00022e716096006b83c7ad63f480d7b03f110228d1747ee8a176a4187ae3
+      modulus_length: 2048
+    b96f0_c0527_bbcdfd9e58d3bd8a04ad822c37b799c7: 
+      created: '1635056702'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “ob.productivern.com”
+      id: b96f0_c0527_bbcdfd9e58d3bd8a04ad822c37b799c7
+      key_algorithm: rsaEncryption
+      modulus: b96f01a821e43b2f0c69dbe6c885b2a7b683b80cda7755ed2480338e7ebffcc947134dd54314c7c320103ffe4754e71a5bc45ece4c1212665d87917990a1c7a8254befb20a16251e393ec8091bb134e1ba62b9fb786783cd3d25a94e40acd333b66a65a149b77190c98eb98b282f3e70a1bf50cf5e6b8df0ec8976d3f69cc388a364dd557ffab1d5254c82ccb1a8a4e8e33e6851a9e8060a7097645dbc92941fcb50c1d7a8eb5f26aae29a68dd90327deb5dc0015ab9c9d9529220ebd37bcc86994e5af0dfba7e292053f2aa65ee0c56c03ed7e817456806bd27b6e2315fd96dfa77d4692113b58ff5b3c6130c5f696605edb5c71b0c0b36d63b42813dcc0527
+      modulus_length: 2048
+    bbb44_a94a5_50cd5e2f973eafa9c9d65a91f566ea9c: 
+      created: '1628231163'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “vizient.productivern.com” 1628231163.0
+      id: bbb44_a94a5_50cd5e2f973eafa9c9d65a91f566ea9c
+      key_algorithm: rsaEncryption
+      modulus: bbb44c57b2dd9ae0ca1c0213bb2496e35a187fc149a9901675588181b2205aee8a41108c259a9e2f7769cfcce435767abc5ebd3cd08f6411ce47602f7e37f5488ceb7cb18ef70779fe8ce9eaaa27b58c790624592dfed4d0b5b921049691bdba62336120e1f3ebf93e45d9c87e80300b5fdbd19a5f77afa51e0ea910183f9a23f28c2508f67439409f42a36458fa8cfcdf5850524c50b51651f44bcf2f078843a228251c45d476bae7e87709df8ee4c4df235232d9694baf7cce2103daca007de64b10a84b926f5941eb723c1c73fb8bae2004dc793d62aefadf9a53285bc1275d9016147a845559cc62ac571c9d16a40195b208b2c11adf195de549f5ba94a5
+      modulus_length: 2048
+    bce17_a0741_9d3d925e6df7bb71f7a9af27bcf1eceb: 
+      created: '1636874703'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “perfectshift.productivern.com” 1636874703.0
+      id: bce17_a0741_9d3d925e6df7bb71f7a9af27bcf1eceb
+      key_algorithm: rsaEncryption
+      modulus: bce1737ed1040f072c38783c08cab8c6ef63c0d3a9ac9ec451a812d712c63c616ca50dc076c7f8b2654fa7e456f79b28044dd855ceea95c1de6b26cac1f7d48a31fa37ba5446627bf5f4a100abf77311cdfbddb3fc3c121defaadb21c565a4f21a1cf453e57de3e38574290df7949755b9eaf54779ec0eca6f3cd0b0f5d62bd92beaa24e89f3f0177181b4f48b512b7b9dd69e086c84edb3f6c837a50b92d9ad76ab9b20fcca2c3f823c0d67e18b195b038952c1ed7c9151a2606aff8c298690d79f0adf99add0e2cea55ef90385256cf7c223c3a8fbbb5b7abba8d0bc4332f5dc68b78ed2b67a6fa0eb272175fed076e6e14ab0dcecd97a526d84c9251a0741
+      modulus_length: 2048
+    bf5a8_9a6df_35b1a59ce92ffa2f5433b0c13b741f0c: 
+      created: '1623738362'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “perfectshift.productivern.com” 1623738362.0
+      id: bf5a8_9a6df_35b1a59ce92ffa2f5433b0c13b741f0c
+      key_algorithm: rsaEncryption
+      modulus: bf5a83ae09025e05f5d3ed48ae804c16e2f54c13c49e59a19bdb4c518b3372242a0d9d32b25c7ad869851a3f9bf966d759d849d14fc6aa465dfd76c079461ca9929855c636efa2e6771a1db17fd6051e32489426a7b94ecb94b952dc978b904cc9cf4d0f8ecc6a78bc0d7744988e2ade6aef2d62c215f1d2b49befcb2e3f72a212b58f0e9680dcfa9cd4c69d7a56eb716db84546a0f9749556bc64b8a36f27d46b737d2da1c945408da3fc922ed8ea818b7515e611f447733f38f1086b944bb3d21f9ed2601581342cb9c84f700d4daf6878c7d4d4728141de63738c806ccdce9cd9da8d54a64dbc52d5eee1c8e0051a4b2b7c8f72b3e61011e4d322a979a6df
+      modulus_length: 2048
+    c7bf8_a2af9_997b629bfd10a38aff10720c78a0e372: 
+      created: '1630304702'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “perfectshift.productivern.com”
+      id: c7bf8_a2af9_997b629bfd10a38aff10720c78a0e372
+      key_algorithm: rsaEncryption
+      modulus: c7bf8c14975736a5faf28027bc1d32b4f96a6b446da613d881abb9ae8824bfa3b1beae64ec42ee9b60dfba2075fa8324da8d3ffb46241053b0a99960ec4641ca9e58df90c005260fdcd827f646f0058fea3cb9fa5ffb6dc067c33a57fe038ef0c5d990968c11a3a8076441103e573c5b8ea3c0c4dd7c152a9c36e73bb3b89c34119bd0b393cf63525ec92b3a513a476db7c13f440d7a546905b435f12d78ed0d824927160f18e8653b746808a06f0552f04a3300131d81e595aba30f3783c69c41c0366817f6516d06e1cd543ac3592dfdd162dc6cd6426e360b5e43db99a82b688390edd44e48159a65dbd6f3b1da91196b9b1f1464b8eff2bd195c661a2af9
+      modulus_length: 2048
+    d5fab_65afd_681e88085b760c41fad679529d16b616: 
+      created: '1621012262'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “productivern.com”
+      id: d5fab_65afd_681e88085b760c41fad679529d16b616
+      key_algorithm: rsaEncryption
+      modulus: d5fab8cb27cdefed14618d0753a37a08964e9b67b324b9d18c94e3fda9dbd210d15f247b538862d57d33a2334b0f994cd61c677195b95c1a92fab81c2a6b40c0dd8134565e7aa45c34ac4e005b830ef40759c5f9cf9e1d3faf875e7d1707df727f4d2762a1a37e59015220ccd5c4f58d5b4041fa42ab919e3a2e1b2bed028c1d928395c5d7c3ede290196e922535edc2443b782092ee91da105aeb5d4478aa091eb289dec632f0a4310d3384c1eb78162485c428bf0ffeee3e14a6644d7596357a2f3df0c116bcd4647fcf146fa74ca8bd1b1ab4250ec10a871d6227f57e576a73833514fa489e93b551400fdfc7a0393debe12fce39cc7d2e4e1e5d94b65afd
+      modulus_length: 2048
+    df9b2_14559_847ad8113518742e1e672205e998c997: 
+      created: '1634106303'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “productivern.com” 1634106303.0
+      id: df9b2_14559_847ad8113518742e1e672205e998c997
+      key_algorithm: rsaEncryption
+      modulus: df9b2761e50c3c33ed916222d26744e050943cdf98eefc2f3469bddfa4ea41b1a7c861d435c35fb0ae57af7131a231eeefc232b2f95b4a821061a250502beae4e50df3a6d9ba6f883cd124370c8a4d415ca5da9694a6b7ac44279d3ec2e811d448779d19f67b265c638913584ce9a7960300dcea293f637e8eefa5074511a064ffe30f7595abbaa2b21ff793244dc8945ee9cb65bbe9ba000440fe009e4403f1012510997ca274fc369d39acee78b3d1412bac88f5aa379125635c302ac19a7d5c62b387cdd78447caebc1c43d8549ab7e6515b7ba88fc121c9ac72495edd33e922771db8a9bd0417aaafe185f9498d0599da580bdb19ddc1dfb6bcc3f314559
+      modulus_length: 2048
+indexes: 
+  certificate: 
+    modulus: 
+      964cf9eac7866bb0e4a8a134c79d669921fc00606bbf2718d9366c89e8f21957a262b5bbc18194b9b96d61fa9114e1125f58800972d2685aaa7eecc4539c1d750791c57b0e1556618bb29cbd47a37f8d28f2a16bed1c6998ea53cf0ecb449a0338a559c1b8494c9c5edab65384c3a7cd3a010dfee53fea45534ee4956cc88a0df6870485796ae6432185f2f233144a7ad8f97429ce56c00108ea9c40921107235fa26b5a5fa5cbdb52cb78f6b09bb33e2f5956196c9c31ea839fcea6c9206013d771f3fbcc0f82f5de17a29e3595327779d4604ef5ba7628fd3b6949f60d35c16619e9cf5c775a231117d658f2a6bf7a8cc816313a67c8aaf7842d30d7f13211: 
+        ob_productivern_com_964cf_13211_1636329599_5c3cbc23153c432d1036364fc3e76217: ~
+      9703ee1651cfed002fc1efe3f758fe668fbcf4c2be6a0d9db7a77a6c8f617f13b6558fef1c49a83cdf727813b51fcfe7d7e4343938b039c9aa27517b7ae45672c3ace95fb17241ac06edaa4d199a8f4f403b680201385a86cbab22b238888e62c7234567352ad6279d6a934727deed265eb7ab813a879ea12b7192aad8e9e1adad8a00f7ef13114e5dc5f50f1d4b927a462626eb92f852a1761a22b99042c9dca8ed2f7ebe6e3e15254ec1819cd14eb06c532a218d162cdf3bbc9a882e00426b095fdebaa18198f29657a251771b78e6b2a74966c30271c600f7605130519b02cd8a571ffb9a7c8c0b3b6d4c03dcdd53b4941e02c4a1bdee3cb940e2be907373: 
+        vizient_productivern_com_9703e_07373_1629503999_5238fe0d3565749ac04386097bb5b416: ~
+      aea3c469ec06d48d0b03404e8f41a3ad60c5c4612d41277292f9c8ee5125be5cd9a64a54c20933c0ca649e503eed7f12cea97726b3e383d74c3023973865186278ac92fa5b172bfc3edf220ab224eb30e3a9fe7d37f9a71e03f5c379c4ce97e750245363a42814df782ea9cc4440cfe0422dabbe8951d183ec72d79612a08e7534afb721c5477cfd99738d27384e8d1a370dcab33bf6f9adcef9da7ec09cbf0eb8288c5e5bfab9947e3e610f2dc0914f6376236118f2d3005ca4860fa437546c76ccb30f02b1a43996f73c12a52703b5292390fef23459a8959f646a013fdb5934ee17bee7f808d4212bcad9f88f5dac2da0718d121322a0dce9bd1897b75577: 
+        ob_productivern_com_aea3c_75577_1629763199_80d72d780b132a036da43e72a71744cb: ~
+      b250a88b6c4f15889ab250bb5741366388811fd559d3451978a011de3255e29449d65957315ee42bf83057b5ac3dca6d91a3ed490c0ce36026a0a566354c3268e121fd51315e7e0f5e3f42fec83fcd2fff7fe2f1a865f9c603ae70ae564cc45c1f0a9926fda90775a406aca1036908f295d3230989dbd0f7a7f3aaa428faeb617c7e518e7aa610b44e256c6252a8c82be5f3c51b7212fb632db11584abccf3ee01df96ecab4f8fb0cdfa365d9e05a46ed0bca4e6f17f71dee0ac8e8867257843175b134a8947732afedab05352dd842d80c94e60ef7ab5c6d1aff83b8154b433bcc5b3acda2b58f71907b132d0268ddaf0ed8ce6dff8c3883462e2fc62ec93b7: 
+        productivern_com_b250a_c93b7_1635379199_456745e80b5a61057303c6935557acff: ~
+      b2c2f0db9a4fd2adb2b811b17650791eee10d30a4ec99017acbf1763186fe22bdcd5900e398c0a23a113894718bd8961c070438f119c0a5d12431941e5502a286cc406c5ebd8207e24c3fffd51994bb9fe13d237b5d05f02068be6863986f73d40b00e65996d5103716fac5a0a9bc089347e80d3131ffc3998f7441e113351484cac68d55b982366b046b2be7a2e38edc896cafb3c81905ab920515d504d9fd314fcd39aaa93119a330793e92a7f43127c7af1de84a0ccad20cb7ea320e97381a04d7f15809a6df3f5e676fc78ade612e72e947ad025f79e00d137217c258be8822c00022e716096006b83c7ad63f480d7b03f110228d1747ee8a176a4187ae3: 
+        vizient_productivern_com_b2c2f_87ae3_1642636799_1f2fdc87ca099949f56218da69721565: ~
+      b96f01a821e43b2f0c69dbe6c885b2a7b683b80cda7755ed2480338e7ebffcc947134dd54314c7c320103ffe4754e71a5bc45ece4c1212665d87917990a1c7a8254befb20a16251e393ec8091bb134e1ba62b9fb786783cd3d25a94e40acd333b66a65a149b77190c98eb98b282f3e70a1bf50cf5e6b8df0ec8976d3f69cc388a364dd557ffab1d5254c82ccb1a8a4e8e33e6851a9e8060a7097645dbc92941fcb50c1d7a8eb5f26aae29a68dd90327deb5dc0015ab9c9d9529220ebd37bcc86994e5af0dfba7e292053f2aa65ee0c56c03ed7e817456806bd27b6e2315fd96dfa77d4692113b58ff5b3c6130c5f696605edb5c71b0c0b36d63b42813dcc0527: 
+        ob_productivern_com_b96f0_c0527_1642895999_83e95a2e678f7f0bae88fd0faa9baecb: ~
+      bbb44c57b2dd9ae0ca1c0213bb2496e35a187fc149a9901675588181b2205aee8a41108c259a9e2f7769cfcce435767abc5ebd3cd08f6411ce47602f7e37f5488ceb7cb18ef70779fe8ce9eaaa27b58c790624592dfed4d0b5b921049691bdba62336120e1f3ebf93e45d9c87e80300b5fdbd19a5f77afa51e0ea910183f9a23f28c2508f67439409f42a36458fa8cfcdf5850524c50b51651f44bcf2f078843a228251c45d476bae7e87709df8ee4c4df235232d9694baf7cce2103daca007de64b10a84b926f5941eb723c1c73fb8bae2004dc793d62aefadf9a53285bc1275d9016147a845559cc62ac571c9d16a40195b208b2c11adf195de549f5ba94a5: 
+        vizient_productivern_com_bbb44_a94a5_1636070399_079c0fc8681b9e033c4ab83632bb75ec: ~
+      bce1737ed1040f072c38783c08cab8c6ef63c0d3a9ac9ec451a812d712c63c616ca50dc076c7f8b2654fa7e456f79b28044dd855ceea95c1de6b26cac1f7d48a31fa37ba5446627bf5f4a100abf77311cdfbddb3fc3c121defaadb21c565a4f21a1cf453e57de3e38574290df7949755b9eaf54779ec0eca6f3cd0b0f5d62bd92beaa24e89f3f0177181b4f48b512b7b9dd69e086c84edb3f6c837a50b92d9ad76ab9b20fcca2c3f823c0d67e18b195b038952c1ed7c9151a2606aff8c298690d79f0adf99add0e2cea55ef90385256cf7c223c3a8fbbb5b7abba8d0bc4332f5dc68b78ed2b67a6fa0eb272175fed076e6e14ab0dcecd97a526d84c9251a0741: 
+        smt_perfectshift_com_bce17_a0741_1644710399_eab4ae94afb81f34e0ce1d0d507fbd6d: ~
+      bf5a83ae09025e05f5d3ed48ae804c16e2f54c13c49e59a19bdb4c518b3372242a0d9d32b25c7ad869851a3f9bf966d759d849d14fc6aa465dfd76c079461ca9929855c636efa2e6771a1db17fd6051e32489426a7b94ecb94b952dc978b904cc9cf4d0f8ecc6a78bc0d7744988e2ade6aef2d62c215f1d2b49befcb2e3f72a212b58f0e9680dcfa9cd4c69d7a56eb716db84546a0f9749556bc64b8a36f27d46b737d2da1c945408da3fc922ed8ea818b7515e611f447733f38f1086b944bb3d21f9ed2601581342cb9c84f700d4daf6878c7d4d4728141de63738c806ccdce9cd9da8d54a64dbc52d5eee1c8e0051a4b2b7c8f72b3e61011e4d322a979a6df: 
+        smt_perfectshift_com_bf5a8_9a6df_1631577599_b1d1abe18dc0c256eb6257460092bf54: ~
+      bf8ad1634de118ea875de8163c8f7fb6be871737a40cf8313f9f45544021d79d079bca03234abd9bed8502633f9f85b9ec28eff28622dbf84d5441c5b4427fcf3317010e829052d3c734a4c1a101da32a040ad1f59e433fca0c396ac686cd3e899738c261077cbb73f3932e8d25928ee0786e2093b85f8aa69f6a96b9f58ad72c85b8766ae08e074fb2d534362833d8f854c1197dc1efc5030b88308325e5c5cc4e175204aeba5d6752ddc2d7d7ce0d0fe7c75a14e4002849ad90d5a2ea0acf3358a2aead65a5a6c8e2cabf6defd784726797aaa22eaa9e6711203d3f8ba53d2799cbd64acf61b63bb4d8f3802f8f0575dc5aa255a0c5dc530fe2053196ce9c3: 
+        GeoTrust_RSA_CA_2018_bf8ad_ce9c3_1825503825_3e290d2efbe0b046f2524fdeed274991: ~
+      c7bf8c14975736a5faf28027bc1d32b4f96a6b446da613d881abb9ae8824bfa3b1beae64ec42ee9b60dfba2075fa8324da8d3ffb46241053b0a99960ec4641ca9e58df90c005260fdcd827f646f0058fea3cb9fa5ffb6dc067c33a57fe038ef0c5d990968c11a3a8076441103e573c5b8ea3c0c4dd7c152a9c36e73bb3b89c34119bd0b393cf63525ec92b3a513a476db7c13f440d7a546905b435f12d78ed0d824927160f18e8653b746808a06f0552f04a3300131d81e595aba30f3783c69c41c0366817f6516d06e1cd543ac3592dfdd162dc6cd6426e360b5e43db99a82b688390edd44e48159a65dbd6f3b1da91196b9b1f1464b8eff2bd195c661a2af9: 
+        smt_perfectshift_com_c7bf8_a2af9_1638143999_d08c02cb55f446076238100017184cae: ~
+      d5fab8cb27cdefed14618d0753a37a08964e9b67b324b9d18c94e3fda9dbd210d15f247b538862d57d33a2334b0f994cd61c677195b95c1a92fab81c2a6b40c0dd8134565e7aa45c34ac4e005b830ef40759c5f9cf9e1d3faf875e7d1707df727f4d2762a1a37e59015220ccd5c4f58d5b4041fa42ab919e3a2e1b2bed028c1d928395c5d7c3ede290196e922535edc2443b782092ee91da105aeb5d4478aa091eb289dec632f0a4310d3384c1eb78162485c428bf0ffeee3e14a6644d7596357a2f3df0c116bcd4647fcf146fa74ca8bd1b1ab4250ec10a871d6227f57e576a73833514fa489e93b551400fdfc7a0393debe12fce39cc7d2e4e1e5d94b65afd: 
+        productivern_com_d5fab_65afd_1628812799_2b4f280ff59ef72afd16cf1bc45d6180: ~
+      df9b2761e50c3c33ed916222d26744e050943cdf98eefc2f3469bddfa4ea41b1a7c861d435c35fb0ae57af7131a231eeefc232b2f95b4a821061a250502beae4e50df3a6d9ba6f883cd124370c8a4d415ca5da9694a6b7ac44279d3ec2e811d448779d19f67b265c638913584ce9a7960300dcea293f637e8eefa5074511a064ffe30f7595abbaa2b21ff793244dc8945ee9cb65bbe9ba000440fe009e4403f1012510997ca274fc369d39acee78b3d1412bac88f5aa379125635c302ac19a7d5c62b387cdd78447caebc1c43d8549ab7e6515b7ba88fc121c9ac72495edd33e922771db8a9bd0417aaafe185f9498d0599da580bdb19ddc1dfb6bcc3f314559: 
+        productivern_com_df9b2_14559_1641945599_1d2b41c4c6f6394eb840e44a5fb6fbea: ~
+    subject.commonName: 
+      GeoTrust RSA CA 2018: 
+        GeoTrust_RSA_CA_2018_bf8ad_ce9c3_1825503825_3e290d2efbe0b046f2524fdeed274991: ~
+      ob.productivern.com: 
+        ob_productivern_com_964cf_13211_1636329599_5c3cbc23153c432d1036364fc3e76217: ~
+        ob_productivern_com_aea3c_75577_1629763199_80d72d780b132a036da43e72a71744cb: ~
+        ob_productivern_com_b96f0_c0527_1642895999_83e95a2e678f7f0bae88fd0faa9baecb: ~
+      productivern.com: 
+        productivern_com_b250a_c93b7_1635379199_456745e80b5a61057303c6935557acff: ~
+        productivern_com_d5fab_65afd_1628812799_2b4f280ff59ef72afd16cf1bc45d6180: ~
+        productivern_com_df9b2_14559_1641945599_1d2b41c4c6f6394eb840e44a5fb6fbea: ~
+      smt.perfectshift.com: 
+        smt_perfectshift_com_bce17_a0741_1644710399_eab4ae94afb81f34e0ce1d0d507fbd6d: ~
+        smt_perfectshift_com_bf5a8_9a6df_1631577599_b1d1abe18dc0c256eb6257460092bf54: ~
+        smt_perfectshift_com_c7bf8_a2af9_1638143999_d08c02cb55f446076238100017184cae: ~
+      vizient.productivern.com: 
+        vizient_productivern_com_9703e_07373_1629503999_5238fe0d3565749ac04386097bb5b416: ~
+        vizient_productivern_com_b2c2f_87ae3_1642636799_1f2fdc87ca099949f56218da69721565: ~
+        vizient_productivern_com_bbb44_a94a5_1636070399_079c0fc8681b9e033c4ab83632bb75ec: ~
+  csr: 
+    commonName: 
+      productivern.com: 
+        productivern_com_bfbfd_1cbb9_6328864d8193cf75577fc2f26cc32f83: ~
+    modulus: 
+      bfbfdddaff7c6c6ecb4eeeea47e9c982369cb6019fbf9447797842301f0a37fb0566fd3beed985b2f530af6a633201b9a5c7a79d84073ea4531e9417e75de2768a58f21f8ceab5606e4ef4f8a32a5fc514283c86121c24f9f7ef95e8c8cdaefe395479c0831b23b6dc89ecaef52c67b2eac68eff7a764e1b0f9b9ecf95aa7398f28ae950a18d6d23149e6173646131f8b240bf937b1591b2a420460decf5c170d4984ee343d8e90e6ee170eaecf607bf6808b333e6dc0ce8cc3fb4511c4d97268e01176f94ef516852d4313a0585bb7661476c28ce24b822550e255d9dbdc80365e1496a7aa066029ab405336463f965f06bff4e4e37bc9a583ffc35dfd1cbb9: 
+        productivern_com_bfbfd_1cbb9_6328864d8193cf75577fc2f26cc32f83: ~
+uniques: 
+  certificate: 
+    friendly_name: 
+      Cert for “ob.productivern.com”: ob_productivern_com_b96f0_c0527_1642895999_83e95a2e678f7f0bae88fd0faa9baecb
+      Cert for “ob.productivern.com” 1621923901.0: ob_productivern_com_aea3c_75577_1629763199_80d72d780b132a036da43e72a71744cb
+      Cert for “ob.productivern.com” 1628490302.0: ob_productivern_com_964cf_13211_1636329599_5c3cbc23153c432d1036364fc3e76217
+      Cert for “perfectshift.productivern.com”: smt_perfectshift_com_c7bf8_a2af9_1638143999_d08c02cb55f446076238100017184cae
+      Cert for “perfectshift.productivern.com” 1623738362.0: smt_perfectshift_com_bf5a8_9a6df_1631577599_b1d1abe18dc0c256eb6257460092bf54
+      Cert for “perfectshift.productivern.com” 1636874703.0: smt_perfectshift_com_bce17_a0741_1644710399_eab4ae94afb81f34e0ce1d0d507fbd6d
+      Cert for “productivern.com”: productivern_com_d5fab_65afd_1628812799_2b4f280ff59ef72afd16cf1bc45d6180
+      Cert for “productivern.com” 1627539902.0: productivern_com_b250a_c93b7_1635379199_456745e80b5a61057303c6935557acff
+      Cert for “productivern.com” 1634106303.0: productivern_com_df9b2_14559_1641945599_1d2b41c4c6f6394eb840e44a5fb6fbea
+      Cert for “vizient.productivern.com”: vizient_productivern_com_b2c2f_87ae3_1642636799_1f2fdc87ca099949f56218da69721565
+      Cert for “vizient.productivern.com” 1621664762.0: vizient_productivern_com_9703e_07373_1629503999_5238fe0d3565749ac04386097bb5b416
+      Cert for “vizient.productivern.com” 1628231163.0: vizient_productivern_com_bbb44_a94a5_1636070399_079c0fc8681b9e033c4ab83632bb75ec
+      GeoTrust RSA CA 2018: GeoTrust_RSA_CA_2018_bf8ad_ce9c3_1825503825_3e290d2efbe0b046f2524fdeed274991
+  csr: 
+    friendly_name: 
+      productivern.com and www.productivern.com: productivern_com_bfbfd_1cbb9_6328864d8193cf75577fc2f26cc32f83
+  key: 
+    friendly_name: 
+      Key for “ob.productivern.com”: b96f0_c0527_bbcdfd9e58d3bd8a04ad822c37b799c7
+      Key for “ob.productivern.com” 1621923901.0: aea3c_75577_55832eda909caabda1145678e3a80784
+      Key for “ob.productivern.com” 1628490302.0: 964cf_13211_37b3311b8ae12376acd7975d9ec6dbae
+      Key for “perfectshift.productivern.com”: c7bf8_a2af9_997b629bfd10a38aff10720c78a0e372
+      Key for “perfectshift.productivern.com” 1623738362.0: bf5a8_9a6df_35b1a59ce92ffa2f5433b0c13b741f0c
+      Key for “perfectshift.productivern.com” 1636874703.0: bce17_a0741_9d3d925e6df7bb71f7a9af27bcf1eceb
+      Key for “productivern.com”: d5fab_65afd_681e88085b760c41fad679529d16b616
+      Key for “productivern.com” 1627539902.0: b250a_c93b7_f3ea03322226c7bc3b71f2dc05a78f45
+      Key for “productivern.com” 1634106303.0: df9b2_14559_847ad8113518742e1e672205e998c997
+      Key for “vizient.productivern.com”: b2c2f_87ae3_ce1a60a35fdbeb3eada88b5869ba6963
+      Key for “vizient.productivern.com” 1621664762.0: 9703e_07373_0e7d62a90fa0fd2f6dba860990b7e7bc
+      Key for “vizient.productivern.com” 1628231163.0: bbb44_a94a5_50cd5e2f973eafa9c9d65a91f566ea9c
+    modulus:ecdsa_curve_name:ecdsa_public: 
+      964cf9eac7866bb0e4a8a134c79d669921fc00606bbf2718d9366c89e8f21957a262b5bbc18194b9b96d61fa9114e1125f58800972d2685aaa7eecc4539c1d750791c57b0e1556618bb29cbd47a37f8d28f2a16bed1c6998ea53cf0ecb449a0338a559c1b8494c9c5edab65384c3a7cd3a010dfee53fea45534ee4956cc88a0df6870485796ae6432185f2f233144a7ad8f97429ce56c00108ea9c40921107235fa26b5a5fa5cbdb52cb78f6b09bb33e2f5956196c9c31ea839fcea6c9206013d771f3fbcc0f82f5de17a29e3595327779d4604ef5ba7628fd3b6949f60d35c16619e9cf5c775a231117d658f2a6bf7a8cc816313a67c8aaf7842d30d7f13211: 964cf_13211_37b3311b8ae12376acd7975d9ec6dbae
+      9703ee1651cfed002fc1efe3f758fe668fbcf4c2be6a0d9db7a77a6c8f617f13b6558fef1c49a83cdf727813b51fcfe7d7e4343938b039c9aa27517b7ae45672c3ace95fb17241ac06edaa4d199a8f4f403b680201385a86cbab22b238888e62c7234567352ad6279d6a934727deed265eb7ab813a879ea12b7192aad8e9e1adad8a00f7ef13114e5dc5f50f1d4b927a462626eb92f852a1761a22b99042c9dca8ed2f7ebe6e3e15254ec1819cd14eb06c532a218d162cdf3bbc9a882e00426b095fdebaa18198f29657a251771b78e6b2a74966c30271c600f7605130519b02cd8a571ffb9a7c8c0b3b6d4c03dcdd53b4941e02c4a1bdee3cb940e2be907373: 9703e_07373_0e7d62a90fa0fd2f6dba860990b7e7bc
+      aea3c469ec06d48d0b03404e8f41a3ad60c5c4612d41277292f9c8ee5125be5cd9a64a54c20933c0ca649e503eed7f12cea97726b3e383d74c3023973865186278ac92fa5b172bfc3edf220ab224eb30e3a9fe7d37f9a71e03f5c379c4ce97e750245363a42814df782ea9cc4440cfe0422dabbe8951d183ec72d79612a08e7534afb721c5477cfd99738d27384e8d1a370dcab33bf6f9adcef9da7ec09cbf0eb8288c5e5bfab9947e3e610f2dc0914f6376236118f2d3005ca4860fa437546c76ccb30f02b1a43996f73c12a52703b5292390fef23459a8959f646a013fdb5934ee17bee7f808d4212bcad9f88f5dac2da0718d121322a0dce9bd1897b75577: aea3c_75577_55832eda909caabda1145678e3a80784
+      b250a88b6c4f15889ab250bb5741366388811fd559d3451978a011de3255e29449d65957315ee42bf83057b5ac3dca6d91a3ed490c0ce36026a0a566354c3268e121fd51315e7e0f5e3f42fec83fcd2fff7fe2f1a865f9c603ae70ae564cc45c1f0a9926fda90775a406aca1036908f295d3230989dbd0f7a7f3aaa428faeb617c7e518e7aa610b44e256c6252a8c82be5f3c51b7212fb632db11584abccf3ee01df96ecab4f8fb0cdfa365d9e05a46ed0bca4e6f17f71dee0ac8e8867257843175b134a8947732afedab05352dd842d80c94e60ef7ab5c6d1aff83b8154b433bcc5b3acda2b58f71907b132d0268ddaf0ed8ce6dff8c3883462e2fc62ec93b7: b250a_c93b7_f3ea03322226c7bc3b71f2dc05a78f45
+      b2c2f0db9a4fd2adb2b811b17650791eee10d30a4ec99017acbf1763186fe22bdcd5900e398c0a23a113894718bd8961c070438f119c0a5d12431941e5502a286cc406c5ebd8207e24c3fffd51994bb9fe13d237b5d05f02068be6863986f73d40b00e65996d5103716fac5a0a9bc089347e80d3131ffc3998f7441e113351484cac68d55b982366b046b2be7a2e38edc896cafb3c81905ab920515d504d9fd314fcd39aaa93119a330793e92a7f43127c7af1de84a0ccad20cb7ea320e97381a04d7f15809a6df3f5e676fc78ade612e72e947ad025f79e00d137217c258be8822c00022e716096006b83c7ad63f480d7b03f110228d1747ee8a176a4187ae3: b2c2f_87ae3_ce1a60a35fdbeb3eada88b5869ba6963
+      b96f01a821e43b2f0c69dbe6c885b2a7b683b80cda7755ed2480338e7ebffcc947134dd54314c7c320103ffe4754e71a5bc45ece4c1212665d87917990a1c7a8254befb20a16251e393ec8091bb134e1ba62b9fb786783cd3d25a94e40acd333b66a65a149b77190c98eb98b282f3e70a1bf50cf5e6b8df0ec8976d3f69cc388a364dd557ffab1d5254c82ccb1a8a4e8e33e6851a9e8060a7097645dbc92941fcb50c1d7a8eb5f26aae29a68dd90327deb5dc0015ab9c9d9529220ebd37bcc86994e5af0dfba7e292053f2aa65ee0c56c03ed7e817456806bd27b6e2315fd96dfa77d4692113b58ff5b3c6130c5f696605edb5c71b0c0b36d63b42813dcc0527: b96f0_c0527_bbcdfd9e58d3bd8a04ad822c37b799c7
+      bbb44c57b2dd9ae0ca1c0213bb2496e35a187fc149a9901675588181b2205aee8a41108c259a9e2f7769cfcce435767abc5ebd3cd08f6411ce47602f7e37f5488ceb7cb18ef70779fe8ce9eaaa27b58c790624592dfed4d0b5b921049691bdba62336120e1f3ebf93e45d9c87e80300b5fdbd19a5f77afa51e0ea910183f9a23f28c2508f67439409f42a36458fa8cfcdf5850524c50b51651f44bcf2f078843a228251c45d476bae7e87709df8ee4c4df235232d9694baf7cce2103daca007de64b10a84b926f5941eb723c1c73fb8bae2004dc793d62aefadf9a53285bc1275d9016147a845559cc62ac571c9d16a40195b208b2c11adf195de549f5ba94a5: bbb44_a94a5_50cd5e2f973eafa9c9d65a91f566ea9c
+      bce1737ed1040f072c38783c08cab8c6ef63c0d3a9ac9ec451a812d712c63c616ca50dc076c7f8b2654fa7e456f79b28044dd855ceea95c1de6b26cac1f7d48a31fa37ba5446627bf5f4a100abf77311cdfbddb3fc3c121defaadb21c565a4f21a1cf453e57de3e38574290df7949755b9eaf54779ec0eca6f3cd0b0f5d62bd92beaa24e89f3f0177181b4f48b512b7b9dd69e086c84edb3f6c837a50b92d9ad76ab9b20fcca2c3f823c0d67e18b195b038952c1ed7c9151a2606aff8c298690d79f0adf99add0e2cea55ef90385256cf7c223c3a8fbbb5b7abba8d0bc4332f5dc68b78ed2b67a6fa0eb272175fed076e6e14ab0dcecd97a526d84c9251a0741: bce17_a0741_9d3d925e6df7bb71f7a9af27bcf1eceb
+      bf5a83ae09025e05f5d3ed48ae804c16e2f54c13c49e59a19bdb4c518b3372242a0d9d32b25c7ad869851a3f9bf966d759d849d14fc6aa465dfd76c079461ca9929855c636efa2e6771a1db17fd6051e32489426a7b94ecb94b952dc978b904cc9cf4d0f8ecc6a78bc0d7744988e2ade6aef2d62c215f1d2b49befcb2e3f72a212b58f0e9680dcfa9cd4c69d7a56eb716db84546a0f9749556bc64b8a36f27d46b737d2da1c945408da3fc922ed8ea818b7515e611f447733f38f1086b944bb3d21f9ed2601581342cb9c84f700d4daf6878c7d4d4728141de63738c806ccdce9cd9da8d54a64dbc52d5eee1c8e0051a4b2b7c8f72b3e61011e4d322a979a6df: bf5a8_9a6df_35b1a59ce92ffa2f5433b0c13b741f0c
+      c7bf8c14975736a5faf28027bc1d32b4f96a6b446da613d881abb9ae8824bfa3b1beae64ec42ee9b60dfba2075fa8324da8d3ffb46241053b0a99960ec4641ca9e58df90c005260fdcd827f646f0058fea3cb9fa5ffb6dc067c33a57fe038ef0c5d990968c11a3a8076441103e573c5b8ea3c0c4dd7c152a9c36e73bb3b89c34119bd0b393cf63525ec92b3a513a476db7c13f440d7a546905b435f12d78ed0d824927160f18e8653b746808a06f0552f04a3300131d81e595aba30f3783c69c41c0366817f6516d06e1cd543ac3592dfdd162dc6cd6426e360b5e43db99a82b688390edd44e48159a65dbd6f3b1da91196b9b1f1464b8eff2bd195c661a2af9: c7bf8_a2af9_997b629bfd10a38aff10720c78a0e372
+      d5fab8cb27cdefed14618d0753a37a08964e9b67b324b9d18c94e3fda9dbd210d15f247b538862d57d33a2334b0f994cd61c677195b95c1a92fab81c2a6b40c0dd8134565e7aa45c34ac4e005b830ef40759c5f9cf9e1d3faf875e7d1707df727f4d2762a1a37e59015220ccd5c4f58d5b4041fa42ab919e3a2e1b2bed028c1d928395c5d7c3ede290196e922535edc2443b782092ee91da105aeb5d4478aa091eb289dec632f0a4310d3384c1eb78162485c428bf0ffeee3e14a6644d7596357a2f3df0c116bcd4647fcf146fa74ca8bd1b1ab4250ec10a871d6227f57e576a73833514fa489e93b551400fdfc7a0393debe12fce39cc7d2e4e1e5d94b65afd: d5fab_65afd_681e88085b760c41fad679529d16b616
+      df9b2761e50c3c33ed916222d26744e050943cdf98eefc2f3469bddfa4ea41b1a7c861d435c35fb0ae57af7131a231eeefc232b2f95b4a821061a250502beae4e50df3a6d9ba6f883cd124370c8a4d415ca5da9694a6b7ac44279d3ec2e811d448779d19f67b265c638913584ce9a7960300dcea293f637e8eefa5074511a064ffe30f7595abbaa2b21ff793244dc8945ee9cb65bbe9ba000440fe009e4403f1012510997ca274fc369d39acee78b3d1412bac88f5aa379125635c302ac19a7d5c62b387cdd78447caebc1c43d8549ab7e6515b7ba88fc121c9ac72495edd33e922771db8a9bd0417aaafe185f9498d0599da580bdb19ddc1dfb6bcc3f314559: df9b2_14559_847ad8113518742e1e672205e998c997

@@ -1,0 +1,3030 @@
+Array
+(
+    [mc_gross] => 25.00
+    [protection_eligibility] => Ineligible
+    [payer_id] => E2A73YUET2CAW
+    [tax] => 0.00
+    [payment_date] => 16:02:39 Mar 25, 2015 PDT
+    [payment_status] => Completed
+    [charset] => windows-1252
+    [first_name] => Lord
+    [mc_fee] => 1.03
+    [notify_version] => 3.8
+    [custom] => 2|double
+    [payer_status] => verified
+    [business] => setzor@gmail.com
+    [quantity] => 1
+    [verify_sign] => AQouaB.FwpRSEDbAE7HvPvxyWr9jATlZFfDvLYGZ0dndyVTqq4VxrAR2
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 00D023293R044625B
+    [payment_type] => instant
+    [last_name] => Khaotix
+    [receiver_email] => setzor@gmail.com
+    [payment_fee] => 1.03
+    [receiver_id] => MPNGSDNC5ZJV2
+    [txn_type] => web_accept
+    [item_name] => Campaign Funds
+    [mc_currency] => USD
+    [item_number] => 
+    [residence_country] => US
+    [test_ipn] => 1
+    [handling_amount] => 0.00
+    [transaction_subject] => 2|double
+    [payment_gross] => 25.00
+    [shipping] => 0.00
+    [ipn_track_id] => b5a5323cb29c3
+)
+2015-03-26 20:43:02
+Array
+(
+    [transaction_subject] => 20|tweet
+    [txn_type] => web_accept
+    [payment_date] => 13:42:53 Mar 26, 2015 PDT
+    [last_name] => Strenger
+    [receipt_id] => 5619-7615-8802-1724
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AzYaj6-i53xyvSA.nqAAOZTXMdgkAR7xwEDbOP.qvFZi7Yr8FZFoLf10
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 0LS38042NH650344H
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 20|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => b88bd39e9eaa3
+)
+
+2015-03-26 22:30:14
+Array
+(
+    [transaction_subject] => 3|tweet
+    [txn_type] => web_accept
+    [payment_date] => 15:30:03 Mar 26, 2015 PDT
+    [last_name] => Strenger
+    [receipt_id] => 5619-8407-7335-9709
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ANE2Hc6eegQLNcapjLgH9yHpLlsNA8wpI7pZ3K6NVVFL-9tqvG.ETk0F
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@jobalarm.com
+    [txn_id] => 2VJ15559549578702
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 3|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 16459170385c7
+)
+
+2015-03-26 22:40:43
+Array
+(
+    [transaction_subject] => 3
+    [txn_type] => web_accept
+    [payment_date] => 15:40:25 Mar 26, 2015 PDT
+    [last_name] => Strenger
+    [receipt_id] => 4535-4218-2882-5806
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AgFQoAGNA2i6KZe2L0LB18QR9N48AANoWQFedSaNlwclQPZfsKsb3C0x
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 5SM407260P047194R
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 3
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => a02f5655657e4
+)
+
+2015-03-26 22:46:44
+Array
+(
+    [transaction_subject] => 3|tweet
+    [txn_type] => web_accept
+    [payment_date] => 15:46:32 Mar 26, 2015 PDT
+    [last_name] => Strenger
+    [receipt_id] => 3286-0847-7963-4362
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AOxEIdYUXUtHt1oRDlvHqB-pxqCWAAzGW.s2uNtpsZ81qfRR7TwZQ2nQ
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@jobalarm.com
+    [txn_id] => 98427936U4467363J
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 3|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => a05f1f6a5a6b2
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=3%7Ctweet&txn_type=web_accept&payment_date=15%3A46%3A32+Mar+26%2C+2015+PDT&last_name=Strenger&receipt_id=3286-0847-7963-4362&residence_country=US&pending_reason=address&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AOxEIdYUXUtHt1oRDlvHqB-pxqCWAAzGW.s2uNtpsZ81qfRR7TwZQ2nQ&payer_status=unverified&tax=0.00&payer_email=rstrenger%40jobalarm.com&txn_id=98427936U4467363J&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=UT5ZLG9QTMMYN&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Pending&shipping=0.00&mc_gross=25.00&custom=3%7Ctweet&charset=windows-1252&notify_version=3.8&ipn_track_id=a05f1f6a5a6b2
+
+
+2015-04-01 15:03:51
+Array
+(
+    [transaction_subject] => 9|TWEET
+    [txn_type] => web_accept
+    [payment_date] => 08:03:35 Apr 01, 2015 PDT
+    [last_name] => Perlman
+    [receipt_id] => 2460-0786-8135-3772
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ANHXU9rD.A1x17EQ2n-Jr5cifiuiAXTVeVqQ0.FtHW8V60yKhdgxbMZQ
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => samartin@aetnabuilding.com
+    [txn_id] => 1GW93708982657237
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Robert
+    [payer_id] => GK6QPSLDQBJM2
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 9|TWEET
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 44bc06fa11151
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=9%7CTWEET&txn_type=web_accept&payment_date=08%3A03%3A35+Apr+01%2C+2015+PDT&last_name=Perlman&receipt_id=2460-0786-8135-3772&residence_country=US&pending_reason=address&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ANHXU9rD.A1x17EQ2n-Jr5cifiuiAXTVeVqQ0.FtHW8V60yKhdgxbMZQ&payer_status=unverified&tax=0.00&payer_email=samartin%40aetnabuilding.com&txn_id=1GW93708982657237&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Robert&payer_id=GK6QPSLDQBJM2&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Pending&shipping=0.00&mc_gross=25.00&custom=9%7CTWEET&charset=windows-1252&notify_version=3.8&ipn_track_id=44bc06fa11151
+
+
+2015-04-04 13:04:04
+Array
+(
+    [transaction_subject] => 3|tweet
+    [payment_date] => 15:46:32 Mar 26, 2015 PDT
+    [txn_type] => web_accept
+    [last_name] => Strenger
+    [receipt_id] => 3286-0847-7963-4362
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => At7-EaYJBGlIhm7vDmYA5xoe84C1ATyMtEeIBUQUxYkudVMn0.y2jkio
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@jobalarm.com
+    [txn_id] => 98427936U4467363J
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Completed
+    [payment_fee] => 1.03
+    [mc_fee] => 1.03
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 3|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 2d6e019eae99d
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=3%7Ctweet&payment_date=15%3A46%3A32+Mar+26%2C+2015+PDT&txn_type=web_accept&last_name=Strenger&receipt_id=3286-0847-7963-4362&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=At7-EaYJBGlIhm7vDmYA5xoe84C1ATyMtEeIBUQUxYkudVMn0.y2jkio&payer_status=unverified&tax=0.00&payer_email=rstrenger%40jobalarm.com&txn_id=98427936U4467363J&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=UT5ZLG9QTMMYN&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Completed&payment_fee=1.03&mc_fee=1.03&shipping=0.00&mc_gross=25.00&custom=3%7Ctweet&charset=windows-1252&notify_version=3.8&ipn_track_id=2d6e019eae99d
+
+
+2015-04-04 13:04:16
+Array
+(
+    [transaction_subject] => 9|TWEET
+    [payment_date] => 08:03:35 Apr 01, 2015 PDT
+    [txn_type] => web_accept
+    [last_name] => Perlman
+    [receipt_id] => 2460-0786-8135-3772
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AEPisTkyRVDN-DgDcwFo3PX0vGhVA2qPxEh-CF3vwywCNMUGpJfCxd38
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => samartin@aetnabuilding.com
+    [txn_id] => 1GW93708982657237
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Robert
+    [payer_id] => GK6QPSLDQBJM2
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Completed
+    [payment_fee] => 1.03
+    [mc_fee] => 1.03
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 9|TWEET
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => f25b6626be452
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=9%7CTWEET&payment_date=08%3A03%3A35+Apr+01%2C+2015+PDT&txn_type=web_accept&last_name=Perlman&receipt_id=2460-0786-8135-3772&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AEPisTkyRVDN-DgDcwFo3PX0vGhVA2qPxEh-CF3vwywCNMUGpJfCxd38&payer_status=unverified&tax=0.00&payer_email=samartin%40aetnabuilding.com&txn_id=1GW93708982657237&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Robert&payer_id=GK6QPSLDQBJM2&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Completed&payment_fee=1.03&mc_fee=1.03&shipping=0.00&mc_gross=25.00&custom=9%7CTWEET&charset=windows-1252&notify_version=3.8&ipn_track_id=f25b6626be452
+
+
+2015-04-04 13:04:43
+Array
+(
+    [transaction_subject] => 3
+    [payment_date] => 15:40:25 Mar 26, 2015 PDT
+    [txn_type] => web_accept
+    [last_name] => Strenger
+    [receipt_id] => 4535-4218-2882-5806
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ARX4hhix.JtQGRw96TgzpnusJTvaAlWz7m22SZnQh2ryvy5umuIeZaHe
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 5SM407260P047194R
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Completed
+    [payment_fee] => 1.03
+    [mc_fee] => 1.03
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 3
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 3c175f3fe39f9
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=3&payment_date=15%3A40%3A25+Mar+26%2C+2015+PDT&txn_type=web_accept&last_name=Strenger&receipt_id=4535-4218-2882-5806&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ARX4hhix.JtQGRw96TgzpnusJTvaAlWz7m22SZnQh2ryvy5umuIeZaHe&payer_status=unverified&tax=0.00&payer_email=rstrenger%40tweetedjobs.com&txn_id=5SM407260P047194R&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=UT5ZLG9QTMMYN&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Completed&payment_fee=1.03&mc_fee=1.03&shipping=0.00&mc_gross=25.00&custom=3&charset=windows-1252&notify_version=3.8&ipn_track_id=3c175f3fe39f9
+
+
+2015-04-04 13:05:17
+Array
+(
+    [transaction_subject] => 3|tweet
+    [payment_date] => 15:30:03 Mar 26, 2015 PDT
+    [txn_type] => web_accept
+    [last_name] => Strenger
+    [receipt_id] => 5619-8407-7335-9709
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AH.LfTX3NAFqdnkf40MAgGD0sk1zA0b11dq39V3hkrZaUULZf87PIU0t
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@jobalarm.com
+    [txn_id] => 2VJ15559549578702
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Completed
+    [payment_fee] => 1.03
+    [mc_fee] => 1.03
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 3|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 2587b3d74ac9
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=3%7Ctweet&payment_date=15%3A30%3A03+Mar+26%2C+2015+PDT&txn_type=web_accept&last_name=Strenger&receipt_id=5619-8407-7335-9709&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AH.LfTX3NAFqdnkf40MAgGD0sk1zA0b11dq39V3hkrZaUULZf87PIU0t&payer_status=unverified&tax=0.00&payer_email=rstrenger%40jobalarm.com&txn_id=2VJ15559549578702&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=UT5ZLG9QTMMYN&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Completed&payment_fee=1.03&mc_fee=1.03&shipping=0.00&mc_gross=25.00&custom=3%7Ctweet&charset=windows-1252&notify_version=3.8&ipn_track_id=2587b3d74ac9
+
+
+2015-04-04 13:05:33
+Array
+(
+    [transaction_subject] => 20|tweet
+    [payment_date] => 13:42:53 Mar 26, 2015 PDT
+    [txn_type] => web_accept
+    [last_name] => Strenger
+    [receipt_id] => 5619-7615-8802-1724
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A9BiAtHlNpvdHOX3mPrOVBHDOETPAaaOFVauEpWMHKEVLdt0VKJpu1xT
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 0LS38042NH650344H
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => UT5ZLG9QTMMYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Completed
+    [payment_fee] => 1.03
+    [mc_fee] => 1.03
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 20|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => aed2b2647f324
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=20%7Ctweet&payment_date=13%3A42%3A53+Mar+26%2C+2015+PDT&txn_type=web_accept&last_name=Strenger&receipt_id=5619-7615-8802-1724&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A9BiAtHlNpvdHOX3mPrOVBHDOETPAaaOFVauEpWMHKEVLdt0VKJpu1xT&payer_status=unverified&tax=0.00&payer_email=rstrenger%40tweetedjobs.com&txn_id=0LS38042NH650344H&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=UT5ZLG9QTMMYN&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Completed&payment_fee=1.03&mc_fee=1.03&shipping=0.00&mc_gross=25.00&custom=20%7Ctweet&charset=windows-1252&notify_version=3.8&ipn_track_id=aed2b2647f324
+
+
+2015-04-22 14:45:15
+Array
+(
+    [transaction_subject] => 52|TWEET
+    [txn_type] => web_accept
+    [payment_date] => 07:45:10 Apr 22, 2015 PDT
+    [last_name] => Corchuelo
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AH2IO-yXchCHjxm9QbYieR7EIw08AyDClhnzCUC3Uyb9tRkPQPR0xEvR
+    [payer_status] => verified
+    [tax] => 0.00
+    [payer_email] => al.corchuelo@academy-associates.com
+    [txn_id] => 2AK09854RD235791W
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Albert
+    [payer_id] => 8SB2GBMTAFRRQ
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 52|TWEET
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 6e1cb2e88c992
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=52%7CTWEET&txn_type=web_accept&payment_date=07%3A45%3A10+Apr+22%2C+2015+PDT&last_name=Corchuelo&residence_country=US&pending_reason=address&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AH2IO-yXchCHjxm9QbYieR7EIw08AyDClhnzCUC3Uyb9tRkPQPR0xEvR&payer_status=verified&tax=0.00&payer_email=al.corchuelo%40academy-associates.com&txn_id=2AK09854RD235791W&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Albert&payer_id=8SB2GBMTAFRRQ&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Pending&shipping=0.00&mc_gross=25.00&custom=52%7CTWEET&charset=windows-1252&notify_version=3.8&ipn_track_id=6e1cb2e88c992
+
+
+2015-04-29 13:38:43
+Array
+(
+    [transaction_subject] => 52|TWEET
+    [payment_date] => 07:45:10 Apr 22, 2015 PDT
+    [txn_type] => web_accept
+    [last_name] => Corchuelo
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AEo-8BtSD253hEUM8-EL9xdWs.hGA8tydzGY6tk5rjEq7Hkrc6JKf67S
+    [payer_status] => verified
+    [tax] => 0.00
+    [payer_email] => al.corchuelo@academy-associates.com
+    [txn_id] => 2AK09854RD235791W
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Albert
+    [payer_id] => 8SB2GBMTAFRRQ
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => 
+    [handling_amount] => 0.00
+    [payment_status] => Completed
+    [payment_fee] => 1.03
+    [mc_fee] => 1.03
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 52|TWEET
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 51e1ccaf6a856
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=52%7CTWEET&payment_date=07%3A45%3A10+Apr+22%2C+2015+PDT&txn_type=web_accept&last_name=Corchuelo&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AEo-8BtSD253hEUM8-EL9xdWs.hGA8tydzGY6tk5rjEq7Hkrc6JKf67S&payer_status=verified&tax=0.00&payer_email=al.corchuelo%40academy-associates.com&txn_id=2AK09854RD235791W&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Albert&payer_id=8SB2GBMTAFRRQ&receiver_id=EBYAH4W3RXWV4&item_number=&handling_amount=0.00&payment_status=Completed&payment_fee=1.03&mc_fee=1.03&shipping=0.00&mc_gross=25.00&custom=52%7CTWEET&charset=windows-1252&notify_version=3.8&ipn_track_id=51e1ccaf6a856
+
+
+2015-05-17 21:45:11
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 14:44:00 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-AAFMY33VFRG2
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ABI7Hzyx7U2VWSQhoXWnB-jrz0oWAVEZSdMDGhqvt5L7q2W2loCYnuFw
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 4E6542575T9968442
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => b8bcbad929054
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=14%3A44%3A00+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-AAFMY33VFRG2&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ABI7Hzyx7U2VWSQhoXWnB-jrz0oWAVEZSdMDGhqvt5L7q2W2loCYnuFw&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=4E6542575T9968442&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&charset=windows-1252&notify_version=3.8&ipn_track_id=b8bcbad929054
+
+
+2015-05-17 21:45:11
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-AAFMY33VFRG2
+    [last_name] => Khaotix
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => setzor@gmail.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => ANO0eXDiTIPQWwvAX9oEchU0LsZOA6BCjOxgof-g8JZdObQw3pm.95iQ
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [first_name] => Lord
+    [receiver_email] => setzor@gmail.com
+    [payer_id] => E2A73YUET2CAW
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 14:43:59 May 17, 2015 PDT
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => b8bcbad929054
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=I-AAFMY33VFRG2&last_name=Khaotix&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=setzor%40gmail.com&amount3=29.00&recurring=1&verify_sign=ANO0eXDiTIPQWwvAX9oEchU0LsZOA6BCjOxgof-g8JZdObQw3pm.95iQ&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&first_name=Lord&receiver_email=setzor%40gmail.com&payer_id=E2A73YUET2CAW&reattempt=1&item_number=tjmp&subscr_date=14%3A43%3A59+May+17%2C+2015+PDT&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=b8bcbad929054
+
+
+2015-05-17 21:45:56
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 14:45:52 May 17, 2015 PDT
+    [subscr_id] => I-AAFMY33VFRG2
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => -29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => At08k2ND6BTcGtdEzH1clzn.Y0-ZAcEz4tnbLBrloO67nMz0ECmGDdNM
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 2B362418RN331730U
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [parent_txn_id] => 4E6542575T9968442
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [reason_code] => refund
+    [item_number] => tjmp
+    [payment_status] => Refunded
+    [payment_fee] => -0.84
+    [mc_fee] => -0.84
+    [mc_gross] => -29.00
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 79e8f5a29dfda
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=14%3A45%3A52+May+17%2C+2015+PDT&subscr_id=I-AAFMY33VFRG2&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=-29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=At08k2ND6BTcGtdEzH1clzn.Y0-ZAcEz4tnbLBrloO67nMz0ECmGDdNM&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=2B362418RN331730U&receiver_email=setzor%40gmail.com&first_name=Lord&parent_txn_id=4E6542575T9968442&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&reason_code=refund&item_number=tjmp&payment_status=Refunded&payment_fee=-0.84&mc_fee=-0.84&mc_gross=-29.00&charset=windows-1252&notify_version=3.8&ipn_track_id=79e8f5a29dfda
+
+
+2015-05-17 21:46:55
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-66SA0HXAVR07
+    [last_name] => Khaotix
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => setzor@gmail.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => A5NcrnrM41GlYfFWXA0DD.3YfCMbAwotLt9qc1IYXlRgPT0IgPx379kJ
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [first_name] => Lord
+    [receiver_email] => setzor@gmail.com
+    [payer_id] => E2A73YUET2CAW
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 14:46:37 May 17, 2015 PDT
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => bd418c817b346
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=I-66SA0HXAVR07&last_name=Khaotix&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=setzor%40gmail.com&amount3=29.00&recurring=1&verify_sign=A5NcrnrM41GlYfFWXA0DD.3YfCMbAwotLt9qc1IYXlRgPT0IgPx379kJ&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&first_name=Lord&receiver_email=setzor%40gmail.com&payer_id=E2A73YUET2CAW&reattempt=1&item_number=tjmp&subscr_date=14%3A46%3A37+May+17%2C+2015+PDT&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=bd418c817b346
+
+
+2015-05-17 21:47:15
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 14:46:38 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-66SA0HXAVR07
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AlhukNA0fFTtTh72zzEY-49vY9t.AWRbPswqh2SBXexdHO6toIQWj8ht
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 02Y48344CM045162T
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => bd418c817b346
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=14%3A46%3A38+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-66SA0HXAVR07&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AlhukNA0fFTtTh72zzEY-49vY9t.AWRbPswqh2SBXexdHO6toIQWj8ht&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=02Y48344CM045162T&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&charset=windows-1252&notify_version=3.8&ipn_track_id=bd418c817b346
+
+
+2015-05-17 21:53:13
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 14:53:06 May 17, 2015 PDT
+    [subscr_id] => I-66SA0HXAVR07
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => -29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AWjaBFjpt4cJ7tGFr2mFm27yZlaXALrXN.uxSEoi8Nq2Yd1WHrQV03T4
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 38379003G6155383B
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [parent_txn_id] => 02Y48344CM045162T
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [reason_code] => refund
+    [item_number] => tjmp
+    [payment_status] => Refunded
+    [payment_fee] => -0.84
+    [mc_fee] => -0.84
+    [mc_gross] => -29.00
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => aded5512cfbd2
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=14%3A53%3A06+May+17%2C+2015+PDT&subscr_id=I-66SA0HXAVR07&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=-29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AWjaBFjpt4cJ7tGFr2mFm27yZlaXALrXN.uxSEoi8Nq2Yd1WHrQV03T4&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=38379003G6155383B&receiver_email=setzor%40gmail.com&first_name=Lord&parent_txn_id=02Y48344CM045162T&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&reason_code=refund&item_number=tjmp&payment_status=Refunded&payment_fee=-0.84&mc_fee=-0.84&mc_gross=-29.00&charset=windows-1252&notify_version=3.8&ipn_track_id=aded5512cfbd2
+
+
+2015-05-17 21:55:33
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-J2RT0W3K45LJ
+    [last_name] => Khaotix
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => setzor@gmail.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => AARCu7LDzxuufnimXTMEY2znCzUGALxVkSdNnqFr3NvnRrbKKmMstK5n
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [first_name] => Lord
+    [receiver_email] => setzor@gmail.com
+    [payer_id] => E2A73YUET2CAW
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 14:55:10 May 17, 2015 PDT
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => fdd666052bdcc
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=I-J2RT0W3K45LJ&last_name=Khaotix&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=setzor%40gmail.com&amount3=29.00&recurring=1&verify_sign=AARCu7LDzxuufnimXTMEY2znCzUGALxVkSdNnqFr3NvnRrbKKmMstK5n&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&first_name=Lord&receiver_email=setzor%40gmail.com&payer_id=E2A73YUET2CAW&reattempt=1&item_number=tjmp&subscr_date=14%3A55%3A10+May+17%2C+2015+PDT&custom=2&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=fdd666052bdcc
+
+
+2015-05-17 21:56:12
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 14:55:11 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-J2RT0W3K45LJ
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A--8MSCLabuvN8L.-MHjxC9uypBtA4BM.vj2A0bpwzlETojhXQpTczKq
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 06L2029350117084U
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => fdd666052bdcc
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=14%3A55%3A11+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-J2RT0W3K45LJ&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A--8MSCLabuvN8L.-MHjxC9uypBtA4BM.vj2A0bpwzlETojhXQpTczKq&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=06L2029350117084U&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=fdd666052bdcc
+
+
+2015-05-17 23:38:34
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 16:38:26 May 17, 2015 PDT
+    [subscr_id] => I-J2RT0W3K45LJ
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => -29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => Ab9V4LqZTPVfSXwcjx-7KhBaJtJ4A9CWPNgv5fj.HPGYyXOmcm70ikSX
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 1F77044327218740E
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [parent_txn_id] => 06L2029350117084U
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [reason_code] => refund
+    [item_number] => tjmp
+    [payment_status] => Refunded
+    [payment_fee] => -0.84
+    [mc_fee] => -0.84
+    [mc_gross] => -29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => ab0277a096183
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=16%3A38%3A26+May+17%2C+2015+PDT&subscr_id=I-J2RT0W3K45LJ&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=-29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=Ab9V4LqZTPVfSXwcjx-7KhBaJtJ4A9CWPNgv5fj.HPGYyXOmcm70ikSX&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=1F77044327218740E&receiver_email=setzor%40gmail.com&first_name=Lord&parent_txn_id=06L2029350117084U&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&reason_code=refund&item_number=tjmp&payment_status=Refunded&payment_fee=-0.84&mc_fee=-0.84&mc_gross=-29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=ab0277a096183
+
+
+2015-05-17 23:39:11
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 16:38:55 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-GPWLNWHEETMU
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A9LC3Qajo-H2V8mPq4eIktgPvG2RAd9OX8KgFDeFRKUFA9MlgZCQjNZh
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 25F61040000678158
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => c17e71f868b8c
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=16%3A38%3A55+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-GPWLNWHEETMU&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A9LC3Qajo-H2V8mPq4eIktgPvG2RAd9OX8KgFDeFRKUFA9MlgZCQjNZh&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=25F61040000678158&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=c17e71f868b8c
+
+
+2015-05-17 23:39:12
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-GPWLNWHEETMU
+    [last_name] => Khaotix
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => setzor@gmail.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => An5ns1Kso7MWUdW4ErQKJJJ4qi4-AnaEKaVOuKZafmwjuau6d.9xEmIE
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [first_name] => Lord
+    [receiver_email] => setzor@gmail.com
+    [payer_id] => E2A73YUET2CAW
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 16:38:54 May 17, 2015 PDT
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => c17e71f868b8c
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=I-GPWLNWHEETMU&last_name=Khaotix&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=setzor%40gmail.com&amount3=29.00&recurring=1&verify_sign=An5ns1Kso7MWUdW4ErQKJJJ4qi4-AnaEKaVOuKZafmwjuau6d.9xEmIE&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&first_name=Lord&receiver_email=setzor%40gmail.com&payer_id=E2A73YUET2CAW&reattempt=1&item_number=tjmp&subscr_date=16%3A38%3A54+May+17%2C+2015+PDT&custom=2&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=c17e71f868b8c
+
+
+2015-05-17 23:41:30
+Array
+(
+    [_ga] => GA1.2.221738424.1431321038
+    [PHPSESSID] => e10d3fce64b5e7003b0573c1e7ec4385
+    [_gat] => 1
+)
+
+INVALID
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&
+
+
+2015-05-17 23:42:16
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 16:41:09 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-3DA771V40ATY
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AOh0tu.5JUQyG2Aao4MpntBA2sFjAoHqSKZX3ishM.wdp3TvHrdDKth.
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 5SF43487JJ871272F
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 638aa9288d292
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=16%3A41%3A09+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-3DA771V40ATY&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AOh0tu.5JUQyG2Aao4MpntBA2sFjAoHqSKZX3ishM.wdp3TvHrdDKth.&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=5SF43487JJ871272F&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=638aa9288d292
+
+
+2015-05-17 23:42:16
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-3DA771V40ATY
+    [last_name] => Khaotix
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => setzor@gmail.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => AnNMT7nRteKS2auTkxdsRz9rRvvPAn-w8VlUyh0S8Vq22MFJuqjcNyB4
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [first_name] => Lord
+    [receiver_email] => setzor@gmail.com
+    [payer_id] => E2A73YUET2CAW
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 16:41:09 May 17, 2015 PDT
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => 638aa9288d292
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=I-3DA771V40ATY&last_name=Khaotix&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=setzor%40gmail.com&amount3=29.00&recurring=1&verify_sign=AnNMT7nRteKS2auTkxdsRz9rRvvPAn-w8VlUyh0S8Vq22MFJuqjcNyB4&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&first_name=Lord&receiver_email=setzor%40gmail.com&payer_id=E2A73YUET2CAW&reattempt=1&item_number=tjmp&subscr_date=16%3A41%3A09+May+17%2C+2015+PDT&custom=2&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=638aa9288d292
+
+
+2015-05-17 23:52:23
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 16:52:16 May 17, 2015 PDT
+    [subscr_id] => I-GPWLNWHEETMU
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => -29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AiKZhEEPLJjSIccz.2M.tbyW5YFwA5QK2tK1caDJuksL7IxUOE9qfyFA
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 0PG05261J6478981G
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [parent_txn_id] => 25F61040000678158
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [reason_code] => refund
+    [item_number] => tjmp
+    [payment_status] => Refunded
+    [payment_fee] => -0.84
+    [mc_fee] => -0.84
+    [mc_gross] => -29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 3125f41d63b69
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=16%3A52%3A16+May+17%2C+2015+PDT&subscr_id=I-GPWLNWHEETMU&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=-29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AiKZhEEPLJjSIccz.2M.tbyW5YFwA5QK2tK1caDJuksL7IxUOE9qfyFA&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=0PG05261J6478981G&receiver_email=setzor%40gmail.com&first_name=Lord&parent_txn_id=25F61040000678158&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&reason_code=refund&item_number=tjmp&payment_status=Refunded&payment_fee=-0.84&mc_fee=-0.84&mc_gross=-29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=3125f41d63b69
+
+
+2015-05-17 23:52:37
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 16:52:31 May 17, 2015 PDT
+    [subscr_id] => I-3DA771V40ATY
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => -29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A0asK6oiIZmtBFrRCq-Iiqf8lrk.AFrdQKHjjA2WSyhICBsiCxeAxHjb
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 63C24673U8529472L
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [parent_txn_id] => 5SF43487JJ871272F
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [reason_code] => refund
+    [item_number] => tjmp
+    [payment_status] => Refunded
+    [payment_fee] => -0.84
+    [mc_fee] => -0.84
+    [mc_gross] => -29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 538da414c8df2
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=16%3A52%3A31+May+17%2C+2015+PDT&subscr_id=I-3DA771V40ATY&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=-29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A0asK6oiIZmtBFrRCq-Iiqf8lrk.AFrdQKHjjA2WSyhICBsiCxeAxHjb&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=63C24673U8529472L&receiver_email=setzor%40gmail.com&first_name=Lord&parent_txn_id=5SF43487JJ871272F&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&reason_code=refund&item_number=tjmp&payment_status=Refunded&payment_fee=-0.84&mc_fee=-0.84&mc_gross=-29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=538da414c8df2
+
+
+2015-05-17 23:53:56
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-CK0YYGHRLBUA
+    [last_name] => Khaotix
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => setzor@gmail.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => AFcWxV21C7fd0v3bYYYRCpSSRl31AyqL34xbIpvqV-nmAt8VfQRDK.Fm
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [first_name] => Lord
+    [receiver_email] => setzor@gmail.com
+    [payer_id] => E2A73YUET2CAW
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 16:53:33 May 17, 2015 PDT
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => 421f6d09792fa
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=I-CK0YYGHRLBUA&last_name=Khaotix&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=setzor%40gmail.com&amount3=29.00&recurring=1&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AyqL34xbIpvqV-nmAt8VfQRDK.Fm&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&first_name=Lord&receiver_email=setzor%40gmail.com&payer_id=E2A73YUET2CAW&reattempt=1&item_number=tjmp&subscr_date=16%3A53%3A33+May+17%2C+2015+PDT&custom=2&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=421f6d09792fa
+
+
+2015-05-17 23:54:11
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 16:53:33 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-CK0YYGHRLBUA
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AUaxvSojqajxsiGA9qXfGuCulUctAs8abSFinOOO5xd-LuDuKF4dweTQ
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 2U021333RM754215G
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 421f6d09792fa
+)
+
+VERIFIED
+https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=16%3A53%3A33+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-CK0YYGHRLBUA&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AUaxvSojqajxsiGA9qXfGuCulUctAs8abSFinOOO5xd-LuDuKF4dweTQ&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=2U021333RM754215G&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=421f6d09792fa
+
+
+2015-05-18 00:59:32
+Array
+(
+    [transaction_subject] => 90
+    [txn_type] => subscr_payment
+    [payment_date] => 17:59:12 May 17, 2015 PDT
+    [subscr_id] => S-9BA97849CG912073M
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AfulDaKir4-jrEHMiDyiccPcB8ZaAblk.Q5fQXEfPQgFd6Uqd-F263Xv
+    [payer_status] => unverified
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 0XC13757XX330842B
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => REPLNHE34VHPJ
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjmp
+    [payment_status] => Pending
+    [mc_gross] => 29.00
+    [custom] => 90
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => fee355519e7dc
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=90&txn_type=subscr_payment&payment_date=17%3A59%3A12+May+17%2C+2015+PDT&subscr_id=S-9BA97849CG912073M&last_name=Strenger&residence_country=US&pending_reason=address&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AfulDaKir4-jrEHMiDyiccPcB8ZaAblk.Q5fQXEfPQgFd6Uqd-F263Xv&payer_status=unverified&payer_email=rstrenger%40tweetedjobs.com&txn_id=0XC13757XX330842B&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=REPLNHE34VHPJ&receiver_id=EBYAH4W3RXWV4&item_number=tjmp&payment_status=Pending&mc_gross=29.00&custom=90&charset=windows-1252&notify_version=3.8&ipn_track_id=fee355519e7dc
+
+
+2015-05-18 00:59:33
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-9BA97849CG912073M
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => TweetedJobs Monthly Subscription
+    [business] => rstrenger@yahoo.com
+    [amount3] => 29.00
+    [recurring] => 1
+    [verify_sign] => A0tnWoAkWLWhK9j1a5g9oKA3eWhNAogfB3djcIiWx0m-Z7DzV0GMhlB6
+    [payer_status] => unverified
+    [payer_email] => rstrenger@tweetedjobs.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => REPLNHE34VHPJ
+    [reattempt] => 1
+    [item_number] => tjmp
+    [subscr_date] => 17:59:10 May 17, 2015 PDT
+    [custom] => 90
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 M
+    [mc_amount3] => 29.00
+    [ipn_track_id] => fee355519e7dc
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-9BA97849CG912073M&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=TweetedJobs+Monthly+Subscription&business=rstrenger%40yahoo.com&amount3=29.00&recurring=1&verify_sign=A0tnWoAkWLWhK9j1a5g9oKA3eWhNAogfB3djcIiWx0m-Z7DzV0GMhlB6&payer_status=unverified&payer_email=rstrenger%40tweetedjobs.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=REPLNHE34VHPJ&reattempt=1&item_number=tjmp&subscr_date=17%3A59%3A10+May+17%2C+2015+PDT&custom=90&charset=windows-1252&notify_version=3.8&period3=1+M&mc_amount3=29.00&ipn_track_id=fee355519e7dc
+
+
+2015-05-25 22:52:04
+Array
+(
+    [transaction_subject] => 90
+    [payment_date] => 17:59:12 May 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-9BA97849CG912073M
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AYHCJqTWxhsVcZ42gCPfjwvNtiFfAeA8Ccgo-YADuin5K0UT8shvxG1U
+    [payer_status] => unverified
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 0XC13757XX330842B
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => REPLNHE34VHPJ
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjmp
+    [recur_times] => 4145858709
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 90
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 5a814d19b628a
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=90&payment_date=17%3A59%3A12+May+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-9BA97849CG912073M&last_name=Strenger&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AYHCJqTWxhsVcZ42gCPfjwvNtiFfAeA8Ccgo-YADuin5K0UT8shvxG1U&payer_status=unverified&payer_email=rstrenger%40tweetedjobs.com&txn_id=0XC13757XX330842B&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=REPLNHE34VHPJ&receiver_id=EBYAH4W3RXWV4&item_number=tjmp&recur_times=4145858709&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=90&charset=windows-1252&notify_version=3.8&ipn_track_id=5a814d19b628a
+
+
+2015-06-17 10:39:15
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [txn_type] => subscr_payment
+    [payment_date] => 03:38:55 Jun 17, 2015 PDT
+    [subscr_id] => S-9BA97849CG912073M
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ASVmdFFyf2-U0bXiLnbi.Ryolk6jAeyc5fvyeiePBEVIIJu7z3rRTVLE
+    [payer_status] => unverified
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 5T591386B2085512X
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => REPLNHE34VHPJ
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjmp
+    [payment_status] => Pending
+    [mc_gross] => 29.00
+    [custom] => 90
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => abb2cce119665
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&txn_type=subscr_payment&payment_date=03%3A38%3A55+Jun+17%2C+2015+PDT&subscr_id=S-9BA97849CG912073M&last_name=Strenger&residence_country=US&pending_reason=address&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ASVmdFFyf2-U0bXiLnbi.Ryolk6jAeyc5fvyeiePBEVIIJu7z3rRTVLE&payer_status=unverified&payer_email=rstrenger%40tweetedjobs.com&txn_id=5T591386B2085512X&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=REPLNHE34VHPJ&receiver_id=EBYAH4W3RXWV4&item_number=tjmp&payment_status=Pending&mc_gross=29.00&custom=90&charset=windows-1252&notify_version=3.8&ipn_track_id=abb2cce119665
+
+
+2015-06-17 10:54:54
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:54:37 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-66SA0HXAVR07
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AGq-CNj4dw6N65lItHkj4zZL-EctADzxbrl2GV5Wjw7ksevlrv6x02l9
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 6BJ86518D46299509
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 731e19cabb602
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A54%3A37+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-66SA0HXAVR07&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AGq-CNj4dw6N65lItHkj4zZL-EctADzxbrl2GV5Wjw7ksevlrv6x02l9&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=6BJ86518D46299509&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&charset=windows-1252&notify_version=3.8&ipn_track_id=731e19cabb602
+
+
+2015-06-17 10:55:08
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:54:45 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-3DA771V40ATY
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => Af-YLU8qH1qx7xc.bZoiDiRhBsqpABYZR-Uo5SpQh9cJE7pYs-zdwIAx
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 65B34960E0617920V
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => a9a05860f09
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A54%3A45+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-3DA771V40ATY&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=Af-YLU8qH1qx7xc.bZoiDiRhBsqpABYZR-Uo5SpQh9cJE7pYs-zdwIAx&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=65B34960E0617920V&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=a9a05860f09
+
+
+2015-06-17 10:55:30
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:54:40 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-J2RT0W3K45LJ
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AP2GzOsYCuabVaaSmpjeSvhVZxnoAnZovz-YamwcU91OSK-Zefr.uYX4
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 7UU89550AR215790V
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 7c127988e7a35
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A54%3A40+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-J2RT0W3K45LJ&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AP2GzOsYCuabVaaSmpjeSvhVZxnoAnZovz-YamwcU91OSK-Zefr.uYX4&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=7UU89550AR215790V&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=7c127988e7a35
+
+
+2015-06-17 10:55:39
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:54:47 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-CK0YYGHRLBUA
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ADfQpOwyRC7YDAWxj2TRACLlIt4FAgSY-AtKlkF9KAsT9wxPKjfiHyle
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 36276490Y4848851E
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 122a418333020
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A54%3A47+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-CK0YYGHRLBUA&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ADfQpOwyRC7YDAWxj2TRACLlIt4FAgSY-AtKlkF9KAsT9wxPKjfiHyle&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=36276490Y4848851E&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=122a418333020
+
+
+2015-06-17 10:55:53
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:54:35 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-AAFMY33VFRG2
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => Asf3nYiGD0rq5s83A.S8fZlprpGAASKojdwEELmtxuFj58cRZcM6apKu
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 9E236104CS424114F
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => b82460d54f392
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A54%3A35+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-AAFMY33VFRG2&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=Asf3nYiGD0rq5s83A.S8fZlprpGAASKojdwEELmtxuFj58cRZcM6apKu&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=9E236104CS424114F&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&charset=windows-1252&notify_version=3.8&ipn_track_id=b82460d54f392
+
+
+2015-06-17 10:55:55
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:54:42 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => I-GPWLNWHEETMU
+    [last_name] => Khaotix
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [business] => setzor@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AmMM6zGkJFkArqVf6bJi58sZGd0pA3SOikveTX5UJsgka4BIxiNvf8dC
+    [payer_status] => verified
+    [test_ipn] => 1
+    [payer_email] => khaotix@yahoo.com
+    [txn_id] => 28E5677009567560E
+    [receiver_email] => setzor@gmail.com
+    [first_name] => Lord
+    [payer_id] => E2A73YUET2CAW
+    [receiver_id] => MPNGSDNC5ZJV2
+    [item_number] => tjmp
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 2
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 59e1b8573a52e
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A54%3A42+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=I-GPWLNWHEETMU&last_name=Khaotix&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&business=setzor%40gmail.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AmMM6zGkJFkArqVf6bJi58sZGd0pA3SOikveTX5UJsgka4BIxiNvf8dC&payer_status=verified&test_ipn=1&payer_email=khaotix%40yahoo.com&txn_id=28E5677009567560E&receiver_email=setzor%40gmail.com&first_name=Lord&payer_id=E2A73YUET2CAW&receiver_id=MPNGSDNC5ZJV2&item_number=tjmp&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=2&charset=windows-1252&notify_version=3.8&ipn_track_id=59e1b8573a52e
+
+
+2015-06-17 20:15:18
+Array
+(
+    [transaction_subject] => TweetedJobs Monthly Subscription
+    [payment_date] => 03:38:55 Jun 17, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-9BA97849CG912073M
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => TweetedJobs Monthly Subscription
+    [payment_gross] => 29.00
+    [mc_currency] => USD
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AgosUG2Kl2bIZ4e3vGT1dm5KDiwnAK-bhP6-xtbD9SPOC0.vlFIch0qo
+    [payer_status] => unverified
+    [payer_email] => rstrenger@tweetedjobs.com
+    [txn_id] => 5T591386B2085512X
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => REPLNHE34VHPJ
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjmp
+    [recur_times] => 4145567893
+    [payment_status] => Completed
+    [payment_fee] => 1.14
+    [mc_fee] => 1.14
+    [mc_gross] => 29.00
+    [custom] => 90
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 581634c0650e7
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=TweetedJobs+Monthly+Subscription&payment_date=03%3A38%3A55+Jun+17%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-9BA97849CG912073M&last_name=Strenger&residence_country=US&item_name=TweetedJobs+Monthly+Subscription&payment_gross=29.00&mc_currency=USD&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AgosUG2Kl2bIZ4e3vGT1dm5KDiwnAK-bhP6-xtbD9SPOC0.vlFIch0qo&payer_status=unverified&payer_email=rstrenger%40tweetedjobs.com&txn_id=5T591386B2085512X&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=REPLNHE34VHPJ&receiver_id=EBYAH4W3RXWV4&item_number=tjmp&recur_times=4145567893&payment_status=Completed&payment_fee=1.14&mc_fee=1.14&mc_gross=29.00&custom=90&charset=windows-1252&notify_version=3.8&ipn_track_id=581634c0650e7
+
+
+2015-06-25 05:15:21
+Array
+(
+    [transaction_subject] => 137|tweet
+    [txn_type] => web_accept
+    [payment_date] => 22:14:21 Jun 24, 2015 PDT
+    [last_name] => Chawla
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AKwVSAdKHfS2rPeRpMTEQpMZppwVAZXCrhHWhmm1TZhxWOJ2l5x7fnqO
+    [payer_status] => verified
+    [tax] => 0.00
+    [payer_email] => schawlamd@gmail.com
+    [txn_id] => 1MF04754CA206005C
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Shalini
+    [payer_id] => 4X66KNWURBD6Y
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjcf
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 137|tweet
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 19ab10e0e4b1f
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=137%7Ctweet&txn_type=web_accept&payment_date=22%3A14%3A21+Jun+24%2C+2015+PDT&last_name=Chawla&residence_country=US&pending_reason=address&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AKwVSAdKHfS2rPeRpMTEQpMZppwVAZXCrhHWhmm1TZhxWOJ2l5x7fnqO&payer_status=verified&tax=0.00&payer_email=schawlamd%40gmail.com&txn_id=1MF04754CA206005C&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Shalini&payer_id=4X66KNWURBD6Y&receiver_id=EBYAH4W3RXWV4&item_number=tjcf&handling_amount=0.00&payment_status=Pending&shipping=0.00&mc_gross=25.00&custom=137%7Ctweet&charset=windows-1252&notify_version=3.8&ipn_track_id=19ab10e0e4b1f
+
+
+2015-07-29 14:36:03
+Array
+(
+    [transaction_subject] => 170
+    [txn_type] => web_accept
+    [payment_date] => 07:35:51 Jul 29, 2015 PDT
+    [last_name] => Relkin
+    [receipt_id] => 0661-0458-8829-4019
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => Az67jetBw42PJZWqdxG9HZqIFcpZAKZV.WykTYFtf0.qjqJA09csFNOp
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => sognosalonparkland@gmail.com
+    [txn_id] => 91N33623K06292249
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Jill
+    [payer_id] => 3ZNHZTP2DHWKU
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjcf
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 170
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => f8a03a366692
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=170&txn_type=web_accept&payment_date=07%3A35%3A51+Jul+29%2C+2015+PDT&last_name=Relkin&receipt_id=0661-0458-8829-4019&residence_country=US&pending_reason=address&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=Az67jetBw42PJZWqdxG9HZqIFcpZAKZV.WykTYFtf0.qjqJA09csFNOp&payer_status=unverified&tax=0.00&payer_email=sognosalonparkland%40gmail.com&txn_id=91N33623K06292249&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Jill&payer_id=3ZNHZTP2DHWKU&receiver_id=EBYAH4W3RXWV4&item_number=tjcf&handling_amount=0.00&payment_status=Pending&shipping=0.00&mc_gross=25.00&custom=170&charset=windows-1252&notify_version=3.8&ipn_track_id=f8a03a366692
+
+
+2015-08-26 15:03:15
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-6C913399UK452342N
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AuUlV2W6xLxGMs7xf6.GroLUcMLMAJUauZDAAaxcB8ZftXl6XuMArURg
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 08:02:52 Aug 26, 2015 PDT
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 23eb9c46c4afb
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-6C913399UK452342N&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AuUlV2W6xLxGMs7xf6.GroLUcMLMAJUauZDAAaxcB8ZftXl6XuMArURg&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=08%3A02%3A52+Aug+26%2C+2015+PDT&custom=203&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=23eb9c46c4afb
+
+
+2015-08-26 15:03:17
+Array
+(
+    [transaction_subject] => 203
+    [payment_date] => 08:02:53 Aug 26, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-6C913399UK452342N
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A--0-gzqDDd6VxrgmueRplVAFjirAlXcdkUr656Yz7SGaWte2j7cEAL9
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 81R460058G8766454
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 23eb9c46c4afb
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=203&payment_date=08%3A02%3A53+Aug+26%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-6C913399UK452342N&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A--0-gzqDDd6VxrgmueRplVAFjirAlXcdkUr656Yz7SGaWte2j7cEAL9&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=81R460058G8766454&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=203&charset=windows-1252&notify_version=3.8&ipn_track_id=23eb9c46c4afb
+
+
+2015-08-26 15:23:20
+Array
+(
+    [transaction_subject] => 203
+    [txn_type] => subscr_payment
+    [payment_date] => 08:02:53 Aug 26, 2015 PDT
+    [subscr_id] => S-6C913399UK452342N
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A0AyfQlh0ztUbETmiE6qtiAj0w0SACR213Xe2LReYU7FeVazT6VsNYYi
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 81R460058G8766454
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4145961109
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 943fd031a9b21
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=203&txn_type=subscr_payment&payment_date=08%3A02%3A53+Aug+26%2C+2015+PDT&subscr_id=S-6C913399UK452342N&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A0AyfQlh0ztUbETmiE6qtiAj0w0SACR213Xe2LReYU7FeVazT6VsNYYi&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=81R460058G8766454&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4145961109&payment_status=Denied&mc_gross=1.00&custom=203&charset=windows-1252&notify_version=3.8&ipn_track_id=943fd031a9b21
+
+
+2015-08-26 15:23:48
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-6C913399UK452342N
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AuJ.7GdQGjSc9W96ISC4FnspKW0WAAXEOejL.bzzAX9AdSS5rmFyquWi
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 08:23:31 Aug 26, 2015 PDT
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 943fd031a9b21
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-6C913399UK452342N&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AuJ.7GdQGjSc9W96ISC4FnspKW0WAAXEOejL.bzzAX9AdSS5rmFyquWi&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=08%3A23%3A31+Aug+26%2C+2015+PDT&custom=203&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=943fd031a9b21
+
+
+2015-08-26 15:24:37
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-6C913399UK452342N
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => A8NCBAcCDLRiID9-AtA8I6jHqKZGAtk3A3DVqsp.C3d3JIVPla6MGQwK
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => a73a214cd5602
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-6C913399UK452342N&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=A8NCBAcCDLRiID9-AtA8I6jHqKZGAtk3A3DVqsp.C3d3JIVPla6MGQwK&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=203&charset=windows-1252&notify_version=3.8&ipn_track_id=a73a214cd5602
+
+
+2015-08-26 21:00:35
+Array
+(
+    [transaction_subject] => 203
+    [payment_date] => 14:00:16 Aug 26, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-9D061415VB734781E
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AADF-GKWYPztRIIX86kmBQd5791fAqXXc8AtGQ7IFfY4UfaAemwOxj6Z
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 8PT34495L6942510R
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => bfa721dd88116
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=203&payment_date=14%3A00%3A16+Aug+26%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-9D061415VB734781E&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AADF-GKWYPztRIIX86kmBQd5791fAqXXc8AtGQ7IFfY4UfaAemwOxj6Z&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=8PT34495L6942510R&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=203&charset=windows-1252&notify_version=3.8&ipn_track_id=bfa721dd88116
+
+
+2015-08-26 21:00:38
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-9D061415VB734781E
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => ANUL0EvTpozM1K1eHnAP.LrDKjJmAd6RpfZayH4BZCXQmT.Q19rbU6do
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 14:00:15 Aug 26, 2015 PDT
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => bfa721dd88116
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-9D061415VB734781E&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=ANUL0EvTpozM1K1eHnAP.LrDKjJmAd6RpfZayH4BZCXQmT.Q19rbU6do&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=14%3A00%3A15+Aug+26%2C+2015+PDT&custom=203&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=bfa721dd88116
+
+
+2015-08-26 21:10:06
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-84D21547FY143211F
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => A0l1.e2kEPmGIOCR3qwm9f0hvPl0ALI.anMd7pOLnmddPcr1SQtY9qDd
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 14:09:49 Aug 26, 2015 PDT
+    [custom] => 204
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => adf6af0c210a
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-84D21547FY143211F&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=A0l1.e2kEPmGIOCR3qwm9f0hvPl0ALI.anMd7pOLnmddPcr1SQtY9qDd&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=14%3A09%3A49+Aug+26%2C+2015+PDT&custom=204&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=adf6af0c210a
+
+
+2015-08-26 21:10:07
+Array
+(
+    [transaction_subject] => 204
+    [payment_date] => 14:09:50 Aug 26, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-84D21547FY143211F
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A7hnSQ6AFLI2WGJw72tpJrPgxS8pApYnrtSbwJg67Bd1sfvQrR2uClrU
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 865502168F987153N
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 204
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => adf6af0c210a
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=204&payment_date=14%3A09%3A50+Aug+26%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-84D21547FY143211F&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A7hnSQ6AFLI2WGJw72tpJrPgxS8pApYnrtSbwJg67Bd1sfvQrR2uClrU&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=865502168F987153N&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=204&charset=windows-1252&notify_version=3.8&ipn_track_id=adf6af0c210a
+
+
+2015-08-26 21:19:15
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-6P625211TX313621F
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AMzGVPUkrE8kfbuxKhvTu9iL9JyeAAiQtAb7N3xgJJfGHUIyLo4l53ri
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 14:18:58 Aug 26, 2015 PDT
+    [custom] => 205
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => a561295bccd4c
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-6P625211TX313621F&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AMzGVPUkrE8kfbuxKhvTu9iL9JyeAAiQtAb7N3xgJJfGHUIyLo4l53ri&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=14%3A18%3A58+Aug+26%2C+2015+PDT&custom=205&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=a561295bccd4c
+
+
+2015-08-26 21:19:17
+Array
+(
+    [transaction_subject] => 205
+    [payment_date] => 14:18:59 Aug 26, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-6P625211TX313621F
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A6u1vRdNTL554OFA2fOSt3WM086KA65KX2doGyJBXNYFYPyFOAKXXqlJ
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 6DD481260V847782W
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 205
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => a561295bccd4c
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=205&payment_date=14%3A18%3A59+Aug+26%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-6P625211TX313621F&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A6u1vRdNTL554OFA2fOSt3WM086KA65KX2doGyJBXNYFYPyFOAKXXqlJ&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=6DD481260V847782W&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=205&charset=windows-1252&notify_version=3.8&ipn_track_id=a561295bccd4c
+
+
+2015-08-26 21:26:03
+Array
+(
+    [transaction_subject] => 206
+    [payment_date] => 14:25:46 Aug 26, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-90V516166V189730C
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ARlJca7O1U76Xf1oeG-VdRPGcBIJASEOEhFxP5f109zURtypt7DjhO-w
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 82J82757HL9066802
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 206
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 652791ce2bb4
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=206&payment_date=14%3A25%3A46+Aug+26%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-90V516166V189730C&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ARlJca7O1U76Xf1oeG-VdRPGcBIJASEOEhFxP5f109zURtypt7DjhO-w&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=82J82757HL9066802&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=206&charset=windows-1252&notify_version=3.8&ipn_track_id=652791ce2bb4
+
+
+2015-08-26 21:26:05
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-90V516166V189730C
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AXvBd7S3kFOFQzlcwU8nuQfnTBFKAYD6K1mbozgqTGiPtJeGPthiqMAc
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 14:25:44 Aug 26, 2015 PDT
+    [custom] => 206
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 652791ce2bb4
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-90V516166V189730C&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AXvBd7S3kFOFQzlcwU8nuQfnTBFKAYD6K1mbozgqTGiPtJeGPthiqMAc&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=14%3A25%3A44+Aug+26%2C+2015+PDT&custom=206&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=652791ce2bb4
+
+
+2015-08-26 23:33:22
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-3Y310620CM4683922
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AqpIlDwYFyjF1js9l7Vrav9PMyS9AqIAagDy0KdhqVy5qZcO2bsaXbhb
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 16:33:05 Aug 26, 2015 PDT
+    [custom] => 207
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 33ad110a965c7
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-3Y310620CM4683922&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AqpIlDwYFyjF1js9l7Vrav9PMyS9AqIAagDy0KdhqVy5qZcO2bsaXbhb&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=16%3A33%3A05+Aug+26%2C+2015+PDT&custom=207&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=33ad110a965c7
+
+
+2015-08-26 23:33:25
+Array
+(
+    [transaction_subject] => 207
+    [payment_date] => 16:33:06 Aug 26, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-3Y310620CM4683922
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A1oPKJpxcTPc2enFaaCbZPol-bGeAntlWMjkexV0-lJsvk8rvVjuD140
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 8WU878245A593340N
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 207
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 33ad110a965c7
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=207&payment_date=16%3A33%3A06+Aug+26%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-3Y310620CM4683922&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A1oPKJpxcTPc2enFaaCbZPol-bGeAntlWMjkexV0-lJsvk8rvVjuD140&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=8WU878245A593340N&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=207&charset=windows-1252&notify_version=3.8&ipn_track_id=33ad110a965c7
+
+
+2015-08-26 23:37:23
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-3Y310620CM4683922
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AxKYkm17ri37nJrVwhy-3F8e60I4AGjcTpx6NipDLiQxk3MWP8t7wgU5
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 16:37:08 Aug 26, 2015 PDT
+    [custom] => 207
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 8d878ac71ce64
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-3Y310620CM4683922&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AxKYkm17ri37nJrVwhy-3F8e60I4AGjcTpx6NipDLiQxk3MWP8t7wgU5&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=16%3A37%3A08+Aug+26%2C+2015+PDT&custom=207&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=8d878ac71ce64
+
+
+2015-08-26 23:38:32
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-90V516166V189730C
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => ACS9Zvjxq2yiMWkQyIR.WZTdNyxEASE2bKg5PHgQjHGZv-hy45CQTGrk
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 16:38:15 Aug 26, 2015 PDT
+    [custom] => 206
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 305ee98015998
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-90V516166V189730C&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=ACS9Zvjxq2yiMWkQyIR.WZTdNyxEASE2bKg5PHgQjHGZv-hy45CQTGrk&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=16%3A38%3A15+Aug+26%2C+2015+PDT&custom=206&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=305ee98015998
+
+
+2015-08-26 23:39:04
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-6P625211TX313621F
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AcfbEqemDJgGKuNwlBFil50CWbfzA2WnxX4B7PDQVUTB6tJ8nwU-fqxa
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 16:38:46 Aug 26, 2015 PDT
+    [custom] => 205
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 9a23f32f5cb6e
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-6P625211TX313621F&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AcfbEqemDJgGKuNwlBFil50CWbfzA2WnxX4B7PDQVUTB6tJ8nwU-fqxa&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=16%3A38%3A46+Aug+26%2C+2015+PDT&custom=205&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=9a23f32f5cb6e
+
+
+2015-08-26 23:41:23
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-84D21547FY143211F
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => A2GZJxe5szob5miqS6apkB7zlUgNAtvKJFc5ZK6jieYndr1RlBuy-.m1
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 16:41:02 Aug 26, 2015 PDT
+    [custom] => 204
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 9c0e0fde11094
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-84D21547FY143211F&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=A2GZJxe5szob5miqS6apkB7zlUgNAtvKJFc5ZK6jieYndr1RlBuy-.m1&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=16%3A41%3A02+Aug+26%2C+2015+PDT&custom=204&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=9c0e0fde11094
+
+
+2015-08-26 23:42:04
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-9D061415VB734781E
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AfVfspBMWPj52H-ywNQ7bZITRkrzAcBvDSUKpk0TljJkAnGLz-2WQ3Kb
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 16:41:52 Aug 26, 2015 PDT
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => e577f8b9d18b7
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-9D061415VB734781E&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AfVfspBMWPj52H-ywNQ7bZITRkrzAcBvDSUKpk0TljJkAnGLz-2WQ3Kb&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=16%3A41%3A52+Aug+26%2C+2015+PDT&custom=203&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=e577f8b9d18b7
+
+
+2015-08-27 17:15:43
+Array
+(
+    [transaction_subject] => 208
+    [payment_date] => 10:15:29 Aug 27, 2015 PDT
+    [txn_type] => subscr_payment
+    [subscr_id] => S-1UN17662BD271724H
+    [last_name] => Strenger
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AKVDG01MmFI7CM5VQn9BjDw.CgW6AQqhSLdXHE0Gp81JzqvW1Y30YdkP
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 3JN34254AT3755930
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [payment_status] => Pending
+    [mc_gross] => 1.00
+    [custom] => 208
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => cd9178da831c7
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=208&payment_date=10%3A15%3A29+Aug+27%2C+2015+PDT&txn_type=subscr_payment&subscr_id=S-1UN17662BD271724H&last_name=Strenger&residence_country=US&pending_reason=address&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AKVDG01MmFI7CM5VQn9BjDw.CgW6AQqhSLdXHE0Gp81JzqvW1Y30YdkP&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=3JN34254AT3755930&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&payment_status=Pending&mc_gross=1.00&custom=208&charset=windows-1252&notify_version=3.8&ipn_track_id=cd9178da831c7
+
+
+2015-08-27 17:15:46
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => S-1UN17662BD271724H
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AMY1p56baNooHBao295zxONEGrFpAofazIRR1JrQ8FXYAJQos5aFr-0t
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 10:15:28 Aug 27, 2015 PDT
+    [custom] => 208
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => cd9178da831c7
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_signup&subscr_id=S-1UN17662BD271724H&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AMY1p56baNooHBao295zxONEGrFpAofazIRR1JrQ8FXYAJQos5aFr-0t&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=10%3A15%3A28+Aug+27%2C+2015+PDT&custom=208&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=cd9178da831c7
+
+
+2015-08-27 18:33:43
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_id] => S-1UN17662BD271724H
+    [last_name] => Strenger
+    [residence_country] => US
+    [mc_currency] => USD
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [amount1] => 1.00
+    [business] => rstrenger@yahoo.com
+    [amount3] => 19.00
+    [recurring] => 1
+    [verify_sign] => AJed-V.vZDAArvBeVTQlw.hF157LARvjMdhKCe6uJYhVZFKCAAPky6Y2
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [reattempt] => 1
+    [payer_business_name] => Premier SSG, Inc.
+    [subscr_date] => 11:33:21 Aug 27, 2015 PDT
+    [custom] => 208
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period1] => 2 W
+    [mc_amount1] => 1.00
+    [period3] => 1 M
+    [mc_amount3] => 19.00
+    [ipn_track_id] => 984d50f46b2c
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_cancel&subscr_id=S-1UN17662BD271724H&last_name=Strenger&residence_country=US&mc_currency=USD&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&amount1=1.00&business=rstrenger%40yahoo.com&amount3=19.00&recurring=1&verify_sign=AJed-V.vZDAArvBeVTQlw.hF157LARvjMdhKCe6uJYhVZFKCAAPky6Y2&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&reattempt=1&payer_business_name=Premier+SSG%2C+Inc.&subscr_date=11%3A33%3A21+Aug+27%2C+2015+PDT&custom=208&charset=windows-1252&notify_version=3.8&period1=2+W&mc_amount1=1.00&period3=1+M&mc_amount3=19.00&ipn_track_id=984d50f46b2c
+
+
+2015-08-29 05:41:15
+Array
+(
+    [transaction_subject] => 170
+    [txn_type] => web_accept
+    [payment_date] => 07:35:51 Jul 29, 2015 PDT
+    [last_name] => Relkin
+    [receipt_id] => 0661-0458-8829-4019
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ACt7UQvTwN3aH00lLzccm1CHh1V5A8s.jkswb5dILI8.RKqG-bvYUO2F
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => sognosalonparkland@gmail.com
+    [txn_id] => 91N33623K06292249
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Jill
+    [payer_id] => 3ZNHZTP2DHWKU
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjcf
+    [handling_amount] => 0.00
+    [payment_status] => Denied
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 170
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 9e5eabf91963d
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=170&txn_type=web_accept&payment_date=07%3A35%3A51+Jul+29%2C+2015+PDT&last_name=Relkin&receipt_id=0661-0458-8829-4019&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ACt7UQvTwN3aH00lLzccm1CHh1V5A8s.jkswb5dILI8.RKqG-bvYUO2F&payer_status=unverified&tax=0.00&payer_email=sognosalonparkland%40gmail.com&txn_id=91N33623K06292249&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Jill&payer_id=3ZNHZTP2DHWKU&receiver_id=EBYAH4W3RXWV4&item_number=tjcf&handling_amount=0.00&payment_status=Denied&shipping=0.00&mc_gross=25.00&custom=170&charset=windows-1252&notify_version=3.8&ipn_track_id=9e5eabf91963d
+
+
+2015-09-05 02:23:58
+Array
+(
+    [transaction_subject] => 216
+    [txn_type] => web_accept
+    [payment_date] => 19:23:53 Sep 04, 2015 PDT
+    [last_name] => Wilson
+    [receipt_id] => 1796-2508-0305-7139
+    [residence_country] => US
+    [pending_reason] => address
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AEk-I6aE2HI.57sG8xspkvtscy66AmNug2U6lMcdyqh7Eq6RQk9H2DED
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => amy@bluefirerecruiting.com
+    [txn_id] => 8CL57645DS455150F
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Amy
+    [payer_id] => 85T7GMLBX6JEL
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjcf
+    [handling_amount] => 0.00
+    [payment_status] => Pending
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 216
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => d6ce78c9230e2
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=216&txn_type=web_accept&payment_date=19%3A23%3A53+Sep+04%2C+2015+PDT&last_name=Wilson&receipt_id=1796-2508-0305-7139&residence_country=US&pending_reason=address&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AEk-I6aE2HI.57sG8xspkvtscy66AmNug2U6lMcdyqh7Eq6RQk9H2DED&payer_status=unverified&tax=0.00&payer_email=amy%40bluefirerecruiting.com&txn_id=8CL57645DS455150F&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Amy&payer_id=85T7GMLBX6JEL&receiver_id=EBYAH4W3RXWV4&item_number=tjcf&handling_amount=0.00&payment_status=Pending&shipping=0.00&mc_gross=25.00&custom=216&charset=windows-1252&notify_version=3.8&ipn_track_id=d6ce78c9230e2
+
+
+2015-09-10 10:09:12
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-84D21547FY143211F
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => AH4TL0zSETIX3akYuZmoLFtGDsE3AOlGnaaUmAy9agoVqx1rrlCrJ4tr
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 204
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 85254ece5a361
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-84D21547FY143211F&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=AH4TL0zSETIX3akYuZmoLFtGDsE3AOlGnaaUmAy9agoVqx1rrlCrJ4tr&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=204&charset=windows-1252&notify_version=3.8&ipn_track_id=85254ece5a361
+
+
+2015-09-10 10:44:07
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-90V516166V189730C
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => A3y0.tMNvBHVlj238c5To0CQCx3zAWDk1gPbKajGfQ8Do41qJKJ-ZiQ9
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 206
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => fa5a466f6e22e
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-90V516166V189730C&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=A3y0.tMNvBHVlj238c5To0CQCx3zAWDk1gPbKajGfQ8Do41qJKJ-ZiQ9&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=206&charset=windows-1252&notify_version=3.8&ipn_track_id=fa5a466f6e22e
+
+
+2015-09-10 10:47:04
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-3Y310620CM4683922
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => AJgfs8fdxZnW.1TzuSS0c0PbjBJ2A9dNiqTCD8RHDp1P-t6j-d0GK7Ey
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 207
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => fd731977af3a1
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-3Y310620CM4683922&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=AJgfs8fdxZnW.1TzuSS0c0PbjBJ2A9dNiqTCD8RHDp1P-t6j-d0GK7Ey&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=207&charset=windows-1252&notify_version=3.8&ipn_track_id=fd731977af3a1
+
+
+2015-09-10 10:54:43
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-6P625211TX313621F
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => AEbVHjdwcjPL7fmSmrCd2kgwdj5mAWDZfMjl6fMKqroSZ67VWDvlOseF
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 205
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => dc6cda693cefc
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-6P625211TX313621F&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=AEbVHjdwcjPL7fmSmrCd2kgwdj5mAWDZfMjl6fMKqroSZ67VWDvlOseF&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=205&charset=windows-1252&notify_version=3.8&ipn_track_id=dc6cda693cefc
+
+
+2015-09-10 10:56:13
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-9D061415VB734781E
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => Av70NeJrG23hpoJQqDqp28oyPHxnAUkWwgXeuEpmfDoR5PDdSDiqx6pp
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 9f935be6b2fcc
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-9D061415VB734781E&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=Av70NeJrG23hpoJQqDqp28oyPHxnAUkWwgXeuEpmfDoR5PDdSDiqx6pp&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=203&charset=windows-1252&notify_version=3.8&ipn_track_id=9f935be6b2fcc
+
+
+2015-09-11 10:41:22
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_id] => S-1UN17662BD271724H
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [verify_sign] => AsaJeZODIMEt5-xAYoAxgxjgqkoPAZDZBpanqgULtT.nPVrx7Doci.tv
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [first_name] => Ryan
+    [receiver_email] => rstrenger@yahoo.com
+    [payer_id] => 3AMT54B3QJYYN
+    [payer_business_name] => Premier SSG, Inc.
+    [custom] => 208
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 3ed0348a5ea28
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&txn_type=subscr_eot&subscr_id=S-1UN17662BD271724H&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&mc_currency=USD&business=rstrenger%40yahoo.com&verify_sign=AsaJeZODIMEt5-xAYoAxgxjgqkoPAZDZBpanqgULtT.nPVrx7Doci.tv&payer_status=verified&payer_email=rstrenger%40premierssg.com&first_name=Ryan&receiver_email=rstrenger%40yahoo.com&payer_id=3AMT54B3QJYYN&payer_business_name=Premier+SSG%2C+Inc.&custom=208&charset=windows-1252&notify_version=3.8&ipn_track_id=3ed0348a5ea28
+
+
+2015-09-12 14:38:19
+Array
+(
+    [transaction_subject] => 216
+    [txn_type] => web_accept
+    [payment_date] => 19:23:53 Sep 04, 2015 PDT
+    [last_name] => Wilson
+    [receipt_id] => 1796-2508-0305-7139
+    [residence_country] => US
+    [item_name] => Campaign Funds
+    [payment_gross] => 25.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AY8hG4GFcbnx.98GkAz1Wl4F8.GFAYg64.ODEBj-hQiTKwNbhEhZOHzB
+    [payer_status] => unverified
+    [tax] => 0.00
+    [payer_email] => amy@bluefirerecruiting.com
+    [txn_id] => 8CL57645DS455150F
+    [quantity] => 1
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Amy
+    [payer_id] => 85T7GMLBX6JEL
+    [receiver_id] => EBYAH4W3RXWV4
+    [item_number] => tjcf
+    [handling_amount] => 0.00
+    [payment_status] => Denied
+    [shipping] => 0.00
+    [mc_gross] => 25.00
+    [custom] => 216
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => d322534bc3bac
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=216&txn_type=web_accept&payment_date=19%3A23%3A53+Sep+04%2C+2015+PDT&last_name=Wilson&receipt_id=1796-2508-0305-7139&residence_country=US&item_name=Campaign+Funds&payment_gross=25.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AY8hG4GFcbnx.98GkAz1Wl4F8.GFAYg64.ODEBj-hQiTKwNbhEhZOHzB&payer_status=unverified&tax=0.00&payer_email=amy%40bluefirerecruiting.com&txn_id=8CL57645DS455150F&quantity=1&receiver_email=rstrenger%40yahoo.com&first_name=Amy&payer_id=85T7GMLBX6JEL&receiver_id=EBYAH4W3RXWV4&item_number=tjcf&handling_amount=0.00&payment_status=Denied&shipping=0.00&mc_gross=25.00&custom=216&charset=windows-1252&notify_version=3.8&ipn_track_id=d322534bc3bac
+
+
+2015-09-26 05:52:27
+Array
+(
+    [transaction_subject] => 203
+    [txn_type] => subscr_payment
+    [payment_date] => 14:00:16 Aug 26, 2015 PDT
+    [subscr_id] => S-9D061415VB734781E
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AefugdmprYqHikETMp2kC9hjQfFfAKIHxI90NJIFgLJwy1y2oBAxObl0
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 8PT34495L6942510R
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4145543317
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 203
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => e9ad4394f1312
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=203&txn_type=subscr_payment&payment_date=14%3A00%3A16+Aug+26%2C+2015+PDT&subscr_id=S-9D061415VB734781E&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AefugdmprYqHikETMp2kC9hjQfFfAKIHxI90NJIFgLJwy1y2oBAxObl0&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=8PT34495L6942510R&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4145543317&payment_status=Denied&mc_gross=1.00&custom=203&charset=windows-1252&notify_version=3.8&ipn_track_id=e9ad4394f1312
+
+
+2015-09-26 05:52:41
+Array
+(
+    [transaction_subject] => 204
+    [txn_type] => subscr_payment
+    [payment_date] => 14:09:50 Aug 26, 2015 PDT
+    [subscr_id] => S-84D21547FY143211F
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => APUFQmLx9NphmBcTIE3oGC1r73WUAwrrwHhUwnAKZjTYjaHLTZ77ON2T
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 865502168F987153N
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4145789077
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 204
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 374a7bc6ec3e8
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=204&txn_type=subscr_payment&payment_date=14%3A09%3A50+Aug+26%2C+2015+PDT&subscr_id=S-84D21547FY143211F&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=APUFQmLx9NphmBcTIE3oGC1r73WUAwrrwHhUwnAKZjTYjaHLTZ77ON2T&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=865502168F987153N&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4145789077&payment_status=Denied&mc_gross=1.00&custom=204&charset=windows-1252&notify_version=3.8&ipn_track_id=374a7bc6ec3e8
+
+
+2015-09-26 05:52:51
+Array
+(
+    [transaction_subject] => 205
+    [txn_type] => subscr_payment
+    [payment_date] => 14:18:59 Aug 26, 2015 PDT
+    [subscr_id] => S-6P625211TX313621F
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => A5nuVrLxiT5ruqbFP5c-DZXK0RhKAO7NN2eoE.pWjyrIuWCl24.rVLye
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 6DD481260V847782W
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4146260117
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 205
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 2f7a071ed5644
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=205&txn_type=subscr_payment&payment_date=14%3A18%3A59+Aug+26%2C+2015+PDT&subscr_id=S-6P625211TX313621F&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=A5nuVrLxiT5ruqbFP5c-DZXK0RhKAO7NN2eoE.pWjyrIuWCl24.rVLye&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=6DD481260V847782W&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4146260117&payment_status=Denied&mc_gross=1.00&custom=205&charset=windows-1252&notify_version=3.8&ipn_track_id=2f7a071ed5644
+
+
+2015-09-26 05:52:58
+Array
+(
+    [transaction_subject] => 206
+    [txn_type] => subscr_payment
+    [payment_date] => 14:25:46 Aug 26, 2015 PDT
+    [subscr_id] => S-90V516166V189730C
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AMDVC4S2NZTg5EPZ2FploxCJw8dlAJoHHsDaYXiIt7JZlcEAo1KLAM1v
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 82J82757HL9066802
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4145801365
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 206
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => bf225c62ee151
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=206&txn_type=subscr_payment&payment_date=14%3A25%3A46+Aug+26%2C+2015+PDT&subscr_id=S-90V516166V189730C&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AMDVC4S2NZTg5EPZ2FploxCJw8dlAJoHHsDaYXiIt7JZlcEAo1KLAM1v&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=82J82757HL9066802&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4145801365&payment_status=Denied&mc_gross=1.00&custom=206&charset=windows-1252&notify_version=3.8&ipn_track_id=bf225c62ee151
+
+
+2015-09-26 05:55:07
+Array
+(
+    [transaction_subject] => 207
+    [txn_type] => subscr_payment
+    [payment_date] => 16:33:06 Aug 26, 2015 PDT
+    [subscr_id] => S-3Y310620CM4683922
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AGa0CDTty6DmHrpn.MBzkIJ0r.FlATV7kPhUGkaFo46WlvGhkmgSM2xH
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 8WU878245A593340N
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4145748117
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 207
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 80626f596f30
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=207&txn_type=subscr_payment&payment_date=16%3A33%3A06+Aug+26%2C+2015+PDT&subscr_id=S-3Y310620CM4683922&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=AGa0CDTty6DmHrpn.MBzkIJ0r.FlATV7kPhUGkaFo46WlvGhkmgSM2xH&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=8WU878245A593340N&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4145748117&payment_status=Denied&mc_gross=1.00&custom=207&charset=windows-1252&notify_version=3.8&ipn_track_id=80626f596f30
+
+
+2015-09-27 05:42:59
+Array
+(
+    [transaction_subject] => 208
+    [txn_type] => subscr_payment
+    [payment_date] => 10:15:29 Aug 27, 2015 PDT
+    [subscr_id] => S-1UN17662BD271724H
+    [last_name] => Strenger
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 1.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ARJV7tgxZ0gAL2.dXYQEkvwEbS6OAG07pgBu-R9SteYSBFCN356aodBl
+    [payer_status] => verified
+    [payer_email] => rstrenger@premierssg.com
+    [txn_id] => 3JN34254AT3755930
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Ryan
+    [payer_id] => 3AMT54B3QJYYN
+    [receiver_id] => EBYAH4W3RXWV4
+    [payer_business_name] => Premier SSG, Inc.
+    [recur_times] => 4145924245
+    [payment_status] => Denied
+    [mc_gross] => 1.00
+    [custom] => 208
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 3b86dab8af47
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=208&txn_type=subscr_payment&payment_date=10%3A15%3A29+Aug+27%2C+2015+PDT&subscr_id=S-1UN17662BD271724H&last_name=Strenger&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=1.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=ARJV7tgxZ0gAL2.dXYQEkvwEbS6OAG07pgBu-R9SteYSBFCN356aodBl&payer_status=verified&payer_email=rstrenger%40premierssg.com&txn_id=3JN34254AT3755930&receiver_email=rstrenger%40yahoo.com&first_name=Ryan&payer_id=3AMT54B3QJYYN&receiver_id=EBYAH4W3RXWV4&payer_business_name=Premier+SSG%2C+Inc.&recur_times=4145924245&payment_status=Denied&mc_gross=1.00&custom=208&charset=windows-1252&notify_version=3.8&ipn_track_id=3b86dab8af47
+
+
+2016-01-26 06:46:07
+Array
+(
+    [transaction_subject] => Small Business: $1 for two weeks, then $19 per month
+    [txn_type] => subscr_payment
+    [payment_date] => 02:14:57 Dec 26, 2015 PST
+    [subscr_id] => S-68J949411E420942X
+    [last_name] => Dunn
+    [residence_country] => US
+    [item_name] => Small Business: $1 for two weeks, then $19 per month
+    [payment_gross] => 19.00
+    [mc_currency] => USD
+    [business] => rstrenger@yahoo.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => Atxf5ssuAUizWPQjTkFD01Bo7hyaA2bcgjg6Dw180MZqgOT4a9vORwDb
+    [payer_status] => verified
+    [payer_email] => kdunn@mattipartners.com
+    [txn_id] => 5AB47341VW6186227
+    [receiver_email] => rstrenger@yahoo.com
+    [first_name] => Kevin
+    [payer_id] => JGD9WVZ3E3J3E
+    [receiver_id] => EBYAH4W3RXWV4
+    [recur_times] => 4146198677
+    [payment_status] => Denied
+    [mc_gross] => 19.00
+    [custom] => 231
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 84beb078321e8
+)
+
+VERIFIED
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&transaction_subject=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&txn_type=subscr_payment&payment_date=02%3A14%3A57+Dec+26%2C+2015+PST&subscr_id=S-68J949411E420942X&last_name=Dunn&residence_country=US&item_name=Small+Business%3A+%241+for+two+weeks%2C+then+%2419+per+month&payment_gross=19.00&mc_currency=USD&business=rstrenger%40yahoo.com&payment_type=instant&protection_eligibility=Ineligible&verify_sign=Atxf5ssuAUizWPQjTkFD01Bo7hyaA2bcgjg6Dw180MZqgOT4a9vORwDb&payer_status=verified&payer_email=kdunn%40mattipartners.com&txn_id=5AB47341VW6186227&receiver_email=rstrenger%40yahoo.com&first_name=Kevin&payer_id=JGD9WVZ3E3J3E&receiver_id=EBYAH4W3RXWV4&recur_times=4146198677&payment_status=Denied&mc_gross=19.00&custom=231&charset=windows-1252&notify_version=3.8&ipn_track_id=84beb078321e8
+
+
+2016-03-29 13:17:16
+Array
+(
+    [PHPSESSID] => 304efbf7e2efb9a3cba385f6778cafb4
+    [_gat] => 1
+    [_ga] => GA1.2.852203374.1459256913
+    [visitz] => 0
+)
+
+INVALID
+https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&
+
+

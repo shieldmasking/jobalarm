@@ -1,0 +1,6 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^mobile\.tweetedjobs\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.mobile\.tweetedjobs\.net$
+RewriteRule ^/?$ "http\:\/\/www\.jobalarm\.net" [R=301,L]
+

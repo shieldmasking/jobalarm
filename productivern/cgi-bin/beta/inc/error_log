@@ -1,0 +1,181 @@
+[08-Oct-2017 20:15:59 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:20:08 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:20:10 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:21:30 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:21:33 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:22:34 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:22:54 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:22:57 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:23:05 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:23:07 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:23:26 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[08-Oct-2017 20:23:29 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 13
+[11-Oct-2017 17:23:01 UTC] PHP Fatal error:  Cannot use [] for reading in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 578
+[14-Oct-2017 08:56:28 UTC] PHP Fatal error:  Function name must be a string in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 519
+[14-Oct-2017 08:57:30 UTC] PHP Fatal error:  Function name must be a string in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 519
+[14-Oct-2017 08:58:08 UTC] PHP Fatal error:  Function name must be a string in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 519
+[14-Oct-2017 08:58:22 UTC] PHP Fatal error:  Function name must be a string in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 519
+[14-Oct-2017 19:36:47 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 80 bytes) in /home/tweetedjobs/public_html/inc/class.db.php on line 333
+[14-Oct-2017 19:37:01 UTC] PHP Fatal error:  Cannot redeclare GenerateReports() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:79) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 79
+[14-Oct-2017 19:37:01 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 82 bytes) in /home/tweetedjobs/public_html/inc/class.db.php on line 333
+[14-Oct-2017 19:38:46 UTC] PHP Fatal error:  Cannot redeclare GenerateReports() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:79) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 79
+[14-Oct-2017 21:21:18 UTC] PHP Fatal error:  Call to undefined function getDistanceQuery() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 693
+[15-Oct-2017 02:09:33 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 352
+[15-Oct-2017 02:11:29 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 353
+[15-Oct-2017 02:11:30 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 353
+[15-Oct-2017 02:13:08 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 353
+[15-Oct-2017 02:13:08 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 353
+[23-Oct-2017 14:25:17 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:25:21 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:25:47 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:25:47 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:27:41 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:27:51 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:27:57 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 14:28:08 UTC] PHP Fatal error:  Cannot redeclare sendSMS() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:1113) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1271
+[23-Oct-2017 15:55:16 UTC] PHP Fatal error:  Class 'Utility' not found in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1022
+[23-Oct-2017 16:22:07 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:20 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:27 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:29 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:36 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:44 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:46 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:48 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:56 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:22:57 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:23:05 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 16:23:06 UTC] PHP Fatal error:  Call to undefined function delete() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 970
+[23-Oct-2017 18:58:05 UTC] PHP Parse error:  syntax error, unexpected '15' (T_LNUMBER), expecting '&' or variable (T_VARIABLE) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 266
+[23-Oct-2017 18:58:13 UTC] PHP Parse error:  syntax error, unexpected '15' (T_LNUMBER), expecting '&' or variable (T_VARIABLE) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 266
+[23-Oct-2017 18:58:13 UTC] PHP Parse error:  syntax error, unexpected '15' (T_LNUMBER), expecting '&' or variable (T_VARIABLE) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 266
+[23-Oct-2017 20:06:50 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1338
+[23-Oct-2017 20:07:05 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1338
+[23-Oct-2017 20:07:29 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1338
+[23-Oct-2017 20:07:29 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1338
+[24-Oct-2017 08:38:20 UTC] PHP Fatal error:  Call to undefined function curl_request() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1400
+[10-Nov-2017 17:29:16 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1762
+[11-Nov-2017 14:14:08 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 350
+[11-Nov-2017 14:14:30 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 350
+[11-Nov-2017 14:16:15 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 350
+[11-Nov-2017 14:16:51 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 350
+[11-Nov-2017 14:18:56 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 350
+[11-Nov-2017 14:19:21 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 350
+[11-Nov-2017 14:20:42 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 411
+[11-Nov-2017 17:06:35 UTC] PHP Fatal error:  Cannot redeclare GetUsersTableData() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:776) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1015
+[11-Nov-2017 17:06:57 UTC] PHP Fatal error:  Cannot redeclare GetUsersTableData() (previously declared in /home/tweetedjobs/public_html/dashbeta/inc/data.php:776) in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 1015
+[12-Nov-2017 13:43:39 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 781
+[15-Nov-2017 23:12:53 UTC] PHP Fatal error:  Call to undefined function getassignedtabledata() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 158
+[15-Nov-2017 23:13:07 UTC] PHP Fatal error:  Call to undefined function getassignedtabledata() in /home/tweetedjobs/public_html/dashbeta/inc/data.php on line 158
+[18-Jan-2018 16:56:20 UTC] PHP Fatal error:  Cannot redeclare buildKeywordQueryNew() (previously declared in /home/tweetedjobs/public_html/inc/config.php:32) in /home/tweetedjobs/public_html/inc/config.php on line 32
+[25-Jan-2018 14:43:33 UTC] PHP Fatal error:  Call to undefined function intfal() in /home/tweetedjobs/public_html/productive/inc/data.php on line 820
+[25-Jan-2018 14:44:03 UTC] PHP Fatal error:  Call to undefined function intfal() in /home/tweetedjobs/public_html/productive/inc/data.php on line 820
+[25-Jan-2018 14:44:42 UTC] PHP Fatal error:  Call to undefined function intfal() in /home/tweetedjobs/public_html/productive/inc/data.php on line 820
+[25-Jan-2018 17:13:02 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2386
+[25-Jan-2018 17:13:06 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2386
+[25-Jan-2018 17:13:06 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2386
+[25-Jan-2018 17:13:23 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2386
+[25-Jan-2018 17:13:23 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2386
+[25-Jan-2018 17:14:53 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2388
+[25-Jan-2018 17:14:53 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/tweetedjobs/public_html/productive/inc/data.php on line 2388
+[25-Jan-2018 17:17:00 UTC] PHP Fatal error:  Cannot redeclare generateRandomString() (previously declared in /home/tweetedjobs/public_html/productive/inc/data.php:2254) in /home/tweetedjobs/public_html/productive/inc/data.php on line 2487
+[25-Jan-2018 17:17:00 UTC] PHP Fatal error:  Cannot redeclare generateRandomString() (previously declared in /home/tweetedjobs/public_html/productive/inc/data.php:2254) in /home/tweetedjobs/public_html/productive/inc/data.php on line 2487
+[27-Jan-2018 18:27:03 UTC] PHP Fatal error:  Call to undefined function float() in /home/tweetedjobs/public_html/productive/inc/data.php on line 2434
+[27-Jan-2018 18:27:14 UTC] PHP Fatal error:  Call to undefined function float() in /home/tweetedjobs/public_html/productive/inc/data.php on line 2434
+[27-Jan-2018 18:27:14 UTC] PHP Fatal error:  Call to undefined function float() in /home/tweetedjobs/public_html/productive/inc/data.php on line 2434
+[29-Jan-2018 01:19:22 UTC] PHP Fatal error:  Call to undefined function filter() in /home/tweetedjobs/public_html/productive/inc/data.php on line 731
+[29-Jan-2018 01:19:38 UTC] PHP Fatal error:  Call to undefined function filter() in /home/tweetedjobs/public_html/productive/inc/data.php on line 731
+[29-Jan-2018 01:41:41 UTC] PHP Parse error:  syntax error, unexpected ''status'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 591
+[29-Jan-2018 01:41:43 UTC] PHP Parse error:  syntax error, unexpected ''status'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 591
+[29-Jan-2018 01:41:58 UTC] PHP Parse error:  syntax error, unexpected ''status'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 591
+[29-Jan-2018 13:41:36 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 276
+[29-Jan-2018 13:41:49 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 276
+[29-Jan-2018 13:41:55 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 276
+[29-Jan-2018 13:42:05 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 276
+[29-Jan-2018 13:43:49 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 277
+[29-Jan-2018 14:21:29 UTC] PHP Fatal error:  Can't use function return value in write context in /home/tweetedjobs/public_html/productive/inc/data.php on line 972
+[29-Jan-2018 14:21:35 UTC] PHP Fatal error:  Can't use function return value in write context in /home/tweetedjobs/public_html/productive/inc/data.php on line 972
+[29-Jan-2018 14:22:06 UTC] PHP Fatal error:  Can't use function return value in write context in /home/tweetedjobs/public_html/productive/inc/data.php on line 972
+[01-Feb-2018 16:49:54 UTC] PHP Fatal error:  Cannot redeclare buildKeywordQueryNew() (previously declared in /home/tweetedjobs/public_html/inc/config.php:32) in /home/tweetedjobs/public_html/inc/config.php on line 32
+[13-Mar-2018 19:56:34 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 282
+[13-Mar-2018 19:57:11 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/tweetedjobs/public_html/productive/inc/data.php on line 288
+[13-Mar-2018 19:58:18 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/tweetedjobs/public_html/productive/inc/data.php on line 288
+[13-Mar-2018 19:58:29 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/tweetedjobs/public_html/productive/inc/data.php on line 288
+[13-Mar-2018 19:59:27 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 282
+[13-Mar-2018 19:59:36 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/tweetedjobs/public_html/productive/inc/data.php on line 282
+[13-Mar-2018 20:00:31 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/tweetedjobs/public_html/productive/inc/data.php on line 288
+[28-Mar-2018 19:42:28 UTC] PHP Fatal error:  Call to undefined method DB::preg_replace() in /home/tweetedjobs/public_html/productive/inc/data.php on line 1575
+[28-Mar-2018 19:42:37 UTC] PHP Fatal error:  Call to undefined method DB::preg_replace() in /home/tweetedjobs/public_html/productive/inc/data.php on line 1575
+[29-Mar-2018 16:44:00 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 1157
+[29-Mar-2018 16:44:07 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 1157
+[29-Mar-2018 16:44:07 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 1157
+[29-Mar-2018 16:44:14 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 1157
+[29-Mar-2018 16:44:24 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/tweetedjobs/public_html/productive/inc/data.php on line 1157
+[15-Apr-2018 16:20:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 754
+[16-Apr-2018 15:33:43 UTC] PHP Parse error:  syntax error, unexpected '$updateacuityOne' (T_VARIABLE) in /home/prnadmin/public_html/inc/data.php on line 2172
+[16-Apr-2018 15:33:46 UTC] PHP Parse error:  syntax error, unexpected '$updateacuityOne' (T_VARIABLE) in /home/prnadmin/public_html/inc/data.php on line 2172
+[16-Apr-2018 15:33:58 UTC] PHP Parse error:  syntax error, unexpected '$updateacuityOne' (T_VARIABLE) in /home/prnadmin/public_html/inc/data.php on line 2172
+[16-Apr-2018 15:36:00 UTC] PHP Parse error:  syntax error, unexpected '$updateacuityOne' (T_VARIABLE) in /home/prnadmin/public_html/inc/data.php on line 2172
+[16-Apr-2018 15:41:17 UTC] PHP Parse error:  syntax error, unexpected '$updateacuityOne' (T_VARIABLE) in /home/prnadmin/public_html/inc/data.php on line 2173
+[17-Apr-2018 10:32:31 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 1618
+[21-Apr-2018 10:06:14 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 1637
+[23-Apr-2018 18:25:32 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 1638
+[23-Apr-2018 18:25:35 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 1638
+[26-Apr-2018 16:43:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 402
+[26-Apr-2018 16:43:37 UTC] PHP Warning:  mysqli::query(): (21000/1242): Subquery returns more than 1 row in /home/prnadmin/public_html/inc/class.db.php on line 324
+[26-Apr-2018 16:43:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 490
+[26-Apr-2018 16:43:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 514
+[26-Apr-2018 16:43:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 538
+[29-Apr-2018 20:26:19 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 1407
+[29-Apr-2018 20:26:34 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 1407
+[29-Apr-2018 20:26:38 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 1407
+[30-Apr-2018 00:57:30 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 1408
+[30-Apr-2018 00:57:41 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 1408
+[30-Apr-2018 00:57:44 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 1408
+[01-May-2018 16:08:50 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 922
+[01-May-2018 16:08:54 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 922
+[01-May-2018 16:11:05 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 922
+[01-May-2018 16:11:09 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 922
+[01-May-2018 16:12:27 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 920
+[01-May-2018 16:12:29 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 920
+[01-May-2018 16:12:49 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/prnadmin/public_html/inc/data.php on line 920
+[01-May-2018 16:16:24 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 771
+[01-May-2018 16:16:26 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 771
+[01-May-2018 16:16:38 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 771
+[01-May-2018 16:19:05 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:19:14 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:19:30 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:21:18 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:21:22 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:21:49 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:21:50 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 772
+[01-May-2018 16:32:33 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 773
+[01-May-2018 16:33:24 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 773
+[01-May-2018 16:33:35 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 773
+[01-May-2018 16:33:38 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/prnadmin/public_html/inc/data.php on line 773
+[01-May-2018 19:21:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 751
+[01-May-2018 19:22:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 751
+[01-May-2018 20:17:21 UTC] PHP Fatal error:  Function name must be a string in /home/prnadmin/public_html/inc/data.php on line 779
+[02-May-2018 19:45:33 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:45:34 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:45:40 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:45:50 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:46:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:46:33 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:46:40 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[02-May-2018 19:46:54 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/prnadmin/public_html/inc/data.php on line 3420
+[03-May-2018 15:10:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[03-May-2018 15:11:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[03-May-2018 15:11:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[03-May-2018 15:13:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[03-May-2018 15:13:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[03-May-2018 15:13:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[03-May-2018 15:16:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/prnadmin/public_html/inc/data.php on line 566
+[06-May-2018 23:55:10 UTC] PHP Parse error:  syntax error, unexpected ''https://www.productivern.com'' (T_CONSTANT_ENCAPSED_STRING) in /home/prnadmin/public_html/inc/data.php on line 1027
+[06-May-2018 23:55:15 UTC] PHP Parse error:  syntax error, unexpected ''https://www.productivern.com'' (T_CONSTANT_ENCAPSED_STRING) in /home/prnadmin/public_html/inc/data.php on line 1027
+[06-May-2018 23:55:34 UTC] PHP Parse error:  syntax error, unexpected ''https://www.productivern.com'' (T_CONSTANT_ENCAPSED_STRING) in /home/prnadmin/public_html/inc/data.php on line 1027
+[06-May-2018 23:55:38 UTC] PHP Parse error:  syntax error, unexpected ''https://www.productivern.com'' (T_CONSTANT_ENCAPSED_STRING) in /home/prnadmin/public_html/inc/data.php on line 1027
+[06-May-2018 23:55:43 UTC] PHP Parse error:  syntax error, unexpected ''https://www.productivern.com'' (T_CONSTANT_ENCAPSED_STRING) in /home/prnadmin/public_html/inc/data.php on line 1027
+[11-May-2018 05:34:06 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 2074
+[11-May-2018 05:34:11 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 2074
+[11-May-2018 05:34:19 UTC] PHP Warning:  Division by zero in /home/prnadmin/public_html/inc/data.php on line 2074

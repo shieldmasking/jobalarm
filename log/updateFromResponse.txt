@@ -1,0 +1,40 @@
+
+        SURVEYID: 43542
+
+        PEOPLEID: 10639
+
+        RESPONSEID: 25024799
+
+        RESPONSETYPE: 10
+
+        STATICVARS: Array
+(
+    [tpl_keywords] => weld
+    [tpl_smsmsg] => Click http://m.jobalarm.com/s/jobs/?rn=0 to apply for our jobs. No Internet?  Reply TEXT to start a text interview.  Reply STOP JOBS 2 Optout
+    [tpl_firstname] => pve8ExCaeG_0
+    [tpl_lastname] => pve8ExCaeG_1
+    [tpl_mobilenum] => pve8ExCaeG_2
+    [tpl_email] => pve8ExCaeG_3
+    [tpl_zipcode] => pve8ExCaeG_4
+    [tpl_position] => T5O0GvH9CX
+    [tpl_location] => _locale
+    [tpl_surveykeyword] => text
+    [tpl_smssurveymsg] => You will receive 10 questions via text message.  Please be sure to answer ALL questions and be specific. Please Do not Text and Drive.
+    [tpl_smssurveydone] => Thanks for completing our mobile interview. A Recruiter may be in contact soon.  If you have a resume or great weld pics, please email to jobs@jobalarm.com
+    [tpl_upload] => FUbSaRcLSe
+    [tpl_referral] => Ti4ROb4sDv
+    [tpl_optin] => NT9ohTBCol
+    [tpl_defaultadmin] => 
+    [tpl_forwardemail] => 
+    [tpl_forwardemailmsg] => 
+)
+
+
+        RESPONSEOBJ: 
+
+        UPDATEPERSON: Array
+(
+)
+
+
+        

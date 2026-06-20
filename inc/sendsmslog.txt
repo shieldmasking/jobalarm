@@ -1,0 +1,20 @@
+Array
+(
+    [numbers] => Array
+        (
+            [0] => 19727431212
+        )
+
+    [message] => Array
+        (
+            [0] => <message id="97274312121550003124"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[ProductiveRN Alert:  A Staffing Report has just been submitted with a variance of 1 in in Labor Delivery.  www.productivern.com/view.php?u=30570]]></content></message>
+        )
+
+    [keyword] => Array
+        (
+            [0] => JOBALARM58046
+        )
+
+    [login] => jobalarm45
+    [shortCode] => 
+)

@@ -1,0 +1,817 @@
+﻿body, html {
+    background-color: #666666;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-front {
+    z-index: 10000000;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+#masterContent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: auto;
+}
+
+#content {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+
+    .center {
+        margin: 0 auto;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        width: 90%;
+        min-width: 860px;
+        background-color: #fcfff5;
+        box-shadow: 0px 3px 10px 1px black;
+        -webkit-box-shadow: 0px 3px 10px 1px black;
+        -moz-box-shadow: 0px 3px 10px 1px black;
+
+        .header {
+            width: 100%;
+            height: 87px;
+            background-image: url(../img/header-main2.png);
+            background-repeat: no-repeat;
+            overflow: hidden;
+            border-bottom: 2px solid #999999;
+
+            .mainmenu {
+                float: right;
+
+                a.header_btn {
+                    float: left;
+                    display: block;
+                    width: 146px;
+                    height: 87px;
+                    font-family: Arial, sans-serif;
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 80px;
+                    text-align: center;
+                    color: #666666;
+                    background-color: #eeeeee;
+                    background-repeat: no-repeat;
+                    background-position: top left;
+                    border-left: 2px solid #999999;
+                }
+
+                a.btn_active {
+                    background-color: #aaaaaa;
+                    color: #ffffff;
+                }
+
+                a.header_btn:hover {
+                    background-color: #cccccc;
+                    color: #ffffff;
+                }
+            }
+
+            .sysblock {
+                float: right;
+                width: 180px;
+                height: 87px;
+                padding-top: 5px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                text-align: right;
+                color: #ffffff;
+                border-left: 2px solid #999999;
+
+                p {
+                    padding: 0 5px 0 0;
+                    margin: 0;
+                    line-height: 18px;
+
+                    a {
+                        color: #000000;
+                        font-size: 10px;
+                        font-family: Arial, sans-serif;
+                        text-decoration: none;
+                    }
+
+                    a:hover {
+                        color: #0094ff;
+                    }
+
+                    a.user {
+                        font-size: 12px;
+                    }
+
+                    a.logout {
+                        font-size: 12px;
+                    }
+
+                    a.reports {
+                        font-size: 12px;
+                    }
+
+                    a.adminlink {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .dashboard {
+            width: 100%;
+            height: 600px;
+
+            button.clipboard_button {
+                float: left;
+            }
+
+            a.dashboard_archive_btn {
+                display: block;
+                float: right;
+                margin: 0 5px;
+            }
+
+            a.dashboard_copy_btn {
+                display: block;
+                float: right;
+                margin: 0 5px;
+                margin-top: 3px;
+            }
+
+            a.dashboard_edit_btn {
+                display: block;
+                float:left;
+                margin: 0 5px;
+                margin-top: 3px;
+            }
+        }
+
+        .candidates {
+            width:100%;
+            height:600px;
+        }
+
+        .admin {
+            width: 100%;
+            height: 600px;
+        }
+
+        .globals {
+            width: 100%;
+            height: 600px;
+        }
+
+        .surveys {
+            width: 100%;
+            height: 600px;
+        }
+
+        .sms {
+            width: 100%;
+            height: 600px;
+        }
+
+        .login_box {
+            width: 350px;
+            margin: 40px auto;
+        }
+
+        .register_box {
+            width:350px;
+            height:340px !important;
+            margin: 20px auto;
+        }
+    }
+}
+
+.sortHeader {
+    background: #eeeeee;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 26px;
+    margin-bottom: 3px;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#configureListView {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+        margin: 0 3px 3px 3px;
+        padding: 0.2em;
+        padding-left: 1.5em;
+        font-size: 14px;
+        overflow: hidden;
+
+        input[type=text] {
+            width: 80%;
+        }
+
+        a:hover {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        span {
+            position: absolute;
+            margin-left: -1.3em;
+        }
+    }
+}
+
+.surveyFormVars {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+
+    li {
+        text-align: left;
+        float: left;
+        width: 100%;
+        display: block;
+        margin: 4px;
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 3px;
+        }
+
+        input[type=text] {
+            width: 95%;
+        }
+
+        select {
+            width: 95%;
+        }
+    }
+}
+
+.textinput {
+    width: 90%;
+}
+
+.filterBox {
+    font-size: 12px;
+    padding: 0px 5px;
+    vertical-align: top;
+    overflow: auto;
+
+    label {
+        margin: 5px 0px;
+        display: block;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    select {
+        padding: 2px;
+        border: 1px solid #666666;
+        width: 100%;
+        height: 80px;
+    }
+
+    input[type=text] {
+        padding: 2px;
+        border: 1px solid #666666;
+        width: 100%;
+    }
+}
+
+#chatContainer {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    overflow: hidden;
+
+    .chatContent {
+        visibility: hidden;
+        float: right;
+        margin-right: 15px;
+        padding-left: 10px;
+        overflow: hidden;
+
+        .chatSegment {
+            visibility: hidden;
+            float: left;
+            width: 230px;
+            min-height: 1px;
+            position: relative;
+            margin-right: 5px;
+
+            .chatBox {
+                visibility: visible;
+                position: absolute;
+                bottom: 0;
+                width: 225px;
+                height: 300px;
+                background: #ffffff;
+                -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.65);
+                -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.65);
+                box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.65);
+
+                .chatBody {
+                    position: absolute;
+                    top: 25px;
+                    width: 225px;
+                    height: 275px;
+                }
+
+                .chatActive {
+                    background: #4800ff !important;
+                }
+
+                .chatHeader {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 225px;
+                    height: 25px;
+                    background: #666666;
+
+                    .chatHeaderTitle {
+                        float: left;
+                        color: #ffffff;
+                        font-size: 12px;
+                        font-weight: bold;
+                        line-height: 25px;
+                        margin-left: 5px;
+                    }
+
+                    .chatHeaderSystem {
+                        float: right;
+                        height: 25px;
+                        margin-right: 5px;
+
+                        a {
+                            padding-right: 5px;
+                        }
+
+                        a.minBtn {
+                            color: #ffffff;
+                            font-size: 14px;
+                            font-weight: normal;
+                            line-height: 25px;
+                        }
+
+                        a.maxBtn {
+                            color: #ffffff;
+                            font-size: 14px;
+                            font-weight: normal;
+                            line-height: 25px;
+                        }
+
+                        a.closeBtn {
+                            color: #ffffff;
+                            font-size: 14px;
+                            font-weight: normal;
+                            line-height: 25px;
+                        }
+
+                        a:hover {
+                            color: #00ffff !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#survey_config_form {
+    width: 100%;
+    border: none;
+
+    label {
+        display: block;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    textarea {
+        width: 300px;
+        height: 50px;
+        resize: none;
+    }
+
+    textarea.taller {
+        height: 125px;
+    }
+
+    input[type=text] {
+        width: 300px;
+    }
+
+    select {
+        width: 300px;
+    }
+}
+
+#user_details_form {
+    width: 100%;
+    border: none;
+
+    label {
+        display: block;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    textarea {
+        width: 300px;
+        height: 50px;
+        resize: none;
+    }
+
+    textarea.taller {
+        height: 125px;
+    }
+
+    input[type=text] {
+        width: 300px;
+    }
+
+    select {
+        width: 300px;
+    }
+}
+
+tr.scftop {
+    height: 75px;
+}
+
+#candidate_container {
+    overflow: hidden;
+    width: 540px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+#candidate_container #fullname_container, #referredby_container, #stage_container, #event_container {
+    width: 270px;
+    float: left;
+}
+
+#candidate_fullname {
+    width: 280px;
+    font-size: 12px;
+    font-weight: normal;
+    font-weight: bold;
+    color: black;
+}
+
+#candidate_referredby {
+    width: 280px;
+    font-size: 12px;
+    font-weight: normal;
+    color: black;
+}
+
+#candidate_current_event, #candidate_current_stage {
+    width: 280px;
+    font-size: 12px;
+    font-weight: normal;
+    color: black;
+    padding-top: 4px;
+}
+
+#jobpostbtn {
+    line-height: 20px;
+    margin-left: 10px;
+}
+
+
+table.job_desc_table {
+    background: #fff;
+    margin: 0 auto;
+    max-width: 100%;
+
+    td.leftcolumncell {
+        width: 150px;
+        text-align: left;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    td.rightcolumncell {
+        width: 500px;
+        text-align: left;
+        font-weight: normal;
+        font-size: 12px;
+        color: #000;
+    }
+}
+
+a.apply_btn {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.apply_btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.view_job {
+    font-family: Arial;
+    width: 900px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    background-color: #ddd;
+
+    .job_header {
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+        img {
+            width:100%;
+            max-width:900px;
+        }
+    }
+
+    .job_title {
+        text-align: left;
+        padding: 15px;
+        border-radius: 4px;
+        border: 1px solid #666;
+        background-color: #fff;
+        height: 80px;
+
+        .title_section {
+            float: left;
+
+            h1 {
+                padding: 0;
+                margin: 0;
+                font-size: 24px;
+                font-weight: bold;
+                color: #000;
+                width: 700px;
+            }
+
+            .sub_info {
+                margin-top: 5px;
+                font-size: 12px;
+                color: #666;
+                width: 700px;
+            }
+        }
+
+        .apply_section {
+            width: 150px;
+            margin-top: 20px;
+            float: right;
+        }
+
+        .text_msg_section {
+            float: left;
+            width: 870px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 5px;
+        }
+
+        .text_msg_rates {
+            text-align: center;
+            width: 870px;
+            float: left;
+            font-size: 12px;
+            color: #000;
+        }
+    }
+
+    .job_body {
+        margin-top: 10px;
+
+        .job_description {
+            width: 695px;
+            padding: 15px;
+            float: left;
+            border-radius: 4px;
+            border: 1px solid #666;
+            background-color: #fff;
+
+            h1 {
+                padding: 0;
+                margin: 0;
+                margin-top: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #000;
+            }
+
+            .desc_body {
+                margin-top: 15px;
+                margin-bottom: 30px;
+                font-size: 14px;
+                line-height: 18px;
+                color: #333;
+            }
+
+            .text_msg_section {
+                width: 100%;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                color: #000;
+                margin-top: 25px;
+            }
+
+            .text_msg_rates {
+                text-align: center;
+                width: 100%;  
+                font-size: 12px;
+                color: #000;
+            }
+        }
+
+        .ad_block {
+            text-align: right;
+            float: right;
+            width: 160px;
+        }
+    }
+}
+
+.careers_main {
+    background: #fff;
+    width: 920px;
+    margin: 0 auto;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+
+    .career_header {
+        width: 100%;
+        overflow: hidden;
+
+        .career_logo {
+            float: left;
+            width: 200px;
+        }
+
+        .career_search {
+            margin-top: 25px;
+            float: left;
+
+            .career_sub_search {
+                float: left;
+                margin-right: 5px;
+
+                span.search_header {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #ff6600;
+                    display: block;
+                }
+
+                input[type=text] {
+                    width: 150px;
+                    height: 20px;
+                }
+            }
+
+            .search_btn_container {
+                float: left;
+                padding-top: 19px;
+            }
+
+            .find_jobs_btn {
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+                text-shadow: 1px 1px 3px #666666;
+                font-family: Arial;
+                color: #ffffff;
+                font-size: 19px;
+                background: #3498db;
+                padding: 3px 10px 4px 10px;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .find_jobs_btn:hover {
+                background: #3cb0fd;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .careers_body {
+        margin-top: 20px;
+        width: 100%;
+        overflow: hidden;
+
+        .careers_filter {
+            float: left;
+            width: 200px;
+        }
+
+        .careers_listings {
+            float: left;
+
+            .career_item {
+                margin-bottom: 30px;
+                width: 550px;
+
+                .career_link {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 18px;
+                    color: blue;
+                    text-decoration: underline;
+                }
+
+                .career_company {
+                    font-size: 15px;
+                    color: black;
+                }
+
+                .career_location {
+                    font-size: 14px;
+                    color: #333;
+                }
+
+                .career_description {
+                    margin: 0;
+                    margin-top: 3px;
+                    padding: 0;
+                    font-size: 12px;
+                    color: #000;
+                    line-height: 18px;
+                    word-spacing: 3px;
+                }
+
+                .career_compensation {
+                    margin-top: 3px;
+                    font-size: 12px;
+                    color: #333;
+                }
+
+                .career_posttime {
+                    margin-top: 5px;
+                    font-size: 12px;
+                    color: #666;
+                }
+            }
+        }
+    }
+}

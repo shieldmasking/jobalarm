@@ -1,0 +1,204 @@
+debug 1
+debug 2
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 1111111111
+    [firstName] => John0
+    [lastName] => McC0
+    [email] => jm0@email.com
+    [zipCode] => 00000
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 2222222222
+    [firstName] => John1
+    [lastName] => McC1
+    [email] => jm1@email.com
+    [zipCode] => 11111
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 3333333333
+    [firstName] => John2
+    [lastName] => McC2
+    [email] => jm2@email.com
+    [zipCode] => 22222
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 4444444444
+    [firstName] => John3
+    [lastName] => McC3
+    [email] => jm3@email.com
+    [zipCode] => 33333
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 5555555555
+    [firstName] => John4
+    [lastName] => McC4
+    [email] => jm4@email.com
+    [zipCode] => 44444
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 6666666666
+    [firstName] => John5
+    [lastName] => McC5
+    [email] => jm5@email.com
+    [zipCode] => 55555
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 7777777777
+    [firstName] => John6
+    [lastName] => McC6
+    [email] => jm6@email.com
+    [zipCode] => 66666
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 8888888888
+    [firstName] => John7
+    [lastName] => McC7
+    [email] => jm7@email.com
+    [zipCode] => 77777
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 9999999999
+    [firstName] => John8
+    [lastName] => McC8
+    [email] => jm8@email.com
+    [zipCode] => 88888
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 0000000000
+    [firstName] => John9
+    [lastName] => McC9
+    [email] => jm9@email.com
+    [zipCode] => 99999
+)
+
+debug 1
+debug 2
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 1111111111
+    [firstName] => John0
+    [lastName] => McC0
+    [email] => jm0@email.com
+    [zipCode] => 00000
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 2222222222
+    [firstName] => John1
+    [lastName] => McC1
+    [email] => jm1@email.com
+    [zipCode] => 11111
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 3333333333
+    [firstName] => John2
+    [lastName] => McC2
+    [email] => jm2@email.com
+    [zipCode] => 22222
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 4444444444
+    [firstName] => John3
+    [lastName] => McC3
+    [email] => jm3@email.com
+    [zipCode] => 33333
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 5555555555
+    [firstName] => John4
+    [lastName] => McC4
+    [email] => jm4@email.com
+    [zipCode] => 44444
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 6666666666
+    [firstName] => John5
+    [lastName] => McC5
+    [email] => jm5@email.com
+    [zipCode] => 55555
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 7777777777
+    [firstName] => John6
+    [lastName] => McC6
+    [email] => jm6@email.com
+    [zipCode] => 66666
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 8888888888
+    [firstName] => John7
+    [lastName] => McC7
+    [email] => jm7@email.com
+    [zipCode] => 77777
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 9999999999
+    [firstName] => John8
+    [lastName] => McC8
+    [email] => jm8@email.com
+    [zipCode] => 88888
+)
+
+debug 3:5
+debug 4Array
+(
+    [mobileNum] => 0000000000
+    [firstName] => John9
+    [lastName] => McC9
+    [email] => jm9@email.com
+    [zipCode] => 99999
+)
+

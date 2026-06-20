@@ -1,0 +1,64 @@
+.header {
+	height: 10vh;
+	border-bottom: 2px solid #e6f5ff;
+	/*background-color: #6E612F;
+	border: 1px solid #6E352C;*/
+}
+
+.footer{
+	height: 24vh;
+	width:99vw;
+	border-top: 2px solid #e6f5ff;
+	/*background-color: #CF5230;
+	border: 1px solid #6E352C;*/
+}
+
+.bodyWrapper{
+	height: 64vh;
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bodyContent{
+	background-color: #faf4eb;
+	border-top: 2px solid #e6f5ff;
+	border-bottom: 2px solid #e6f5ff;
+	border-left: 2px solid #e6f5ff;
+	border-right: 2px solid #e6f5ff;
+	width: 99%;
+}
+
+/*
+main color palette here
+https://www.pinterest.com/pin/69876231691865521/
+
+*/
+
+.brown{
+	color: #6E352C;
+}
+
+.red{
+	color: #CF5230;
+}
+
+.orange{
+	color: #F59A44;
+}
+
+.yellow{
+	color: #E3C598;
+}
+
+.lightYellow{
+color: #faf4eb;
+}
+
+.blue{
+	color: #8A6E64;
+}
+
+.green{
+	color: #6E612F;
+}

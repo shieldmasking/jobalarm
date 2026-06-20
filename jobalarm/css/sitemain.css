@@ -1,0 +1,704 @@
+﻿body,
+html {
+  background-color: #666666;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+.ui-front {
+  z-index: 10000000;
+}
+.ui-dialog .ui-dialog-content {
+  padding: 0;
+}
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+#masterContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: auto;
+}
+#content {
+  width: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+#content .center {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  width: 90%;
+  min-width: 860px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 10px 1px black;
+  -webkit-box-shadow: 0px 3px 10px 1px black;
+  -moz-box-shadow: 0px 3px 10px 1px black;
+}
+#content .center .header {
+  width: 100%;
+  height: 87px;
+  background-image: url(../img/header-main2.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-bottom: 2px solid #999999;
+}
+#content .center .header .mainmenu {
+  float: right;
+}
+#content .center .header .mainmenu a.header_btn {
+  float: left;
+  display: block;
+  width: 146px;
+  height: 87px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 80px;
+  text-align: center;
+  color: #666666;
+  background-color: #eeeeee;
+  background-repeat: no-repeat;
+  background-position: top left;
+  border-left: 2px solid #999999;
+}
+#content .center .header .mainmenu a.btn_active {
+  background-color: #aaaaaa;
+  color: #ffffff;
+}
+#content .center .header .mainmenu a.header_btn:hover {
+  background-color: #cccccc;
+  color: #ffffff;
+}
+#content .center .header .sysblock {
+  float: right;
+  width: 180px;
+  height: 87px;
+  padding-top: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: right;
+  color: #ffffff;
+  border-left: 2px solid #999999;
+}
+#content .center .header .sysblock p {
+  padding: 0 5px 0 0;
+  margin: 0;
+  line-height: 18px;
+}
+#content .center .header .sysblock p a {
+  color: #000000;
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+#content .center .header .sysblock p a:hover {
+  color: #0094ff;
+}
+#content .center .header .sysblock p a.user {
+  font-size: 12px;
+}
+#content .center .header .sysblock p a.logout {
+  font-size: 12px;
+}
+#content .center .header .sysblock p a.reports {
+  font-size: 12px;
+}
+#content .center .header .sysblock p a.adminlink {
+  font-size: 12px;
+}
+#content .center .dashboard {
+  width: 100%;
+  height: 600px;
+}
+#content .center .dashboard button.clipboard_button {
+  float: left;
+}
+#content .center .dashboard a img {
+  border: none;
+}
+#content .center .dashboard a.dashboard_archive_btn {
+  border: none;
+  display: block;
+  float: right;
+  margin: 0 5px;
+}
+#content .center .dashboard a.dashboard_copy_btn {
+  border: none;
+  display: block;
+  float: right;
+  margin: 0 5px;
+  margin-top: 3px;
+}
+#content .center .dashboard a.dashboard_edit_btn {
+  border: none;
+  display: block;
+  float: left;
+  margin: 0 5px;
+  margin-top: 3px;
+}
+#content .center .candidates {
+  width: 100%;
+  height: 600px;
+}
+#content .center .admin {
+  width: 100%;
+  height: 600px;
+}
+#content .center .globals {
+  width: 100%;
+  height: 600px;
+}
+#content .center .surveys {
+  width: 100%;
+  height: 600px;
+}
+#content .center .sms {
+  width: 100%;
+  height: 600px;
+}
+#content .center .login_box {
+  width: 350px;
+  margin: 40px auto;
+}
+#content .center .register_box {
+  width: 350px;
+  height: 340px !important;
+  margin: 20px auto;
+}
+.sortHeader {
+  background: #eeeeee;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 26px;
+  margin-bottom: 3px;
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+}
+#configureListView {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+#sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#sortable li {
+  margin: 0 3px 3px 3px;
+  padding: 0.2em;
+  padding-left: 1.5em;
+  font-size: 14px;
+  overflow: hidden;
+}
+#sortable li input[type=text] {
+  width: 80%;
+}
+#sortable li a:hover {
+  font-weight: bold;
+  color: #000000;
+}
+#sortable li span {
+  position: absolute;
+  margin-left: -1.3em;
+}
+.surveyFormVars {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.surveyFormVars li {
+  text-align: left;
+  float: left;
+  width: 100%;
+  display: block;
+  margin: 4px;
+}
+.surveyFormVars li label {
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 3px;
+}
+.surveyFormVars li input[type=text] {
+  width: 95%;
+}
+.surveyFormVars li select {
+  width: 95%;
+}
+.textinput {
+  width: 90%;
+}
+.filterBox {
+  font-size: 12px;
+  padding: 0px 5px;
+  vertical-align: top;
+  overflow: auto;
+}
+.filterBox label {
+  margin: 5px 0px;
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
+}
+.filterBox select {
+  padding: 2px;
+  border: 1px solid #666666;
+  width: 100%;
+  height: 80px;
+}
+.filterBox input[type=text] {
+  padding: 2px;
+  border: 1px solid #666666;
+  width: 100%;
+}
+#chatContainer {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  overflow: hidden;
+}
+#chatContainer .chatContent {
+  visibility: hidden;
+  float: right;
+  margin-right: 15px;
+  padding-left: 10px;
+  overflow: hidden;
+}
+#chatContainer .chatContent .chatSegment {
+  visibility: hidden;
+  float: left;
+  width: 230px;
+  min-height: 1px;
+  position: relative;
+  margin-right: 5px;
+}
+#chatContainer .chatContent .chatSegment .chatBox {
+  visibility: visible;
+  position: absolute;
+  bottom: 0;
+  width: 225px;
+  height: 300px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.65);
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatBody {
+  position: absolute;
+  top: 25px;
+  width: 225px;
+  height: 275px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatActive {
+  background: #4800ff !important;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 25px;
+  background: #666666;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderTitle {
+  float: left;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 25px;
+  margin-left: 5px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderSystem {
+  float: right;
+  height: 25px;
+  margin-right: 5px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderSystem a {
+  padding-right: 5px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderSystem a.minBtn {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 25px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderSystem a.maxBtn {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 25px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderSystem a.closeBtn {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 25px;
+}
+#chatContainer .chatContent .chatSegment .chatBox .chatHeader .chatHeaderSystem a:hover {
+  color: #00ffff !important;
+}
+#survey_config_form {
+  width: 100%;
+  border: none;
+}
+#survey_config_form label {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#survey_config_form textarea {
+  width: 300px;
+  height: 50px;
+  resize: none;
+}
+#survey_config_form textarea.taller {
+  height: 125px;
+}
+#survey_config_form input[type=text] {
+  width: 300px;
+}
+#survey_config_form select {
+  width: 300px;
+}
+#user_details_form {
+  width: 100%;
+  border: none;
+}
+#user_details_form label {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#user_details_form textarea {
+  width: 300px;
+  height: 50px;
+  resize: none;
+}
+#user_details_form textarea.taller {
+  height: 125px;
+}
+#user_details_form input[type=text] {
+  width: 300px;
+}
+#user_details_form select {
+  width: 300px;
+}
+tr.scftop {
+  height: 75px;
+}
+#candidate_container {
+  overflow: hidden;
+  width: 540px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+#candidate_container #fullname_container,
+#referredby_container,
+#stage_container,
+#event_container {
+  width: 270px;
+  float: left;
+}
+#candidate_fullname {
+  width: 280px;
+  font-size: 12px;
+  font-weight: normal;
+  font-weight: bold;
+  color: black;
+}
+#candidate_referredby {
+  width: 280px;
+  font-size: 12px;
+  font-weight: normal;
+  color: black;
+}
+#candidate_current_event,
+#candidate_current_stage {
+  width: 280px;
+  font-size: 12px;
+  font-weight: normal;
+  color: black;
+  padding-top: 4px;
+}
+#jobpostbtn {
+  line-height: 20px;
+  margin-left: 10px;
+}
+table.job_desc_table {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 100%;
+}
+table.job_desc_table td.leftcolumncell {
+  width: 150px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+table.job_desc_table td.rightcolumncell {
+  width: 500px;
+  text-align: left;
+  font-weight: normal;
+  font-size: 12px;
+  color: #000;
+}
+a.apply_btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 11;
+  -moz-border-radius: 11;
+  border-radius: 11px;
+  text-shadow: 1px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.apply_btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+  cursor: pointer;
+}
+.view_job {
+  font-family: Arial;
+  width: 900px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  background-color: #ddd;
+}
+.view_job .job_header {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+.view_job .job_header img {
+  width: 100%;
+  max-width: 900px;
+}
+.view_job .job_title {
+  text-align: left;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  background-color: #fff;
+  height: 80px;
+}
+.view_job .job_title .title_section {
+  float: left;
+}
+.view_job .job_title .title_section h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  width: 700px;
+}
+.view_job .job_title .title_section .sub_info {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+  width: 700px;
+}
+.view_job .job_title .apply_section {
+  width: 150px;
+  margin-top: 20px;
+  float: right;
+}
+.view_job .job_title .text_msg_section {
+  float: left;
+  width: 870px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 5px;
+}
+.view_job .job_title .text_msg_rates {
+  text-align: center;
+  width: 870px;
+  float: left;
+  font-size: 12px;
+  color: #000;
+}
+.view_job .job_body {
+  margin-top: 10px;
+}
+.view_job .job_body .job_description {
+  width: 695px;
+  padding: 15px;
+  float: left;
+  border-radius: 4px;
+  border: 1px solid #666;
+  background-color: #fff;
+}
+.view_job .job_body .job_description h1 {
+  padding: 0;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+.view_job .job_body .job_description .desc_body {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333;
+}
+.view_job .job_body .job_description .text_msg_section {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 25px;
+}
+.view_job .job_body .job_description .text_msg_rates {
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  color: #000;
+}
+.view_job .job_body .ad_block {
+  text-align: right;
+  float: right;
+  width: 160px;
+}
+.careers_main {
+  background: #fff;
+  width: 920px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.careers_main .career_header {
+  width: 100%;
+  overflow: hidden;
+}
+.careers_main .career_header .career_logo {
+  float: left;
+  width: 200px;
+}
+.careers_main .career_header .career_search {
+  margin-top: 25px;
+  float: left;
+}
+.careers_main .career_header .career_search .career_sub_search {
+  float: left;
+  margin-right: 5px;
+}
+.careers_main .career_header .career_search .career_sub_search span.search_header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff6600;
+  display: block;
+}
+.careers_main .career_header .career_search .career_sub_search input[type=text] {
+  width: 150px;
+  height: 20px;
+}
+.careers_main .career_header .career_search .search_btn_container {
+  float: left;
+  padding-top: 19px;
+}
+.careers_main .career_header .career_search .find_jobs_btn {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-shadow: 1px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 19px;
+  background: #3498db;
+  padding: 3px 10px 4px 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.careers_main .career_header .career_search .find_jobs_btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+.careers_main .careers_body {
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+.careers_main .careers_body .careers_filter {
+  float: left;
+  width: 200px;
+}
+.careers_main .careers_body .careers_listings {
+  float: left;
+}
+.careers_main .careers_body .careers_listings .career_item {
+  margin-bottom: 30px;
+  width: 550px;
+}
+.careers_main .careers_body .careers_listings .career_item .career_link {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: blue;
+  text-decoration: underline;
+}
+.careers_main .careers_body .careers_listings .career_item .career_company {
+  font-size: 15px;
+  color: black;
+}
+.careers_main .careers_body .careers_listings .career_item .career_location {
+  font-size: 14px;
+  color: #333;
+}
+.careers_main .careers_body .careers_listings .career_item .career_description {
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  font-size: 12px;
+  color: #000;
+  line-height: 18px;
+  word-spacing: 3px;
+}
+.careers_main .careers_body .careers_listings .career_item .career_compensation {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #333;
+}
+.careers_main .careers_body .careers_listings .career_item .career_posttime {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+/*# sourceMappingURL=sitemain.css.map */

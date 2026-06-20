@@ -1,0 +1,110 @@
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Failure","Code":401,"Errors":["Authorization Required"]}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Failure","Code":401,"Errors":["Authorization Required"]}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Failure","Code":401,"Errors":["Authorization Required"]}}
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => 
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39285375,"Subject":"","Message":"test","MessageTypeID":1,"RecipientsCount":1,"Credits":2,"StampToSend":"11-12-2014 7:24 PM","PhoneNumbers":["2149343360"],"Groups":[]}}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39499953,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":2,"Credits":4,"StampToSend":"11-18-2014 4:42 PM","PhoneNumbers":["2149343360","4157236270"],"Groups":[]}}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39499988,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":2,"Credits":4,"StampToSend":"11-18-2014 4:43 PM","PhoneNumbers":["2149343360","4157236270"],"Groups":[]}}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39500024,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":1,"Credits":2,"StampToSend":"11-18-2014 4:45 PM","PhoneNumbers":["2149343360"],"Groups":[]}}}
+    [1] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39500028,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":1,"Credits":2,"StampToSend":"11-18-2014 4:45 PM","PhoneNumbers":["4157236270"],"Groups":[]}}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39500075,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":2,"Credits":4,"StampToSend":"11-18-2014 4:46 PM","PhoneNumbers":["2149343360","4157236270"],"Groups":[]}}}
+)
+
+
+Array
+(
+    [0] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39500090,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":1,"Credits":2,"StampToSend":"11-18-2014 4:46 PM","PhoneNumbers":["4157236270"],"Groups":[]}}}
+    [1] => {"Response":{"Status":"Success","Code":201,"Entry":{"ID":39500091,"Subject":"","Message":"0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456","MessageTypeID":1,"RecipientsCount":1,"Credits":2,"StampToSend":"11-18-2014 4:46 PM","PhoneNumbers":["2149343360"],"Groups":[]}}}
+)
+
+

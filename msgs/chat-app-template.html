@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+ <!--
+/**
+ * Appcropolis Template: Chat App Template 
+ * @copy Appcropolis LLC (c) 2011-2014. All rights reserved.
+ * @author sammiekiogora (support@appcropolis.com)
+ * @date 2014-10-06
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+ * SOFTWARE.
+ *
+ * License and legal information: 
+ *
+ * http://appcropolis.com/license/
+ * http://appcropolis.com/legal/
+ * http://appcropolis.com/privacy/
+ */ -->
+<html data-appc-framework="ratchet">
+    <head>
+        <title>Chat App Template &raquo; Appcropolis</title>
+        <!-- general metadata -->
+	    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no, minimal-ui">
+        <meta name="generator" content="Appcropolis Builder 1.0.0" >
+        <meta name="author" content="Appcropolis">
+        <meta name="description" content="Simple chat template with message threads">
+        <meta name="keywords" content="mobile, app, builder, mobile templates, appcropolis, webapp, templates">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black"><!-- /general metadata -->
+
+        <!--[PREVIEW-META]-->
+        <meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<!--[/PREVIEW-META]-->
+
+        <!-- web app capabilities -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="apple-touch-startup-image" href="resources/apple-touch-startup-image.png"><!-- /web app capabilities -->
+
+		<!-- fav and touch icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="resources/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="resources/ico/favicon.png"><!-- /fav and touch icons -->
+
+
+	    <!-- jquerymobile -->
+	    <link rel="stylesheet" href="vendors/jqm-1.4.2/jquery.mobile.custom.structure.css" />
+	    <script src="vendors/jqm-1.4.2/jquery-1.9.1.js"></script>
+	    <script src="vendors/jqm-1.4.2/jquery.mobile.custom.js"></script><!-- /jquerymobile -->
+	    
+	    <script>
+			$(document).on("pagechange", function( event ) {
+			    var activePage = $.mobile.activePage.attr('id');
+			    if(typeof window[activePage + '_pagechange'] == 'function') {
+			        window[activePage + '_pagechange'].apply(null);
+			    }
+			});
+			
+			/* 
+	    */
+			$(document).on("pagebeforechange", function( event ) {
+			    var activePage = $.mobile.activePage;
+				if(typeof activePage !== 'undefined') {
+			    	var id = $.mobile.activePage.attr('id');
+				    if(typeof window[id + '_pagebeforechange'] == 'function') {
+				        window[id + '_pagebeforechange'].apply(null);
+				    }
+				}
+			});
+	    
+	    </script>
+	    
+		<script src="resources/js/appc-global.js"></script>
+
+
+<!-- jquerymobile CDN - - >
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<!-- jquerymobile CDN -->
+
+
+
+	    
+
+	    <!-- ratchet -->
+	    <!--
+	    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	    -->
+	    <link rel="stylesheet" href="vendors/ratchet/css/ratchet.css">
+	    <link rel="stylesheet" href="vendors/ratchet/css/ratchet-theme-ios.css">
+	    <link rel="stylesheet" href="vendors/ratchet/css/appcropolis-fix.css">
+	    <!--<script src="vendors/ratchet/js/ratchet.js"></script><!-- /ratchet -->
+
+		<!-- vendors -->
+		<!-- /vendors -->
+    </head>
+    <body>
+		<!-- page -->
+		<div id="chat-app-template" data-role="page">
+			<link href="resources/css/chat-app-template.css?rand=16047" rel="stylesheet" />
+			<!-- header -->
+			<!-- /header -->
+			<!-- subheader -->
+			<div class="bar bar-standard bar-header-secondary">
+			    <button class="btn btn-link btn-nav pull-left">
+			        <span class="icon icon-left-nav"></span>
+			        Inbox (567)
+			    </button>
+			    <button class="btn btn-link btn-nav pull-right" style="margin-right: 2px;">
+			        <span class="icon icon-down-nav"></span>
+			    </button>
+			    <button class="btn btn-link btn-nav pull-right" style="margin-right: 5px;">
+			        <span class="icon icon-up-nav"></span>
+			    </button>
+			</div><!-- /subheader -->
+			<!-- content -->
+			<div data-role="content" class="content">
+			    <div class="chat">
+			      <ul>
+			        <li><img src="http://mrg.bz/XduV5Q">
+			          <div class="message">Rhoncus auctor placerat</div>
+			        </li>
+			        
+			        
+			        <li><img src="http://mrg.bz/0BT5wd">
+			          <div class="message">Sed aliquam Tortor scelerisque?</div>
+			        </li>
+			        
+			        <li><img src="http://mrg.bz/XduV5Q">
+			          <div class="message"> Enim enim facilisis ac lorem 
+			          pellentesque pulvinar rhoncus proin massa</div>
+			        </li>
+			        
+			        <li><img src="http://mrg.bz/0BT5wd">
+			          <div class="message">Awesome :)</div>
+			        </li>
+			      </ul>
+			    </div>
+			</div><!-- /content -->
+			<!-- footer -->
+			<footer data-role="footer" data-position="fixed">
+				<nav class="bar bar-standard bar-footer" style="height: 50px; padding-top: 4px;">
+				  <button class="btn btn-outlined pull-left">
+				    <span class="icon icon-left-nav" style="font-size: inherit; top: 0"></span>
+				    Older 
+				  </button>
+				  <button class="btn btn-primary btn-outlined pull-right">
+				    Newer 
+				    <span class="icon icon-right-nav" style="font-size: inherit; top: 0"></span>
+				  </button>
+				</nav>
+			</footer>
+			<!-- /footer -->
+			
+			
+			<!-- @@@ --><script src="resources/js/chat-app-template.js?rand=16047" type="text/javascript"></script>
+		</div>
+		<!-- /page -->
+		
+	    <script type="text/javascript">//<![CDATA[
+	    var _gaq = _gaq || [];
+	    _gaq.push(['_setAccount','UA-29202422-1']);
+	    _gaq.push(['_trackPageview'],['_trackPageLoadTime']);
+	    (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	    //]]></script>
+    </body>
+</html>

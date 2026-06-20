@@ -1,0 +1,28 @@
+[11-May-2016 17:02:43 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 17:10:02 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 17:10:52 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 17:11:17 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:11:17 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:11:47 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:11:47 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:11:50 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:14:06 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:14:12 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:14:12 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:14:43 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:15:17 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:15:20 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 17:15:21 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 5
+[11-May-2016 18:16:44 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 6
+[11-May-2016 18:16:46 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 6
+[11-May-2016 18:16:50 UTC] PHP Fatal error:  Class 'Config' not found in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 6
+[11-May-2016 18:19:22 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 18:19:59 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 18:20:46 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 18:29:20 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[11-May-2016 18:30:40 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/twitteroauth/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/inc/config.php on line 179
+[12-May-2016 21:09:55 UTC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 24
+[12-May-2016 21:09:55 UTC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 24
+[12-May-2016 21:09:59 UTC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 24
+[13-May-2016 15:04:16 UTC] PHP Parse error:  syntax error, unexpected 'json_encode' (T_STRING) in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 26
+[13-May-2016 15:04:34 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/tweetedjobs/public_html/jareports/model/sms_summary.php on line 26

@@ -1,0 +1,1 @@
+[08-Feb-2017 13:54:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'models/user.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tweetedjobs/public_html/jobalarm/controllers/sms.php on line 3

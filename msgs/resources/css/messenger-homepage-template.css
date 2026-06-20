@@ -1,0 +1,72 @@
+/**
+ * Appcropolis Template: Messenger Homepage Template 
+ * @copy Appcropolis LLC (c) 2011-2014. All rights reserved.
+ * @author sammiekiogora (support@appcropolis.com)
+ * @date 2014-10-06
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+ * SOFTWARE.
+ *
+ * License and legal information: 
+ *
+ * http://appcropolis.com/license/
+ * http://appcropolis.com/legal/
+ * http://appcropolis.com/privacy/
+ */
+
+/* HEADER */
+/* /HEADER */
+
+
+/* SUBHEADER */
+
+#messenger-homepage-template .bar-header-secondary {
+    padding-left: 2px; 
+    padding-right: 2px;
+    height: 44px;
+    }
+
+#messenger-homepage-template .bar-header-secondary .tab-item {
+    height: 44px;
+    }
+    
+#messenger-homepage-template .tab-item-small button.btn-link {
+    top: 0; 
+    width: 90%; 
+    font-size: 12px;
+    text-align: left;
+    }
+    
+#messenger-homepage-template .tab-item-small button.btn-link .icon {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-top: -3px;
+    }
+    
+/* /SUBHEADER */
+
+/* CONTENT */
+
+#messenger-homepage-template .media-message img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    }
+    
+#messenger-homepage-template .table-view-cell {
+    padding-right: 20px;
+    }
+
+/* /CONTENT */
+
+/* FOOTER */
+/* /FOOTER */
+
+
+

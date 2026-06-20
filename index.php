@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<title>JobAlarm</title>
+<meta name="fo-verify" content="4bfd6740-99fb-4bb9-ac4d-36fcb7814562" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta content="" name="description">
+<meta content="" name="author">
+<meta property="og:url" content="http://www.jobalarm.com">
+<meta property="og:image" content="http://www.jobalarm.com/img/job2.jpg">
+<meta property="og:description" content="JobAlarm give you the ability to communicate with Employers via text.  Search Real Local Jobs">
+<meta name='ir-site-verification-token' value='892026379'>
+<meta charset="utf-8" />
+    <title>JobAlarm | Homepage</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+   <!-- BEGIN GLOBAL MANDATORY STYLES -->          
+   <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+   <!-- END GLOBAL MANDATORY STYLES -->
+   
+   <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+   <link href="assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />              
+   <link rel="stylesheet" href="assets/plugins/revolution_slider/css/rs-style.css" media="screen">
+   <link rel="stylesheet" href="assets/plugins/revolution_slider/rs-plugin/css/settings.css" media="screen"> 
+   <link href="assets/plugins/bxslider/jquery.bxslider.css" rel="stylesheet" />  
+ 
+   <link href="admin/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css"/>
+	<link href="admin/assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>  
+
+   <!-- END PAGE LEVEL PLUGIN STYLES -->
+
+   <!-- BEGIN THEME STYLES --> 
+   <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+   <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+
+   <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<body>
+	<!-- BEGIN STYLE CUSTOMIZER -->
+	
+	<!-- END BEGIN STYLE CUSTOMIZER -->    
+
+    <!-- BEGIN HEADER -->
+<div class="header navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+				<button class="navbar-toggle btn navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- END RESPONSIVE MENU TOGGLER -->
+				<!-- BEGIN LOGO (you can use logo image instead of text)-->
+				<a class="navbar-brand logo-v1" href="">
+					<img src="img/logo1.png" id="logoimg" alt="">
+				</a>
+				<!-- END LOGO -->
+			</div>
+		
+			<!-- BEGIN TOP NAVIGATION MENU -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="search.php" >Search Jobs</a></li>
+					
+					<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
+                            Employers
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="login.php">Log In</a></li>
+                  
+                            <li><a href="contact.php" target="_blank">FREE Trial</a></li>
+                            
+                        </ul>
+                    </li>
+					
+					<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
+                            About
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+						<li><a href="../howitworks/">How JobAlarm Works</a></li>
+                            <li><a href="" target="_blank">About Us</a></li>
+                  
+                           <!-- <li><a href="index.php">Careers</a></li>-->
+                            
+                        </ul>
+                    </li>
+					
+					<li><a href="contact.php" target="_blank">Contact Us</a></li>
+				</ul>                           
+			</div>
+			<!-- BEGIN TOP NAVIGATION MENU -->
+		</div>
+    </div>
+    <!-- END HEADER -->
+
+    <!-- BEGIN PAGE CONTAINER -->  
+    <div class="page-container">
+        <!-- BEGIN REVOLUTION SLIDER -->    
+      <div class="fullwidthbanner-container slider-main">
+            <div class="fullwidthabnner">
+                <ul id="revolutionul" style="display:none;">            
+                        <!-- THE FIRST SLIDE -->
+                        <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="assets/img/sliders/revolution/thumbs/thumb2.jpg">
+                            <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
+                            <img src="assets/img/sliders/revolution/bg1.jpg" alt="">
+                            
+                            <div class="caption lft slide_title slide_item_left"
+                                 data-x="0"
+                                 data-y="105"
+                                 data-speed="400"
+                                 data-start="1500"
+                                 data-easing="easeOutExpo">
+                                 Extend Your Recruiting Reach
+                            </div>
+                            <div class="caption lft slide_subtitle slide_item_left"
+                                 data-x="0"
+                                 data-y="180"
+                                 data-speed="400"
+                                 data-start="2000"
+                                 data-easing="easeOutExpo">
+                                 We do....
+                            </div>
+                            <div class="caption lft slide_desc slide_item_left"
+                                 data-x="0"
+                                 data-y="220"
+                                 data-speed="400"
+                                 data-start="2500"
+                                 data-easing="easeOutExpo">
+                                 JobAlarm gives you the tools and control<br>
+                                 to maximize your candidate flow.
+                            </div>
+                            <a class="caption lft btn green slide_btn slide_item_left" href="contact.php"
+                                 data-x="0"
+                                 data-y="290"
+                                 data-speed="400"
+                                 data-start="3000"
+                                 data-easing="easeOutExpo">
+                                 Try it FREE!
+                            </a>                        
+                            <div class="caption lfb"
+                                 data-x="640" 
+                                 data-y="55" 
+                                 data-speed="700" 
+                                 data-start="1000" 
+                                 data-easing="easeOutExpo"  >
+                                 <img src="assets/img/sliders/revolution/man-winner.png" alt="Image 1">
+                            </div>
+                        </li>
+
+                        <!-- THE SECOND SLIDE -->
+                        <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="assets/img/sliders/revolution/thumbs/thumb2.jpg">                        
+                            <img src="assets/img/sliders/revolution/bg2.jpg" alt="">
+                            <div class="caption lfl slide_title slide_item_left"
+                                 data-x="0"
+                                 data-y="125"
+                                 data-speed="400"
+                                 data-start="3500"
+                                 data-easing="easeOutExpo">
+                                 Powerful yet easy to use
+                            </div>
+                            <div class="caption lfl slide_subtitle slide_item_left"
+                                 data-x="0"
+                                 data-y="200"
+                                 data-speed="400"
+                                 data-start="4000"
+                                 data-easing="easeOutExpo">
+                                 Stop waiting for candidates to respond....
+                            </div>
+                            <div class="caption lfl slide_desc slide_item_left"
+                                 data-x="0"
+                                 data-y="245"
+                                 data-speed="400"
+                                 data-start="4500"
+                                 data-easing="easeOutExpo">
+                                 Start communicating with them instantly via JobAlarm's Control Panel<br>
+                            </div>                        
+                            <div class="caption lfr slide_item_right" 
+                                 data-x="635" 
+                                 data-y="105" 
+                                 data-speed="1200" 
+                                 data-start="1500" 
+                                 data-easing="easeOutBack">
+                                 <img src="assets/img/sliders/revolution/WorkerTexting_Medium.png" alt="Image 1">
+                            </div>
+                            
+                            
+                            
+                            <div class="caption lft slide_item_right" 
+                                 data-x="865" 
+                                 data-y="45" 
+                                 data-speed="500" 
+                                 data-start="5000" 
+                                 data-easing="easeOutBack">
+                                 <img src="assets/img/sliders/revolution/hint1-blue.png" id="rev-hint1" alt="Image 1">
+                            </div>                        
+                            
+
+                        </li>
+                        
+                        <!-- THE THIRD SLIDE -->
+                        
+                        <!-- THE FORTH SLIDE -->
+                        <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="assets/img/sliders/revolution/thumbs/thumb2.jpg">
+                            <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
+                            <img src="assets/img/sliders/revolution/bg4.jpg" alt="">                        
+                             <div class="caption lft slide_title"
+                                 data-x="0"
+                                 data-y="105"
+                                 data-speed="400"
+                                 data-start="1500"
+                                 data-easing="easeOutExpo">
+                                 Want to Check It Out?
+                            </div>
+							<div class="caption lfl slide_desc slide_item_left"
+                                 data-x="0"
+                                 data-y="180"
+                                 data-speed="400"
+                                 data-start="2000"
+                                 data-easing="easeOutExpo">
+                                 See how texting and geo-location can</br>
+								 drive brand-loyal candidates to your jobs.
+                            </div>
+							<!--
+                            <div class="caption lft slide_desc"
+                                 data-x="0"
+                                 data-y="225"
+                                 data-speed="400"
+                                 data-start="2500"
+                                 data-easing="easeOutExpo">
+                                 Message & Data Rates May Apply.<br>		
+								 Text STOP to 47711 to Cancel<br>
+								 Text HELP to 47711 for Support
+                            </div>
+                            <a class="caption lft slide_btn btn red slide_item_left" href="index.php" 
+                                 data-x="0"
+                                 data-y="300"
+                                 data-speed="400"
+                                 data-start="3000"
+                                 data-easing="easeOutExpo">
+                                 Learn More!
+                            </a> -->
+							<a class="caption lft btn green slide_btn slide_item_left" href="contact.php"
+                                 data-x="0"
+                                 data-y="290"
+                                 data-speed="400"
+                                 data-start="3000"
+                                 data-easing="easeOutExpo">
+                                 Contact Us Today!
+                            </a>							
+                            <div class="caption lft start"  
+                                 data-x="670" 
+                                 data-y="55" 
+                                 data-speed="400" 
+                                 data-start="2000" 
+                                 data-easing="easeOutBack"  >
+                                 <img src="../img/DunkinBatista.jpg" alt="Image 2">
+                            </div>
+                            
+                                                   
+                        </li>
+                </ul>
+                <div class="tp-bannertimer tp-bottom"></div>
+            </div>
+        </div>
+        <!-- END REVOLUTION SLIDER -->
+    	 
+        <!-- BEGIN CONTAINER -->   
+        <div class="container">
+          
+            <!-- BEGIN SERVICE BOX -->   
+            <div class="row service-box">
+                <div class="col-md-4 col-sm-4">
+                    <div class="service-box-heading">
+                        <em><i class="fa fa-location-arrow blue"></i></em>
+                        <span>Our Impact</span>
+                    </div>
+                    <p>See how Targeting SMS Technology and Automated Execution can extend your recruiting reach and maximize your candidate flow.</p>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="service-box-heading">
+                        <em><i class="fa fa-check red"></i></em>
+                        <span>Our Mission</span>
+                    </div>
+                    <p>Provide the leading Mobile Candidate Platform giving Employers the ability to reach the hard-to-reach candidates.</p>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="service-box-heading">
+                        <em><i class="fa fa-resize-small green"></i></em>
+                        <span><a href="login.php" target="_blank">Client Login</a></span>
+                    </div>
+                    <p>Log in and manage your account.</p>
+                    <!--<p>OR</p>
+                    <p><span><a href="http://admin.jobalarm.com/register" target="_blank">Sign Up Now</a></span></p>-->
+                </div>
+            </div>
+            <!-- END SERVICE BOX -->  
+
+            <!-- BEGIN BLOCKQUOTE BLOCK -->   
+          
+            <!-- END BLOCKQUOTE BLOCK -->
+
+            <div class="clearfix"></div>
+
+            <!-- BEGIN RECENT WORKS -->
+            <div class="row recent-work margin-bottom-40">
+                <!-- responsive -->
+							<div id="responsive" class="modal fade" tabindex="-1" data-width="450">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+									<h4 class="modal-title">Login</h4>
+								</div>
+								<div class="modal-body">
+									
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+									<button type="button" class="btn blue">Save changes</button>
+								</div>
+							</div>
+						</div>
+            <!-- END RECENT WORKS -->
+
+            <div class="clearfix"></div>
+
+            <!-- BEGIN TABS AND TESTIMONIALS -->
+          
+            <!-- END TABS AND TESTIMONIALS -->
+
+            <!-- BEGIN STEPS -->
+          
+            <!-- END STEPS -->
+
+            <!-- BEGIN CLIENTS -->
+         
+            <!-- END CLIENTS -->
+        </div>
+        <!-- END CONTAINER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+
+    <!-- BEGIN FOOTER -->
+       
+    <!-- END FOOTER -->
+
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <p>
+                        <span class="margin-right-10">2013 © Harrelson Group, LLC. ALL Rights Reserved.</span> 
+                        <a href="privacy.html">Privacy Policy</a> | <a href="terms/">Terms of Use</a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <ul class="social-footer">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        
+                    </ul>                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END COPYRIGHT -->
+
+    <!-- Load javascripts at bottom, this will reduce page load time -->
+     <!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
+    <!--[if lt IE 9]>
+    <script src="assets/plugins/respond.min.js"></script>  
+    <script src="admin/assets/plugins/excanvas.min.js"></script> 
+    <![endif]-->  
+    <script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
+    <script type="text/javascript" src="assets/plugins/hover-dropdown.js"></script>
+    <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>    
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->
+	
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>  
+    <script type="text/javascript" src="assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script>
+    <script src="assets/scripts/app.js"></script>
+    <script src="assets/scripts/index.js"></script>  
+		
+   	<script src="admin/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+	<script src="admin/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+	<script src="admin/assets/scripts/ui-extended-modals.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();    
+            App.initBxSlider();
+            Index.initRevolutionSlider();                    
+        });
+    </script>
+	
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,121 @@
+
+        SURVEYID: 159545
+
+        RESPONSEID: 18955
+
+        SMSRESPONSE: 1
+
+        ANSWERLIST: Array
+(
+    [_invite_code] => 
+    [_invite_email] => 
+    [JV5vILLviE_3] => 
+    [JV5vILLviE_2] => 2139053527
+    [JV5vILLviE_1] => 
+    [JV5vILLviE_0] => 
+    [_username] => 
+    [JV5vILLviE_4] => 
+    [_device_type] => 
+    [_referrer] => 
+    [33qbP0r5Re] => 
+    [NTOglpGXu2] => 
+    [3kXwCEP6WP] => 
+    [R1VueoTyom] => 
+    [_created_at] => 2015-07-19 08:01:39
+    [_completed] => 
+    [_saves] => 
+    [aCa5FsUn1E] => 
+    [FW6eqzhaJ1] => 
+    [XNNTDZ8udT] => 
+    [PJM8RpGNyg] => 
+    [_updated_at] => 2015-07-19 08:01:39
+    [_collector_id] => 
+    [_weighted_score] => 
+    [_pagepath] => 
+    [_invite_name] => 
+    [_locale] => 
+    [_browser_name] => 
+    [_key] => 
+    [_get_variables] => 
+    [_ip_address] => 
+    [_completion_time] => 
+    [_language] => 
+    [_id] => 
+    [02IV5ZoKTz_3] => 
+    [02IV5ZoKTz_2] => 
+    [02IV5ZoKTz_1] => 
+    [02IV5ZoKTz_0] => 
+    [responseSMS] => Array
+        (
+            [JV5vILLviE_0] => JESUS
+            [_updated_at] => 2015-07-19 08:10:20
+            [JV5vILLviE_1] => TAPIA
+            [JV5vILLviE_4] => 93280
+            [NTOglpGXu2] => Class A
+            [XNNTDZ8udT] => Hazmat,Tanker,Doubles/Triples
+        )
+
+    [responseFile] => 
+    [uploadFile] => 
+    [mobileNum] => 2139053527
+    [response] => Array
+        (
+            [_invite_code] => 
+            [_invite_email] => 
+            [JV5vILLviE_3] => 
+            [JV5vILLviE_2] => 2139053527
+            [JV5vILLviE_1] => 
+            [JV5vILLviE_0] => 
+            [_username] => 
+            [JV5vILLviE_4] => 
+            [_device_type] => 
+            [_referrer] => 
+            [33qbP0r5Re] => 
+            [NTOglpGXu2] => 
+            [3kXwCEP6WP] => 
+            [R1VueoTyom] => 
+            [_created_at] => 2015-07-19 08:01:39
+            [_completed] => 
+            [_saves] => 
+            [aCa5FsUn1E] => 
+            [FW6eqzhaJ1] => 
+            [XNNTDZ8udT] => 
+            [PJM8RpGNyg] => 
+            [_updated_at] => 2015-07-19 08:01:39
+            [_collector_id] => 
+            [_weighted_score] => 
+            [_pagepath] => 
+            [_invite_name] => 
+            [_locale] => 
+            [_browser_name] => 
+            [_key] => 
+            [_get_variables] => 
+            [_ip_address] => 
+            [_completion_time] => 
+            [_language] => 
+            [_id] => 18955
+            [02IV5ZoKTz_3] => 
+            [02IV5ZoKTz_2] => 
+            [02IV5ZoKTz_1] => 
+            [02IV5ZoKTz_0] => 
+            [responseSMS] => Array
+                (
+                    [JV5vILLviE_0] => JESUS
+                    [_updated_at] => 2015-07-19 08:10:20
+                    [JV5vILLviE_1] => TAPIA
+                    [JV5vILLviE_4] => 93280
+                    [NTOglpGXu2] => Class A
+                    [XNNTDZ8udT] => Hazmat,Tanker,Doubles/Triples
+                )
+
+            [responseFile] => 
+            [uploadFile] => 
+            [mobileNum] => 2139053527
+            [responseId] => 18955
+        )
+
+    [responseId] => 18955
+)
+
+
+        

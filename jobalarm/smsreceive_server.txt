@@ -1,0 +1,67 @@
+Array
+(
+    [REDIRECT_UNIQUE_ID] => YzMmAq4Q0JfwJwBB8N_DZQAAAAg
+    [REDIRECT_HTTPS] => on
+    [REDIRECT_SSL_TLS_SNI] => admin.jobalarm.biz
+    [REDIRECT_STATUS] => 200
+    [UNIQUE_ID] => YzMmAq4Q0JfwJwBB8N_DZQAAAAg
+    [HTTPS] => on
+    [SSL_TLS_SNI] => admin.jobalarm.biz
+    [HTTP_HOST] => admin.jobalarm.biz
+    [HTTP_CONNECTION] => Keep-Alive
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [HTTP_X_FORWARDED_FOR] => 72.178.126.100
+    [HTTP_CF_RAY] => 7515a53274c46719-DFW
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_CF_VISITOR] => {"scheme":"https"}
+    [HTTP_CF_EW_VIA] => 15
+    [HTTP_CDN_LOOP] => cloudflare; subreqs=1
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_COOKIE] => _ga=GA1.2.1240940038.1598379822; __gads=ID=80314c47f4716596-22b3e23ddcd300b2:T=1656590612:RT=1656590612:S=ALNI_MYRhY3UH57rO6mAACj2UBtCaPehHQ; __gpi=UID=000006ad4a2fcfa1:T=1656590612:RT=1656590612:S=ALNI_Mas3KGMoyOhHOGCpQHZiUyAtFbDhw; _gid=GA1.2.50045284.1664290040
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+    [HTTP_CF_CONNECTING_IP] => 72.178.126.100
+    [HTTP_CF_IPCOUNTRY] => US
+    [HTTP_PRIORITY] => u=0
+    [HTTP_SEC_CH_UA] => "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_CF_WORKER] => jobalarm.biz
+    [PATH] => /sbin:/usr/sbin:/bin:/usr/bin
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache/2.4.54 (cPanel) OpenSSL/1.1.1q mod_bwlimited/1.4 PHP/5.5.38
+    [SERVER_NAME] => admin.jobalarm.biz
+    [SERVER_ADDR] => 206.196.111.224
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 108.162.221.92
+    [DOCUMENT_ROOT] => /home/tweetedjobs/public_html/jobalarm
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /home/tweetedjobs/public_html/jobalarm
+    [SERVER_ADMIN] => webmaster@admin.jobalarm.biz
+    [SCRIPT_FILENAME] => /home/tweetedjobs/public_html/jobalarm/index.php
+    [REMOTE_PORT] => 29010
+    [REDIRECT_URL] => /sms/receive2
+    [REDIRECT_QUERY_STRING] => params=sms/receive2&reply=1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => params=sms/receive2&reply=1
+    [REQUEST_URI] => /sms/receive2?reply=1
+    [SCRIPT_NAME] => /index.php
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1664296450.95
+    [REQUEST_TIME] => 1664296450
+    [argv] => Array
+        (
+            [0] => params=sms/receive2&reply=1
+        )
+
+    [argc] => 1
+)
