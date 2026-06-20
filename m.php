@@ -440,11 +440,10 @@ if (count($dbData) > 0) {
 	}
 
 	#photon-dropdown {
-		position: absolute;
+		position: fixed;
 		background: #fff;
 		border: 1px solid #ccc;
-		z-index: 1000;
-		width: 100%;
+		z-index: 99999;
 		max-height: 220px;
 		overflow-y: auto;
 		box-shadow: 0 2px 6px rgba(0,0,0,0.15);
@@ -541,13 +540,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(function(r){ return r.json(); })
                 .then(function(data) {
                     dropdown.innerHTML = '';
-                    if (!data.features) return;
+                    console.log('Photon results:', data.features);
+                    if (!data.features || !data.features.length) return;
                     positionDropdown();
                     data.features.forEach(function(f) {
                         var p = f.properties;
-                        if (p.country_code !== 'us') return;
+                        if ((p.country_code || '').toLowerCase() !== 'us') return;
                         var city = p.name;
-                        var stateCode = stateMap[p.state] || p.state;
+                        var stateCode = stateMap[p.state] || p.state || '';
                         if (!city || !stateCode) return;
                         var searchVal = city.toUpperCase() + ' ' + stateCode;
                         var div = document.createElement('div');
@@ -679,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:4</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:5</strong>
 </label>
 
 <div class="col-lg-6" style="position:relative">
