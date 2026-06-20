@@ -540,8 +540,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(function(r){ return r.json(); })
                 .then(function(data) {
                     dropdown.innerHTML = '';
-                    console.log('Photon results:', data.features);
-                    if (!data.features || !data.features.length) return;
+if (!data.features || !data.features.length) return;
                     positionDropdown();
                     data.features.forEach(function(f) {
                         var p = f.properties;
@@ -679,7 +678,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:6</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:</strong>
 </label>
 
 <div class="col-lg-6" style="position:relative">
