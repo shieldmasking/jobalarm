@@ -595,7 +595,7 @@ function newloc() {
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:1</strong>
+<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:</strong>
 </label>
 
 <div class="col-lg-6">
