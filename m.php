@@ -125,13 +125,19 @@ $zipsearch = '';
 
 
 if($zipcode){
-$dbCoord = Config::get('db') -> get_results("select latitude, longitude, city, state_code from cities_extended where zip={$zipcode}");
-
-if (!$dbCoord){
-	echo "Invalid Zip Code";
-	$zipcode = 99950;
-$dbCoord = Config::get('db') -> get_results("select latitude, longitude, city, state_code from cities_extended where zip={$zipcode}");
-}
+    if(is_numeric($zipcode)){
+        $dbCoord = Config::get('db')->get_results("select latitude, longitude, city, state_code from cities_extended where zip={$zipcode}");
+    } else {
+        $parts = explode(' ', strtoupper(trim($zipcode)));
+        $state = array_pop($parts);
+        $city = implode(' ', $parts);
+        $dbCoord = Config::get('db')->get_results("select latitude, longitude, city, state_code from cities_extended where UPPER(city)='".addslashes($city)."' AND state_code='".addslashes($state)."' LIMIT 1");
+    }
+    if (!$dbCoord){
+        echo "Invalid Zip Code";
+        $zipcode = 99950;
+        $dbCoord = Config::get('db')->get_results("select latitude, longitude, city, state_code from cities_extended where zip={$zipcode}");
+    }
 }
 
 if($lati && $long){	
@@ -597,7 +603,7 @@ function newloc() {
 <?php
 foreach($cityDb as $f) { 
 ?>
-<option value="<?php echo $f['zip'];?>"><?php echo $f['city'] ." " . $f['state_code'];?> </option>
+<option value="<?php echo $f['city'].' '.$f['state_code'];?>"><?php echo $f['city'].' '.$f['state_code'];?></option>
 <?php } ?>									
 </datalist>
 
