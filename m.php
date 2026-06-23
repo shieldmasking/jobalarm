@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!val || val.length < 2 || /^\d+$/.test(val)) return;
 
         photonTimer = setTimeout(function() {
-            fetch('https://photon.komoot.io/api/?q=' + encodeURIComponent(val) + '&limit=8&layer=city&lang=en')
+            fetch('https://photon.komoot.io/api/?q=' + encodeURIComponent(val) + '&limit=8&layer=city,district&lang=en')
                 .then(function(r){ return r.json(); })
                 .then(function(data) {
                     dropdown.innerHTML = '';
