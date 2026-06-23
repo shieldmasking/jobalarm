@@ -813,9 +813,9 @@ foreach($jobsList as $tweet) {
 														<!--class="tooltips" data-container="body" data-placement="top" data-original-title="Go To This Job"-->
 													</div>
 													<div class="todo-tasklist-controls pull-right">
-														
-														<?php echo $moreLike; ?>
-													
+
+
+
 													</div>
 												</div>
 												
