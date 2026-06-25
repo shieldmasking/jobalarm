@@ -133,23 +133,27 @@ if($zipcode){
         $dbCoord = Config::get('db')->get_results("select latitude, longitude, city, state_code from cities_extended where UPPER(city)='".addslashes($city)."' AND state_code='".addslashes($state)."' LIMIT 1");
     }
     if (!$dbCoord){
-        $geo = @json_decode(file_get_contents("https://photon.komoot.io/api/?q=".urlencode($zipcode)."&limit=1"), true);
+        $ch = curl_init("https://photon.komoot.io/api/?q=".urlencode($zipcode)."&limit=1");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+        $geo = @json_decode(curl_exec($ch), true);
+        curl_close($ch);
         if (!empty($geo['features'][0]['geometry']['coordinates'])){
-            $lon = $geo['features'][0]['geometry']['coordinates'][0];
             $lat = $geo['features'][0]['geometry']['coordinates'][1];
+            $lon = $geo['features'][0]['geometry']['coordinates'][0];
         } else {
             echo "Invalid Zip Code";
         }
     }
 }
 
-if($lati && $long){	
+if($lati && $long){
 $lat=$lati;
 $lon=$long;
 $hidden = '';
-}else{
+}else if(!isset($lat)){
 $lat=$dbCoord[0]["latitude"];
-$lon=$dbCoord[0]["longitude"];	
+$lon=$dbCoord[0]["longitude"];
 $hidden = '';
 }
 
@@ -887,7 +891,7 @@ foreach($jobsList as $tweet) {
 								
 <div class="page-footer">
 	<div class="container">
-		 <p>2018 &copy; Harrelson Group LLC. All Rights Reserved. | <a href="http://www.jobalarm.biz/terms.html" target="_blank" class="style2">Terms of Use</a> | <a href="http://www.jobalarm.biz/privacy.html" target="_blank" class="style2">Privacy Policy</a> </p>
+		 <p style="text-align:center;">2018 &copy; Harrelson Group LLC. All Rights Reserved. | <a href="http://www.jobalarm.biz/terms.html" target="_blank" class="style2">Terms of Use</a> | <a href="http://www.jobalarm.biz/privacy.html" target="_blank" class="style2">Privacy Policy</a> </p>
 		 </div>
 </div>
 </div>
