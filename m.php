@@ -867,7 +867,9 @@ foreach($jobsList as $tweet) {
 </div>	
 </div>
 </div>
-<img src="img/career3.png" alt=""/>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:280px;height:60px" data-ad-client="ca-pub-2545585330917467" data-ad-slot="1689787287"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 <div style="height:3px;margin:20px 0;width:100%;border-bottom:3px solid #87A9C7"></div>
 
