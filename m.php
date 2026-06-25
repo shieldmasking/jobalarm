@@ -860,11 +860,8 @@ foreach($jobsList as $tweet) {
 	 </ins>
 </div>	 
 -->
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>	
 
-</div>	
+</div>
 </div>
 </div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
