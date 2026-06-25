@@ -133,9 +133,13 @@ if($zipcode){
         $dbCoord = Config::get('db')->get_results("select latitude, longitude, city, state_code from cities_extended where UPPER(city)='".addslashes($city)."' AND state_code='".addslashes($state)."' LIMIT 1");
     }
     if (!$dbCoord){
-        echo "Invalid Zip Code";
-        $zipcode = 99950;
-        $dbCoord = Config::get('db')->get_results("select latitude, longitude, city, state_code from cities_extended where zip={$zipcode}");
+        $geo = @json_decode(file_get_contents("https://photon.komoot.io/api/?q=".urlencode($zipcode)."&limit=1"), true);
+        if (!empty($geo['features'][0]['geometry']['coordinates'])){
+            $lon = $geo['features'][0]['geometry']['coordinates'][0];
+            $lat = $geo['features'][0]['geometry']['coordinates'][1];
+        } else {
+            echo "Invalid Zip Code";
+        }
     }
 }
 
@@ -524,19 +528,33 @@ document.addEventListener('DOMContentLoaded', function() {
     function positionDropdown() {
         var rect = input.getBoundingClientRect();
         dropdown.style.position = 'fixed';
-        dropdown.style.top = (rect.bottom) + 'px';
+        dropdown.style.top = (rect.bottom + 2) + 'px';
         dropdown.style.left = rect.left + 'px';
         dropdown.style.width = rect.width + 'px';
+        dropdown.style.bottom = 'auto';
     }
+
+    window.addEventListener('scroll', positionDropdown, true);
+    window.addEventListener('resize', positionDropdown);
+
+    input.addEventListener('blur', function() {
+        var val = this.value.trim();
+        if (val && /^\d{5}$/.test(val)) {
+            redirectSearch(val);
+        }
+    });
 
     input.addEventListener('input', function() {
         var val = this.value.trim();
         clearTimeout(photonTimer);
         dropdown.innerHTML = '';
-        if (!val || val.length < 2 || /^\d+$/.test(val)) return;
+        if (!val || val.length < 2 || /^\d+$/.test(val)) {
+            if (/^\d{5}$/.test(val)) redirectSearch(val);
+            return;
+        }
 
         photonTimer = setTimeout(function() {
-            fetch('https://photon.komoot.io/api/?q=' + encodeURIComponent(val) + '&limit=8&layer=city,district&lang=en')
+            fetch('https://photon.komoot.io/api/?q=' + encodeURIComponent(val) + '&limit=8&layer=city&layer=district&lang=en')
                 .then(function(r){ return r.json(); })
                 .then(function(data) {
                     dropdown.innerHTML = '';
@@ -683,7 +701,6 @@ if (!data.features || !data.features.length) return;
 
 <div class="col-lg-6" style="position:relative">
 <input type="text" id="city" name="city" autocomplete="off" class="form-control m-input" value="<?php echo htmlspecialchars($zipcode); ?>" placeholder="City ST or Zip" />
-<div id="photon-dropdown"></div>
 </div>
 </div>
 
