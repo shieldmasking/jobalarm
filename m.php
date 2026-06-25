@@ -864,7 +864,7 @@ foreach($jobsList as $tweet) {
 </div>
 </div>
 </div>
-<img src="img/career2.png" alt="" style="max-width:100%;height:auto;"/>
+<img src="img/career3.png" alt="" style="max-width:100%;height:auto;"/>
 </div>
 <div style="height:3px;margin:20px 0;width:100%;border-bottom:3px solid #87A9C7"></div>
 
