@@ -700,11 +700,11 @@ if (!data.features || !data.features.length) return;
 
 <div class="form-group m-form__group" id="cityadd">
 
-<label for="city" class="col-4 col-form-label"><strong>Enter City ST or Zip:</strong>
+<label for="city" class="col-4 col-form-label"><strong style="font-size:1.3em;">Enter City ST or Zip:</strong>
 </label>
 
 <div class="col-lg-6" style="position:relative">
-<input type="text" id="city" name="city" autocomplete="off" class="form-control m-input" value="<?php echo htmlspecialchars($zipcode); ?>" placeholder="City ST or Zip" />
+<input type="text" id="city" name="city" autocomplete="off" class="form-control m-input" style="font-size:1.3em;height:auto;padding:10px 14px;" value="<?php echo htmlspecialchars($zipcode); ?>" placeholder="City ST or Zip" />
 </div>
 </div>
 
