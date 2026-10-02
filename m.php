@@ -468,6 +468,7 @@ if (count($dbData) > 0) {
 </style>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <style type="text/css">
 <!--
 .style1 {font-size: 16px}
@@ -717,6 +718,9 @@ if (!data.features || !data.features.length) return;
 $featuring = false;
 $justPosted = false;
 $now = time();
+$totalListCount = count($jobsList);
+$midAd = (int)floor($totalListCount / 2);
+$midAdShown = false;
 foreach($jobsList as $tweet) {
     $tweet['text'] = RemoveURL($tweet['text']);
 	/*
@@ -752,6 +756,10 @@ foreach($jobsList as $tweet) {
     } 
 	
     $jobsCounter++;
+    if (!$midAdShown && $jobsCounter >= $midAd && $totalListCount > 2) {
+        $midAdShown = true;
+        echo '<div style="text-align:center;margin:12px 0;"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2545585330917467" data-ad-slot="1689787287" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>';
+    }
     $id = $tweet['jobId'];
 
 	
@@ -851,15 +859,17 @@ foreach($jobsList as $tweet) {
 
 
 
-<!-- JAMobile 
-<div id="googlead2">
+<!-- JAMobile -->
+<div id="googlead2" style="text-align:center;margin:12px 0;">
 <ins class="adsbygoogle"
-     style="display:inline-block;width:280px;height:60px"
+     style="display:block"
      data-ad-client="ca-pub-2545585330917467"
-     data-ad-slot="1689787287">
-	 </ins>
-</div>	 
--->
+     data-ad-slot="1689787287"
+     data-ad-format="auto"
+     data-full-width-responsive="true">
+</ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 </div>
 </div>
@@ -879,9 +889,6 @@ foreach($jobsList as $tweet) {
 </div>
 -->	 
 
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 
