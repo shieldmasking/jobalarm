@@ -22,7 +22,7 @@ $page = (isset($_REQUEST['p'])) ? $_REQUEST['p'] : 0;
     
 
 if (isset($_POST['sitelogin'])) {
-    $email = htmlspecialchars($_POST['username']);
+    $email = Config::get('db')->filter($_POST['username']);
     $password = md5($_POST['password']);
 	$p = (isset($_POST['page'])) ? $_POST['page'] : 0;
 	
@@ -39,6 +39,7 @@ if (isset($_POST['sitelogin'])) {
 	$query = "SELECT u.*, a.billing_plan, a.jobsUpload, a.smsSend, a.email as mail, a.password as pw, a.twitter_handle, a.twitter_key, a.status, a.twitter_passcode, a.logo FROM users u LEFT JOIN account as a on a.id = u.accountId WHERE u.email='{$email}' AND u.password='{$password}'";
     $dbData = Config::get('db')->get_results($query);
     if (count($dbData) > 0) {
+        session_regenerate_id(true);
         $_SESSION['account'] = $dbData[0];
         $data = array('lastlogin_date'=>date('Y-m-d H:i:s'));
         $where = array('id'=>$dbData[0]['id']);
