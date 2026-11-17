@@ -1,0 +1,28 @@
+# Reports & logs
+dailyreports/
+logs.txt
+error_log
+
+# PHP config
+php.ini
+.user.ini
+inc/config.php
+config.php
+inc/configOrig.php
+
+# SSL certs
+ssl/
+
+# Environment / server config
+.htaccess.bak
+.ftpquota
+
+# Temp / test files
+test.php
+
+# Claude
+.claude/settings.local.json
+
+# Composer
+vendor/
+composer.lock

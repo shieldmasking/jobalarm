@@ -1,0 +1,627 @@
+<?php
+require_once 'inc/initializer.php';
+if (defined('IS_QBL_APP') && IS_QBL_APP) { header('Location: /qbl-landing.php'); exit; }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNFMXB4GYH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CNFMXB4GYH');</script>
+
+  <!-- Primary SEO -->
+  <title>ProductivRN — Joint Commission NPG 12 Compliant Nurse Staffing Software</title>
+  <meta name="description" content="ProductivRN is the nurse staffing dashboard built for Joint Commission NPG 12 compliance. Capture acuity ratios, escalation logs, and staffing patterns — automatically, every shift.">
+  <meta name="keywords" content="NPG 12, Joint Commission NPG 12, nurse staffing software, acuity-based staffing, charge nurse dashboard, patient acuity documentation, nurse leader staffing tool, hospital staffing compliance, nursing staffing ratios, Joint Commission staffing standard, nurse executive dashboard, staffing escalation alerts">
+  <link rel="canonical" href="https://www.productivern.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.productivern.com/">
+  <meta property="og:title" content="ProductivRN — Joint Commission NPG 12 Compliant Nurse Staffing Software">
+  <meta property="og:description" content="Real-time nurse staffing visibility for charge nurses and nurse leaders. Built to satisfy Joint Commission NPG 12 acuity documentation requirements — automatically.">
+  <meta property="og:site_name" content="ProductivRN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ProductivRN — NPG 12 Compliant Nurse Staffing Software">
+  <meta name="twitter:description" content="Acuity-based staffing documentation for Joint Commission NPG 12. Real-time dashboards for charge nurses and nurse leaders.">
+
+  <!-- Indexing -->
+  <meta name="robots" content="index, follow">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ProductivRN",
+    "url": "https://www.productivern.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Sales",
+      "url": "https://www.productivern.com/contact.php"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ProductivRN",
+    "applicationCategory": "HealthcareApplication",
+    "operatingSystem": "Web",
+    "description": "Nurse staffing and acuity documentation platform built for Joint Commission NPG 12 compliance. Enables charge nurses to submit structured staffing reports and gives nurse leaders real-time unit visibility.",
+    "url": "https://www.productivern.com",
+    "featureList": [
+      "Joint Commission NPG 12 compliant acuity documentation",
+      "Real-time staffing dashboards for nurse leaders",
+      "Automated escalation alerts with audit logs",
+      "Short-interval charge nurse staffing reports",
+      "Patient acuity ratio tracking per shift interval",
+      "Safety huddle and task management"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "url": "https://www.productivern.com/contact.php"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage for NPG 12 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Joint Commission NPG 12?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NPG 12 (National Performance Goal 12) is a Joint Commission standard effective January 2026 that requires hospitals to document that staffing decisions are grounded in patient acuity. Hospitals must maintain timestamped records of acuity ratios, nurse-to-patient assignments, and nurse executive escalation oversight."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does ProductivRN support NPG 12 compliance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ProductivRN captures acuity ratios per shift interval with unit, timestamp, and charge nurse attribution as a natural byproduct of the charge nurse reporting workflow. Escalation logs, leadership oversight records, and historical staffing trend data are all retained automatically — no separate documentation required for surveyors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is ProductivRN HIPAA compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. ProductivRN is designed for HIPAA compliance with encrypted data storage, role-based access controls, audit logging, and Business Associate Agreements (BAA) available upon request."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --surface: #eef2f8;
+      --blue: #1a4f9e;
+      --blue-mid: #1d5cb8;
+      --blue-light: #2472d4;
+      --blue-pale: rgba(26,79,158,0.08);
+      --blue-border: rgba(26,79,158,0.18);
+      --text-primary: #0f1525;
+      --text-secondary: #4a5a72;
+      --border: rgba(0,0,0,0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
+      background: var(--white);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    nav .inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .brand-name { font-size: 1.25rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; }
+    .brand-name span { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a:not(.login-btn) {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:not(.login-btn):hover { color: var(--blue); }
+    .demo-btn {
+      padding: 0.55rem 1.25rem;
+      border: 1.5px solid var(--blue-border);
+      color: var(--blue);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      background: white;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .demo-btn:hover { background: var(--blue-pale); border-color: var(--blue); }
+    .login-btn {
+      padding: 0.55rem 1.5rem;
+      background: var(--blue);
+      color: white;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+    .login-btn:hover { background: var(--blue-mid); }
+
+    /* JC BANNER */
+    .jc-banner {
+      background: var(--blue-pale);
+      border-bottom: 1px solid var(--blue-border);
+      padding: 0.65rem 0;
+      text-align: center;
+    }
+    .jc-banner p { font-size: 0.83rem; color: var(--blue); }
+    .jc-banner strong { font-weight: 700; color: var(--blue); }
+
+    /* HERO */
+    .hero {
+      padding: 7rem 0 5rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(var(--blue-border) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      border: 1px solid var(--blue-border);
+      border-radius: 9999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--blue); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.9rem 2.25rem;
+      background: var(--blue);
+      color: white;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(26,79,158,0.2);
+    }
+    .btn-primary:hover { background: var(--blue-mid); transform: translateY(-1px); }
+    .btn-outline {
+      padding: 0.9rem 2.25rem;
+      border: 1.5px solid var(--blue-border);
+      color: var(--blue);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: white;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { background: var(--blue-pale); border-color: var(--blue); }
+
+    /* TRUST ROW */
+    .trust-row {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+    .trust-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .trust-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--blue-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* FEATURES */
+    .features { padding: 6rem 0; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      max-width: 600px;
+      margin: 0 auto 0.75rem;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 3.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .feat-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .feat-card:hover {
+      border-color: var(--blue-border);
+      box-shadow: var(--shadow-md);
+    }
+    .feat-num {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .feat-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.6rem; }
+    .feat-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* JC SECTION */
+    .jc-section {
+      background: var(--blue);
+      padding: 5rem 0;
+      color: white;
+    }
+    .jc-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .jc-left h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .jc-left p { font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 1.5rem; }
+    .jc-badge-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: white;
+    }
+    .jc-right { display: flex; flex-direction: column; gap: 1rem; }
+    .jc-point {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .jc-point-check {
+      width: 20px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 0.7rem;
+    }
+    .jc-point p { font-size: 0.875rem; color: rgba(255,255,255,0.85); line-height: 1.55; }
+
+    /* CTA */
+    .cta-section { padding: 6rem 0; text-align: center; background: var(--off-white); }
+    .cta-section h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    .cta-section p { color: var(--text-secondary); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+    /* FOOTER */
+    footer {
+      background: var(--text-primary);
+      color: rgba(255,255,255,0.5);
+      padding: 2rem 0;
+    }
+    footer .inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer p, footer a { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .jc-inner { grid-template-columns: 1fr; }
+      .trust-inner { gap: 1.5rem; }
+      footer .inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="#" class="brand">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <circle cx="15" cy="15" r="13" stroke="#1a4f9e" stroke-width="1.5" fill="rgba(26,79,158,0.06)"/>
+          <path d="M15 8v14M8 15h14" stroke="#1a4f9e" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="15" cy="15" r="3" fill="#1a4f9e"/>
+        </svg>
+        <span class="brand-name">Productiv<span>RN</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#compliance">Compliance</a>
+        <a href="/contact.php">Contact</a>
+        <a href="/contact.php" class="demo-btn">Request a Demo</a>
+        <a href="/go/index.php" class="login-btn">Client Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jc-banner">
+    <p><strong>Joint Commission NPG 12 Compliant</strong> — Acuity-based staffing documentation for the 2026 standard, built into every report</p>
+  </div>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-tag">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M6 1L10 3V7C10 9.2 8.2 11 6 11C3.8 11 2 9.2 2 7V3L6 1Z" fill="rgba(26,79,158,0.15)" stroke="#1a4f9e" stroke-width="1"/>
+        </svg>
+        For Charge Nurses &amp; Nurse Leaders
+      </span>
+      <h1>Stop Reacting.<br><em>Start Knowing.</em></h1>
+      <p>ProductivRN gives nurse managers real-time visibility into staffing, acuity, and unit activity — so you always know what's happening on every floor, every shift.</p>
+      <div class="hero-ctas">
+        <a href="/contact.php" class="btn-primary">Request a Demo</a>
+        <a href="/go/index.php" class="btn-outline">Client Login</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-row">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6l3 3 5-5" stroke="#1a4f9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          Real-time unit visibility
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6l3 3 5-5" stroke="#1a4f9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          Acuity ratio documentation
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6l3 3 5-5" stroke="#1a4f9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          Automatic escalation alerts
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6l3 3 5-5" stroke="#1a4f9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          Joint Commission NPG 12 ready
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-label">Platform Features</p>
+      <h2 class="section-title">Designed around the charge nurse workflow</h2>
+      <p class="section-sub">Charge nurses drive data collection. Leadership gets the visibility. Everyone wins.</p>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-num">01 — Staffing Reports</div>
+          <h3>Short-Interval Reports by Charge Nurses</h3>
+          <p>Structured staffing snapshots submitted throughout each shift by your charge nurses. No freeform notes — consistent, comparable data that builds a real-time view of every unit for leadership.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-num">02 — Acuity Tracking</div>
+          <h3>Patient Acuity Ratios Per Interval</h3>
+          <p>Patient counts at each acuity tier (1:3, 1:4, 1:5) are captured every reporting interval. This creates the timestamped, unit-level acuity record that Joint Commission NPG 12 requires — automatically.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-num">03 — Escalations</div>
+          <h3>Automated Leadership Escalation Alerts</h3>
+          <p>When staffing crosses a threshold, the right people are notified immediately. Escalation history — who was notified, when, and how it was resolved — is retained in full for leadership review.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-num">04 — Huddle & Tasks</div>
+          <h3>Safety Huddle & Customizable Tasks</h3>
+          <p>Digital safety huddles with structured documentation. Customizable tasks — crash cart audits, rounding checks, equipment inspections — assigned, tracked to completion, and visible across all units.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-num">05 — QBL</div>
+          <h3>QBL Calculator & Escalation</h3>
+          <p>Bedside Quantitative Blood Loss tracking with automatic escalation when thresholds are exceeded. Every calculation is timestamped and retained — supporting postpartum hemorrhage protocols and providing the documented response trail surveyors require.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jc-section" id="compliance">
+    <div class="container">
+      <div class="jc-inner">
+        <div class="jc-left">
+          <h2>Joint Commission NPG 12 — We Built for It</h2>
+          <p>The 2026 National Performance Goal 12 requires hospitals to document that staffing decisions are grounded in patient acuity. ProductivRN creates that documentation as a natural byproduct of your existing charge nurse workflow — no extra steps, no manual reports to assemble for surveyors.</p>
+          <div class="jc-badge-row">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1.5L13 4V9C13 12.3 10.8 15 8 15C5.2 15 3 12.3 3 9V4L8 1.5Z" stroke="white" stroke-width="1.2" fill="rgba(255,255,255,0.15)"/>
+              <path d="M5.5 8l2 2 3-3" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            NPG 12 Compliant — Effective January 2026
+          </div>
+        </div>
+        <div class="jc-right">
+          <div class="jc-point">
+            <div class="jc-point-check">✓</div>
+            <p>Acuity ratios stored per shift interval with unit, timestamp, and charge nurse attribution</p>
+          </div>
+          <div class="jc-point">
+            <div class="jc-point-check">✓</div>
+            <p>Escalation logs prove nurse executive oversight — a specific NPG 12 requirement</p>
+          </div>
+          <div class="jc-point">
+            <div class="jc-point-check">✓</div>
+            <p>Historical trend reports show staffing adequacy patterns across weeks and months</p>
+          </div>
+          <div class="jc-point">
+            <div class="jc-point-check">✓</div>
+            <p>Performance improvement analysis supported by actual staffing data — not anecdotes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Your dashboard is waiting</h2>
+      <p>Log in to ProductivRN and see real-time staffing, acuity data, and escalations across your hospital.</p>
+      <a href="/go/index.php" class="btn-primary">Client Login</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>&copy; 2026 Harrelson Software Group LLC. All rights reserved.</p>
+      <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="/terms/">Terms of Use</a> &nbsp;·&nbsp;
+      <a href="/security.php">Security &amp; Trust</a>
+    </div>
+  </footer>
+
+</body>
+</html>

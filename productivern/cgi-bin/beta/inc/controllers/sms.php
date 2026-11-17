@@ -11,14 +11,7 @@ class Sms {
 	public static function receive2() {
         //get our keyword
         //receive in the phone number and message data
-        file_put_contents("smsreceive.txt",print_r($_REQUEST,true));
-        file_put_contents("smsreceive_post.txt",print_r($_POST,true));
-        file_put_contents("smsreceive_get.txt",print_r($_GET,true));
-        file_put_contents("smsreceive_server.txt",print_r($_SERVER,true));
-        
         $xmlinput = file_get_contents('php://input');
-
-        file_put_contents("smsreceive_xmlinput.txt",$xmlinput);
 
         $ob = simplexml_load_string($xmlinput);
         $json = json_encode($ob);

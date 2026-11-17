@@ -7,14 +7,21 @@ var tj = tj || {};
 tj.forgot = function() {
    var email = $('#forgotemail').val();
    $.ajax({
-       url:'../inc/logindata.php?req=forgot',
+       url:'/inc/logindata.php?req=forgot',
+       dataType:'json',
        data: {
           email:email
        },
        success:function(response) {
 		   $('#forgot').modal('hide');
-		   alert('Please check your email for your temporary password.');
-		   
+		   if (response && response.success === false) {
+			   alert('Email not found or account inactive.');
+		   } else {
+			   alert('Please check your email for your temporary password.');
+		   }
+		},
+	   error:function(xhr) {
+		   alert('Server error: ' + xhr.status + ' — ' + xhr.responseText);
 		}
    })
 }
@@ -44,7 +51,7 @@ tj.forgot2 = function() {
         callback:function (result) {
 	if (result) {
    $.ajax({
-       url:'inc/logindata.php?req=forgot',
+       url:'/inc/logindata.php?req=forgot',
        data: {
           email:email
        },

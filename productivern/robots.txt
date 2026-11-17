@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /go/
+Disallow: /inc/
+Disallow: /cgi-bin/
+Disallow: /logout.php
+Disallow: /pwupdate.php
+
+Sitemap: https://www.productivern.com/sitemap.xml

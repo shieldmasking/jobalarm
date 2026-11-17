@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcuityCommand — Hospital Staffing Intelligence</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #162035;
+      --navy-light: #1e2d47;
+      --gold: #c9a84c;
+      --gold-light: #e2c06e;
+      --gold-pale: rgba(201,168,76,0.12);
+      --text-primary: #f0ebe0;
+      --text-secondary: #a0a8b8;
+      --border: rgba(201,168,76,0.2);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
+      background: var(--navy);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,27,42,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    nav .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+    .brand-name span { color: var(--gold); }
+    nav a.login-btn {
+      padding: 0.5rem 1.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+    }
+    nav a.login-btn:hover { background: var(--gold-light); }
+
+    /* JC BANNER */
+    .jc-banner {
+      background: var(--gold-pale);
+      border-bottom: 1px solid var(--border);
+      padding: 0.65rem 0;
+      text-align: center;
+    }
+    .jc-banner p {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      letter-spacing: 0.01em;
+    }
+    .jc-banner strong { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 86vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold-pale);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btn-primary {
+      padding: 0.85rem 2.25rem;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-secondary {
+      padding: 0.85rem 2.25rem;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* DIVIDER */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 2rem;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 6rem 0;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.7;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201,168,76,0.4);
+      box-shadow: var(--shadow-md);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-pale);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* JC COMPLIANCE SECTION */
+    .jc-section {
+      padding: 4rem 0;
+    }
+    .jc-card {
+      background: linear-gradient(135deg, var(--navy-light) 0%, rgba(201,168,76,0.06) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .jc-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+      min-width: 120px;
+    }
+    .jc-badge-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold-pale);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .jc-badge-text {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1.4;
+    }
+    .jc-content h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .jc-content p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .jc-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .jc-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .jc-points li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .cta-inner {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-inner::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .cta-inner p {
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    footer .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .jc-card { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      footer .inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="inner">
+      <a href="#" class="brand">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 8V18C28 24.627 22.627 30 16 30C9.373 30 4 24.627 4 18V8L16 2Z" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" stroke-width="1.5"/>
+          <path d="M11 16h10M16 11v10" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="2" fill="#c9a84c"/>
+        </svg>
+        <span class="brand-name">Acuity<span>Command</span></span>
+      </a>
+      <a href="/go/index.php" class="login-btn">Client Login</a>
+    </div>
+  </nav>
+
+  <!-- JC BANNER -->
+  <div class="jc-banner">
+    <p><strong>Joint Commission NPG 12 Ready</strong> — Built to meet the 2026 National Performance Goal for acuity-based nurse staffing documentation</p>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <circle cx="6" cy="6" r="5" stroke="#c9a84c" stroke-width="1.5"/>
+        <path d="M6 4v2l1.5 1.5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Hospital Staffing Intelligence Platform
+    </div>
+    <h1>Give Your CNO <em>Command</em><br>Over Every Shift</h1>
+    <p>Real-time acuity-based staffing reports created by charge nurses — giving nursing leadership the data they need to act before problems escalate.</p>
+    <div class="hero-actions">
+      <a href="/go/index.php" class="btn-primary">Access Your Dashboard</a>
+      <a href="#features" class="btn-secondary">See the Platform</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-label">Core Platform</p>
+      <h2 class="section-title">Everything your nursing leadership needs in one place</h2>
+      <p class="section-sub">Built specifically for hospital charge nurses and CNOs — not generic workforce software retrofitted for healthcare.</p>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="3" stroke="#c9a84c" stroke-width="1.5"/>
+              <path d="M7 12h3l2-4 2 8 2-4h1" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Short-Interval Staffing Reports</h3>
+          <p>Charge nurses submit structured staffing snapshots throughout each shift. Leadership sees unit status in real time — no phone calls, no guesswork.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="#c9a84c" stroke-width="1.5"/>
+              <path d="M12 7v5l3 3" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 12h1M16 12h1M12 7v1M12 16v1" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Acuity-Based Staffing Ratios</h3>
+          <p>Track patient counts by acuity tier (1:3, 1:4, 1:5) every interval. Staffing decisions are documented against actual patient complexity — exactly what Joint Commission surveyors require.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="18" cy="5" r="3" fill="#c9a84c" opacity="0.8"/>
+            </svg>
+          </div>
+          <h3>Leadership Escalation Alerts</h3>
+          <p>When staffing falls below thresholds, automatic escalations notify the right leaders immediately. Every alert is timestamped and tracked — creating a documented response trail.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="9" y="3" width="6" height="4" rx="1" stroke="#c9a84c" stroke-width="1.5"/>
+              <path d="M9 12h6M9 16h4" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Safety Huddle & Task Management</h3>
+          <p>Structured safety huddles with digital documentation. Tasks assigned, tracked, and closed — giving managers visibility across all active units without leaving their desk.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3C9 3 7 6 7 9c0 4 5 10 5 10s5-6 5-10c0-3-2-6-5-6z" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="9" r="2" stroke="#c9a84c" stroke-width="1.5"/>
+              <path d="M6 20h12" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 20l1-3h4l1 3" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>QBL Calculator & Escalation</h3>
+          <p>Bedside Quantitative Blood Loss tracking with automatic escalation when thresholds are exceeded. Every calculation is timestamped and tied to the patient record — supporting postpartum hemorrhage protocols and surveyor documentation requirements.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- JC COMPLIANCE -->
+  <section class="jc-section">
+    <div class="container">
+      <div class="jc-card">
+        <div class="jc-badge">
+          <div class="jc-badge-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M20 4L34 10V22C34 30.284 27.732 37 20 37C12.268 37 6 30.284 6 22V10L20 4Z" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.08)"/>
+              <path d="M14 20l4 4 8-8" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="jc-badge-text">Joint Commission<br>NPG 12<br>Compliant</span>
+        </div>
+        <div class="jc-content">
+          <h2>Built for the 2026 Joint Commission Standard</h2>
+          <p>Effective January 1, 2026, the Joint Commission's National Performance Goal 12 requires hospitals to demonstrate that staffing decisions are based on documented patient acuity. AcuityCommand was designed from the ground up to meet this standard.</p>
+          <ul class="jc-points">
+            <li>Acuity ratios (1:3, 1:4, 1:5) captured per shift interval and stored for surveyor review</li>
+            <li>Documented evidence that staffing adjustments respond to real-time acuity changes</li>
+            <li>Leadership escalation trails proving nurse executive oversight of staffing decisions</li>
+            <li>Trend reports showing staffing adequacy patterns over time — exactly what NPG 12 audits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <h2>Your units are running right now.<br>Are you seeing what's happening?</h2>
+        <p>Log in to your AcuityCommand dashboard and see real-time staffing across every unit in your hospital.</p>
+        <a href="/go/index.php" class="btn-primary">Access Client Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="inner">
+      <p>&copy; 2026 Harrelson Software Group LLC. All rights reserved.</p>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

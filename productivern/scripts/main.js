@@ -1,5 +1,10 @@
 var tj = tj || {};
 
+$.ajaxSetup({
+    headers: { 'X-CSRF-Token': window.CSRF_TOKEN || '' }
+});
+
+
 /////////////////////////////////////
 // GLOBAL VARIABLE INITIALIZATION
 tj.defaultTab = "#reports";
@@ -35,6 +40,8 @@ tj.qblLoaded = false;
 tj.ablLoaded = false;
 tj.nowLoaded = false;
 tj.qrcodesLoaded = false;
+tj.schedulingLoaded = false;
+tj.hospitalPitchLoaded = false;
 tj.reportLoaded = false;
 tj.qrLoaded = false;
 tj.huddleLoaded = false;
@@ -854,16 +861,8 @@ tj.loadqblNow = function() {
     $('#nowView').show();
 	if (!tj.nowLoaded) {
         jQuery('#nowView').load('views/qbl.php', {}, function () {
-			if (tj.urlParams['m'] != undefined && tj.urlParams['m'].trim() != '') {
-                var qblId=tj.urlParams['m'];
-            }
-			if (tj.urlParams['s'] != undefined && tj.urlParams['s'].trim() != '') {
-                var roomId=tj.urlParams['s'];
-            }
 			tj.nowLoaded = true;
-            	
-			//tj.startQBL(qblId);	
-			tj.startQBL2(qblId);				
+			tj.startQBL2();
             tj.stopLoading();
         });
     }
@@ -927,6 +926,16 @@ tj.loadEscalations = function() {
             tj.escalationsTable.ajax.reload();
         }
 	}
+};
+
+tj.loadExport = function() {
+    $('#exportView').show();
+    if (!tj.exportLoaded) {
+        jQuery('#exportView').load('views/exportTokens.php', {}, function () {
+            tj.exportLoaded = true;
+            tj.stopLoading();
+        });
+    }
 };
 
 tj.loadPolicies = function() {
@@ -3132,7 +3141,8 @@ tj.updateUser2 = function() {
 				currentRole: currentRole,
 				updateFirst: updateFirst,
 				updateLast: updateLast,
-				audit: audit
+				audit: audit,
+				qblWarnMin: $('#qblWarnMin').val()
             },
             method:'POST',
             dataType:'json',
@@ -3178,7 +3188,8 @@ tj.updateUser2 = function() {
 				updateFirst: updateFirst,
 				updateLast: updateLast,
 				currentRole: currentRole,
-				audit: audit
+				audit: audit,
+				qblWarnMin: $('#qblWarnMin').val()
             },
             method:'POST',
             dataType:'json',
@@ -3538,6 +3549,7 @@ tj.activate = function(userId,showRole) {
 				$('#updateLast').val(response.data.last_name);
 				$('#currentRole').val(response.data.role);
 				$('#times').val(response.data.alertTimes);
+				$('#qblWarnMin').val(response.data.qblWarnMin != null ? response.data.qblWarnMin : 300);
 				$('#settingsFor').html('    ' + response.data.last_name +', '+response.data.first_name);
 				$('#activate').modal('toggle');
 				}
@@ -3823,7 +3835,7 @@ tj.initializeUserGrid = function() {
     tj.UserTable = $('#UserTable').DataTable( {
         "ajax": "inc/data.php?req=getAllUsers",
 		"pageLength": 25,
-        "order": [[4,'asc'],[0,'asc']],
+        "order": [[5,'asc'],[0,'asc']],
         processing: true,
         "language": {
             "processing": 'Loading...<br /><img src="images/ajax-loader.gif" />' //add a loading image,simply putting <img src="loader.gif" /> tag.
@@ -3833,13 +3845,104 @@ tj.initializeUserGrid = function() {
 			{ "data": "Unit" },
 			{ "data": "Role" },
 			{ "data": "Login" },
+			{ "data": "Coverage" },
 			{ "data": "Shared" }
         ],
 		"columnDefs": [
-						{"visible": false, "targets": [4] }
+						{"visible": false, "targets": [5] }
         ],
 		 } );
-	
+
+	$('#UserTable').on('click', '.user-coverage-link', function() {
+		tj.userCoverage($(this).data('userid'));
+	});
+
+	$('#UserTable').on('click', '.user-coverage-delete', function() {
+		var uid = $(this).data('userid');
+		if (!confirm('Remove coverage for this user?')) return;
+		$.ajax({
+			url: 'inc/data.php?req=changeusercoverage',
+			data: { userId: uid, coverUserId: 0 },
+			method: 'POST',
+			dataType: 'json',
+			success: function() { tj.UserTable.ajax.reload(); }
+		});
+	});
+
+tj.userCoverage = function(userId) {
+	$.ajax({
+        url:"inc/data.php?req=getusercoverage",
+        data: { userId: userId },
+        method:'POST',
+        dataType:'json',
+        success:function(response) {
+		if (!response.success) { console.error('getusercoverage failed', response); return; }
+		var d = response.data;
+		$('#coverUserTarget').val(d.userId);
+		$('#coverageUserName').html(' ' + d.name);
+		$('#coverUserId').val(d.coverUserId);
+		var _d = new Date(); var today = _d.getFullYear()+'-'+String(_d.getMonth()+1).padStart(2,'0')+'-'+String(_d.getDate()).padStart(2,'0');
+		var nowHH = _d.getHours().toString().padStart(2,'0') + ':00';
+		var sDate = (d.coverStartDate && d.coverStartDate !== '0000-00-00') ? d.coverStartDate : today;
+		var sTime = (d.coverStartTime && d.coverStartTime !== '00:00:00' && d.coverStartTime !== '00:00') ? d.coverStartTime : nowHH;
+		$('#coverUserStartDate').val(sDate);
+		$('#coverUserStartTime').val(sTime);
+		$('#coverUserDate').val(d.coverEndDate || '');
+		$('#coverUserTime').val(d.coverEndTime || '');
+		$('#coverVarianceMin').val(d.coverVarianceMin !== undefined ? d.coverVarianceMin : 1);
+		$('#coverQblMin').val(d.coverQblMin !== undefined ? d.coverQblMin : 300);
+		$('#coverPauseSms').prop('checked', d.coverPauseSms == 1);
+		$('#usercoverage').modal('show');
+        },
+        error:function(xhr) { console.error('getusercoverage XHR error', xhr.status, xhr.responseText); }
+    });
+};
+
+tj.updateUserCover = function() {
+	var coverUserId = $('#coverUserId').val();
+	var startDate = $('#coverUserStartDate').val();
+	var startTime = $('#coverUserStartTime').val();
+	var endDate = $('#coverUserDate').val();
+	var endTime = $('#coverUserTime').val();
+	var varianceMin = $('#coverVarianceMin').val() || '1';
+	var qblMin = $('#coverQblMin').val() || '300';
+	var pauseSms = $('#coverPauseSms').is(':checked') ? 1 : 0;
+	var userId = $('#coverUserTarget').val();
+
+	if (!coverUserId || coverUserId == '0') { alert('Please select a covering user.'); return; }
+	if (!startDate) { alert('Start date is required.'); return; }
+	if (!startTime) { alert('Start time is required.'); return; }
+	if (!endDate) { alert('End date is required.'); return; }
+
+	if (endDate) {
+		var expStr = endDate + (endTime ? ' ' + endTime : ' 23:59:59');
+		if (new Date(expStr) < new Date()) {
+			if (!confirm('You have set the expiration date/time to the past. This will immediately delete the coverage for this person. Continue?')) return;
+		}
+	}
+
+	$.ajax({
+        url:"inc/data.php?req=changeusercoverage",
+        data: {
+                userId: userId,
+				coverUserId: coverUserId,
+				startDate: startDate,
+				startTime: startTime,
+				endDate: endDate,
+				endTime: endTime,
+				varianceMin: varianceMin,
+				qblMin: qblMin,
+				pauseSms: pauseSms
+		},
+        method:'POST',
+        dataType:'json',
+        success:function(response) {
+		tj.UserTable.ajax.reload();
+		$('#usercoverage').modal('toggle');
+        }
+    });
+};
+
 /////////////////////////////////////
 // EDIT USER
 
@@ -3879,6 +3982,7 @@ tj.editUser = function(userId,deptId) {
 				$('#roleName').html(response.data.roleName);
 				$('#roleOrig').val(response.data.role);
                 $('#edit_userId').val(response.data.userId);
+				$('#qblWarnMin').val(response.data.qblWarnMin != null ? response.data.qblWarnMin : 300);
 				//$('#unitChange').val(response.data.depid);	
 				$('#unitOrig').val(response.data.deptId);	
 				//$('#updatealerts').val(response.data.Alerts);	
@@ -4125,7 +4229,8 @@ tj.updateUser = function() {
                 role:role,
 				roleOrig:roleOrig,
 				userId:userId,
-				provider:provider
+				provider:provider,
+				qblWarnMin:$('#qblWarnMin').val()
             },
             method:'POST',
             dataType:'json',
@@ -5433,12 +5538,12 @@ tj.initializeUnitsGrid = function(id) {
 			{ "data": "Active" }
         ],
 		"columnDefs": [
-						{"visible": false, "targets": [5] }
+						{"visible": false, "targets": [3, 5] }
         ],
     } );
-	
 
-	
+
+
 /////////////////////////////////////
 // EDIT UNIT
 
@@ -7018,6 +7123,7 @@ tj.unitCoverage = function(deptId) {
 	
 };
 
+
 tj.copyUnit = function(deptId) {
 	$('#copydeptId').val(deptId);
 	$('#copyUnit').modal('toggle');		
@@ -7392,7 +7498,7 @@ tj.initializeProdGrid = function(id) {
         },
 		"pageLength": 100,
 		"scrollY": '500px',
-        //sDom:'<"top"<"clear">>tr<"bottom"lip<"clear">>',
+		"dom": 'tr<"bottom"ip<"clear">>',
 		"order": [[0,'asc'],[10,'desc']],
 		"fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
 			switch(Number(aData.style)) {
@@ -11109,61 +11215,31 @@ tj.updateProdNEW = function() {
 				//console.log('deptId ',deptId);
 				$('#unscheduled').val('0');
 				if (response.data.message == true && response.data.updated == true) {
-				$('#notedataId').val(response.data.dataId);
-				$('#notedeptId').val(response.data.deptId);
-				$('#goesc').val('1');
-				//$('#varianceType').html(response.data.varianceType);
-				$('#varianceType').html(response.data.varianceType);
-				$('#staffingTitle').html(response.data.staffingTitle);
-				$('#notebody').val('');
-				//console.log('note',response.data.note);
-				//console.log('updated',response.data.updated);
+				$('#summaryDataId').val(response.data.dataId);
+				$('#summaryDeptId').val(response.data.deptId);
+				$('#summaryEscAlerts').val(response.data.escAlerts||0);
+				$('#summaryVariance').val(response.data.summary ? (parseFloat(response.data.summary.nvariance) || 0) : 0);
+				$('#summaryTitle').html(response.data.summary ? response.data.summary.dept : '');
+				$('#summaryStaffGrid').html(tj.buildSummaryGrid(response.data.summary));
+				var sNote = response.data.note || '';
+				$('#summaryNote').val(sNote);
+				$('#summaryNoteHint').html(sNote.trim() === '' ? '&#9888; Notes help your leadership understand your staffing situation.' : '');
 				tj.prodTable.ajax.reload(null,false);
-				//tj.complianceTable.ajax.reload();
 				$('#addNEW').modal('hide');
-				$('#addprodnote').modal('show');
+				$('#staffingSummary').modal('show');
 				}else if(response.data.updated == true && response.data.escalations==0 && response.data.escAlerts==1 && response.data.txtpause ==0){
-				//}else if(response.data.updated == true && response.data.escalations==0 && response.data.textAlerts==1 && response.data.txtpause ==0 && response.data.txtactive ==1 && response.data.txtescalation==1) {
-				$('#dataIdesc').val(response.data.dataId);
-				$('#deptIdesc').val(response.data.deptId);
+				$('#summaryDataId').val(response.data.dataId);
+				$('#summaryDeptId').val(response.data.deptId);
+				$('#summaryEscAlerts').val(response.data.escAlerts||0);
+				$('#summaryVariance').val(response.data.summary ? (parseFloat(response.data.summary.nvariance) || 0) : 0);
+				$('#summaryTitle').html(response.data.summary ? response.data.summary.dept : '');
+				$('#summaryStaffGrid').html(tj.buildSummaryGrid(response.data.summary));
+				var sNote2 = response.data.note || '';
+				$('#summaryNote').val(sNote2);
+				$('#summaryNoteHint').html(sNote2.trim() === '' ? '&#9888; Notes help your leadership understand your staffing situation.' : '');
 				tj.prodTable.ajax.reload(null,false);
-				//tj.complianceTable.ajax.reload();
 				$('#addNEW').modal('hide');
-				$('#escalationNEW').modal('show');
-				document.getElementById("chargecountNEW").selectedIndex = "";
-				document.getElementById("techcountNEW").selectedIndex = "";
-				document.getElementById("seccountNEW").selectedIndex = "";
-				document.getElementById("nursecountNEW").selectedIndex = "";
-				document.getElementById("highNEW").selectedIndex = "";
-				document.getElementById("medNEW").selectedIndex = "";
-				document.getElementById("lowNEW").selectedIndex = "";
-				document.getElementById("oneto1").selectedIndex = "";
-				document.getElementById("oneto2").selectedIndex = "";
-				document.getElementById("oneto6").selectedIndex = "";
-				document.getElementById("oneto7").selectedIndex = "";
-				document.getElementById("oneto8").selectedIndex = "";
-				document.getElementById("sittersNEW").selectedIndex = "";
-				document.getElementById("userIdNEW").value = "";
-				document.getElementById("shiftNEW").value = "";
-				document.getElementById("dayNEW").value = "";
-				document.getElementById("prodnoteNEW").value = "";
-				document.getElementById("dataIdNEW").value = "";
-				document.getElementById("admissions1").value = "";
-				document.getElementById("transfers1").value = "";
-				document.getElementById("discharges1").value = "";
-				document.getElementById("trackInsert").value = "";
-				document.getElementById("track1").value = "";
-				document.getElementById("track2").value = "";
-				document.getElementById("track3").value = "";
-				document.getElementById("track4").value = "";
-				document.getElementById("trackNote1").value = "";
-				document.getElementById("trackNote2").value = "";
-				document.getElementById("trackNote3").value = "";
-				document.getElementById("trackNote4").value = "";
-				document.getElementById("submitted").value = "";
-				document.getElementById("patienttotalNEW").val = "";
-				//document.getElementById("trackVisits").value = "";
-				tj.prodTable.ajax.reload(null,false);
+				$('#staffingSummary').modal('show');
 				}else{
 				$('#addNEW').modal('hide');
 				document.getElementById("chargecountNEW").selectedIndex = "";
@@ -11226,12 +11302,12 @@ tj.updateProdNEW = function() {
     }
 	
 tj.newNote = function(dataId,deptId) {
-	$('#notedataId').val(dataId);
-	$('#goesc').val('0');
-	$('#notedeptId').val(deptId);
-	$('#varianceType').html('');
-	$('#staffingTitle').html('Add a Note');
-	$('#addprodnote').modal('show');
+	$('#summaryDataId').val(dataId);
+	$('#summaryDeptId').val(deptId);
+	$('#summaryTitle').html('Add a Note');
+	$('#summaryVarianceBlock').hide();
+	$('#summaryNote').val('');
+	$('#staffingSummary').modal('show');
 }
 	
 
@@ -11295,10 +11371,68 @@ tj.addProdNote = function () {
         });
     }
 	
+tj.buildSummaryGrid = function(summary) {
+	if(!summary) return '';
+	var nv = parseFloat(summary.nvariance) || 0;
+	var varClass = nv < 0 ? 'sum-neg' : (nv > 0 ? 'sum-pos' : 'sum-neutral');
+	var varStr = (nv > 0 ? '+' : '') + nv;
+	var html = '<div class="sum-section-lbl">Staff</div><div class="sum-boxes">';
+	html += '<div class="sum-box ' + varClass + '"><div class="sum-val">' + varStr + '</div><div class="sum-lbl">RN Variance</div></div>';
+	$.each(summary.staff, function(i, s) {
+		html += '<div class="sum-box sum-neutral"><div class="sum-val">' + s.val + '</div><div class="sum-lbl">' + s.lbl + '</div></div>';
+	});
+	html += '</div>';
+	html += '<div class="sum-section-lbl">Patients</div>';
+	html += '<div class="sum-boxes"><div class="sum-box sum-neutral"><div class="sum-val">' + (parseInt(summary.patients)||0) + '</div><div class="sum-lbl">Total</div></div></div>';
+	return html;
+};
+
+tj.staffingSummaryDone = function() {
+	var dataId = $('#summaryDataId').val();
+	var deptId = $('#summaryDeptId').val();
+	var escAlerts = parseInt($('#summaryEscAlerts').val()) || 0;
+	var variance = parseFloat($('#summaryVariance').val()) || 0;
+	var note = $('#summaryNote').val().trim() || (Math.abs(variance) < 1 ? '' : 'Note Skipped');
+	$('#staffingSummary').modal('hide');
+	$.ajax({
+		url: 'inc/data.php?req=prodNote',
+		data: { note: note, dataId: dataId },
+		method: 'POST',
+		dataType: 'json'
+	});
+	if(escAlerts == 1) {
+		$.ajax({
+			url: 'inc/data.php?req=addEscalation',
+			data: { esc: 0, sendtext: 0, dataId: dataId, deptId: deptId },
+			method: 'POST',
+			dataType: 'json'
+		});
+	}
+	tj.prodTable.ajax.reload(null,false);
+};
+
+tj.staffingSummaryEscalation = function() {
+	var dataId = $('#summaryDataId').val();
+	var variance = parseFloat($('#summaryVariance').val()) || 0;
+	var note = $('#summaryNote').val().trim() || (Math.abs(variance) < 1 ? '' : 'Note Skipped');
+	$('#staffingSummary').modal('hide');
+	$.ajax({
+		url: 'inc/data.php?req=prodNote',
+		data: { note: note, dataId: dataId },
+		method: 'POST',
+		dataType: 'json'
+	});
+	document.getElementById("escval").selectedIndex = 0;
+	$('#dataId2').val(dataId);
+	$('#deptId2').val($('#summaryDeptId').val());
+	$('#addEscalation').modal('show');
+};
+
 tj.linkedDept3 = function () {
 		var linkedId= $('#LinkedId').val();
 		var linkedDept = $('#LinkedDept').val();
 		$('#escalationNEW').modal('hide');
+		tj.noEscalation();
 				if(linkedId !=0){
 					bootbox.confirm({
 					message:"Continue to "+ linkedDept + " Staffing Report?",
@@ -16948,12 +17082,11 @@ tj.addSafety = function() {
 		var deptId = $('#unit1').val();
 		var roomId1 = $('#loc1').val();
 		var peri1 = $('#peri1').val();
-		//var hr1 = $('#hrpt1').val();
-		//var periGen1 = $('#perigen1').val();
 		var note1 = $('#rdesc1').val();
 		var dueDate = $('#due1').val();
 		var currentTime = moment().format('YYYY-MM-DD');
 		var priority = $('#priority').is(':checked') ? 1 : 0;
+		var submittedBy = $('#safetySubmittedBy').val();
 		
 		if(deptId==0){
 		bootbox.alert('Please select a Unit.');
@@ -16969,7 +17102,8 @@ tj.addSafety = function() {
 				note1: note1,
 				dueDate: dueDate,
 				currentTime: currentTime,
-				priority: priority
+				priority: priority,
+				submittedBy: submittedBy
             },
             method:'POST',
             dataType:'json',
@@ -17290,15 +17424,12 @@ tj.initializeqrcodesGrid = function(id) {
 			],
     } );
 
-tj.gogenerateQRCode = function(logix2,id){
+tj.gogenerateQRCode = function(token){
 	document.getElementById("goqrcodename").innerHTML = "";
 	document.getElementById("goqrcode").innerHTML = "";
 	document.getElementById("gocloseQR").style.display='';
-	//console.log('logix2', logix2);
-	//var logix = logix2;
-	var goqrcodelink = 'https://productivern.com/go/indexx.php?m=' + logix2 + '&p=' + id + '';
-	$('#qrLink').html('<div><a href="https://productivern.com/go/indexx.php?m=' + logix2 + '&p=' + id + '">(Link)</a></div>');
-	//console.log('link',goqrcodelink);
+	var goqrcodelink = 'https://productivern.com/go/qr.php?t=' + token;
+	$('#qrLink').html('<div><a href="' + goqrcodelink + '">(Link)</a></div>');
 	//$('#qrcodename').html('QR Code for: ' + response.data.practiceName);
 	new QRCode(document.getElementById("goqrcode"), goqrcodelink);
 	
@@ -17329,6 +17460,110 @@ tj.resetqrcodes = function(deptId){
 		})
 	
 		}
+		}
+	});
+};
+
+tj.openQBLConfig = function(deptId) {
+	$.ajax({
+		url: 'inc/data.php?req=getqblconfig',
+		data: { deptId: deptId },
+		method: 'POST',
+		dataType: 'json',
+		success: function(response) {
+			if (!response.success) { bootbox.alert(response.message || 'Failed to load config.'); return; }
+			var d = response.data;
+			var images = response.images;
+			$('#qblConfigDeptId').val(deptId);
+			$('#qblConfigId').val(d.id);
+			var html = '';
+			for (var i = 1; i <= 20; i++) {
+				var imgOpts = '<option value="">-- none --</option>';
+				for (var j = 0; j < images.length; j++) {
+					var sel = (d['image' + i] == images[j]) ? ' selected' : '';
+					imgOpts += '<option value="' + images[j] + '"' + sel + '>' + images[j] + '</option>';
+				}
+				var imgPreview = d['image' + i] ? '<img src="qblimages/' + d['image' + i] + '" style="max-height:50px;margin-left:6px;" id="qblcfg_prev' + i + '" />' : '<span id="qblcfg_prev' + i + '"></span>';
+				html += '<tr>';
+				html += '<td style="width:30px;color:#666;">' + i + '</td>';
+				html += '<td><input type="text" class="form-control form-control-sm" id="qblcfg_desc' + i + '" value="' + (d['desc' + i] || '').replace(/"/g,'&quot;') + '" placeholder="Supply name" maxlength="100" /></td>';
+				html += '<td><input type="number" class="form-control form-control-sm" id="qblcfg_val' + i + '" value="' + (d['value' + i] || 0) + '" step="0.1" min="0" style="width:80px;" /></td>';
+				html += '<td style="white-space:nowrap;">';
+				html += '<select class="form-control form-control-sm d-inline-block" id="qblcfg_img' + i + '" style="width:150px;" onchange="tj._qblImgPreview(' + i + ');">' + imgOpts + '</select>';
+				html += imgPreview;
+				html += '</td>';
+				html += '<td><label class="btn btn-sm btn-outline-secondary mb-0" style="font-size:11px;padding:2px 6px;">Upload<input type="file" accept="image/*" style="display:none;" onchange="tj.uploadQBLImage(' + i + ', this);" /></label></td>';
+				html += '<td><button type="button" class="btn btn-sm btn-outline-danger" onclick="tj._qblClearSlot(' + i + ');" title="Clear slot">&#x2715;</button></td>';
+				html += '</tr>';
+			}
+			$('#qblConfigRows').html(html);
+			$('#qblConfigModal').modal('show');
+		}
+	});
+};
+
+tj._qblImgPreview = function(i) {
+	var sel = $('#qblcfg_img' + i).val();
+	var prev = document.getElementById('qblcfg_prev' + i);
+	if (sel) {
+		prev.outerHTML = '<img src="qblimages/' + sel + '" style="max-height:50px;margin-left:6px;" id="qblcfg_prev' + i + '" />';
+	} else {
+		prev.outerHTML = '<span id="qblcfg_prev' + i + '"></span>';
+	}
+};
+
+tj._qblClearSlot = function(i) {
+	$('#qblcfg_desc' + i).val('');
+	$('#qblcfg_val' + i).val(0);
+	$('#qblcfg_img' + i).val('');
+	var prev = document.getElementById('qblcfg_prev' + i);
+	if (prev) prev.outerHTML = '<span id="qblcfg_prev' + i + '"></span>';
+};
+
+tj.uploadQBLImage = function(slotNum, fileInput) {
+	if (!fileInput.files || !fileInput.files[0]) return;
+	var fd = new FormData();
+	fd.append('imgfile', fileInput.files[0]);
+	$.ajax({
+		url: 'inc/data.php?req=uploadqblimage',
+		type: 'POST',
+		data: fd,
+		processData: false,
+		contentType: false,
+		dataType: 'json',
+		success: function(r) {
+			if (!r.success) { bootbox.alert(r.message || 'Upload failed.'); return; }
+			var sel = $('#qblcfg_img' + slotNum);
+			if (sel.find('option[value="' + r.filename + '"]').length === 0) {
+				sel.append('<option value="' + r.filename + '">' + r.filename + '</option>');
+			}
+			sel.val(r.filename);
+			tj._qblImgPreview(slotNum);
+		}
+	});
+};
+
+tj.saveQBLConfig = function() {
+	var deptId = $('#qblConfigDeptId').val();
+	var configId = $('#qblConfigId').val();
+	var data = { deptId: deptId, configId: configId };
+	for (var i = 1; i <= 20; i++) {
+		data['desc' + i] = $('#qblcfg_desc' + i).val();
+		data['value' + i] = $('#qblcfg_val' + i).val();
+		data['image' + i] = $('#qblcfg_img' + i).val();
+	}
+	$.ajax({
+		url: 'inc/data.php?req=updateqblconfig',
+		method: 'POST',
+		data: data,
+		dataType: 'json',
+		success: function(r) {
+			if (r.success) {
+				$('#qblConfigModal').modal('hide');
+				bootbox.alert('QBL configuration saved.');
+			} else {
+				bootbox.alert(r.message || 'Save failed.');
+			}
 		}
 	});
 };
@@ -17422,6 +17657,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			document.getElementById('s13').style.display='none';
 			document.getElementById('s14').style.display='none';
 			document.getElementById('s15').style.display='none';
+			document.getElementById('s16').style.display='none';
+			document.getElementById('s17').style.display='none';
+			document.getElementById('s18').style.display='none';
+			document.getElementById('s19').style.display='none';
+			document.getElementById('s20').style.display='none';
 	
 	bootbox.confirm({
     message: "Would you like to notify the House about this QBL?",
@@ -17465,6 +17705,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			var a13 = document.getElementById('s13');
 			var a14 = document.getElementById('s14');
 			var a15 = document.getElementById('s15');
+		var a16 = document.getElementById('s16');
+		var a17 = document.getElementById('s17');
+		var a18 = document.getElementById('s18');
+		var a19 = document.getElementById('s19');
+		var a20 = document.getElementById('s20');
 		
 			
 			$('#unitName').html('<h5>' + response.data.dept + '</h5>');
@@ -17483,11 +17728,17 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#q13').val('0');
 			$('#q14').val('0');
 			$('#q15').val('0');
+			$('#q16').val('0');
+			$('#q17').val('0');
+			$('#q18').val('0');
+			$('#q19').val('0');
+			$('#q20').val('0');
 			$('#reset').val('0');
 			$('#total1').val('');
 			$('#estqbl').val('0');
 			$('#qblNote').val('');
-			$('#logId').val(response.log.id);
+			$('#logId').val('');
+			$('#locId').val(response.data.id);
 			$('#qbldept').val(response.data.deptId);
 			$('#txtSent').val('0');
 			$('#userId').val(userId);
@@ -17506,6 +17757,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#val13').val(response.data.value13);
 			$('#val14').val(response.data.value14);
 			$('#val15').val(response.data.value15);
+			$('#val16').val(response.data.value16);
+			$('#val17').val(response.data.value17);
+			$('#val18').val(response.data.value18);
+			$('#val19').val(response.data.value19);
+			$('#val20').val(response.data.value20);
 			$('#desc1').html('' + response.data.desc1 + ': ' + response.data.value1 + 'g');
 			$('#desc2').html('' + response.data.desc2 + ': ' + response.data.value2 + 'g');
 			$('#desc3').html('' + response.data.desc3 + ': ' + response.data.value3 + 'g');
@@ -17521,6 +17777,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#desc13').html('' + response.data.desc13 + ': ' + response.data.value13 + 'g');
 			$('#desc14').html('' + response.data.desc14 + ': ' + response.data.value14 + 'g');
 			$('#desc15').html('' + response.data.desc15 + ': ' + response.data.value15 + 'g');
+			$('#desc16').html('' + response.data.desc16 + ': ' + response.data.value16 + 'g');
+			$('#desc17').html('' + response.data.desc17 + ': ' + response.data.value17 + 'g');
+			$('#desc18').html('' + response.data.desc18 + ': ' + response.data.value18 + 'g');
+			$('#desc19').html('' + response.data.desc19 + ': ' + response.data.value19 + 'g');
+			$('#desc20').html('' + response.data.desc20 + ': ' + response.data.value20 + 'g');
 			
 			$('#image1').html('<img src="../qblimages/' + response.data.image1 + '" style="max-width:150px" />');
 			$('#image2').html('<img src="../qblimages/' + response.data.image2 + '" style="max-width:150px" />');
@@ -17537,6 +17798,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#image13').html('<img src="../qblimages/' + response.data.image13 + '" style="max-width:150px" />');
 			$('#image14').html('<img src="../qblimages/' + response.data.image14 + '" style="max-width:150px" />');
 			$('#image15').html('<img src="../qblimages/' + response.data.image15 + '" style="max-width:150px" />');
+			$('#image16').html('<img src="../qblimages/' + response.data.image16 + '" style="max-width:150px" />');
+			$('#image17').html('<img src="../qblimages/' + response.data.image17 + '" style="max-width:150px" />');
+			$('#image18').html('<img src="../qblimages/' + response.data.image18 + '" style="max-width:150px" />');
+			$('#image19').html('<img src="../qblimages/' + response.data.image19 + '" style="max-width:150px" />');
+			$('#image20').html('<img src="../qblimages/' + response.data.image20 + '" style="max-width:150px" />');
 			
 			if(response.data.value1==0 || response.data.desc1.length ==0){
 				a1.style.dispay = '';
@@ -17620,6 +17886,31 @@ tj.sendqblAlert = function(dataId,msgId) {
 				a15.style.dispay = 'none';
 			}else{
 				a15.style.display = '';
+			}
+			if(response.data.value16==0 || !response.data.desc16 || response.data.desc16.length ==0){
+				a16.style.display = 'none';
+			}else{
+				a16.style.display = '';
+			}
+			if(response.data.value17==0 || !response.data.desc17 || response.data.desc17.length ==0){
+				a17.style.display = 'none';
+			}else{
+				a17.style.display = '';
+			}
+			if(response.data.value18==0 || !response.data.desc18 || response.data.desc18.length ==0){
+				a18.style.display = 'none';
+			}else{
+				a18.style.display = '';
+			}
+			if(response.data.value19==0 || !response.data.desc19 || response.data.desc19.length ==0){
+				a19.style.display = 'none';
+			}else{
+				a19.style.display = '';
+			}
+			if(response.data.value20==0 || !response.data.desc20 || response.data.desc20.length ==0){
+				a20.style.display = 'none';
+			}else{
+				a20.style.display = '';
 			}
 			
 			
@@ -17654,6 +17945,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			var a13 = document.getElementById('s13');
 			var a14 = document.getElementById('s14');
 			var a15 = document.getElementById('s15');
+		var a16 = document.getElementById('s16');
+		var a17 = document.getElementById('s17');
+		var a18 = document.getElementById('s18');
+		var a19 = document.getElementById('s19');
+		var a20 = document.getElementById('s20');
 		
 			
 			$('#unitName').html('<h5>' + response.data.dept + '</h5>');
@@ -17672,11 +17968,17 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#q13').val('0');
 			$('#q14').val('0');
 			$('#q15').val('0');
+			$('#q16').val('0');
+			$('#q17').val('0');
+			$('#q18').val('0');
+			$('#q19').val('0');
+			$('#q20').val('0');
 			$('#reset').val('0');
 			$('#total1').val('');
 			$('#estqbl').val('0');
 			$('#qblNote').val('');
-			$('#logId').val(response.log.id);
+			$('#logId').val('');
+			$('#locId').val(response.data.id);
 			$('#qbldept').val(response.data.deptId);
 			$('#txtSent').val('0');
 			$('#userId').val(userId);
@@ -17695,6 +17997,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#val13').val(response.data.value13);
 			$('#val14').val(response.data.value14);
 			$('#val15').val(response.data.value15);
+			$('#val16').val(response.data.value16);
+			$('#val17').val(response.data.value17);
+			$('#val18').val(response.data.value18);
+			$('#val19').val(response.data.value19);
+			$('#val20').val(response.data.value20);
 			$('#desc1').html('' + response.data.desc1 + ': ' + response.data.value1 + 'g');
 			$('#desc2').html('' + response.data.desc2 + ': ' + response.data.value2 + 'g');
 			$('#desc3').html('' + response.data.desc3 + ': ' + response.data.value3 + 'g');
@@ -17710,6 +18017,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#desc13').html('' + response.data.desc13 + ': ' + response.data.value13 + 'g');
 			$('#desc14').html('' + response.data.desc14 + ': ' + response.data.value14 + 'g');
 			$('#desc15').html('' + response.data.desc15 + ': ' + response.data.value15 + 'g');
+			$('#desc16').html('' + response.data.desc16 + ': ' + response.data.value16 + 'g');
+			$('#desc17').html('' + response.data.desc17 + ': ' + response.data.value17 + 'g');
+			$('#desc18').html('' + response.data.desc18 + ': ' + response.data.value18 + 'g');
+			$('#desc19').html('' + response.data.desc19 + ': ' + response.data.value19 + 'g');
+			$('#desc20').html('' + response.data.desc20 + ': ' + response.data.value20 + 'g');
 			
 			$('#image1').html('<img src="../qblimages/' + response.data.image1 + '" style="max-width:150px" />');
 			$('#image2').html('<img src="../qblimages/' + response.data.image2 + '" style="max-width:150px" />');
@@ -17726,6 +18038,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#image13').html('<img src="../qblimages/' + response.data.image13 + '" style="max-width:150px" />');
 			$('#image14').html('<img src="../qblimages/' + response.data.image14 + '" style="max-width:150px" />');
 			$('#image15').html('<img src="../qblimages/' + response.data.image15 + '" style="max-width:150px" />');
+			$('#image16').html('<img src="../qblimages/' + response.data.image16 + '" style="max-width:150px" />');
+			$('#image17').html('<img src="../qblimages/' + response.data.image17 + '" style="max-width:150px" />');
+			$('#image18').html('<img src="../qblimages/' + response.data.image18 + '" style="max-width:150px" />');
+			$('#image19').html('<img src="../qblimages/' + response.data.image19 + '" style="max-width:150px" />');
+			$('#image20').html('<img src="../qblimages/' + response.data.image20 + '" style="max-width:150px" />');
 			
 			if(response.data.value1==0 || response.data.desc1.length ==0){
 				a1.style.dispay = '';
@@ -17810,6 +18127,31 @@ tj.sendqblAlert = function(dataId,msgId) {
 			}else{
 				a15.style.display = '';
 			}
+			if(response.data.value16==0 || !response.data.desc16 || response.data.desc16.length ==0){
+				a16.style.display = 'none';
+			}else{
+				a16.style.display = '';
+			}
+			if(response.data.value17==0 || !response.data.desc17 || response.data.desc17.length ==0){
+				a17.style.display = 'none';
+			}else{
+				a17.style.display = '';
+			}
+			if(response.data.value18==0 || !response.data.desc18 || response.data.desc18.length ==0){
+				a18.style.display = 'none';
+			}else{
+				a18.style.display = '';
+			}
+			if(response.data.value19==0 || !response.data.desc19 || response.data.desc19.length ==0){
+				a19.style.display = 'none';
+			}else{
+				a19.style.display = '';
+			}
+			if(response.data.value20==0 || !response.data.desc20 || response.data.desc20.length ==0){
+				a20.style.display = 'none';
+			}else{
+				a20.style.display = '';
+			}
 			
 			
 			}
@@ -17822,11 +18164,7 @@ tj.sendqblAlert = function(dataId,msgId) {
 }
 
 
- tj.startQBL2 = function(dataId) {
-	//var alertId=0;
-
-	var userId = dataId;
-	 //console.log('userId',dataId);
+ tj.startQBL2 = function() {
 	 var resetqbl = 0;
 	 var currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
 	 		document.getElementById('s1').style.display='none';
@@ -17844,18 +18182,22 @@ tj.sendqblAlert = function(dataId,msgId) {
 			document.getElementById('s13').style.display='none';
 			document.getElementById('s14').style.display='none';
 			document.getElementById('s15').style.display='none';
+			document.getElementById('s16').style.display='none';
+			document.getElementById('s17').style.display='none';
+			document.getElementById('s18').style.display='none';
+			document.getElementById('s19').style.display='none';
+			document.getElementById('s20').style.display='none';
 
 	$.ajax({
             url:'inc/data.php?req=getqbldetails',
             data:{
-                userId: userId,
 				currentTime: currentTime,
 				resetqbl: resetqbl
             },
             method:'POST',
             dataType:'json',
             success:function(response) {
-			
+
 			var a1 = document.getElementById('s1');
 			var a2 = document.getElementById('s2');
 			var a3 = document.getElementById('s3');
@@ -17871,6 +18213,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			var a13 = document.getElementById('s13');
 			var a14 = document.getElementById('s14');
 			var a15 = document.getElementById('s15');
+		var a16 = document.getElementById('s16');
+		var a17 = document.getElementById('s17');
+		var a18 = document.getElementById('s18');
+		var a19 = document.getElementById('s19');
+		var a20 = document.getElementById('s20');
 			
 			$('#newabl').html('');
 			$('#unitName').html('<h5>' + response.data.dept + '</h5>');
@@ -17889,11 +18236,17 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#q13').val('0');
 			$('#q14').val('0');
 			$('#q15').val('0');
+			$('#q16').val('0');
+			$('#q17').val('0');
+			$('#q18').val('0');
+			$('#q19').val('0');
+			$('#q20').val('0');
 			$('#reset').val('0');
 			$('#total1').val('');
 			$('#estqbl').val('0');
 			$('#qblNote').val('');
-			$('#logId').val(response.log.id);
+			$('#logId').val('');
+			$('#locId').val(response.data.id);
 			$('#qbldept').val(response.data.deptId);
 			$('#txtSent').val('0');
 			$('#userId').val(userId);
@@ -17912,6 +18265,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#val13').val(response.data.value13);
 			$('#val14').val(response.data.value14);
 			$('#val15').val(response.data.value15);
+			$('#val16').val(response.data.value16);
+			$('#val17').val(response.data.value17);
+			$('#val18').val(response.data.value18);
+			$('#val19').val(response.data.value19);
+			$('#val20').val(response.data.value20);
 			
 			$('#ablpatient').val('0');
 			$('#ablweight').val('');
@@ -17937,6 +18295,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#desc13').html('' + response.data.desc13 + ': ' + response.data.value13 + 'g');
 			$('#desc14').html('' + response.data.desc14 + ': ' + response.data.value14 + 'g');
 			$('#desc15').html('' + response.data.desc15 + ': ' + response.data.value15 + 'g');
+			$('#desc16').html('' + response.data.desc16 + ': ' + response.data.value16 + 'g');
+			$('#desc17').html('' + response.data.desc17 + ': ' + response.data.value17 + 'g');
+			$('#desc18').html('' + response.data.desc18 + ': ' + response.data.value18 + 'g');
+			$('#desc19').html('' + response.data.desc19 + ': ' + response.data.value19 + 'g');
+			$('#desc20').html('' + response.data.desc20 + ': ' + response.data.value20 + 'g');
 			
 			$('#image1').html('<img src="../qblimages/' + response.data.image1 + '" style="max-width:150px" />');
 			$('#image2').html('<img src="../qblimages/' + response.data.image2 + '" style="max-width:150px" />');
@@ -17953,6 +18316,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#image13').html('<img src="../qblimages/' + response.data.image13 + '" style="max-width:150px" />');
 			$('#image14').html('<img src="../qblimages/' + response.data.image14 + '" style="max-width:150px" />');
 			$('#image15').html('<img src="../qblimages/' + response.data.image15 + '" style="max-width:150px" />');
+			$('#image16').html('<img src="../qblimages/' + response.data.image16 + '" style="max-width:150px" />');
+			$('#image17').html('<img src="../qblimages/' + response.data.image17 + '" style="max-width:150px" />');
+			$('#image18').html('<img src="../qblimages/' + response.data.image18 + '" style="max-width:150px" />');
+			$('#image19').html('<img src="../qblimages/' + response.data.image19 + '" style="max-width:150px" />');
+			$('#image20').html('<img src="../qblimages/' + response.data.image20 + '" style="max-width:150px" />');
 			
 			if(response.data.value1==0 || response.data.desc1.length ==0){
 				a1.style.dispay = '';
@@ -18037,8 +18405,33 @@ tj.sendqblAlert = function(dataId,msgId) {
 			}else{
 				a15.style.display = '';
 			}
+			if(response.data.value16==0 || !response.data.desc16 || response.data.desc16.length ==0){
+				a16.style.display = 'none';
+			}else{
+				a16.style.display = '';
+			}
+			if(response.data.value17==0 || !response.data.desc17 || response.data.desc17.length ==0){
+				a17.style.display = 'none';
+			}else{
+				a17.style.display = '';
+			}
+			if(response.data.value18==0 || !response.data.desc18 || response.data.desc18.length ==0){
+				a18.style.display = 'none';
+			}else{
+				a18.style.display = '';
+			}
+			if(response.data.value19==0 || !response.data.desc19 || response.data.desc19.length ==0){
+				a19.style.display = 'none';
+			}else{
+				a19.style.display = '';
+			}
+			if(response.data.value20==0 || !response.data.desc20 || response.data.desc20.length ==0){
+				a20.style.display = 'none';
+			}else{
+				a20.style.display = '';
+			}
 			bootbox.confirm({
-			message: "Would you to send a QBL ALERT?",
+			message: "Send a Hemorrhage Alert to your Leadership Team?",
 			buttons: {
 				confirm: {
 					label: 'Yes',
@@ -18053,7 +18446,7 @@ tj.sendqblAlert = function(dataId,msgId) {
 			callback: function (result) {
 			if(result){
 			var alertId=1;
-			$('#txtSent').val('1');
+			tj._escAlertSent = true;
 			tj.sendqblAlert(response.data.deptId,alertId);
 			//console.log('deptId ',response.data.deptId);
 			//console.log('alertId ', alertId);
@@ -18063,7 +18456,33 @@ tj.sendqblAlert = function(dataId,msgId) {
 		}
 
 	});
-	
+
+	var qblEditId = sessionStorage.getItem('qblEditId');
+	if(qblEditId){
+		sessionStorage.removeItem('qblEditId');
+		$.ajax({
+			url:'inc/data.php?req=getqblbyid',
+			data:{ logId: qblEditId },
+			method:'POST',
+			dataType:'json',
+			success:function(r){
+				if(!r.success) return;
+				var l = r.log;
+				$('#logId').val(l.id);
+				$('#total1').val(l.totalWt);
+				$('#qblNote').val(l.note);
+				$('#txtSent').val(l.txtSent||0);
+				for(var i=1;i<=20;i++){ $('#q'+i).val(l['v'+i]||0); }
+				var qbl = parseFloat(l.totalQBL||0);
+				$('#estqbl').val(qbl.toFixed(1));
+				if(qbl >= 1000) $('#estqbl').css({'background-color':'#e74c3c','color':'#fff'});
+				else if(qbl >= 500) $('#estqbl').css({'background-color':'#f39c12','color':'#fff'});
+				$('#closeQblBtn').removeAttr('hidden');
+				$('#calculateBtn').prop('disabled', false);
+			}
+		});
+	}
+
 }
 
  tj.editABL = function(dataId) {
@@ -18140,8 +18559,9 @@ tj.sendqblAlert = function(dataId,msgId) {
 			var a13 = document.getElementById('qbs13');
 			var a14 = document.getElementById('qbs14');
 			var a15 = document.getElementById('qbs15');
-		
-			
+		var a16 = null, a17 = null, a18 = null, a19 = null, a20 = null;
+
+
 			$('#qbunitName').html('<h5>' + response.data.dept + '</h5>');
 			$('#qbq1').val(response.data.v1);
 			$('#qbq2').val(response.data.v2);
@@ -18160,7 +18580,7 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#qbq15').val(response.data.v15);
 			$('#qbtotal1').val(response.data.totalWt);
 			$('#qbqblNote').val(response.data.note);
-			$('#qbestqbl').val(response.data.totalQBL);
+			$('#qbestqbl').val(parseFloat(response.data.totalQBL).toFixed(1));
 			$('#qbdesc1').html('' + response.data.desc1 + ': ' + response.data.value1 + 'g');
 			$('#qbdesc2').html('' + response.data.desc2 + ': ' + response.data.value2 + 'g');
 			$('#qbdesc3').html('' + response.data.desc3 + ': ' + response.data.value3 + 'g');
@@ -18279,6 +18699,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			}else{
 				a15.style.display = '';
 			}
+			if(a16){ if(response.data.value16==0 || !response.data.desc16 || response.data.desc16.length ==0){ a16.style.display = 'none'; }else{ a16.style.display = ''; } }
+			if(a17){ if(response.data.value17==0 || !response.data.desc17 || response.data.desc17.length ==0){ a17.style.display = 'none'; }else{ a17.style.display = ''; } }
+			if(a18){ if(response.data.value18==0 || !response.data.desc18 || response.data.desc18.length ==0){ a18.style.display = 'none'; }else{ a18.style.display = ''; } }
+			if(a19){ if(response.data.value19==0 || !response.data.desc19 || response.data.desc19.length ==0){ a19.style.display = 'none'; }else{ a19.style.display = ''; } }
+			if(a20){ if(response.data.value20==0 || !response.data.desc20 || response.data.desc20.length ==0){ a20.style.display = 'none'; }else{ a20.style.display = ''; } }
 			if(response.data.abl>0 && response.data.ih>0 && response.data.fh>0 && response.data.ptweight>0 && response.data.abv>0){
 				$('#ablData').html('<div class="title" style="color:red">ABL: ' + parseInt(response.data.abl) + 'ml</div>');
 			}else{
@@ -18354,6 +18779,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#val13').val(response.data.value13);
 			$('#val14').val(response.data.value14);
 			$('#val15').val(response.data.value15);
+			$('#val16').val(response.data.value16);
+			$('#val17').val(response.data.value17);
+			$('#val18').val(response.data.value18);
+			$('#val19').val(response.data.value19);
+			$('#val20').val(response.data.value20);
 			$('#desc1').html('' + response.data.desc1 + ': ' + response.data.value1 + 'g');
 			$('#desc2').html('' + response.data.desc2 + ': ' + response.data.value2 + 'g');
 			$('#desc3').html('' + response.data.desc3 + ': ' + response.data.value3 + 'g');
@@ -18369,6 +18799,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#desc13').html('' + response.data.desc13 + ': ' + response.data.value13 + 'g');
 			$('#desc14').html('' + response.data.desc14 + ': ' + response.data.value14 + 'g');
 			$('#desc15').html('' + response.data.desc15 + ': ' + response.data.value15 + 'g');
+			$('#desc16').html('' + response.data.desc16 + ': ' + response.data.value16 + 'g');
+			$('#desc17').html('' + response.data.desc17 + ': ' + response.data.value17 + 'g');
+			$('#desc18').html('' + response.data.desc18 + ': ' + response.data.value18 + 'g');
+			$('#desc19').html('' + response.data.desc19 + ': ' + response.data.value19 + 'g');
+			$('#desc20').html('' + response.data.desc20 + ': ' + response.data.value20 + 'g');
 			$('#image1').html('<img src="../qblimages/' + response.data.image1 + '" style="max-width:150px" />');
 			$('#image2').html('<img src="../qblimages/' + response.data.image2 + '" style="max-width:150px" />');
 			$('#image3').html('<img src="../qblimages/' + response.data.image3 + '" style="max-width:150px" />');
@@ -18384,6 +18819,11 @@ tj.sendqblAlert = function(dataId,msgId) {
 			$('#image13').html('<img src="../qblimages/' + response.data.image13 + '" style="max-width:150px" />');
 			$('#image14').html('<img src="../qblimages/' + response.data.image14 + '" style="max-width:150px" />');
 			$('#image15').html('<img src="../qblimages/' + response.data.image15 + '" style="max-width:150px" />');
+			$('#image16').html('<img src="../qblimages/' + response.data.image16 + '" style="max-width:150px" />');
+			$('#image17').html('<img src="../qblimages/' + response.data.image17 + '" style="max-width:150px" />');
+			$('#image18').html('<img src="../qblimages/' + response.data.image18 + '" style="max-width:150px" />');
+			$('#image19').html('<img src="../qblimages/' + response.data.image19 + '" style="max-width:150px" />');
+			$('#image20').html('<img src="../qblimages/' + response.data.image20 + '" style="max-width:150px" />');
 			}
 			
         })
@@ -18477,7 +18917,7 @@ tj.newabl = function() {
 }
 
 tj.updateqbl = function(saved) {
-	var logId = $('#logId').val();	
+	var logId = $('#logId').val();
 	var q1 = $('#q1').val();
 	var q2 = $('#q2').val();
 	var q3 = $('#q3').val();
@@ -18493,10 +18933,15 @@ tj.updateqbl = function(saved) {
 	var q13 = $('#q13').val();
 	var q14 = $('#q14').val();
 	var q15 = $('#q15').val();
+	var q16 = $('#q16').val();
+	var q17 = $('#q17').val();
+	var q18 = $('#q18').val();
+	var q19 = $('#q19').val();
+	var q20 = $('#q20').val();
 	var val1 = $('#val1').val();
 	var deptId = $('#qbldept').val();
 	var txtSent = $('#txtSent').val();
-	console.log('txtSent :',txtSent);
+	if(saved==1) $('#calculateBtn').prop('disabled', true);
 	var val2 = $('#val2').val();
 	var val3 = $('#val3').val();
 	var val4 = $('#val4').val();
@@ -18511,6 +18956,11 @@ tj.updateqbl = function(saved) {
 	var val13 = $('#val13').val();
 	var val14 = $('#val14').val();
 	var val15 = $('#val15').val();
+	var val16 = $('#val16').val();
+	var val17 = $('#val17').val();
+	var val18 = $('#val18').val();
+	var val19 = $('#val19').val();
+	var val20 = $('#val20').val();
 	var total2 = $('#total1').val();
 	var note = $('#qblNote').val();
 	
@@ -18519,10 +18969,26 @@ tj.updateqbl = function(saved) {
 	}else{
 		var total1 = total2;
 	}
+	if(saved==1 && parseInt(total1)==0){
+		$('#calculateBtn').prop('disabled', false);
+		bootbox.alert('Please enter a total weight before calculating.');
+		return;
+	}
+	var totalItems = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20].reduce(function(sum,v){ return sum + parseInt(v||0); }, 0);
+	if(saved==1 && totalItems==0){
+		$('#calculateBtn').prop('disabled', false);
+		bootbox.alert('Please select at least one supply item before calculating.');
+		return;
+	}
 	if(parseInt(total1)>0){
-	var newqb2 = ((parseFloat(total1) - (parseFloat(q1) * parseFloat(val1)) - (parseFloat(q2) * parseFloat(val2)) - (parseFloat(q3) * parseFloat(val3)) - (parseFloat(q4) * parseFloat(val4)) - (parseFloat(q5) * parseFloat(val5)) - (parseFloat(q6) * parseFloat(val6)) - (parseFloat(q7) * parseFloat(val7)) - (parseFloat(q8) * parseFloat(val8)) - (parseFloat(q9) * parseFloat(val9)) - (parseFloat(q10) * parseFloat(val10)) - (parseFloat(q11) * parseFloat(val11)) - (parseFloat(q12) * parseFloat(val12)) - (parseFloat(q13) * parseFloat(val13)) - (parseFloat(q14) * parseFloat(val14)) - (parseFloat(q15) * parseFloat(val15))) * .9465);
+	var newqb2 = ((parseFloat(total1) - (parseFloat(q1) * parseFloat(val1)) - (parseFloat(q2) * parseFloat(val2)) - (parseFloat(q3) * parseFloat(val3)) - (parseFloat(q4) * parseFloat(val4)) - (parseFloat(q5) * parseFloat(val5)) - (parseFloat(q6) * parseFloat(val6)) - (parseFloat(q7) * parseFloat(val7)) - (parseFloat(q8) * parseFloat(val8)) - (parseFloat(q9) * parseFloat(val9)) - (parseFloat(q10) * parseFloat(val10)) - (parseFloat(q11) * parseFloat(val11)) - (parseFloat(q12) * parseFloat(val12)) - (parseFloat(q13) * parseFloat(val13)) - (parseFloat(q14) * parseFloat(val14)) - (parseFloat(q15) * parseFloat(val15)) - (parseFloat(q16) * parseFloat(val16)) - (parseFloat(q17) * parseFloat(val17)) - (parseFloat(q18) * parseFloat(val18)) - (parseFloat(q19) * parseFloat(val19)) - (parseFloat(q20) * parseFloat(val20))) * .9465);
 	}else{
 	var newqb2 = 0;
+	}
+	if(saved==1 && newqb2 < 0){
+		$('#calculateBtn').prop('disabled', false);
+		bootbox.alert('The calculated QBL is negative. Please check the total weight and supply quantities and try again.');
+		return;
 	}
 	var currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
 	var currentDay = moment().format('YYYY-MM-DD');
@@ -18551,6 +19017,8 @@ tj.updateqbl = function(saved) {
 				abl: abl,
 				abv: abv,
                 logId: logId,
+				locId: $('#locId').val(),
+				saved: saved ? 1 : 0,
 				q1: q1,
 				q2: q2,
 				q3: q3,
@@ -18566,27 +19034,54 @@ tj.updateqbl = function(saved) {
 				q13: q13,
 				q14: q14,
 				q15: q15,
+				q16: q16,
+				q17: q17,
+				q18: q18,
+				q19: q19,
+				q20: q20,
 				total1: total1,
 				newqb2: newqb2,
 				currentTime: currentTime,
 				note: note,
 				currentDay: currentDay,
 				deptId: deptId,
-				txtSent: txtSent
+				txtSent: txtSent,
+				trainingOnly: ($('#qblTrainingOnly').is(':checked') ? 1 : 0)
             },
             method:'POST',
             dataType:'json',
-            success:function(response) {			
-			$('#estqbl').val(newqb2);
-			$('#txtSent').val('1');
+            success:function(response) {
+			if(response.logId){ logId = response.logId; $('#logId').val(logId); }
 			if(saved==1){
-			bootbox.alert('Record Has Been Saved.');	
+				var qbl = parseFloat(newqb2);
+				$('#estqbl').val(qbl.toFixed(1));
+				if(qbl >= 1000) $('#estqbl').css({'background-color':'#e74c3c','color':'#fff'});
+				else if(qbl >= 500) $('#estqbl').css({'background-color':'#f39c12','color':'#fff'});
+				else $('#estqbl').css({'background-color':'','color':''});
+				$('#closeQblBtn').removeAttr('hidden');
+				if($('#qblTrainingOnly').is(':checked')){
+					bootbox.alert('Training complete. Estimated QBL: ' + qbl.toFixed(1) + ' ml');
+				} else {
+					$('#txtSent').val('1');
+					$.post('inc/data.php?req=sendqblsms', {logId: logId, deptId: deptId});
+					window.onbeforeunload = null;
+				}
 			}
+			},
+			complete: function() {
+				$('#calculateBtn').prop('disabled', false);
 			}
-			
+
         })
 	
 }
+
+tj.closeQbl = function(){
+	window.onbeforeunload = null;
+	tj._escAlertSent = false;
+	sessionStorage.setItem('qblEditId', $('#logId').val());
+	window.location.href = '/qbl-thankyou.php?qbl=' + encodeURIComponent($('#estqbl').val());
+};
 
 tj.plusqbl = function(num) {
 	var q = $('#q' + num + '').val();
@@ -18817,6 +19312,46 @@ tj.showPolicy = function(id) {
           setTimeout(function() { btn.text('Copy All'); }, 2000);
       });
   };
+
+  tj.openUploadPolicy = function() {
+      $('#uploadPolicyTitle').val('');
+      $('#uploadPolicyFile').val('');
+      $('#uploadPolicyMsg').hide().text('');
+      $('#uploadPolicyModal').modal('show');
+  };
+
+  tj.submitUploadPolicy = function() {
+      var title = $('#uploadPolicyTitle').val().trim();
+      var fileInput = $('#uploadPolicyFile')[0];
+      if (!title) { alert('Please enter a title.'); return; }
+      if (!fileInput.files.length) { alert('Please select a file.'); return; }
+
+      var fd = new FormData();
+      fd.append('req', 'uploadPolicy');
+      fd.append('title', title);
+      fd.append('policyFile', fileInput.files[0]);
+
+      $('#uploadPolicyMsg').show().html('<em>Uploading...</em>');
+      $.ajax({
+          url: 'inc/data.php',
+          type: 'POST',
+          data: fd,
+          processData: false,
+          contentType: false,
+          dataType: 'json',
+          success: function(res) {
+              if (res.success) {
+                  $('#uploadPolicyModal').modal('hide');
+                  tj.policiesTable.ajax.reload();
+              } else {
+                  $('#uploadPolicyMsg').html('<span style="color:red">' + (res.error || 'Upload failed.') + '</span>');
+              }
+          },
+          error: function() {
+              $('#uploadPolicyMsg').html('<span style="color:red">Server error.</span>');
+          }
+      });
+  };
 }
 
 
@@ -19038,6 +19573,42 @@ tj.clearEsc = function(escId) {
   }
   
   
+tj.closeEsc = function(escId) {
+    bootbox.confirm({
+        message: 'Close this escalation?',
+        backdrop: true,
+        callback: function(result) {
+            if (result) {
+                $.ajax({
+                    url: 'inc/data.php?req=updateEscalation',
+                    data: { dataId: escId, active: 2, currentTime: moment().format('YYYY-MM-DD HH:mm:ss') },
+                    method: 'POST',
+                    dataType: 'json',
+                    success: function() { tj.escalationsTable.ajax.reload(); }
+                });
+            }
+        }
+    }).find('.modal-content').css({ 'background-color': '#fff', 'color': '#000', 'font-size': '16px' });
+};
+
+tj.closeSafetyItem = function(dataId) {
+    bootbox.confirm({
+        message: 'Close this safety issue?',
+        backdrop: true,
+        callback: function(result) {
+            if (result) {
+                $.ajax({
+                    url: 'inc/data.php?req=closesafety',
+                    data: { dataId: dataId, active: 0, currentTime: moment().format('YYYY-MM-DD') },
+                    method: 'POST',
+                    dataType: 'json',
+                    success: function() { tj.safetyTable.ajax.reload(); }
+                });
+            }
+        }
+    }).find('.modal-content').css({ 'background-color': '#fff', 'color': '#000', 'font-size': '16px' });
+};
+
  tj.getEscalationtable = function (dataId) {
 		console.log('dataId',dataId);
         $.ajax({
@@ -20538,6 +21109,28 @@ jQuery(function(){
 
 /////////////////////////////////////
 // SWITCH THE VIEW
+tj.loadHospitalPitch = function() {
+    $('#hospitalPitchView').show();
+    if (!tj.hospitalPitchLoaded) {
+        tj.startLoading('Loading...');
+        jQuery('#hospitalPitchView').load('views/hospital_pitch.php', {}, function () {
+            tj.stopLoading();
+            tj.hospitalPitchLoaded = true;
+        });
+    }
+};
+
+tj.loadScheduling = function() {
+    $('#schedulingView').show();
+    if (!tj.schedulingLoaded) {
+        tj.startLoading('Loading...');
+        jQuery('#schedulingView').load('views/scheduling.php', {}, function () {
+            tj.stopLoading();
+            tj.schedulingLoaded = true;
+        });
+    }
+};
+
 tj.switchView = function(viewName) {
     $('.content-view').hide();
     switch(viewName) {
@@ -20678,9 +21271,18 @@ tj.switchView = function(viewName) {
             //if (tj.debug) console.log('units');
             tj.loadQRcodes();
             break;
+		case "#export":
+            tj.loadExport();
+            break;
 		case "#concierge":
             //if (tj.debug) console.log('units');
             tj.loadConcierge();
+            break;
+		case "#scheduling":
+            tj.loadScheduling();
+            break;
+		case "#hospitalpitch":
+            tj.loadHospitalPitch();
             break;
 		case "#classes":
             //if (tj.debug) console.log('classes');

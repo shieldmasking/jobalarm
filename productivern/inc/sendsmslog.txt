@@ -1,0 +1,13 @@
+Array
+(
+    [numbers] => Array
+        (
+            [0] => 12148500163
+        )
+
+    [message] => Array
+        (
+            [0] => <message id="21485001631726359696"><partnerpassword>J8775bcgEE2065</partnerpassword><content><![CDATA[ProductiveRN Alert:  An Escalation for Other was just submitted by Ryan.  www.productivern.com/logix.php?m=tJKcGPkmBP22]]></content></message>
+        )
+
+)

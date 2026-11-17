@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(grep -ril 'near you' C:/Users/rstre/Projects/jobalarm/*.php)",
+      "Bash(grep -ril 'find jobs' C:/Users/rstre/Projects/jobalarm/*.php)",
+      "Bash(grep:*)",
+      "Bash(mysql:*)"
     ]
   }
 }

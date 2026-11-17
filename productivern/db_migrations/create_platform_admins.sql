@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS `platform_admins` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(120) NOT NULL,
+  `username` VARCHAR(60) NOT NULL,
+  `pwd` VARCHAR(255) NOT NULL,
+  `first_name` VARCHAR(60) NOT NULL DEFAULT '',
+  `last_name` VARCHAR(60) NOT NULL DEFAULT '',
+  `active` TINYINT NOT NULL DEFAULT 1,
+  `lastlogin` DATETIME DEFAULT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

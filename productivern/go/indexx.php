@@ -47,7 +47,7 @@ if ($userId && $gopage) {
 			}else if (intval($gopage) >10 && intval($gopage)<100  && intval($dbData[0]['id'])>0 && intval($dbData[0]['logp3'])==intval($p3)>0) {
 				header('location: /dashboard.php#logs');
 			}else if (intval($gopage) <11 && intval($gopage)>5	&& intval($dbData[0]['id'])>0 && intval($dbData[0]['logp3'])==intval($p3)) {
-				header('location: /dashboard.php#qblNow?m=' . $userId. '&s=' . $gopage . '');
+				header('location: /dashboard.php#qblNow');
 			}else if (intval($gopage) <6 && intval($dbData[0]['id'])>0 && intval($dbData[0]['logp3'])==intval($p3)) {
 				header('location: /dashboard.php#ablNow?m=' . $userId. '');
 			}else{
