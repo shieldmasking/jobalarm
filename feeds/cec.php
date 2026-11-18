@@ -107,8 +107,8 @@ function updateDollar(){
 		}
 	}
 	echo "CEC Records updated: " . $count;
-	$totalRow = Config::get('db')->get_row("SELECT COUNT(*) as cnt FROM job WHERE postId IN (126, 443)");
-	echo "\nCEC Total jobs: " . $totalRow['cnt'];
+	$totalRow = Config::get('db')->get_row("SELECT COUNT(*) FROM job WHERE postId IN (126, 443)");
+	echo "\nCEC Total jobs: " . $totalRow[0];
 }
 
 				
